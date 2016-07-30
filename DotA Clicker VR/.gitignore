@@ -1,0 +1,24 @@
+syntax: glob
+
+Build/*
+obj/*
+*/Library/*
+
+*.csproj
+
+*.pidb
+*.sln
+
+*.suo
+
+*.DS_Store
+
+*.userprefs
+
+*.unityproj
+Temp/
+packages/*
+bin/*
+Library/
+Builds/
+*.manifest
