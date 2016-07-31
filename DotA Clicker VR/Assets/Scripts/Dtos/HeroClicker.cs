@@ -8,6 +8,6 @@ public class HeroClicker : MonoBehaviour
         public string Name { get; set; }
         public double GoldPerClick { get; set; }
         public Time TimeToComplete { get; set; }
-        public int BoughtAmount { get; set; }
+        public int Amount { get; set; }
     }
 }
