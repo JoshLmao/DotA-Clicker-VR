@@ -14,10 +14,10 @@ public class HandController : MonoBehaviour {
     {
         m_controller = this.GetComponent<SteamVR_TrackedController>();
 
-        //m_controller.TriggerClicked += OnTriggerClicked;
+        m_controller.TriggerClicked += OnTriggerClicked;
 	}
 	
-	void FixedUpdate ()
+	void Update ()
     {
 	    
 	}
@@ -31,8 +31,11 @@ public class HandController : MonoBehaviour {
         }
     }
 
-    void OnTriggerClicked()
+    void OnTriggerClicked(object sender, ClickedEventArgs e)
     {
-
+        if(m_canPickupObj && CurrentObject != null)
+        {
+            IsHoldingObj = true;
+        }
     }
 }

@@ -9,13 +9,16 @@ public class ButtonManager : MonoBehaviour
     public delegate void OnButtonPressed();
     public static event OnButtonPressed OnPressed;
 
-    ClickerController m_parentController;
+    RadiantSceneController m_sceneController;
+    RadiantClickerController m_parentController;
     Animator m_animator;
 
 	void Start ()
     {
+        m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
+        m_parentController = GetComponentInParent<RadiantClickerController>();
         m_animator = this.GetComponent<Animator>();
-	}
+    }
 	
 	void Update ()
     {
@@ -24,22 +27,25 @@ public class ButtonManager : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if(col.tag == "ViveController")
+        if(col.tag == "ViveController" && this.gameObject.name == "StandBack")
         {
             if (m_animator.GetCurrentAnimatorStateInfo(0).IsName("ButtonPush"))
                 return;
 
             //Invoke event
             OnPressed();
-            m_parentController.AmountOfClickers += 1;
             m_animator.SetBool("isClicked", true);
             StartCoroutine(PlayButtonPushAnimation());
+        }
+        else if(col.tag == "ViveController" && this.gameObject.name == "ClickButtonBack")
+        {
+            m_sceneController.TotalGold += m_parentController.ClickAmount;
         }
     }
 
     IEnumerator PlayButtonPushAnimation()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.5f);
         m_animator.SetBool("isClicked", false);
     }
 }
