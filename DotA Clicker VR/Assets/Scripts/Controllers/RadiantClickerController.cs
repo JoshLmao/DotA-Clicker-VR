@@ -16,31 +16,35 @@ public class RadiantClickerController : MonoBehaviour {
     /// </summary>
     public DateTime TimeBetweenClicks; //String.Format(TimeBetweenCLicks, HH/MM/SS);
     /// <summary>
+    /// Current time the timer is at. Used in displays
+    /// </summary>
+    public DateTime CurrentClickerTime;
+    /// <summary>
     /// Amount of times the clicker has been bought
     /// </summary>
     public int ClickerMultiplier = 0;
 
-
-    private RadiantSceneController parentController;
-    /// <summary>
-    /// Current time the timer is at. Used in displays
-    /// </summary>
-    private DateTime m_currentTime;
+    private RadiantSceneController m_sceneController;
 
     private Text m_timeRemainingText;
     private Text m_amountBoughtText;
+    private Text m_clickButtonGoldText;
 
 	void Start ()
     {
-        parentController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
+        m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
         m_timeRemainingText = transform.FindChild("Buttons/StandBack/StandUI/TimeRemaining").GetComponent<Text>();
         m_amountBoughtText = transform.Find("Buttons/StandBack/StandUI/AmountCanvas/AmountText").GetComponent<Text>();
-        ButtonManager.OnPressed += OnButtonPressed;
+        m_clickButtonGoldText = transform.Find("Buttons/ClickButtonBack/ClickButton/ClickUI/ClickWorthText").GetComponent<Text>();
+
+        ButtonManager.OnBuyClickerPressed += OnBuyClickerButtonPressed;
+        ButtonManager.OnHeroClickButtonPress += OnClickButtonPressed;
 	}
 	
 	void Update ()
     {
         UpdateCountdownTimer();
+        UpdateUIText();
 	}
 
     public void UpdateCountdownTimer()
@@ -48,14 +52,24 @@ public class RadiantClickerController : MonoBehaviour {
         //m_currentTime;
     }
 
-    void OnButtonPressed()
+    void OnBuyClickerButtonPressed()
     {
-        //Cant buy next level
-        if (parentController.TotalGold < BuyNextLevel)
-            return;
+        //Adding of multiplier is done by Button Manager
+    }
 
-        ClickerMultiplier += 1;
+    void UpdateUIText()
+    {
+        m_clickButtonGoldText.text = ClickAmount + " gold";
         m_amountBoughtText.text = ClickerMultiplier.ToString();
-        parentController.TotalGold -= BuyNextLevel;
+    }
+
+    void OnClickButtonPressed()
+    {
+        //Adding of gold is done by Button Manager
+    }
+
+    public void AddGold()
+    {
+        m_sceneController.TotalGold += (ClickAmount * ClickerMultiplier);
     }
 }
