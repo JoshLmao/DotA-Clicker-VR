@@ -40,15 +40,15 @@ public class ButtonManager : MonoBehaviour
         if(col.tag == "ViveController" && m_buttonName == "StandBack")
         {
             if (m_animator.GetCurrentAnimatorStateInfo(0).IsName("BuyButtonPush") 
-                || m_sceneController.TotalGold + m_clickerController.BuyNextLevel < m_clickerController.BuyNextLevel 
-                || m_sceneController.TotalGold - m_clickerController.BuyNextLevel < 0)
+                || m_sceneController.TotalGold + m_clickerController.UpgradeCost < m_clickerController.UpgradeCost
+                || m_sceneController.TotalGold - m_clickerController.UpgradeCost < 0)
             {
-                Debug.Log("Can upgrade clicker '" + m_clickerController.HeroName + "'");
+                Debug.Log("Cant upgrade clicker '" + m_clickerController.HeroName + "'");
                 return;
             }
 
             m_clickerController.ClickerMultiplier += 1;
-            m_sceneController.TotalGold -= m_clickerController.BuyNextLevel;
+            m_sceneController.TotalGold -= (int)m_clickerController.UpgradeCost;
 
             //Invoke event
             OnBuyClickerPressed();
@@ -63,8 +63,6 @@ public class ButtonManager : MonoBehaviour
                 Debug.Log("Can't click");
                 return;
             }
-
-            m_clickerController.AddGold(); //Do click
             
             OnHeroClickButtonPress();
             m_animator.SetBool("isClicked", true);
