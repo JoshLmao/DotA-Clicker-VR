@@ -35,6 +35,10 @@ public class RadiantClickerController : MonoBehaviour
     /// </summary>
     public bool IsClicked = false;
     /// <summary>
+    /// Cost to buy Manager upgrade
+    /// </summary>
+    public int ManagerCost;
+    /// <summary>
     /// Is the hero automated?
     /// </summary>
     public bool HasManager = false;
@@ -103,7 +107,7 @@ public class RadiantClickerController : MonoBehaviour
         m_clickButtonGoldText.text = ClickAmount + " gold";
         m_amountBoughtText.text = ClickerMultiplier.ToString();
         m_upgradeCostText.text = UpgradeCost.ToString() + " gold";
-        m_timeRemainingText.text = CurrentClickerTime.ToString();
+        //m_timeRemainingText.text = CurrentClickerTime.ToString();
     }
 
     void OnClickButtonPressed()
@@ -121,7 +125,10 @@ public class RadiantClickerController : MonoBehaviour
 
     public void BuyManager(GameObject obj)
     {
-        HasManager = true;
-        obj.SetActive(false);
+        if(m_sceneController.TotalGold >= ManagerCost)
+        {
+            HasManager = true;
+            obj.SetActive(false);
+        }
     }
 }
