@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 
 /// <summary>
-/// Simple script meant to control the buttons behavior (animation)
+/// Simple script meant to control the clickable buttons behavior (animation)
 /// </summary>
 public class ButtonManager : MonoBehaviour
 {

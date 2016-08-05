@@ -15,7 +15,7 @@ public delegate void PointerEventHandler(object sender, PointerEventArgs e);
 
 public class SteamVR_LaserPointer : MonoBehaviour
 {
-    public bool active = true;
+    public bool active = false;
     public Color color;
     public float thickness = 0.002f;
     public GameObject holder;
@@ -77,7 +77,11 @@ public class SteamVR_LaserPointer : MonoBehaviour
     // Update is called once per frame
 	void Update ()
     {
-        if (!isActive)
+        //Toggles laser pointer
+        holder.SetActive(active);
+        pointer.SetActive(active);
+
+        if (!isActive) //Was IsActive
         {
             isActive = true;
             this.transform.GetChild(0).gameObject.SetActive(true);
