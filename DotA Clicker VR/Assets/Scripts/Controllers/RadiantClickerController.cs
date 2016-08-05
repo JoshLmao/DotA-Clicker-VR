@@ -8,13 +8,13 @@ using UnityEngine.UI;
 /// </summary>
 public class RadiantClickerController : MonoBehaviour {
 
-    public string ClickerHeroName;
+    public string HeroName;
     public int ClickAmount = 1;
     public int BuyNextLevel;
     /// <summary>
     /// Start time it takes to complete one click. 
     /// </summary>
-    public DateTime TimeBetweenClicks; //String.Format(TimeBetweenCLicks, HH/MM/SS);
+    public TimeSpan TimeBetweenClicks = new TimeSpan(0, 0, 0, 1); //5 seconds
     /// <summary>
     /// Current time the timer is at. Used in displays
     /// </summary>
@@ -23,9 +23,14 @@ public class RadiantClickerController : MonoBehaviour {
     /// Amount of times the clicker has been bought
     /// </summary>
     public int ClickerMultiplier = 0;
+    /// <summary>
+    /// Bool to determine if Click button has been clicked
+    /// </summary>
+    public bool IsClicked = false;
 
     private RadiantSceneController m_sceneController;
 
+    private DateTime m_lastClickedTime;
     private Text m_timeRemainingText;
     private Text m_amountBoughtText;
     private Text m_clickButtonGoldText;
@@ -45,6 +50,16 @@ public class RadiantClickerController : MonoBehaviour {
     {
         UpdateCountdownTimer();
         UpdateUIText();
+
+        if(IsClicked)
+        {
+            TimeSpan yes = DateTime.Now - m_lastClickedTime;
+            if(yes == new TimeSpan(0,0,0,1) || yes > new TimeSpan(0,0,0,1))
+            {
+                Debug.Log("Completed Click");
+                IsClicked = false;
+            }
+        }
 	}
 
     public void UpdateCountdownTimer()
@@ -66,6 +81,8 @@ public class RadiantClickerController : MonoBehaviour {
     void OnClickButtonPressed()
     {
         //Adding of gold is done by Button Manager
+        m_lastClickedTime = DateTime.Now;
+        IsClicked = true;
     }
 
     public void AddGold()

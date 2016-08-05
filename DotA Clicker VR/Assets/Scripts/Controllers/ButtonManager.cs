@@ -13,6 +13,8 @@ public class ButtonManager : MonoBehaviour
     public delegate void OnClickerButtonPressed();
     public static event OnClickerButtonPressed OnHeroClickButtonPress;
 
+    public bool CanClick = true;
+
     string m_buttonName;
     RadiantSceneController m_sceneController;
     RadiantClickerController m_clickerController;
@@ -40,7 +42,10 @@ public class ButtonManager : MonoBehaviour
             if (m_animator.GetCurrentAnimatorStateInfo(0).IsName("BuyButtonPush") 
                 || m_sceneController.TotalGold + m_clickerController.BuyNextLevel < m_clickerController.BuyNextLevel 
                 || m_sceneController.TotalGold - m_clickerController.BuyNextLevel < 0)
+            {
+                Debug.Log("Can upgrade clicker '" + m_clickerController.HeroName + "'");
                 return;
+            }
 
             m_clickerController.ClickerMultiplier += 1;
             m_sceneController.TotalGold -= m_clickerController.BuyNextLevel;
@@ -50,11 +55,14 @@ public class ButtonManager : MonoBehaviour
             m_animator.SetBool("isClicked", true);
             StartCoroutine(PlayButtonPushAnimation(0.5f));
         }
-        //Click hero clicker button
+        //Hero clicker button
         else if(col.tag == "ViveController" && m_buttonName == "ClickButtonBack")
         {
-            if (m_animator.GetCurrentAnimatorStateInfo(0).IsName("ClickButtonPush") || m_clickerController.CurrentClickerTime != DateTime.MinValue) //if current time is  00:00. return
+            if (m_animator.GetCurrentAnimatorStateInfo(0).IsName("ClickButtonPush") || m_clickerController.IsClicked) //if (is in animation) || (IsClick is progress)
+            {
+                Debug.Log("Can't click");
                 return;
+            }
 
             m_clickerController.AddGold(); //Do click
             
