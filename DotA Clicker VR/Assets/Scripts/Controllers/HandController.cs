@@ -21,6 +21,7 @@ public class HandController : MonoBehaviour {
     Slider m_activeSliderUI;
     Transform m_sliderTranform;
     Toggle m_activeToggleUI;
+    Scrollbar m_activeScrollerUI;
     bool m_canClickOnUI = false;
 
 	void Start ()
@@ -78,7 +79,15 @@ public class HandController : MonoBehaviour {
                     m_activeToggleUI.isOn = !m_activeToggleUI.isOn;
                 }
             }
-
+            else if(m_activeScrollerUI != null)
+            {
+                m_activeScrollerUI.Select();
+                if(m_controller.padPressed)
+                {
+                    Debug.Log("Clicked on Slider");
+                    m_activeScrollerUI.value = m_activeScrollerUI.value == 1 ? 0 : 1;
+                }
+            }
         }
 	}
 
@@ -124,6 +133,13 @@ public class HandController : MonoBehaviour {
             m_activeToggleUI = e.target.gameObject.GetComponent<Toggle>();
             m_canClickOnUI = true;
         }
+        else if(e.target.gameObject.layer == 5 && e.target.gameObject.GetComponent<BoxCollider>() && e.target.gameObject.GetComponentInParent<Scrollbar>())
+        {
+            Debug.Log("Aiming at Slider");
+
+            m_activeScrollerUI = e.target.gameObject.GetComponentInParent<Scrollbar>();
+            m_canClickOnUI = true;
+        }
         else
         {
             m_canClickOnUI = false;
@@ -133,8 +149,10 @@ public class HandController : MonoBehaviour {
     void OnPointerOut(object sender, PointerEventArgs e)
     {
         m_canClickOnUI = false;
+
         m_activeToggleUI = null;
         m_activeSliderUI = null;
         m_activeButtonUI = null;
+        m_activeScrollerUI = null;
     }
 }
