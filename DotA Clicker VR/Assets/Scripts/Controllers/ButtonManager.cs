@@ -7,12 +7,6 @@ using System;
 /// </summary>
 public class ButtonManager : MonoBehaviour
 {
-    public delegate void OnBuyClickerButtonPressed();
-    public static event OnBuyClickerButtonPressed OnBuyClickerPressed;
-
-    public delegate void OnClickerButtonPressed();
-    public static event OnClickerButtonPressed OnHeroClickButtonPress;
-
     public bool CanClick = true;
 
     string m_buttonName;
@@ -25,7 +19,7 @@ public class ButtonManager : MonoBehaviour
         m_buttonName = this.gameObject.name;
         m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
         m_clickerController = GetComponentInParent<RadiantClickerController>();
-        
+
         m_animator = this.GetComponentInChildren<Animator>();
     }
 	
@@ -51,20 +45,20 @@ public class ButtonManager : MonoBehaviour
             m_sceneController.TotalGold -= (int)m_clickerController.UpgradeCost;
 
             //Invoke event
-            OnBuyClickerPressed();
+            m_clickerController.OnBuyClickerButtonPressed();
             m_animator.SetBool("isClicked", true);
             StartCoroutine(PlayButtonPushAnimation(0.5f));
         }
         //Hero clicker button
         else if(col.tag == "ViveController" && m_buttonName == "ClickButtonBack")
         {
-            if (m_animator.GetCurrentAnimatorStateInfo(0).IsName("ClickButtonPush") || m_clickerController.IsClicked) //if (is in animation) || (IsClick is progress)
+            if (m_animator.GetCurrentAnimatorStateInfo(0).IsName("ClickButtonPush") || m_clickerController.IsClicked || m_clickerController.ClickerMultiplier == 0) //if (is in animation) || (IsClick is progress)
             {
-                Debug.Log("Can't click");
+                Debug.Log("Can't click button '" + m_clickerController.name + "'");
                 return;
             }
-            
-            OnHeroClickButtonPress();
+
+            m_clickerController.OnClickButtonPressed();
             m_animator.SetBool("isClicked", true);
             StartCoroutine(PlayButtonPushAnimation(0.3f));
         }
@@ -75,4 +69,11 @@ public class ButtonManager : MonoBehaviour
         yield return new WaitForSeconds(time);
         m_animator.SetBool("isClicked", false);
     }
+
+    //IEnumerator CantPushButtonError()
+    //{
+    //    m_buttonMaterial.SetColor("_Color", new Color(255, 0, 0));
+    //    yield return new WaitForSeconds(0.3f);
+    //    m_buttonMaterial.SetColor("_Color", new Color(64, 64, 64));
+    //}
 }

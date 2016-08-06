@@ -1,20 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class AmbientSoundManager : MonoBehaviour {
 
     public AudioClip[] AmbientClips;
     public AudioSource AudioSource;
-
+    public Slider MasterVolumeSlider;
+    
 	void Start ()
     {
         AudioSource = GameObject.Find("AmbientAudio").GetComponent<AudioSource>();
-        //InvokeRepeating("PlayAmbientSound", 1, 10f); //Comment out to stop audio playing
+        MasterVolumeSlider = GameObject.Find("MasterVolSlider").GetComponent<Slider>();
+        //InvokeRepeating("PlayAmbientSound", 1, 1f); //Comment out to stop audio playing
     }
 
 	void Update ()
     {
         if (AudioSource.isPlaying) return;
+
+        AudioListener.volume = MasterVolumeSlider.value;
 	}
 
     void PlayAmbientSound()

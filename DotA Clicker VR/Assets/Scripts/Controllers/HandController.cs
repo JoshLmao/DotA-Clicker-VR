@@ -9,6 +9,7 @@ public class HandController : MonoBehaviour {
 
     public GameObject CurrentObject { get; set; }
     public bool IsHoldingObj { get; set; }
+    public Transform CurrentAimPosition { get; set; }
 
     SteamVR_TrackedController m_controller { get; set; }
     SteamVR_LaserPointer m_laserPointer { get; set; }
@@ -16,7 +17,10 @@ public class HandController : MonoBehaviour {
     bool m_canPickupObj = false;
     bool m_enablePointer = true;
 
-    GameObject m_activeUI;
+    Button m_activeButtonUI;
+    Slider m_activeSliderUI;
+    Transform m_sliderTranform;
+    Toggle m_activeToggleUI;
     bool m_canClickOnUI = false;
 
 	void Start ()
@@ -25,9 +29,12 @@ public class HandController : MonoBehaviour {
         m_laserPointer = GetComponent<SteamVR_LaserPointer>();
 
         m_controller.TriggerClicked += OnTriggerClicked;
-        m_laserPointer.PointerIn += OnPointerIn;
-        m_laserPointer.PointerOut += OnPointerOut;
-	}
+        if(m_laserPointer != null)
+        {
+            m_laserPointer.PointerIn += OnPointerIn;
+            m_laserPointer.PointerOut += OnPointerOut;
+        }
+    }
 	
 	void Update ()
     {
@@ -37,16 +44,46 @@ public class HandController : MonoBehaviour {
             m_enablePointer = !m_enablePointer;
         }
 
-        m_laserPointer.active = m_enablePointer;
-
-        if(m_canClickOnUI && m_activeUI != null)
+        if(m_laserPointer != null)
         {
-            if(m_controller.triggerPressed)
+            m_laserPointer.active = m_enablePointer;
+        }
+
+        if (m_canClickOnUI)
+        {
+            if (m_activeButtonUI != null)
             {
-                Debug.Log("Clicking");
-                var yes = m_activeUI.GetComponent<Button>();
-                yes.onClick.Invoke(); //do button click
+                m_activeButtonUI.Select();
+                if (m_controller.padPressed)
+                {
+                    Debug.Log("Clicked on Button");
+                    var yes = m_activeButtonUI.GetComponent<Button>();
+                    yes.onClick.Invoke(); //do button click
+                }
             }
+            else if(m_activeSliderUI != null)
+            {
+                if(m_controller.triggerPressed)
+                {
+                    Debug.Log("Clicked on Slider");
+                    //m_sliderTranform = m_activeSliderUI.transform;
+
+                    if (m_controller.padPressed)
+                    {
+
+                    }
+                }
+            }
+            else if(m_activeToggleUI != null)
+            {
+                m_activeToggleUI.Select();
+                if(m_controller.padPressed)
+                {
+                    Debug.Log("Clicked on Toggle");
+                    m_activeToggleUI.isOn = !m_activeToggleUI.isOn;
+                }
+            }
+
         }
 	}
 
@@ -69,11 +106,27 @@ public class HandController : MonoBehaviour {
 
     void OnPointerIn(object sender, PointerEventArgs e)
     {
+        CurrentAimPosition = e.target.transform;
+
         if(e.target.gameObject.layer == 5 && e.target.gameObject.GetComponent<Button>() && e.target.gameObject.GetComponent<BoxCollider>())
         {
             Debug.Log("Aiming at clickable button");
 
-            m_activeUI = e.target.gameObject;
+            m_activeButtonUI = e.target.gameObject.GetComponent<Button>();
+            m_canClickOnUI = true;
+        }
+        else if(e.target.gameObject.layer == 5 && e.target.gameObject.GetComponent<BoxCollider>() && e.target.gameObject.GetComponentInParent<Slider>())
+        {
+            Debug.Log("Aiming at Slider");
+
+            m_activeSliderUI = e.target.gameObject.GetComponentInParent<Slider>();
+            m_canClickOnUI = true;
+        }
+        else if(e.target.gameObject.layer == 5 && e.target.gameObject.GetComponent<Toggle>() && e.target.gameObject.GetComponent<BoxCollider>())
+        {
+            Debug.Log("Aiming at Toggle");
+
+            m_activeToggleUI = e.target.gameObject.GetComponent<Toggle>();
             m_canClickOnUI = true;
         }
         else
@@ -85,6 +138,8 @@ public class HandController : MonoBehaviour {
     void OnPointerOut(object sender, PointerEventArgs e)
     {
         m_canClickOnUI = false;
-        m_activeUI = null;
+        m_activeToggleUI = null;
+        m_activeSliderUI = null;
+        m_activeButtonUI = null;
     }
 }

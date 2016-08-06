@@ -17,15 +17,24 @@ public class RadiantClickerController : MonoBehaviour
     /// <summary>
     /// Current amount the clicker will give if clicked
     /// </summary>
-    public int ClickAmount { get { return StartClickAmount * ClickerMultiplier; } }
+    public int ClickAmount {
+        get {
+            if (ClickerMultiplier == 0) return StartClickAmount * 1;
+            else return StartClickAmount * ClickerMultiplier;
+        }
+    }
     /// <summary>
     /// Amount of times the clicker has been bought
     /// </summary>
     public int ClickerMultiplier = 0;
     /// <summary>
+    /// Public variable for TimeSpan
+    /// </summary>
+    public int SecondsToCompleteClick;
+    /// <summary>
     /// Start time it takes to complete one click. 
     /// </summary>
-    public TimeSpan TimeBetweenClicks = new TimeSpan(0, 0, 0, 10); //5 seconds
+    public TimeSpan TimeBetweenClicks; //5 seconds
     /// <summary>
     /// Current time the timer is at. Used in displays
     /// </summary>
@@ -42,12 +51,17 @@ public class RadiantClickerController : MonoBehaviour
     /// Is the hero automated?
     /// </summary>
     public bool HasManager = false;
+    /// <summary>
+    /// Can the hero be clicked
+    /// </summary>
+    public bool CanBeClicked = false;
 
     private RadiantSceneController m_sceneController;
 
     private DateTime m_lastClickedTime;
 
     private Slider m_progressBar;
+    private Text m_heroNameText;
     private Text m_timeRemainingText;
     private Text m_amountBoughtText;
     private Text m_clickButtonGoldText;
@@ -56,15 +70,15 @@ public class RadiantClickerController : MonoBehaviour
 	void Start ()
     {
         m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
+        m_heroNameText = transform.FindChild("Buttons/StandBack/StandUI/ClickerNameText").GetComponent<Text>();
         m_timeRemainingText = transform.FindChild("Buttons/StandBack/StandUI/TimeRemaining").GetComponent<Text>();
         m_amountBoughtText = transform.Find("Buttons/StandBack/StandUI/AmountCanvas/AmountText").GetComponent<Text>();
         m_clickButtonGoldText = transform.Find("Buttons/ClickButtonBack/ClickButton/ClickUI/ClickWorthText").GetComponent<Text>();
         m_upgradeCostText = transform.Find("Buttons/UpgradeCostBack/UpgradeCostCanvas/UpCostText").GetComponent<Text>(); ;
         m_progressBar = transform.Find("Buttons/StandBack/StandUI/ProgressSlider").GetComponent<Slider>();
 
-        ButtonManager.OnBuyClickerPressed += OnBuyClickerButtonPressed;
-        ButtonManager.OnHeroClickButtonPress += OnClickButtonPressed;
-	}
+        TimeBetweenClicks = new TimeSpan(0, 0, 0, SecondsToCompleteClick);
+    }
 	
 	void Update ()
     {
@@ -97,20 +111,21 @@ public class RadiantClickerController : MonoBehaviour
 
     }
 
-    void OnBuyClickerButtonPressed()
+    public void OnBuyClickerButtonPressed()
     {
         UpgradeCost = Mathf.Round(UpgradeCost * UpgradeMultiplier);
     }
 
     void UpdateUIText()
     {
+        m_heroNameText.text = HeroName;
         m_clickButtonGoldText.text = ClickAmount + " gold";
         m_amountBoughtText.text = ClickerMultiplier.ToString();
         m_upgradeCostText.text = UpgradeCost.ToString() + " gold";
-        //m_timeRemainingText.text = CurrentClickerTime.ToString();
+        m_timeRemainingText.text = CurrentClickerTime.ToString();
     }
 
-    void OnClickButtonPressed()
+    public void OnClickButtonPressed()
     {
         //On Clicker first pressed
         m_lastClickedTime = DateTime.Now;
