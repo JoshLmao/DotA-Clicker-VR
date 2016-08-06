@@ -1,0 +1,2439 @@
+fileFormatVersion: 2
+guid: e6f1467d829b3034194f821d45ef815b
+timeCreated: 1470515581
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: ankle_L
+    100002: ankle_R
+    100004: bicep_L
+    100006: bicep_R
+    100008: char_origin
+    100010: char_origin_end
+    100012: clavicle_L
+    100014: clavicle_R
+    100016: elbow_L
+    100018: elbow_R
+    100020: flag1
+    100022: flag2
+    100024: flag2_end
+    100026: Head_0
+    100028: Head_1
+    100030: index_0_L
+    100032: index_0_R
+    100034: index_1_L
+    100036: index_1_L_end
+    100038: index_1_R
+    100040: index_1_R_end
+    100042: jaw
+    100044: jaw_end
+    100046: knee_L
+    100048: knee_R
+    100050: mid_0_L
+    100052: mid_0_R
+    100054: mid_1_L
+    100056: mid_1_L_end
+    100058: mid_1_R
+    100060: mid_1_R_end
+    100062: ring_0_L
+    100064: ring_0_R
+    100066: ring_1_L
+    100068: ring_1_L_end
+    100070: ring_1_R
+    100072: ring_1_R_end
+    100074: Root_0
+    100076: //RootNode
+    100078: roshan.qc_skeleton
+    100080: roshan_reference
+    100082: Spine_0
+    100084: Spine_1
+    100086: Spine_2
+    100088: tail0_0
+    100090: tail0_1
+    100092: tail0_2
+    100094: tail0_3
+    100096: tail0_3_end
+    100098: thigh_L
+    100100: thigh_R
+    100102: thumb_0_L
+    100104: thumb_0_R
+    100106: thumb_1_L
+    100108: thumb_1_L_end
+    100110: thumb_1_R
+    100112: thumb_1_R_end
+    100114: toeBall_L
+    100116: toeBall_L_end
+    100118: toeBall_R
+    100120: toeBall_R_end
+    100122: Wing0_0_L
+    100124: Wing0_1_L
+    100126: Wing0_2_L
+    100128: Wing0_2_L_end
+    100130: Wing1_0_R
+    100132: Wing1_1_R
+    100134: Wing1_2_R
+    100136: Wing1_2_R_end
+    100138: wrist_L
+    100140: wrist_R
+    400000: ankle_L
+    400002: ankle_R
+    400004: bicep_L
+    400006: bicep_R
+    400008: char_origin
+    400010: char_origin_end
+    400012: clavicle_L
+    400014: clavicle_R
+    400016: elbow_L
+    400018: elbow_R
+    400020: flag1
+    400022: flag2
+    400024: flag2_end
+    400026: Head_0
+    400028: Head_1
+    400030: index_0_L
+    400032: index_0_R
+    400034: index_1_L
+    400036: index_1_L_end
+    400038: index_1_R
+    400040: index_1_R_end
+    400042: jaw
+    400044: jaw_end
+    400046: knee_L
+    400048: knee_R
+    400050: mid_0_L
+    400052: mid_0_R
+    400054: mid_1_L
+    400056: mid_1_L_end
+    400058: mid_1_R
+    400060: mid_1_R_end
+    400062: ring_0_L
+    400064: ring_0_R
+    400066: ring_1_L
+    400068: ring_1_L_end
+    400070: ring_1_R
+    400072: ring_1_R_end
+    400074: Root_0
+    400076: //RootNode
+    400078: roshan.qc_skeleton
+    400080: roshan_reference
+    400082: Spine_0
+    400084: Spine_1
+    400086: Spine_2
+    400088: tail0_0
+    400090: tail0_1
+    400092: tail0_2
+    400094: tail0_3
+    400096: tail0_3_end
+    400098: thigh_L
+    400100: thigh_R
+    400102: thumb_0_L
+    400104: thumb_0_R
+    400106: thumb_1_L
+    400108: thumb_1_L_end
+    400110: thumb_1_R
+    400112: thumb_1_R_end
+    400114: toeBall_L
+    400116: toeBall_L_end
+    400118: toeBall_R
+    400120: toeBall_R_end
+    400122: Wing0_0_L
+    400124: Wing0_1_L
+    400126: Wing0_2_L
+    400128: Wing0_2_L_end
+    400130: Wing1_0_R
+    400132: Wing1_1_R
+    400134: Wing1_2_R
+    400136: Wing1_2_R_end
+    400138: wrist_L
+    400140: wrist_R
+    4300000: roshan_reference
+    7400000: Roshan_TPose
+    7400002: Roshan_Attack
+    7400004: Roshan_Attack2
+    7400006: Roshan_DeathFrostivus
+    7400008: Roshan_Die
+    7400010: Roshan_Flail
+    7400012: Roshan_Idle
+    7400014: Roshan_Portrait
+    7400016: Roshan_Run
+    7400018: Roshan_Slam
+    7400020: Roshan_Stun
+    7400022: Roshan_StunToIdle
+    7400024: Roshan_Firebreath
+    9500000: //RootNode
+    13700000: roshan_reference
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Roshan_TPose
+      takeName: roshan.qc_skeleton|BindPose
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: roshan.qc_skeleton
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1/flag2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1/flag2/flag2_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L/ring_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R/ring_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1/jaw
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1/jaw/jaw_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L/Wing0_2_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L/Wing0_2_L/Wing0_2_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R/Wing1_2_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R/Wing1_2_R/Wing1_2_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2/tail0_3
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2/tail0_3/tail0_3_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBall_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBall_L/toeBall_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBall_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBall_R/toeBall_R_end
+        weight: 1
+      - path: roshan_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Roshan_Attack
+      takeName: roshan.qc_skeleton|roshan_attack
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: roshan.qc_skeleton
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1/flag2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1/flag2/flag2_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L/ring_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R/ring_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1/jaw
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1/jaw/jaw_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L/Wing0_2_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L/Wing0_2_L/Wing0_2_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R/Wing1_2_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R/Wing1_2_R/Wing1_2_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2/tail0_3
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2/tail0_3/tail0_3_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBall_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBall_L/toeBall_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBall_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBall_R/toeBall_R_end
+        weight: 1
+      - path: roshan_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Roshan_Attack2
+      takeName: roshan.qc_skeleton|roshan_attack2
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: roshan.qc_skeleton
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1/flag2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1/flag2/flag2_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L/ring_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R/ring_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1/jaw
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1/jaw/jaw_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L/Wing0_2_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L/Wing0_2_L/Wing0_2_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R/Wing1_2_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R/Wing1_2_R/Wing1_2_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2/tail0_3
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2/tail0_3/tail0_3_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBall_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBall_L/toeBall_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBall_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBall_R/toeBall_R_end
+        weight: 1
+      - path: roshan_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Roshan_DeathFrostivus
+      takeName: roshan.qc_skeleton|roshan_death_frostivus
+      firstFrame: 0
+      lastFrame: 74
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: roshan.qc_skeleton
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1/flag2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1/flag2/flag2_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L/ring_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R/ring_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1/jaw
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1/jaw/jaw_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L/Wing0_2_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L/Wing0_2_L/Wing0_2_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R/Wing1_2_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R/Wing1_2_R/Wing1_2_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2/tail0_3
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2/tail0_3/tail0_3_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBall_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBall_L/toeBall_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBall_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBall_R/toeBall_R_end
+        weight: 1
+      - path: roshan_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Roshan_Die
+      takeName: roshan.qc_skeleton|roshan_die
+      firstFrame: 0
+      lastFrame: 23
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: roshan.qc_skeleton
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1/flag2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1/flag2/flag2_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L/ring_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R/ring_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1/jaw
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1/jaw/jaw_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L/Wing0_2_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L/Wing0_2_L/Wing0_2_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R/Wing1_2_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R/Wing1_2_R/Wing1_2_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2/tail0_3
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2/tail0_3/tail0_3_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBall_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBall_L/toeBall_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBall_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBall_R/toeBall_R_end
+        weight: 1
+      - path: roshan_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Roshan_Flail
+      takeName: roshan.qc_skeleton|roshan_flail
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: roshan.qc_skeleton
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1/flag2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1/flag2/flag2_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L/ring_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R/ring_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1/jaw
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1/jaw/jaw_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L/Wing0_2_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L/Wing0_2_L/Wing0_2_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R/Wing1_2_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R/Wing1_2_R/Wing1_2_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2/tail0_3
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2/tail0_3/tail0_3_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBall_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBall_L/toeBall_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBall_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBall_R/toeBall_R_end
+        weight: 1
+      - path: roshan_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Roshan_Idle
+      takeName: roshan.qc_skeleton|roshan_idle
+      firstFrame: 0
+      lastFrame: 80
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: roshan.qc_skeleton
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1/flag2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1/flag2/flag2_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L/ring_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R/ring_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1/jaw
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1/jaw/jaw_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L/Wing0_2_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L/Wing0_2_L/Wing0_2_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R/Wing1_2_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R/Wing1_2_R/Wing1_2_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2/tail0_3
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2/tail0_3/tail0_3_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBall_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBall_L/toeBall_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBall_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBall_R/toeBall_R_end
+        weight: 1
+      - path: roshan_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Roshan_Portrait
+      takeName: roshan.qc_skeleton|roshan_portrait
+      firstFrame: 0
+      lastFrame: 80
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: roshan.qc_skeleton
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1/flag2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1/flag2/flag2_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L/ring_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R/ring_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1/jaw
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1/jaw/jaw_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L/Wing0_2_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L/Wing0_2_L/Wing0_2_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R/Wing1_2_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R/Wing1_2_R/Wing1_2_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2/tail0_3
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2/tail0_3/tail0_3_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBall_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBall_L/toeBall_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBall_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBall_R/toeBall_R_end
+        weight: 1
+      - path: roshan_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Roshan_Run
+      takeName: roshan.qc_skeleton|roshan_run
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: roshan.qc_skeleton
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1/flag2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1/flag2/flag2_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L/ring_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R/ring_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1/jaw
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1/jaw/jaw_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L/Wing0_2_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L/Wing0_2_L/Wing0_2_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R/Wing1_2_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R/Wing1_2_R/Wing1_2_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2/tail0_3
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2/tail0_3/tail0_3_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBall_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBall_L/toeBall_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBall_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBall_R/toeBall_R_end
+        weight: 1
+      - path: roshan_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Roshan_Slam
+      takeName: roshan.qc_skeleton|roshan_slam
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: roshan.qc_skeleton
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1/flag2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1/flag2/flag2_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L/ring_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R/ring_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1/jaw
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1/jaw/jaw_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L/Wing0_2_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L/Wing0_2_L/Wing0_2_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R/Wing1_2_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R/Wing1_2_R/Wing1_2_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2/tail0_3
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2/tail0_3/tail0_3_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBall_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBall_L/toeBall_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBall_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBall_R/toeBall_R_end
+        weight: 1
+      - path: roshan_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Roshan_Stun
+      takeName: roshan.qc_skeleton|roshan_stun
+      firstFrame: 0
+      lastFrame: 75
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: roshan.qc_skeleton
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1/flag2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1/flag2/flag2_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L/ring_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R/ring_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1/jaw
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1/jaw/jaw_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L/Wing0_2_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L/Wing0_2_L/Wing0_2_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R/Wing1_2_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R/Wing1_2_R/Wing1_2_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2/tail0_3
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2/tail0_3/tail0_3_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBall_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBall_L/toeBall_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBall_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBall_R/toeBall_R_end
+        weight: 1
+      - path: roshan_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Roshan_StunToIdle
+      takeName: roshan.qc_skeleton|roshan_stun_to_idle
+      firstFrame: 0
+      lastFrame: 15
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: roshan.qc_skeleton
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1/flag2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1/flag2/flag2_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L/ring_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R/ring_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1/jaw
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1/jaw/jaw_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L/Wing0_2_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L/Wing0_2_L/Wing0_2_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R/Wing1_2_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R/Wing1_2_R/Wing1_2_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2/tail0_3
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2/tail0_3/tail0_3_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBall_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBall_L/toeBall_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBall_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBall_R/toeBall_R_end
+        weight: 1
+      - path: roshan_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Roshan_Firebreath
+      takeName: roshan.qc_skeleton|sr_roshan_firebreath
+      firstFrame: 0
+      lastFrame: 160
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: roshan.qc_skeleton
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1/flag2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/flag1/flag2/flag2_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L/ring_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R/ring_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1/jaw
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Head_0/Head_1/jaw/jaw_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L/Wing0_2_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing0_0_L/Wing0_1_L/Wing0_2_L/Wing0_2_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R/Wing1_2_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Wing1_0_R/Wing1_1_R/Wing1_2_R/Wing1_2_R_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2/tail0_3
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/tail0_0/tail0_1/tail0_2/tail0_3/tail0_3_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBall_L
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBall_L/toeBall_L_end
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBall_R
+        weight: 1
+      - path: roshan.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBall_R/toeBall_R_end
+        weight: 1
+      - path: roshan_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

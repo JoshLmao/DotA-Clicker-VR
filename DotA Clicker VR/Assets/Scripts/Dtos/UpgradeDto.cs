@@ -16,7 +16,7 @@ public class UpgradeDto : MonoBehaviour
 
     public UpgradeDto(UpgradeDto upgrade)
     {
-        Name = upgrade.name;
+        Name = upgrade.Name;
         Description = upgrade.Description;
         HeroUpgrade = upgrade.HeroUpgrade;
         Image = upgrade.Image;

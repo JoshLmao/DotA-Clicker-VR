@@ -13,7 +13,6 @@ public class UpgradesController : MonoBehaviour
 	void Start ()
     {
         Upgrades = new List<UpgradeDto>();
-
         RefreshUpgrades();
 
         int addY = -30; //Hack to get positioning of List UI
