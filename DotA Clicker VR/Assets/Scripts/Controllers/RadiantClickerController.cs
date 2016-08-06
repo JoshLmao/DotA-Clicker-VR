@@ -74,7 +74,7 @@ public class RadiantClickerController : MonoBehaviour
         m_timeRemainingText = transform.FindChild("Buttons/StandBack/StandUI/TimeRemaining").GetComponent<Text>();
         m_amountBoughtText = transform.Find("Buttons/StandBack/StandUI/AmountCanvas/AmountText").GetComponent<Text>();
         m_clickButtonGoldText = transform.Find("Buttons/ClickButtonBack/ClickButton/ClickUI/ClickWorthText").GetComponent<Text>();
-        m_upgradeCostText = transform.Find("Buttons/UpgradeCostBack/UpgradeCostCanvas/UpCostText").GetComponent<Text>(); ;
+        m_upgradeCostText = transform.Find("Buttons/UpgradeCostBack/UpgradeCostCanvas/Cost/UpCostText").GetComponent<Text>(); ;
         m_progressBar = transform.Find("Buttons/StandBack/StandUI/ProgressSlider").GetComponent<Slider>();
 
         TimeBetweenClicks = new TimeSpan(0, 0, 0, SecondsToCompleteClick);

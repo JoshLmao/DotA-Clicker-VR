@@ -31,4 +31,13 @@ public class RadiantSceneController : MonoBehaviour
     {
         
     }
+
+    void CreateHeroes()
+    {
+        //SceneHeroes.Add(new HeroClicker()
+        //{
+        //    Name = "Io",
+        //    GoldPerClick
+        //});
+    }
 }

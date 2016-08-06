@@ -54,7 +54,7 @@ public class HandController : MonoBehaviour {
             if (m_activeButtonUI != null)
             {
                 m_activeButtonUI.Select();
-                if (m_controller.padPressed)
+                if (m_controller.triggerPressed)
                 {
                     Debug.Log("Clicked on Button");
                     var yes = m_activeButtonUI.GetComponent<Button>();
@@ -67,17 +67,12 @@ public class HandController : MonoBehaviour {
                 {
                     Debug.Log("Clicked on Slider");
                     //m_sliderTranform = m_activeSliderUI.transform;
-
-                    if (m_controller.padPressed)
-                    {
-
-                    }
                 }
             }
             else if(m_activeToggleUI != null)
             {
                 m_activeToggleUI.Select();
-                if(m_controller.padPressed)
+                if(m_controller.triggerPressed)
                 {
                     Debug.Log("Clicked on Toggle");
                     m_activeToggleUI.isOn = !m_activeToggleUI.isOn;
