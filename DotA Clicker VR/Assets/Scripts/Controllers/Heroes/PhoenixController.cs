@@ -1,11 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System;
 
 public class PhoenixController : MonoBehaviour
 {
     public bool SunrayUpgrade = false;
+    public bool SunrayActive = false;
+
     public bool SupernovaUpgrade = false;
+    public bool SupernovaActive = false;
+
     public bool PhoenixManager = false;
 
     GameObject m_sunrayButton;
@@ -51,5 +56,15 @@ public class PhoenixController : MonoBehaviour
         PhoenixManager = true;
         RadiantClickerController clicker = this.GetComponent<RadiantClickerController>();
         clicker.HasManager = PhoenixManager;
+    }
+
+    public void ActivateSunray()
+    {
+
+    }
+
+    public void ActivateSupernova()
+    {
+
     }
 }

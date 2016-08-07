@@ -5,7 +5,11 @@ using UnityEngine.UI;
 public class OgreMagiController : MonoBehaviour
 {
     public bool FireblastUpgrade = false;
+    public bool FireblastActive = false;
+
     public bool BloodlustUpgrade = false;
+    public bool BloodlustActive = false;
+
     public bool OgreMagiManager = false;
 
     GameObject m_fireblastButton;
@@ -51,5 +55,15 @@ public class OgreMagiController : MonoBehaviour
         OgreMagiManager = true;
         RadiantClickerController clicker = this.GetComponent<RadiantClickerController>();
         clicker.HasManager = OgreMagiManager;
+    }
+
+    public void ActivateFireblast()
+    {
+
+    }
+
+    public void ActivateBloodlust()
+    {
+
     }
 }

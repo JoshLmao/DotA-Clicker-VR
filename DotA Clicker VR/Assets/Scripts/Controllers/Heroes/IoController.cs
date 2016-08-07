@@ -5,7 +5,11 @@ using UnityEngine.UI;
 public class IoController : MonoBehaviour
 {
     public bool OverchargeUpgrade = false;
+    public bool OverchargeActive = false;
+
     public bool RelocateUpgrade = false;
+    public bool RelocateActive = false;
+
     public bool IoManager = false;
 
     GameObject m_overchargeButton;
@@ -51,5 +55,17 @@ public class IoController : MonoBehaviour
         IoManager = true;
         RadiantClickerController clicker = this.GetComponent<RadiantClickerController>();
         clicker.HasManager = IoManager;
+    }
+
+    public void ActivateOvercharge()
+    {
+        //Overcharges Io to double his output for 30 seconds. Cooldown: 1 minute
+        Debug.Log("Activated Overcharge");
+    }
+
+    public void ActivateRelocate()
+    {
+        //Quadruples Io's click amount for 20 seconds. Cooldown: 3 minutes
+        Debug.Log("Activated Relocate");
     }
 }

@@ -57,7 +57,6 @@ public class RadiantClickerController : MonoBehaviour
     public bool CanBeClicked = false;
 
     private RadiantSceneController m_sceneController;
-
     private DateTime m_lastClickedTime;
 
     private Slider m_progressBar;
@@ -144,6 +143,179 @@ public class RadiantClickerController : MonoBehaviour
         {
             HasManager = true;
             obj.SetActive(false);
+        }
+    }
+
+    public void ActivateAbility(string abilityName)
+    {
+        //Very bad of you, but too lazy
+        if(abilityName == "OverchargeBtn" || abilityName == "RelocateBtn")
+        {
+            IoController io = GetComponentInParent<IoController>();
+            if (!io.OverchargeUpgrade || !io.RelocateUpgrade)
+                return;
+
+            if (abilityName == "OverchargeBtn")
+            {
+                if (io.OverchargeActive)
+                    return;
+
+                io.ActivateOvercharge();
+            }
+            else if(abilityName == "RelocateBtn")
+            {
+                if (io.RelocateActive)
+                    return;
+
+                io.ActivateRelocate();
+            }
+        }
+        else if (abilityName == "NullFieldBtn" || abilityName == "SpellStealBtn")
+        {
+            RubickController rubick = GetComponentInParent<RubickController>();
+            if (!rubick.NullFieldUpgrade || !rubick.SpellStealUpgrade)
+                return;
+
+            if (abilityName == "NullFieldBtn")
+            {
+                if (rubick.NullFieldActive)
+                    return;
+
+                rubick.ActivateNullField();
+            }
+            else if(abilityName == "SpellStealBtn")
+            {
+                if (rubick.SpellStealActive)
+                    return;
+
+                rubick.ActivateSpellSteal();
+            }
+        }
+        else if (abilityName == "FireblastBtn" || abilityName == "Bloodlust")
+        {
+            OgreMagiController ogreMagi = GetComponentInParent<OgreMagiController>();
+            if (!ogreMagi.FireblastUpgrade || !ogreMagi.BloodlustUpgrade)
+                return;
+
+            if (abilityName == "FireblastBtn")
+            {
+                if (ogreMagi.FireblastActive)
+                    return;
+
+                ogreMagi.ActivateFireblast();
+            }
+            else if(abilityName == "BloodlustBtn")
+            {
+                if (ogreMagi.BloodlustActive)
+                    return;
+
+                ogreMagi.ActivateBloodlust();
+            }
+        }
+        else if (abilityName == "SnowballBtn" || abilityName == "WalrusPunchBtn")
+        {
+            TuskController tusk = GetComponentInParent<TuskController>();
+            if (!tusk.SnowballUpgrade || !tusk.WalrusPunchUpgrade)
+                return;
+
+            if (abilityName == "SnowballBtn")
+            {
+                if (tusk.SnowballActive)
+                    return;
+
+                tusk.ActivateSnowball();
+            }
+            else if(abilityName == "WalrusPunchBtn")
+            {
+                if (tusk.WalrusPunchActive)
+                    return;
+
+                tusk.ActivateWalrusPunch();
+            }
+        }
+        else if (abilityName == "SunrayBtn" || abilityName == "SupernovaBtn")
+        {
+            PhoenixController phoenix = GetComponentInParent<PhoenixController>();
+            if (!phoenix.SunrayUpgrade || !phoenix.SupernovaUpgrade)
+                return;
+
+            if (abilityName == "SunrayBtn")
+            {
+                if (phoenix.SunrayActive)
+                    return;
+
+                phoenix.ActivateSunray();
+            }
+            else if(abilityName == "SupernovaBtn")
+            {
+                if (phoenix.SupernovaActive)
+                    return;
+
+                phoenix.ActivateSupernova();
+            }
+        }
+        else if (abilityName == "WarCryBtn" || abilityName == "GodsStrengthBtn")
+        {
+            SvenController sven = GetComponentInParent<SvenController>();
+            if (!sven.WarCryUpgrade || !sven.GodsStrengthUpgrade)
+                return;
+
+            if (abilityName == "WarCryBtn")
+            {
+                if (sven.WarCryActive)
+                    return;
+
+                sven.ActivateWarCry();
+            }
+            else if (abilityName == "GodsStrengthBtn")
+            {
+                if (sven.GodsStrengthActive)
+                    return;
+
+                sven.ActivateGodsStrength();
+            }
+        }
+        else if (abilityName == "BlinkBtn" || abilityName == "ManaVoid")
+        {
+            AntiMageController antiMage = GetComponentInParent<AntiMageController>();
+            if (!antiMage.BlinkUpgrade || !antiMage.ManaVoidUpgrade)
+                return;
+
+            if (abilityName == "BlinkBtn")
+            {
+                if (antiMage.BlinkActive)
+                    return;
+
+                antiMage.ActivateBlink();
+            }
+            else if (abilityName == "ManaVoid")
+            {
+                if (antiMage.ManaVoidActive)
+                    return;
+
+                antiMage.ActivateManaVoid();
+            }
+        }
+        else if (abilityName == "GreevilsGreedBtn" || abilityName == "ChemicalRageBtn")
+        {
+            AlchemistController alchemist = GetComponentInParent<AlchemistController>();
+            if (!alchemist.GreevilsGreedUpgrade || !alchemist.ChemicalRageUpgrade)
+                return;
+
+            if (abilityName == "GreevilsGreedBtn")
+            {
+                if (alchemist.GreevilsGreedActive)
+                    return;
+
+                alchemist.ActivateGreevilsGreed();
+            }
+            else
+            {
+                if (alchemist.ChemicalRageActive)
+                    return;
+
+                alchemist.ActivateChemicalRage();
+            }
         }
     }
 }

@@ -1,11 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System;
 
 public class SvenController : MonoBehaviour
 {
     public bool WarCryUpgrade = false;
+    public bool WarCryActive = false;
+
     public bool GodsStrengthUpgrade = false;
+    public bool GodsStrengthActive = false;
+
     public bool SvenManager = false;
 
     GameObject m_warCryButton;
@@ -51,5 +56,15 @@ public class SvenController : MonoBehaviour
         SvenManager = true;
         RadiantClickerController clicker = this.GetComponent<RadiantClickerController>();
         clicker.HasManager = SvenManager;
+    }
+
+    public void ActivateWarCry()
+    {
+        
+    }
+
+    public void ActivateGodsStrength()
+    {
+       
     }
 }

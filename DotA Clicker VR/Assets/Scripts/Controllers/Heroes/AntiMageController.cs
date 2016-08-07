@@ -1,11 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System;
 
 public class AntiMageController : MonoBehaviour
 {
     public bool BlinkUpgrade = false;
+    public bool BlinkActive = false;
+
     public bool ManaVoidUpgrade = false;
+    public bool ManaVoidActive = false;
+
     public bool AntiMageManager = false;
 
     GameObject m_blinkButton;
@@ -51,5 +56,15 @@ public class AntiMageController : MonoBehaviour
         AntiMageManager = true;
         RadiantClickerController clicker = this.GetComponent<RadiantClickerController>();
         clicker.HasManager = AntiMageManager;
+    }
+
+    public void ActivateBlink()
+    {
+
+    }
+
+    public void ActivateManaVoid()
+    {
+
     }
 }

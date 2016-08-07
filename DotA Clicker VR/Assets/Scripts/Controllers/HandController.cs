@@ -98,9 +98,10 @@ public class HandController : MonoBehaviour {
             CurrentObject = col.gameObject;
             m_canPickupObj = true;
         }
-        else if(col.tag == "Upgrade")
+        else if(col.tag == "Ability")
         {
-
+            RadiantClickerController controller = col.gameObject.GetComponentInParent<RadiantClickerController>();
+            controller.ActivateAbility(col.gameObject.name);
         }
     }
 

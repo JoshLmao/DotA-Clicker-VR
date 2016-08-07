@@ -5,7 +5,11 @@ using UnityEngine.UI;
 public class TuskController : MonoBehaviour
 {
     public bool SnowballUpgrade = false;
+    public bool SnowballActive = false;
+
     public bool WalrusPunchUpgrade = false;
+    public bool WalrusPunchActive = false;
+
     public bool TuskManager = false;
 
     GameObject m_snowballButton;
@@ -51,5 +55,15 @@ public class TuskController : MonoBehaviour
         TuskManager = true;
         RadiantClickerController clicker = this.GetComponent<RadiantClickerController>();
         clicker.HasManager = TuskManager;
+    }
+
+    public void ActivateSnowball()
+    {
+
+    }
+
+    public void ActivateWalrusPunch()
+    {
+
     }
 }

@@ -1,11 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System;
 
 public class AlchemistController : MonoBehaviour
 {
     public bool GreevilsGreedUpgrade = false;
+    public bool GreevilsGreedActive = false;
+
     public bool ChemicalRageUpgrade = false;
+    public bool ChemicalRageActive = false;
+
     public bool AlchemistManager = false;
 
     GameObject m_greevilsGreedButton;
@@ -51,5 +56,15 @@ public class AlchemistController : MonoBehaviour
         AlchemistManager = true;
         RadiantClickerController clicker = this.GetComponent<RadiantClickerController>();
         clicker.HasManager = AlchemistManager;
+    }
+
+    public void ActivateGreevilsGreed()
+    {
+
+    }
+
+    public void ActivateChemicalRage()
+    {
+
     }
 }

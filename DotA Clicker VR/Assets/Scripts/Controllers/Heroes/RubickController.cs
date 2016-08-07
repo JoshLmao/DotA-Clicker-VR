@@ -5,7 +5,11 @@ using UnityEngine.UI;
 public class RubickController : MonoBehaviour
 {
     public bool NullFieldUpgrade = false;
+    public bool NullFieldActive = false;
+
     public bool SpellStealUpgrade = false;
+    public bool SpellStealActive = false;
+
     public bool RubickManager = false;
 
     GameObject m_nullFieldButton;
@@ -51,5 +55,15 @@ public class RubickController : MonoBehaviour
         RubickManager = true;
         RadiantClickerController clicker = this.GetComponent<RadiantClickerController>();
         clicker.HasManager = RubickManager;
+    }
+
+    public void ActivateNullField()
+    {
+        Debug.Log("Activated Null Field");
+    }
+
+    public void ActivateSpellSteal()
+    {
+        Debug.Log("Activated Spell Steal");
     }
 }
