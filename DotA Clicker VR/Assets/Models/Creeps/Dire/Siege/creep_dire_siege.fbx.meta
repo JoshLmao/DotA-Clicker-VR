@@ -1,0 +1,1388 @@
+fileFormatVersion: 2
+guid: 47958f01731c05944a54651973f61230
+timeCreated: 1470560744
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: base0_0
+    100002: base0_1
+    100004: base0_2
+    100006: base0_2_end
+    100008: catapult4_0
+    100010: catapult4_1
+    100012: catapult4_2
+    100014: catapult4_3
+    100016: catapult4_4
+    100018: catapult4_4_end
+    100020: creep_bad_siege.qc_skeleton
+    100022: creep_bad_siege_reference
+    100024: //RootNode
+    100026: front_wheel
+    100028: front_wheel_end
+    100030: rear_axel2_0
+    100032: rear_wheel_L
+    100034: rear_wheel_L_end
+    100036: rear_wheel_R
+    100038: rear_wheel_R_end
+    100040: root
+    100042: rope1_0
+    100044: rope1_1
+    100046: rope1_2
+    100048: rope1_2_end
+    400000: base0_0
+    400002: base0_1
+    400004: base0_2
+    400006: base0_2_end
+    400008: catapult4_0
+    400010: catapult4_1
+    400012: catapult4_2
+    400014: catapult4_3
+    400016: catapult4_4
+    400018: catapult4_4_end
+    400020: creep_bad_siege.qc_skeleton
+    400022: creep_bad_siege_reference
+    400024: //RootNode
+    400026: front_wheel
+    400028: front_wheel_end
+    400030: rear_axel2_0
+    400032: rear_wheel_L
+    400034: rear_wheel_L_end
+    400036: rear_wheel_R
+    400038: rear_wheel_R_end
+    400040: root
+    400042: rope1_0
+    400044: rope1_1
+    400046: rope1_2
+    400048: rope1_2_end
+    4300000: creep_bad_siege_reference
+    7400000: dire_siege_BindPose
+    7400002: dire_siege_catapult_attack
+    7400004: dire_siege_attack
+    7400006: dire_siege_bw_L
+    7400008: dire_siege_bw_R
+    7400010: dire_siege_bw_striaght
+    7400012: dire_siege_idle
+    7400014: dire_siege_lw_left
+    7400016: dire_siege_lw_right
+    7400018: dire_siege_lw_straight
+    7400020: dire_siege_run
+    7400022: dire_siege_rw_left
+    7400024: dire_siege_rw_right
+    7400026: dire_siege_rw_straight
+    7400028: dire_siege_wheel_layer
+    7400030: dire_siege_wheel_layer
+    9500000: //RootNode
+    13700000: creep_bad_siege_reference
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: dire_siege_BindPose
+      takeName: creep_bad_siege.qc_skeleton|BindPose
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/base0_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/base0_2/base0_2_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/front_wheel
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/front_wheel/front_wheel_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1/rope1_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1/rope1_2/rope1_2_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_L
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_L/rear_wheel_L_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_R
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_R/rear_wheel_R_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3/catapult4_4
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3/catapult4_4/catapult4_4_end
+        weight: 1
+      - path: creep_bad_siege_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_siege_catapult_attack
+      takeName: creep_bad_siege.qc_skeleton|catapult_attack
+      firstFrame: 0
+      lastFrame: 70
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/base0_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/base0_2/base0_2_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/front_wheel
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/front_wheel/front_wheel_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1/rope1_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1/rope1_2/rope1_2_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_L
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_L/rear_wheel_L_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_R
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_R/rear_wheel_R_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3/catapult4_4
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3/catapult4_4/catapult4_4_end
+        weight: 1
+      - path: creep_bad_siege_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_siege_attack
+      takeName: creep_bad_siege.qc_skeleton|creep_bad_siege_attack
+      firstFrame: 0
+      lastFrame: 70
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/base0_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/base0_2/base0_2_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/front_wheel
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/front_wheel/front_wheel_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1/rope1_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1/rope1_2/rope1_2_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_L
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_L/rear_wheel_L_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_R
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_R/rear_wheel_R_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3/catapult4_4
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3/catapult4_4/catapult4_4_end
+        weight: 1
+      - path: creep_bad_siege_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_siege_bw_L
+      takeName: creep_bad_siege.qc_skeleton|creep_bad_siege_bw_L
+      firstFrame: 0
+      lastFrame: 48
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/base0_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/base0_2/base0_2_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/front_wheel
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/front_wheel/front_wheel_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1/rope1_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1/rope1_2/rope1_2_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_L
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_L/rear_wheel_L_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_R
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_R/rear_wheel_R_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3/catapult4_4
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3/catapult4_4/catapult4_4_end
+        weight: 1
+      - path: creep_bad_siege_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_siege_bw_R
+      takeName: creep_bad_siege.qc_skeleton|creep_bad_siege_bw_R
+      firstFrame: 0
+      lastFrame: 48
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/base0_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/base0_2/base0_2_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/front_wheel
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/front_wheel/front_wheel_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1/rope1_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1/rope1_2/rope1_2_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_L
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_L/rear_wheel_L_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_R
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_R/rear_wheel_R_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3/catapult4_4
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3/catapult4_4/catapult4_4_end
+        weight: 1
+      - path: creep_bad_siege_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_siege_bw_striaght
+      takeName: creep_bad_siege.qc_skeleton|creep_bad_siege_bw_striaght
+      firstFrame: 0
+      lastFrame: 48
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/base0_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/base0_2/base0_2_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/front_wheel
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/front_wheel/front_wheel_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1/rope1_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1/rope1_2/rope1_2_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_L
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_L/rear_wheel_L_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_R
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_R/rear_wheel_R_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3/catapult4_4
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3/catapult4_4/catapult4_4_end
+        weight: 1
+      - path: creep_bad_siege_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_siege_idle
+      takeName: creep_bad_siege.qc_skeleton|creep_bad_siege_idle
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/base0_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/base0_2/base0_2_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/front_wheel
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/front_wheel/front_wheel_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1/rope1_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1/rope1_2/rope1_2_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_L
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_L/rear_wheel_L_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_R
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_R/rear_wheel_R_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3/catapult4_4
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3/catapult4_4/catapult4_4_end
+        weight: 1
+      - path: creep_bad_siege_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_siege_lw_left
+      takeName: creep_bad_siege.qc_skeleton|creep_bad_siege_lw_left
+      firstFrame: 0
+      lastFrame: 48
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/base0_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/base0_2/base0_2_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/front_wheel
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/front_wheel/front_wheel_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1/rope1_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1/rope1_2/rope1_2_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_L
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_L/rear_wheel_L_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_R
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_R/rear_wheel_R_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3/catapult4_4
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3/catapult4_4/catapult4_4_end
+        weight: 1
+      - path: creep_bad_siege_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_siege_lw_right
+      takeName: creep_bad_siege.qc_skeleton|creep_bad_siege_lw_right
+      firstFrame: 0
+      lastFrame: 48
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/base0_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/base0_2/base0_2_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/front_wheel
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/front_wheel/front_wheel_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1/rope1_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1/rope1_2/rope1_2_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_L
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_L/rear_wheel_L_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_R
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_R/rear_wheel_R_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3/catapult4_4
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3/catapult4_4/catapult4_4_end
+        weight: 1
+      - path: creep_bad_siege_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_siege_lw_straight
+      takeName: creep_bad_siege.qc_skeleton|creep_bad_siege_lw_straight
+      firstFrame: 0
+      lastFrame: 48
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/base0_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/base0_2/base0_2_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/front_wheel
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/front_wheel/front_wheel_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1/rope1_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1/rope1_2/rope1_2_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_L
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_L/rear_wheel_L_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_R
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_R/rear_wheel_R_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3/catapult4_4
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3/catapult4_4/catapult4_4_end
+        weight: 1
+      - path: creep_bad_siege_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_siege_run
+      takeName: creep_bad_siege.qc_skeleton|creep_bad_siege_run
+      firstFrame: 0
+      lastFrame: 48
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/base0_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/base0_2/base0_2_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/front_wheel
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/front_wheel/front_wheel_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1/rope1_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1/rope1_2/rope1_2_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_L
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_L/rear_wheel_L_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_R
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_R/rear_wheel_R_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3/catapult4_4
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3/catapult4_4/catapult4_4_end
+        weight: 1
+      - path: creep_bad_siege_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_siege_rw_left
+      takeName: creep_bad_siege.qc_skeleton|creep_bad_siege_rw_left
+      firstFrame: 0
+      lastFrame: 48
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/base0_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/base0_2/base0_2_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/front_wheel
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/front_wheel/front_wheel_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1/rope1_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1/rope1_2/rope1_2_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_L
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_L/rear_wheel_L_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_R
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_R/rear_wheel_R_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3/catapult4_4
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3/catapult4_4/catapult4_4_end
+        weight: 1
+      - path: creep_bad_siege_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_siege_rw_right
+      takeName: creep_bad_siege.qc_skeleton|creep_bad_siege_rw_right
+      firstFrame: 0
+      lastFrame: 48
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/base0_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/base0_2/base0_2_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/front_wheel
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/front_wheel/front_wheel_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1/rope1_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1/rope1_2/rope1_2_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_L
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_L/rear_wheel_L_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_R
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_R/rear_wheel_R_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3/catapult4_4
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3/catapult4_4/catapult4_4_end
+        weight: 1
+      - path: creep_bad_siege_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_siege_rw_straight
+      takeName: creep_bad_siege.qc_skeleton|creep_bad_siege_rw_straight
+      firstFrame: 0
+      lastFrame: 48
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/base0_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/base0_2/base0_2_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/front_wheel
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/front_wheel/front_wheel_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1/rope1_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1/rope1_2/rope1_2_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_L
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_L/rear_wheel_L_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_R
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_R/rear_wheel_R_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3/catapult4_4
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3/catapult4_4/catapult4_4_end
+        weight: 1
+      - path: creep_bad_siege_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_siege_wheel_layer
+      takeName: creep_bad_siege.qc_skeleton|creep_bad_siege_wheel_layer
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/base0_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/base0_2/base0_2_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/front_wheel
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/front_wheel/front_wheel_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1/rope1_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1/rope1_2/rope1_2_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_L
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_L/rear_wheel_L_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_R
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_R/rear_wheel_R_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3/catapult4_4
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3/catapult4_4/catapult4_4_end
+        weight: 1
+      - path: creep_bad_siege_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_siege_wheel_layer
+      takeName: creep_bad_siege_reference|creep_bad_siege_wheel_layer
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/base0_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/base0_2/base0_2_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/front_wheel
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/front_wheel/front_wheel_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1/rope1_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/base0_1/rope1_0/rope1_1/rope1_2/rope1_2_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_L
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_L/rear_wheel_L_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_R
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/base0_0/rear_axel2_0/rear_wheel_R/rear_wheel_R_end
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3/catapult4_4
+        weight: 1
+      - path: creep_bad_siege.qc_skeleton/root/catapult4_0/catapult4_1/catapult4_2/catapult4_3/catapult4_4/catapult4_4_end
+        weight: 1
+      - path: creep_bad_siege_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

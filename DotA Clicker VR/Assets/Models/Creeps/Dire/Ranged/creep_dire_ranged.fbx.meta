@@ -1,0 +1,3670 @@
+fileFormatVersion: 2
+guid: 12e75952a63cf1747ad6f9997254ad07
+timeCreated: 1470560741
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: ankle_L
+    100002: ankle_R
+    100004: bicep_L
+    100006: bicep_R
+    100008: char_origin
+    100010: char_origin_end
+    100012: clavicle_L
+    100014: clavicle_R
+    100016: //RootNode
+    100018: elbow_L
+    100020: elbow_R
+    100022: Head_0
+    100024: Head_1
+    100026: head_dress_L_R0C0
+    100028: head_dress_L_R1C0
+    100030: head_dress_L_R2C0
+    100032: head_dress_L_R2C0_end
+    100034: head_dress_R_R0C0
+    100036: head_dress_R_R1C0
+    100038: head_dress_R_R2C0
+    100040: head_dress_R_R2C0_end
+    100042: index_0_L
+    100044: index_0_R
+    100046: index_1_L
+    100048: index_1_L_end
+    100050: index_1_R
+    100052: index_1_R_end
+    100054: knee_L
+    100056: knee_R
+    100058: lane_dire_ranged.qc_skeleton
+    100060: lane_dire_ranged_reference
+    100062: loin_cloth_R0C0
+    100064: loin_cloth_R1C0
+    100066: loin_cloth_R2C0
+    100068: loin_cloth_R2C0_end
+    100070: mid_0_L
+    100072: mid_0_R
+    100074: mid_1_L
+    100076: mid_1_L_end
+    100078: mid_1_R
+    100080: mid_1_R_end
+    100082: orb
+    100084: orb_end
+    100086: Root_0
+    100088: Spine_0
+    100090: Spine_1
+    100092: staff
+    100094: thigh_L
+    100096: thigh_R
+    100098: thumb_0_L
+    100100: thumb_0_R
+    100102: thumb_1_L
+    100104: thumb_1_L_end
+    100106: thumb_1_R
+    100108: thumb_1_R_end
+    100110: toeBase_L
+    100112: toeBase_L_end
+    100114: toeBase_R
+    100116: toeBase_R_end
+    100118: wrist_L
+    100120: wrist_R
+    400000: ankle_L
+    400002: ankle_R
+    400004: bicep_L
+    400006: bicep_R
+    400008: char_origin
+    400010: char_origin_end
+    400012: clavicle_L
+    400014: clavicle_R
+    400016: //RootNode
+    400018: elbow_L
+    400020: elbow_R
+    400022: Head_0
+    400024: Head_1
+    400026: head_dress_L_R0C0
+    400028: head_dress_L_R1C0
+    400030: head_dress_L_R2C0
+    400032: head_dress_L_R2C0_end
+    400034: head_dress_R_R0C0
+    400036: head_dress_R_R1C0
+    400038: head_dress_R_R2C0
+    400040: head_dress_R_R2C0_end
+    400042: index_0_L
+    400044: index_0_R
+    400046: index_1_L
+    400048: index_1_L_end
+    400050: index_1_R
+    400052: index_1_R_end
+    400054: knee_L
+    400056: knee_R
+    400058: lane_dire_ranged.qc_skeleton
+    400060: lane_dire_ranged_reference
+    400062: loin_cloth_R0C0
+    400064: loin_cloth_R1C0
+    400066: loin_cloth_R2C0
+    400068: loin_cloth_R2C0_end
+    400070: mid_0_L
+    400072: mid_0_R
+    400074: mid_1_L
+    400076: mid_1_L_end
+    400078: mid_1_R
+    400080: mid_1_R_end
+    400082: orb
+    400084: orb_end
+    400086: Root_0
+    400088: Spine_0
+    400090: Spine_1
+    400092: staff
+    400094: thigh_L
+    400096: thigh_R
+    400098: thumb_0_L
+    400100: thumb_0_R
+    400102: thumb_1_L
+    400104: thumb_1_L_end
+    400106: thumb_1_R
+    400108: thumb_1_R_end
+    400110: toeBase_L
+    400112: toeBase_L_end
+    400114: toeBase_R
+    400116: toeBase_R_end
+    400118: wrist_L
+    400120: wrist_R
+    4300000: lane_dire_ranged_reference
+    7400000: dire_ranged_attack
+    7400002: dire_ranged_attack2
+    7400004: dire_ranged_attack3
+    7400006: dire_ranged_TPose
+    7400008: dire_ranged_death
+    7400010: dire_ranged_death_alt1_weaponAlt1
+    7400012: dire_ranged_death_alt1_weaponAlt2
+    7400014: dire_ranged_death_alt1_weaponAlt3
+    7400016: dire_ranged_death_alt2_weaponAlt1
+    7400018: dire_ranged_death_alt2_weaponAlt2
+    7400020: dire_ranged_death_alt2_weaponAlt3
+    7400022: dire_ranged_death_drop_staff_01
+    7400024: dire_ranged_death_drop_staff_02
+    7400026: dire_ranged_death_drop_staff_03
+    7400028: dire_ranged_defeat_idle
+    7400030: dire_ranged_flail
+    7400032: lane_dire_ranged.qc_skeleton|flinch
+    7400034: dire_ranged_idle
+    7400036: dire_ranged_run
+    7400038: dire_ranged_run_alt
+    7400040: dire_ranged_stun
+    7400042: dire_ranged_victory_idle_alt1
+    7400044: dire_ranged_victory_slam_stick
+    7400046: dire_ranged_victory_slam_stick_alt
+    9500000: //RootNode
+    13700000: lane_dire_ranged_reference
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: dire_ranged_attack
+      takeName: lane_dire_ranged.qc_skeleton|attack
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0/loin_cloth_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb/orb_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0/head_dress_L_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0/head_dress_R_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L/toeBase_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R/toeBase_R_end
+        weight: 1
+      - path: lane_dire_ranged_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_ranged_attack2
+      takeName: lane_dire_ranged.qc_skeleton|attack2
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0/loin_cloth_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb/orb_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0/head_dress_L_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0/head_dress_R_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L/toeBase_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R/toeBase_R_end
+        weight: 1
+      - path: lane_dire_ranged_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_ranged_attack3
+      takeName: lane_dire_ranged.qc_skeleton|attack3
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0/loin_cloth_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb/orb_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0/head_dress_L_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0/head_dress_R_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L/toeBase_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R/toeBase_R_end
+        weight: 1
+      - path: lane_dire_ranged_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_ranged_TPose
+      takeName: lane_dire_ranged.qc_skeleton|BindPose
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0/loin_cloth_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb/orb_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0/head_dress_L_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0/head_dress_R_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L/toeBase_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R/toeBase_R_end
+        weight: 1
+      - path: lane_dire_ranged_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_ranged_death
+      takeName: lane_dire_ranged.qc_skeleton|death
+      firstFrame: 0
+      lastFrame: 39
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0/loin_cloth_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb/orb_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0/head_dress_L_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0/head_dress_R_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L/toeBase_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R/toeBase_R_end
+        weight: 1
+      - path: lane_dire_ranged_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_ranged_death_alt1_weaponAlt1
+      takeName: lane_dire_ranged.qc_skeleton|death_alt1_weaponAlt1
+      firstFrame: 0
+      lastFrame: 99
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0/loin_cloth_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb/orb_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0/head_dress_L_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0/head_dress_R_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L/toeBase_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R/toeBase_R_end
+        weight: 1
+      - path: lane_dire_ranged_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_ranged_death_alt1_weaponAlt2
+      takeName: lane_dire_ranged.qc_skeleton|death_alt1_weaponAlt2
+      firstFrame: 0
+      lastFrame: 99
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0/loin_cloth_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb/orb_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0/head_dress_L_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0/head_dress_R_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L/toeBase_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R/toeBase_R_end
+        weight: 1
+      - path: lane_dire_ranged_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_ranged_death_alt1_weaponAlt3
+      takeName: lane_dire_ranged.qc_skeleton|death_alt1_weaponAlt3
+      firstFrame: 0
+      lastFrame: 99
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0/loin_cloth_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb/orb_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0/head_dress_L_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0/head_dress_R_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L/toeBase_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R/toeBase_R_end
+        weight: 1
+      - path: lane_dire_ranged_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_ranged_death_alt2_weaponAlt1
+      takeName: lane_dire_ranged.qc_skeleton|death_alt2_weaponAlt1
+      firstFrame: 0
+      lastFrame: 69
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0/loin_cloth_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb/orb_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0/head_dress_L_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0/head_dress_R_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L/toeBase_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R/toeBase_R_end
+        weight: 1
+      - path: lane_dire_ranged_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_ranged_death_alt2_weaponAlt2
+      takeName: lane_dire_ranged.qc_skeleton|death_alt2_weaponAlt2
+      firstFrame: 0
+      lastFrame: 69
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0/loin_cloth_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb/orb_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0/head_dress_L_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0/head_dress_R_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L/toeBase_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R/toeBase_R_end
+        weight: 1
+      - path: lane_dire_ranged_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_ranged_death_alt2_weaponAlt3
+      takeName: lane_dire_ranged.qc_skeleton|death_alt2_weaponAlt3
+      firstFrame: 0
+      lastFrame: 69
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0/loin_cloth_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb/orb_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0/head_dress_L_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0/head_dress_R_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L/toeBase_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R/toeBase_R_end
+        weight: 1
+      - path: lane_dire_ranged_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_ranged_death_drop_staff_01
+      takeName: lane_dire_ranged.qc_skeleton|death_drop_staff_01
+      firstFrame: 0
+      lastFrame: 79
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0/loin_cloth_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb/orb_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0/head_dress_L_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0/head_dress_R_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L/toeBase_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R/toeBase_R_end
+        weight: 1
+      - path: lane_dire_ranged_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_ranged_death_drop_staff_02
+      takeName: lane_dire_ranged.qc_skeleton|death_drop_staff_02
+      firstFrame: 0
+      lastFrame: 84
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0/loin_cloth_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb/orb_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0/head_dress_L_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0/head_dress_R_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L/toeBase_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R/toeBase_R_end
+        weight: 1
+      - path: lane_dire_ranged_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_ranged_death_drop_staff_03
+      takeName: lane_dire_ranged.qc_skeleton|death_drop_staff_03
+      firstFrame: 0
+      lastFrame: 84
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0/loin_cloth_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb/orb_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0/head_dress_L_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0/head_dress_R_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L/toeBase_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R/toeBase_R_end
+        weight: 1
+      - path: lane_dire_ranged_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_ranged_defeat_idle
+      takeName: lane_dire_ranged.qc_skeleton|defeat_idle
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0/loin_cloth_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb/orb_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0/head_dress_L_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0/head_dress_R_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L/toeBase_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R/toeBase_R_end
+        weight: 1
+      - path: lane_dire_ranged_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_ranged_flail
+      takeName: lane_dire_ranged.qc_skeleton|flail
+      firstFrame: 0
+      lastFrame: 19
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0/loin_cloth_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb/orb_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0/head_dress_L_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0/head_dress_R_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L/toeBase_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R/toeBase_R_end
+        weight: 1
+      - path: lane_dire_ranged_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_ranged_idle
+      takeName: lane_dire_ranged.qc_skeleton|idle
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0/loin_cloth_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb/orb_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0/head_dress_L_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0/head_dress_R_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L/toeBase_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R/toeBase_R_end
+        weight: 1
+      - path: lane_dire_ranged_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_ranged_run
+      takeName: lane_dire_ranged.qc_skeleton|run
+      firstFrame: 0
+      lastFrame: 19
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0/loin_cloth_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb/orb_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0/head_dress_L_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0/head_dress_R_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L/toeBase_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R/toeBase_R_end
+        weight: 1
+      - path: lane_dire_ranged_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_ranged_run_alt
+      takeName: lane_dire_ranged.qc_skeleton|run_alt
+      firstFrame: 0
+      lastFrame: 22
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0/loin_cloth_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb/orb_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0/head_dress_L_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0/head_dress_R_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L/toeBase_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R/toeBase_R_end
+        weight: 1
+      - path: lane_dire_ranged_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_ranged_stun
+      takeName: lane_dire_ranged.qc_skeleton|stun
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0/loin_cloth_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb/orb_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0/head_dress_L_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0/head_dress_R_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L/toeBase_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R/toeBase_R_end
+        weight: 1
+      - path: lane_dire_ranged_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_ranged_victory_idle_alt1
+      takeName: lane_dire_ranged.qc_skeleton|victory_idle_alt1
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0/loin_cloth_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb/orb_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0/head_dress_L_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0/head_dress_R_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L/toeBase_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R/toeBase_R_end
+        weight: 1
+      - path: lane_dire_ranged_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_ranged_victory_slam_stick
+      takeName: lane_dire_ranged.qc_skeleton|victory_slam_stick
+      firstFrame: 0
+      lastFrame: 218
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0/loin_cloth_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb/orb_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0/head_dress_L_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0/head_dress_R_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L/toeBase_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R/toeBase_R_end
+        weight: 1
+      - path: lane_dire_ranged_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dire_ranged_victory_slam_stick_alt
+      takeName: lane_dire_ranged.qc_skeleton|victory_slam_stick_alt
+      firstFrame: 0
+      lastFrame: 227
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/char_origin/char_origin_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/loin_cloth_R0C0/loin_cloth_R1C0/loin_cloth_R2C0/loin_cloth_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/mid_0_L/mid_1_L/mid_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_1_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/mid_0_R/mid_1_R/mid_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/staff/orb/orb_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_1_R_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_L_R0C0/head_dress_L_R1C0/head_dress_L_R2C0/head_dress_L_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/Spine_0/Spine_1/Head_0/Head_1/head_dress_R_R0C0/head_dress_R_R1C0/head_dress_R_R2C0/head_dress_R_R2C0_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L/toeBase_L_end
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R
+        weight: 1
+      - path: lane_dire_ranged.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R/toeBase_R_end
+        weight: 1
+      - path: lane_dire_ranged_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

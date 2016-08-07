@@ -1,0 +1,1693 @@
+fileFormatVersion: 2
+guid: 160ca1dd1f6830044917db98f9beecb1
+timeCreated: 1470561769
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: back_arm0
+    100002: back_arm1
+    100004: back_rope_bot0
+    100006: back_rope_bot1
+    100008: back_rope_bot2
+    100010: back_rope_bot2_end
+    100012: back_rope_top0
+    100014: back_rope_top1
+    100016: back_rope_top2
+    100018: back_rope_top2_end
+    100020: big_wheel
+    100022: big_wheel_end
+    100024: crank_L
+    100026: crank_L_end
+    100028: crank_R
+    100030: crank_R_end
+    100032: creep_good_siege.qc_skeleton
+    100034: creep_good_siege_reference
+    100036: //RootNode
+    100038: fr_arm0
+    100040: fr_arm1
+    100042: fr_arm2
+    100044: fr_arm2_end
+    100046: fr_arm3
+    100048: fr_arm3_end
+    100050: main_arm_crank
+    100052: main_arm_crank_end
+    100054: main_arm_pot
+    100056: main_arm_pot_base
+    100058: main_arm_pot_end
+    100060: main_axle
+    100062: main_back_arm
+    100064: mid_rope0
+    100066: mid_rope1
+    100068: mid_rope2
+    100070: mid_rope2_end
+    100072: root
+    400000: back_arm0
+    400002: back_arm1
+    400004: back_rope_bot0
+    400006: back_rope_bot1
+    400008: back_rope_bot2
+    400010: back_rope_bot2_end
+    400012: back_rope_top0
+    400014: back_rope_top1
+    400016: back_rope_top2
+    400018: back_rope_top2_end
+    400020: big_wheel
+    400022: big_wheel_end
+    400024: crank_L
+    400026: crank_L_end
+    400028: crank_R
+    400030: crank_R_end
+    400032: creep_good_siege.qc_skeleton
+    400034: creep_good_siege_reference
+    400036: //RootNode
+    400038: fr_arm0
+    400040: fr_arm1
+    400042: fr_arm2
+    400044: fr_arm2_end
+    400046: fr_arm3
+    400048: fr_arm3_end
+    400050: main_arm_crank
+    400052: main_arm_crank_end
+    400054: main_arm_pot
+    400056: main_arm_pot_base
+    400058: main_arm_pot_end
+    400060: main_axle
+    400062: main_back_arm
+    400064: mid_rope0
+    400066: mid_rope1
+    400068: mid_rope2
+    400070: mid_rope2_end
+    400072: root
+    4300000: creep_good_siege_reference
+    7400000: radiant_siege_BindPose
+    7400002: radiant_siege_attack
+    7400004: radiant_siege_bw_left
+    7400006: radiant_siege_bw_right
+    7400008: creep_good_siege.qc_skeleton|creep_good_siege_bw_straight
+    7400010: radiant_siege_idle
+    7400012: creep_good_siege.qc_skeleton|creep_good_siege_lw_left
+    7400014: creep_good_siege.qc_skeleton|creep_good_siege_lw_right
+    7400016: creep_good_siege.qc_skeleton|creep_good_siege_lw_straight
+    7400018: radiant_siege_run
+    7400020: creep_good_siege.qc_skeleton|creep_good_siege_rw_left
+    7400022: creep_good_siege.qc_skeleton|creep_good_siege_rw_right
+    7400024: creep_good_siege.qc_skeleton|creep_good_siege_rw_straight
+    7400026: creep_good_siege.qc_skeleton|creep_good_siege_wheel_layer
+    7400028: creep_good_siege_reference|creep_good_siege_wheel_layer
+    9500000: //RootNode
+    13700000: creep_good_siege_reference
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: radiant_siege_BindPose
+      takeName: creep_good_siege.qc_skeleton|BindPose
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: creep_good_siege.qc_skeleton
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1/back_rope_bot2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1/back_rope_bot2/back_rope_bot2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1/back_rope_top2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1/back_rope_top2/back_rope_top2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm2/fr_arm2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm3
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm3/fr_arm3_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/big_wheel
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/big_wheel/big_wheel_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_L
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_L/crank_L_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_R
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_R/crank_R_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_crank
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_crank/main_arm_crank_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base/main_arm_pot
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base/main_arm_pot/main_arm_pot_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1/mid_rope2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1/mid_rope2/mid_rope2_end
+        weight: 1
+      - path: creep_good_siege_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: radiant_siege_attack
+      takeName: creep_good_siege.qc_skeleton|creep_good_siege_attack
+      firstFrame: 0
+      lastFrame: 70
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: creep_good_siege.qc_skeleton
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1/back_rope_bot2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1/back_rope_bot2/back_rope_bot2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1/back_rope_top2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1/back_rope_top2/back_rope_top2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm2/fr_arm2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm3
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm3/fr_arm3_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/big_wheel
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/big_wheel/big_wheel_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_L
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_L/crank_L_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_R
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_R/crank_R_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_crank
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_crank/main_arm_crank_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base/main_arm_pot
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base/main_arm_pot/main_arm_pot_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1/mid_rope2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1/mid_rope2/mid_rope2_end
+        weight: 1
+      - path: creep_good_siege_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: radiant_siege_bw_left
+      takeName: creep_good_siege.qc_skeleton|creep_good_siege_bw_left
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: creep_good_siege.qc_skeleton
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1/back_rope_bot2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1/back_rope_bot2/back_rope_bot2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1/back_rope_top2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1/back_rope_top2/back_rope_top2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm2/fr_arm2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm3
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm3/fr_arm3_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/big_wheel
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/big_wheel/big_wheel_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_L
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_L/crank_L_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_R
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_R/crank_R_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_crank
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_crank/main_arm_crank_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base/main_arm_pot
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base/main_arm_pot/main_arm_pot_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1/mid_rope2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1/mid_rope2/mid_rope2_end
+        weight: 1
+      - path: creep_good_siege_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: radiant_siege_bw_right
+      takeName: creep_good_siege.qc_skeleton|creep_good_siege_bw_right
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: creep_good_siege.qc_skeleton
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1/back_rope_bot2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1/back_rope_bot2/back_rope_bot2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1/back_rope_top2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1/back_rope_top2/back_rope_top2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm2/fr_arm2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm3
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm3/fr_arm3_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/big_wheel
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/big_wheel/big_wheel_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_L
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_L/crank_L_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_R
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_R/crank_R_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_crank
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_crank/main_arm_crank_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base/main_arm_pot
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base/main_arm_pot/main_arm_pot_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1/mid_rope2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1/mid_rope2/mid_rope2_end
+        weight: 1
+      - path: creep_good_siege_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: creep_good_siege.qc_skeleton|creep_good_siege_bw_straight
+      takeName: creep_good_siege.qc_skeleton|creep_good_siege_bw_straight
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: creep_good_siege.qc_skeleton
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1/back_rope_bot2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1/back_rope_bot2/back_rope_bot2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1/back_rope_top2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1/back_rope_top2/back_rope_top2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm2/fr_arm2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm3
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm3/fr_arm3_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/big_wheel
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/big_wheel/big_wheel_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_L
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_L/crank_L_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_R
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_R/crank_R_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_crank
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_crank/main_arm_crank_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base/main_arm_pot
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base/main_arm_pot/main_arm_pot_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1/mid_rope2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1/mid_rope2/mid_rope2_end
+        weight: 1
+      - path: creep_good_siege_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: radiant_siege_idle
+      takeName: creep_good_siege.qc_skeleton|creep_good_siege_idle
+      firstFrame: 0
+      lastFrame: 39
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: creep_good_siege.qc_skeleton
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1/back_rope_bot2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1/back_rope_bot2/back_rope_bot2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1/back_rope_top2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1/back_rope_top2/back_rope_top2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm2/fr_arm2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm3
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm3/fr_arm3_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/big_wheel
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/big_wheel/big_wheel_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_L
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_L/crank_L_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_R
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_R/crank_R_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_crank
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_crank/main_arm_crank_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base/main_arm_pot
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base/main_arm_pot/main_arm_pot_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1/mid_rope2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1/mid_rope2/mid_rope2_end
+        weight: 1
+      - path: creep_good_siege_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: creep_good_siege.qc_skeleton|creep_good_siege_lw_left
+      takeName: creep_good_siege.qc_skeleton|creep_good_siege_lw_left
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: creep_good_siege.qc_skeleton
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1/back_rope_bot2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1/back_rope_bot2/back_rope_bot2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1/back_rope_top2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1/back_rope_top2/back_rope_top2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm2/fr_arm2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm3
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm3/fr_arm3_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/big_wheel
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/big_wheel/big_wheel_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_L
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_L/crank_L_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_R
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_R/crank_R_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_crank
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_crank/main_arm_crank_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base/main_arm_pot
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base/main_arm_pot/main_arm_pot_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1/mid_rope2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1/mid_rope2/mid_rope2_end
+        weight: 1
+      - path: creep_good_siege_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: creep_good_siege.qc_skeleton|creep_good_siege_lw_right
+      takeName: creep_good_siege.qc_skeleton|creep_good_siege_lw_right
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: creep_good_siege.qc_skeleton
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1/back_rope_bot2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1/back_rope_bot2/back_rope_bot2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1/back_rope_top2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1/back_rope_top2/back_rope_top2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm2/fr_arm2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm3
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm3/fr_arm3_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/big_wheel
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/big_wheel/big_wheel_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_L
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_L/crank_L_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_R
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_R/crank_R_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_crank
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_crank/main_arm_crank_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base/main_arm_pot
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base/main_arm_pot/main_arm_pot_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1/mid_rope2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1/mid_rope2/mid_rope2_end
+        weight: 1
+      - path: creep_good_siege_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: creep_good_siege.qc_skeleton|creep_good_siege_lw_straight
+      takeName: creep_good_siege.qc_skeleton|creep_good_siege_lw_straight
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: creep_good_siege.qc_skeleton
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1/back_rope_bot2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1/back_rope_bot2/back_rope_bot2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1/back_rope_top2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1/back_rope_top2/back_rope_top2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm2/fr_arm2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm3
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm3/fr_arm3_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/big_wheel
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/big_wheel/big_wheel_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_L
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_L/crank_L_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_R
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_R/crank_R_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_crank
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_crank/main_arm_crank_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base/main_arm_pot
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base/main_arm_pot/main_arm_pot_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1/mid_rope2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1/mid_rope2/mid_rope2_end
+        weight: 1
+      - path: creep_good_siege_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: radiant_siege_run
+      takeName: creep_good_siege.qc_skeleton|creep_good_siege_run
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: creep_good_siege.qc_skeleton
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1/back_rope_bot2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1/back_rope_bot2/back_rope_bot2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1/back_rope_top2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1/back_rope_top2/back_rope_top2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm2/fr_arm2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm3
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm3/fr_arm3_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/big_wheel
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/big_wheel/big_wheel_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_L
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_L/crank_L_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_R
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_R/crank_R_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_crank
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_crank/main_arm_crank_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base/main_arm_pot
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base/main_arm_pot/main_arm_pot_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1/mid_rope2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1/mid_rope2/mid_rope2_end
+        weight: 1
+      - path: creep_good_siege_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: creep_good_siege.qc_skeleton|creep_good_siege_rw_left
+      takeName: creep_good_siege.qc_skeleton|creep_good_siege_rw_left
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: creep_good_siege.qc_skeleton
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1/back_rope_bot2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1/back_rope_bot2/back_rope_bot2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1/back_rope_top2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1/back_rope_top2/back_rope_top2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm2/fr_arm2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm3
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm3/fr_arm3_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/big_wheel
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/big_wheel/big_wheel_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_L
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_L/crank_L_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_R
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_R/crank_R_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_crank
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_crank/main_arm_crank_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base/main_arm_pot
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base/main_arm_pot/main_arm_pot_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1/mid_rope2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1/mid_rope2/mid_rope2_end
+        weight: 1
+      - path: creep_good_siege_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: creep_good_siege.qc_skeleton|creep_good_siege_rw_right
+      takeName: creep_good_siege.qc_skeleton|creep_good_siege_rw_right
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: creep_good_siege.qc_skeleton
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1/back_rope_bot2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1/back_rope_bot2/back_rope_bot2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1/back_rope_top2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1/back_rope_top2/back_rope_top2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm2/fr_arm2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm3
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm3/fr_arm3_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/big_wheel
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/big_wheel/big_wheel_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_L
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_L/crank_L_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_R
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_R/crank_R_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_crank
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_crank/main_arm_crank_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base/main_arm_pot
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base/main_arm_pot/main_arm_pot_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1/mid_rope2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1/mid_rope2/mid_rope2_end
+        weight: 1
+      - path: creep_good_siege_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: creep_good_siege.qc_skeleton|creep_good_siege_rw_straight
+      takeName: creep_good_siege.qc_skeleton|creep_good_siege_rw_straight
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: creep_good_siege.qc_skeleton
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1/back_rope_bot2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1/back_rope_bot2/back_rope_bot2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1/back_rope_top2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1/back_rope_top2/back_rope_top2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm2/fr_arm2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm3
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm3/fr_arm3_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/big_wheel
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/big_wheel/big_wheel_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_L
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_L/crank_L_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_R
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_R/crank_R_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_crank
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_crank/main_arm_crank_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base/main_arm_pot
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base/main_arm_pot/main_arm_pot_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1/mid_rope2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1/mid_rope2/mid_rope2_end
+        weight: 1
+      - path: creep_good_siege_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: creep_good_siege.qc_skeleton|creep_good_siege_wheel_layer
+      takeName: creep_good_siege.qc_skeleton|creep_good_siege_wheel_layer
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: creep_good_siege.qc_skeleton
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1/back_rope_bot2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1/back_rope_bot2/back_rope_bot2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1/back_rope_top2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1/back_rope_top2/back_rope_top2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm2/fr_arm2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm3
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm3/fr_arm3_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/big_wheel
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/big_wheel/big_wheel_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_L
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_L/crank_L_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_R
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_R/crank_R_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_crank
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_crank/main_arm_crank_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base/main_arm_pot
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base/main_arm_pot/main_arm_pot_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1/mid_rope2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1/mid_rope2/mid_rope2_end
+        weight: 1
+      - path: creep_good_siege_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: creep_good_siege_reference|creep_good_siege_wheel_layer
+      takeName: creep_good_siege_reference|creep_good_siege_wheel_layer
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: creep_good_siege.qc_skeleton
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1/back_rope_bot2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_bot0/back_rope_bot1/back_rope_bot2/back_rope_bot2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1/back_rope_top2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/back_arm0/back_arm1/back_rope_top0/back_rope_top1/back_rope_top2/back_rope_top2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm2/fr_arm2_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm3
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/fr_arm0/fr_arm1/fr_arm3/fr_arm3_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/big_wheel
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/big_wheel/big_wheel_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_L
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_L/crank_L_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_R
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_axle/crank_R/crank_R_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_crank
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_crank/main_arm_crank_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base/main_arm_pot
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/main_back_arm/main_arm_pot_base/main_arm_pot/main_arm_pot_end
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1/mid_rope2
+        weight: 1
+      - path: creep_good_siege.qc_skeleton/root/mid_rope0/mid_rope1/mid_rope2/mid_rope2_end
+        weight: 1
+      - path: creep_good_siege_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
