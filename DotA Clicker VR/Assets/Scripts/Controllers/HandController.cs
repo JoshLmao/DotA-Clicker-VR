@@ -82,7 +82,7 @@ public class HandController : MonoBehaviour {
             else if(m_activeScrollerUI != null)
             {
                 m_activeScrollerUI.Select();
-                if(m_controller.padPressed)
+                if(m_controller.triggerPressed)
                 {
                     Debug.Log("Clicked on Slider");
                     m_activeScrollerUI.value = m_activeScrollerUI.value == 1 ? 0 : 1;
