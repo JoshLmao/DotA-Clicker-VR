@@ -153,6 +153,38 @@ public class UpgradesController : MonoBehaviour
             Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Sven_GodsStrength"),
             Cost = 0,
         });
+        Upgrades.Add(new UpgradeDto()
+        {
+            Name = "Blink",
+            Description = "In a blink, Anti Mage gives you a click for free! Cooldown: 0 mins",
+            HeroUpgrade = "Anti Mage",
+            Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/AntiMage_Blink"),
+            Cost = 0,
+        });
+        Upgrades.Add(new UpgradeDto()
+        {
+            Name = "Mana Void",
+            Description = "",
+            HeroUpgrade = "Anti Mage",
+            Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/AntiMage_ManaVoid"),
+            Cost = 0,
+        });
+        Upgrades.Add(new UpgradeDto()
+        {
+            Name = "Greevil's Greed",
+            Description = "",
+            HeroUpgrade = "Alchemist",
+            Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Alchemist_GreevilsGreed"),
+            Cost = 0,
+        });
+        Upgrades.Add(new UpgradeDto()
+        {
+            Name = "Chemical Rage",
+            Description = "The Alchemist causes his Ogre to enter a chemically induced rage giving you ... Cooldown: 0",
+            HeroUpgrade = "Alchemist",
+            Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Alchemist_ChemicalRage"),
+            Cost = 0,
+        });
 
     }
 

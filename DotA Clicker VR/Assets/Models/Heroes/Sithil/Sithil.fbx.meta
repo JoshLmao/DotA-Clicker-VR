@@ -1,0 +1,820 @@
+fileFormatVersion: 2
+guid: f8766213ca2ff274ba8f8219c02f1f87
+timeCreated: 1470580354
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: ankle_L
+    100002: ankle_R
+    100004: bicep_L
+    100006: bicep_R
+    100008: canteen
+    100010: canteen_end
+    100012: clavicle_L
+    100014: clavicle_R
+    100016: elbow_L
+    100018: elbow_R
+    100020: flap3_0
+    100022: flap3_1
+    100024: flap3_2
+    100026: flap3_2_end
+    100028: hair0_0
+    100030: hair0_1
+    100032: hair0_2
+    100034: hair0_2_end
+    100036: Head_0
+    100038: Head_1
+    100040: index_0_L
+    100042: index_0_R
+    100044: index_1_L
+    100046: index_1_R
+    100048: index_2_L
+    100050: index_2_L_end
+    100052: index_2_R
+    100054: index_2_R_end
+    100056: knee_L
+    100058: knee_R
+    100060: ring_0_L
+    100062: ring_0_R
+    100064: ring_1_L
+    100066: ring_1_R
+    100068: ring_2_L
+    100070: ring_2_L_end
+    100072: ring_2_R
+    100074: ring_2_R_end
+    100076: Root_0
+    100078: shell1_0
+    100080: shell1_0_end
+    100082: //RootNode
+    100084: sithil.qc_skeleton
+    100086: sithil_reference
+    100088: Spine_1
+    100090: Spine_2
+    100092: Spine_3
+    100094: thigh_L
+    100096: thigh_R
+    100098: thumb_0_L
+    100100: thumb_0_R
+    100102: thumb_1_L
+    100104: thumb_1_R
+    100106: thumb_2_L
+    100108: thumb_2_L_end
+    100110: thumb_2_R
+    100112: thumb_2_R_end
+    100114: toeBase_L
+    100116: toeBase_L_end
+    100118: toeBase_R
+    100120: toeBase_R_end
+    100122: wrist_L
+    100124: wrist_R
+    400000: ankle_L
+    400002: ankle_R
+    400004: bicep_L
+    400006: bicep_R
+    400008: canteen
+    400010: canteen_end
+    400012: clavicle_L
+    400014: clavicle_R
+    400016: elbow_L
+    400018: elbow_R
+    400020: flap3_0
+    400022: flap3_1
+    400024: flap3_2
+    400026: flap3_2_end
+    400028: hair0_0
+    400030: hair0_1
+    400032: hair0_2
+    400034: hair0_2_end
+    400036: Head_0
+    400038: Head_1
+    400040: index_0_L
+    400042: index_0_R
+    400044: index_1_L
+    400046: index_1_R
+    400048: index_2_L
+    400050: index_2_L_end
+    400052: index_2_R
+    400054: index_2_R_end
+    400056: knee_L
+    400058: knee_R
+    400060: ring_0_L
+    400062: ring_0_R
+    400064: ring_1_L
+    400066: ring_1_R
+    400068: ring_2_L
+    400070: ring_2_L_end
+    400072: ring_2_R
+    400074: ring_2_R_end
+    400076: Root_0
+    400078: shell1_0
+    400080: shell1_0_end
+    400082: //RootNode
+    400084: sithil.qc_skeleton
+    400086: sithil_reference
+    400088: Spine_1
+    400090: Spine_2
+    400092: Spine_3
+    400094: thigh_L
+    400096: thigh_R
+    400098: thumb_0_L
+    400100: thumb_0_R
+    400102: thumb_1_L
+    400104: thumb_1_R
+    400106: thumb_2_L
+    400108: thumb_2_L_end
+    400110: thumb_2_R
+    400112: thumb_2_R_end
+    400114: toeBase_L
+    400116: toeBase_L_end
+    400118: toeBase_R
+    400120: toeBase_R_end
+    400122: wrist_L
+    400124: wrist_R
+    4300000: sithil_reference
+    7400000: sithil_BindPose
+    7400002: sithil_idle
+    7400004: sithil_point
+    7400006: sithil_purchase
+    9500000: //RootNode
+    13700000: sithil_reference
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: sithil_BindPose
+      takeName: sithil.qc_skeleton|BindPose
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: sithil.qc_skeleton
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/canteen
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/canteen/canteen_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/flap3_0
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/flap3_0/flap3_1
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/flap3_0/flap3_1/flap3_2
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/flap3_0/flap3_1/flap3_2/flap3_2_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_2_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_2_L/index_2_L_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L/ring_2_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L/ring_2_L/ring_2_L_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_2_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_2_L/thumb_2_L_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_2_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_2_R/index_2_R_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R/ring_2_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R/ring_2_R/ring_2_R_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_2_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_2_R/thumb_2_R_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/Head_0
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/hair0_0
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/hair0_0/hair0_1
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/hair0_0/hair0_1/hair0_2
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/hair0_0/hair0_1/hair0_2/hair0_2_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/shell1_0
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/shell1_0/shell1_0_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L/toeBase_L_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R/toeBase_R_end
+        weight: 1
+      - path: sithil_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: sithil_idle
+      takeName: sithil.qc_skeleton|sithil_idle
+      firstFrame: 0
+      lastFrame: 90
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: sithil.qc_skeleton
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/canteen
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/canteen/canteen_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/flap3_0
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/flap3_0/flap3_1
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/flap3_0/flap3_1/flap3_2
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/flap3_0/flap3_1/flap3_2/flap3_2_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_2_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_2_L/index_2_L_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L/ring_2_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L/ring_2_L/ring_2_L_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_2_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_2_L/thumb_2_L_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_2_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_2_R/index_2_R_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R/ring_2_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R/ring_2_R/ring_2_R_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_2_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_2_R/thumb_2_R_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/Head_0
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/hair0_0
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/hair0_0/hair0_1
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/hair0_0/hair0_1/hair0_2
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/hair0_0/hair0_1/hair0_2/hair0_2_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/shell1_0
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/shell1_0/shell1_0_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L/toeBase_L_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R/toeBase_R_end
+        weight: 1
+      - path: sithil_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: sithil_point
+      takeName: sithil.qc_skeleton|sithil_point
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: sithil.qc_skeleton
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/canteen
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/canteen/canteen_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/flap3_0
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/flap3_0/flap3_1
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/flap3_0/flap3_1/flap3_2
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/flap3_0/flap3_1/flap3_2/flap3_2_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_2_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_2_L/index_2_L_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L/ring_2_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L/ring_2_L/ring_2_L_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_2_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_2_L/thumb_2_L_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_2_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_2_R/index_2_R_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R/ring_2_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R/ring_2_R/ring_2_R_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_2_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_2_R/thumb_2_R_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/Head_0
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/hair0_0
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/hair0_0/hair0_1
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/hair0_0/hair0_1/hair0_2
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/hair0_0/hair0_1/hair0_2/hair0_2_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/shell1_0
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/shell1_0/shell1_0_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L/toeBase_L_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R/toeBase_R_end
+        weight: 1
+      - path: sithil_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: sithil_purchase
+      takeName: sithil.qc_skeleton|sithil_purchase
+      firstFrame: 0
+      lastFrame: 70
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: sithil.qc_skeleton
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/canteen
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/canteen/canteen_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/flap3_0
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/flap3_0/flap3_1
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/flap3_0/flap3_1/flap3_2
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/flap3_0/flap3_1/flap3_2/flap3_2_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_2_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/index_0_L/index_1_L/index_2_L/index_2_L_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L/ring_2_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/ring_0_L/ring_1_L/ring_2_L/ring_2_L_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_2_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/thumb_0_L/thumb_1_L/thumb_2_L/thumb_2_L_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_2_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_0_R/index_1_R/index_2_R/index_2_R_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R/ring_2_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/ring_0_R/ring_1_R/ring_2_R/ring_2_R_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_2_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/thumb_0_R/thumb_1_R/thumb_2_R/thumb_2_R_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/Head_0
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/hair0_0
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/hair0_0/hair0_1
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/hair0_0/hair0_1/hair0_2
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/hair0_0/hair0_1/hair0_2/hair0_2_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/shell1_0
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/Spine_1/Spine_2/Spine_3/shell1_0/shell1_0_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_L/knee_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_L/knee_L/ankle_L/toeBase_L/toeBase_L_end
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_R/knee_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R
+        weight: 1
+      - path: sithil.qc_skeleton/Root_0/thigh_R/knee_R/ankle_R/toeBase_R/toeBase_R_end
+        weight: 1
+      - path: sithil_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
