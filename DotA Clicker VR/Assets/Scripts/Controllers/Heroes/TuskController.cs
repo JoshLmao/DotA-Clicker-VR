@@ -59,11 +59,30 @@ public class TuskController : MonoBehaviour
 
     public void ActivateSnowball()
     {
+        Debug.Log("Activated Snowball");
+        m_snowballImage.color = new Color(0.275f, 0.275f, 0.275f);
+        SnowballActive = true;
 
+        AbilityCooldown(180);
+
+        m_snowballImage.color = new Color(1f, 1f, 1f);
+        SnowballActive = false;
     }
 
     public void ActivateWalrusPunch()
     {
+        Debug.Log("Activated Walrus Punch");
+        m_walrusPunchImage.color = new Color(0.275f, 0.275f, 0.275f);
+        WalrusPunchActive = true;
 
+        AbilityCooldown(180);
+
+        m_walrusPunchImage.color = new Color(1f, 1f, 1f);
+        WalrusPunchActive = false;
+    }
+
+    IEnumerator AbilityCooldown(float time)
+    {
+        yield return new WaitForSeconds(time);
     }
 }

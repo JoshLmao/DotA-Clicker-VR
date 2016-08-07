@@ -60,11 +60,30 @@ public class SvenController : MonoBehaviour
 
     public void ActivateWarCry()
     {
-        
+        Debug.Log("Activated War Cry");
+        m_warCryImage.color = new Color(0.275f, 0.275f, 0.275f);
+        WarCryActive = true;
+
+        AbilityCooldown(180);
+
+        m_warCryImage.color = new Color(1f, 1f, 1f);
+        WarCryActive = false;
     }
 
     public void ActivateGodsStrength()
     {
-       
+        Debug.Log("Activated Gods Strength");
+        m_godsStrengthImage.color = new Color(0.275f, 0.275f, 0.275f);
+        GodsStrengthActive = true;
+
+        AbilityCooldown(180);
+
+        m_godsStrengthImage.color = new Color(1f, 1f, 1f);
+        GodsStrengthActive = false;
+    }
+
+    IEnumerator AbilityCooldown(float time)
+    {
+        yield return new WaitForSeconds(time);
     }
 }

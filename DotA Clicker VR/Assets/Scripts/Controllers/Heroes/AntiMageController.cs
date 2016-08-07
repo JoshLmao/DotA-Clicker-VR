@@ -60,11 +60,30 @@ public class AntiMageController : MonoBehaviour
 
     public void ActivateBlink()
     {
+        Debug.Log("Activated Mana Void");
+        m_blinkImage.color = new Color(0.275f, 0.275f, 0.275f);
+        BlinkActive = true;
 
+        AbilityCooldown(180);
+
+        m_blinkImage.color = new Color(1f, 1f, 1f);
+        BlinkActive = false;
     }
 
     public void ActivateManaVoid()
     {
+        Debug.Log("Activated Mana Void");
+        m_manaVoidImage.color = new Color(0.275f, 0.275f, 0.275f);
+        ManaVoidActive = true;
 
+        AbilityCooldown(180);
+
+        m_manaVoidImage.color = new Color(1f, 1f, 1f);
+        ManaVoidActive = false;
+    }
+
+    IEnumerator AbilityCooldown(float time)
+    {
+        yield return new WaitForSeconds(time);
     }
 }

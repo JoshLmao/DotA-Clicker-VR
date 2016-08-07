@@ -59,13 +59,32 @@ public class IoController : MonoBehaviour
 
     public void ActivateOvercharge()
     {
-        //Overcharges Io to double his output for 30 seconds. Cooldown: 1 minute
+        /** Overcharges Io to double his output for 30 seconds. Cooldown: 1 minute **/
         Debug.Log("Activated Overcharge");
+        m_overchargeImage.color = new Color(0.275f, 0.275f, 0.275f);
+        OverchargeActive = true;
+
+        AbilityCooldown(60);
+
+        m_relocateImage.color = new Color(1f, 1f, 1f);
+        OverchargeActive = false;
     }
 
     public void ActivateRelocate()
     {
-        //Quadruples Io's click amount for 20 seconds. Cooldown: 3 minutes
+        /** Quadruples Io's click amount for 20 seconds. Cooldown: 3 minutes **/
         Debug.Log("Activated Relocate");
+        m_relocateImage.color = new Color(0.275f, 0.275f, 0.275f);
+        OverchargeActive = true;
+
+        AbilityCooldown(180);
+
+        m_relocateImage.color = new Color(1f, 1f, 1f);
+        OverchargeActive = false;
+    }
+
+    IEnumerator AbilityCooldown(float time)
+    {
+        yield return new WaitForSeconds(time);
     }
 }

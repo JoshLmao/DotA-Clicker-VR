@@ -60,11 +60,32 @@ public class AlchemistController : MonoBehaviour
 
     public void ActivateGreevilsGreed()
     {
+        /** Quadruples Io's click amount for 20 seconds. Cooldown: 3 minutes **/
+        Debug.Log("Activated Greevils Greed");
+        m_greevilsGreedImage.color = new Color(0.275f, 0.275f, 0.275f);
+        GreevilsGreedActive = true;
 
+        AbilityCooldown(180);
+
+        m_greevilsGreedImage.color = new Color(1f, 1f, 1f);
+        GreevilsGreedActive = false;
     }
 
     public void ActivateChemicalRage()
     {
+        /** Quadruples Io's click amount for 20 seconds. Cooldown: 3 minutes **/
+        Debug.Log("Activated Chemical Rage");
+        m_chemicalRageImage.color = new Color(0.275f, 0.275f, 0.275f);
+        GreevilsGreedActive = true;
 
+        AbilityCooldown(180);
+
+        m_chemicalRageImage.color = new Color(1f, 1f, 1f);
+        GreevilsGreedActive = false;
+    }
+
+    IEnumerator AbilityCooldown(float time)
+    {
+        yield return new WaitForSeconds(time);
     }
 }

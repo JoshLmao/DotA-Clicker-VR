@@ -59,11 +59,30 @@ public class OgreMagiController : MonoBehaviour
 
     public void ActivateFireblast()
     {
+        Debug.Log("Activated Mana Void");
+        m_fireblastImage.color = new Color(0.275f, 0.275f, 0.275f);
+        FireblastActive = true;
 
+        AbilityCooldown(180);
+
+        m_fireblastImage.color = new Color(1f, 1f, 1f);
+        FireblastActive = false;
     }
 
     public void ActivateBloodlust()
     {
+        Debug.Log("Activated Mana Void");
+        m_bloodlustImage.color = new Color(0.275f, 0.275f, 0.275f);
+        BloodlustActive = true;
 
+        AbilityCooldown(180);
+
+        m_bloodlustImage.color = new Color(1f, 1f, 1f);
+        BloodlustActive = false;
+    }
+
+    IEnumerator AbilityCooldown(float time)
+    {
+        yield return new WaitForSeconds(time);
     }
 }

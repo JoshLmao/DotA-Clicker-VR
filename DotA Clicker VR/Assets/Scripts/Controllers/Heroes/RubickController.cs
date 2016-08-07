@@ -60,10 +60,29 @@ public class RubickController : MonoBehaviour
     public void ActivateNullField()
     {
         Debug.Log("Activated Null Field");
+        m_nullFieldImage.color = new Color(0.275f, 0.275f, 0.275f);
+        NullFieldActive = true;
+
+        AbilityCooldown(180);
+
+        m_nullFieldImage.color = new Color(1f, 1f, 1f);
+        NullFieldActive = false;
     }
 
     public void ActivateSpellSteal()
     {
         Debug.Log("Activated Spell Steal");
+        m_spellStealImage.color = new Color(0.275f, 0.275f, 0.275f);
+        SpellStealActive = true;
+
+        AbilityCooldown(180);
+
+        m_spellStealImage.color = new Color(1f, 1f, 1f);
+        SpellStealActive = false;
+    }
+
+    IEnumerator AbilityCooldown(float time)
+    {
+        yield return new WaitForSeconds(time);
     }
 }
