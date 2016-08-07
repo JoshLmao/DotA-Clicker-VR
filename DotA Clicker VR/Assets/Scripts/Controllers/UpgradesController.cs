@@ -8,10 +8,38 @@ public class UpgradesController : MonoBehaviour
     public List<UpgradeDto> Upgrades { get; set; }
 
     public delegate void OnBuyOverchargeUpgrade();
-    public static event OnBuyOverchargeUpgrade BuyOverchargeUpgrade;
-
     public delegate void OnBuyRelocateUpgrade();
+    public delegate void OnBuyNullFieldUpgrade();
+    public delegate void OnBuySpellStealUpgrade();
+    public delegate void OnBuyFireblastUpgrade();
+    public delegate void OnBuyBloodlustUpgrade();
+    public delegate void OnBuySnowballUpgrade();
+    public delegate void OnBuyWalrusPunchUpgrade();
+    public delegate void OnBuySunrayUpgrade();
+    public delegate void OnBuySupernovaUpgrade();
+    public delegate void OnBuyWarCryUpgrade();
+    public delegate void OnBuyGodStrengthUpgrade();
+    public delegate void OnBuyBlinkUpgrade();
+    public delegate void OnBuyManaVoidUpgrade();
+    public delegate void OnBuyGreevilsGreedUpgrade();
+    public delegate void OnBuyChemicalRageUpgrade();
+
+    public static event OnBuyOverchargeUpgrade BuyOverchargeUpgrade;
     public static event OnBuyRelocateUpgrade BuyRelocateUpgrade;
+    public static event OnBuyNullFieldUpgrade BuyNullFieldUpgrade;
+    public static event OnBuySpellStealUpgrade BuySpellStealUpgrade;
+    public static event OnBuyFireblastUpgrade BuyFireblastUpgrade;
+    public static event OnBuyBloodlustUpgrade BuyBloodlustUpgrade;
+    public static event OnBuySnowballUpgrade BuySnowballUpgrade;
+    public static event OnBuyWalrusPunchUpgrade BuyWalrusPunchUpgrade;
+    public static event OnBuySunrayUpgrade BuySunrayUpgrade;
+    public static event OnBuySupernovaUpgrade BuySupernovaUpgrade;
+    public static event OnBuyWarCryUpgrade BuyWarCryUpgrade;
+    public static event OnBuyGodStrengthUpgrade BuyGodsStrengthUpgrade;
+    public static event OnBuyBlinkUpgrade BuyBlinkUpgrade;
+    public static event OnBuyManaVoidUpgrade BuyManaVoidUpgrade;
+    public static event OnBuyGreevilsGreedUpgrade BuyGreevilsGreedUpgrade;
+    public static event OnBuyChemicalRageUpgrade BuyChemicalRageUpgrade;
 
     [SerializeField]
     GameObject UpgradePrefab;
@@ -201,9 +229,80 @@ public class UpgradesController : MonoBehaviour
             Debug.Log("Clicked IO Overcharge");
             BuyOverchargeUpgrade(); //Invoke Event
         }
-        else
+        else if(upgrade.Name == "Relocate")
         {
-            Debug.Log("Adding other Upgrade");
+            Debug.Log("Clicked Relocate");
+            BuyRelocateUpgrade();
+        }
+        else if (upgrade.Name == "Null Field")
+        {
+            Debug.Log("Clicked Null Field");
+            BuyNullFieldUpgrade(); 
+        }
+        else if (upgrade.Name == "Spell Steal")
+        {
+            Debug.Log("Clicked Spell Steal");
+            BuySpellStealUpgrade(); 
+        }
+        else if (upgrade.Name == "Fireblast")
+        {
+            Debug.Log("Clicked Fireblast");
+            BuyFireblastUpgrade(); 
+        }
+        else if (upgrade.Name == "Bloodlust")
+        {
+            Debug.Log("Clicked Bloodlust");
+            BuyBloodlustUpgrade(); 
+        }
+        else if (upgrade.Name == "Snowball")
+        {
+            Debug.Log("Clicked Snowball");
+            BuySnowballUpgrade(); 
+        }
+        else if (upgrade.Name == "Walrus Punch")
+        {
+            Debug.Log("Clicked Walrus Punch");
+            BuyWalrusPunchUpgrade(); 
+        }
+        else if (upgrade.Name == "Sunray")
+        {
+            Debug.Log("Clicked Sunray");
+            BuySunrayUpgrade(); 
+        }
+        else if (upgrade.Name == "Supernova")
+        {
+            Debug.Log("Clicked Supernova");
+            BuySupernovaUpgrade(); 
+        }
+        else if (upgrade.Name == "War Cry")
+        {
+            Debug.Log("Clicked War Cry");
+            BuyWarCryUpgrade(); 
+        }
+        else if (upgrade.Name == "God's Strength")
+        {
+            Debug.Log("Clicked God's Strength");
+            BuyGodsStrengthUpgrade(); 
+        }
+        else if (upgrade.Name == "Blink")
+        {
+            Debug.Log("Clicked Blink");
+            BuyBlinkUpgrade(); 
+        }
+        else if (upgrade.Name == "Mana Void")
+        {
+            Debug.Log("Clicked Mana Void");
+            BuyManaVoidUpgrade(); 
+        }
+        else if (upgrade.Name == "Greevil's Greed")
+        {
+            Debug.Log("Clicked Greevil's Greed");
+            BuyGreevilsGreedUpgrade(); 
+        }
+        else if (upgrade.Name == "Chemical Rage")
+        {
+            Debug.Log("Clicked Chemical Rage");
+            BuyChemicalRageUpgrade(); 
         }
     }
 }
