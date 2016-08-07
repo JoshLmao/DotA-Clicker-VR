@@ -6,6 +6,7 @@ public class OgreMagiController : MonoBehaviour
 {
     public bool FireblastUpgrade = false;
     public bool BloodlustUpgrade = false;
+    public bool OgreMagiManager = false;
 
     GameObject m_fireblastButton;
     GameObject m_bloodlustButton;
@@ -21,6 +22,7 @@ public class OgreMagiController : MonoBehaviour
 
         UpgradesController.BuyFireblastUpgrade += BuyFireblastUpgrade;
         UpgradesController.BuyBloodlustUpgrade += BuyBloodlustUpgrade;
+        ManagersController.BuyOgreMagiManager += BuyOgreMagiManager;
 
         //turn to grey
         m_fireblastImage.color = new Color(0.275f, 0.275f, 0.275f);
@@ -41,5 +43,13 @@ public class OgreMagiController : MonoBehaviour
         Debug.Log("Bought Bloodlust Upgrade");
         //turn to white
         m_bloodlustImage.color = new Color(1f, 1f, 1f);
+    }
+
+    void BuyOgreMagiManager()
+    {
+        Debug.Log("Bought Ogre Magi Manager");
+        OgreMagiManager = true;
+        RadiantClickerController clicker = this.GetComponent<RadiantClickerController>();
+        clicker.HasManager = OgreMagiManager;
     }
 }

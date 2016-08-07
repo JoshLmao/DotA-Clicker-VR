@@ -6,6 +6,7 @@ public class AntiMageController : MonoBehaviour
 {
     public bool BlinkUpgrade = false;
     public bool ManaVoidUpgrade = false;
+    public bool AntiMageManager = false;
 
     GameObject m_blinkButton;
     GameObject m_manaVoidButton;
@@ -21,6 +22,7 @@ public class AntiMageController : MonoBehaviour
 
         UpgradesController.BuyBlinkUpgrade += BuyBlinkUpgrade;
         UpgradesController.BuyManaVoidUpgrade += BuyManaVoidUpgrade;
+        ManagersController.BuyAntiMageManager += BuyAntiMageManager;
 
         //turn to grey
         m_blinkImage.color = new Color(0.275f, 0.275f, 0.275f);
@@ -41,5 +43,13 @@ public class AntiMageController : MonoBehaviour
         Debug.Log("Bought ManaVoid Upgrade");
         //turn to white
         m_manaVoidImage.color = new Color(1f, 1f, 1f);
+    }
+
+    void BuyAntiMageManager()
+    {
+        Debug.Log("Bought AntiMage Manager");
+        AntiMageManager = true;
+        RadiantClickerController clicker = this.GetComponent<RadiantClickerController>();
+        clicker.HasManager = AntiMageManager;
     }
 }

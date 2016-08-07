@@ -6,6 +6,7 @@ public class IoController : MonoBehaviour
 {
     public bool OverchargeUpgrade = false;
     public bool RelocateUpgrade = false;
+    public bool IoManager = false;
 
     GameObject m_overchargeButton;
     GameObject m_relocateButton;
@@ -21,6 +22,7 @@ public class IoController : MonoBehaviour
 
         UpgradesController.BuyOverchargeUpgrade += BuyOverchargeUpgrade;
         UpgradesController.BuyRelocateUpgrade += BuyRelocateUpgrade;
+        ManagersController.BuyIoManager += BuyIoManager;
 
         //turn to grey
         m_overchargeImage.color = new Color(0.275f, 0.275f, 0.275f);
@@ -41,5 +43,13 @@ public class IoController : MonoBehaviour
         Debug.Log("Bought Relocate Upgrade");
         //turn to white
         m_relocateImage.color = new Color(1f, 1f, 1f);
+    }
+
+    void BuyIoManager()
+    {
+        Debug.Log("Bought Io Manager");
+        IoManager = true;
+        RadiantClickerController clicker = this.GetComponent<RadiantClickerController>();
+        clicker.HasManager = IoManager;
     }
 }

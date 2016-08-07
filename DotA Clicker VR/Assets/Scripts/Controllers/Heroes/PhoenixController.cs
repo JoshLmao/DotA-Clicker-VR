@@ -6,6 +6,7 @@ public class PhoenixController : MonoBehaviour
 {
     public bool SunrayUpgrade = false;
     public bool SupernovaUpgrade = false;
+    public bool PhoenixManager = false;
 
     GameObject m_sunrayButton;
     GameObject m_supernovaButton;
@@ -21,6 +22,7 @@ public class PhoenixController : MonoBehaviour
 
         UpgradesController.BuySunrayUpgrade += BuySunrayUpgrade;
         UpgradesController.BuySupernovaUpgrade += BuySupernovaUpgrade;
+        ManagersController.BuyPhoenixManager += BuyPhoenixManager;
 
         //turn to grey
         m_sunrayImage.color = new Color(0.275f, 0.275f, 0.275f);
@@ -41,5 +43,13 @@ public class PhoenixController : MonoBehaviour
         Debug.Log("Bought Supernova Upgrade");
         //turn to white
         m_supernovaImage.color = new Color(1f, 1f, 1f);
+    }
+
+    void BuyPhoenixManager()
+    {
+        Debug.Log("Bought Phoenix Manager");
+        PhoenixManager = true;
+        RadiantClickerController clicker = this.GetComponent<RadiantClickerController>();
+        clicker.HasManager = PhoenixManager;
     }
 }

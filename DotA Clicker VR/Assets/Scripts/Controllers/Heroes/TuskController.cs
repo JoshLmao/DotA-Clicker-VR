@@ -6,6 +6,7 @@ public class TuskController : MonoBehaviour
 {
     public bool SnowballUpgrade = false;
     public bool WalrusPunchUpgrade = false;
+    public bool TuskManager = false;
 
     GameObject m_snowballButton;
     GameObject m_walrusPunchButton;
@@ -21,6 +22,7 @@ public class TuskController : MonoBehaviour
 
         UpgradesController.BuySnowballUpgrade += BuySnowballUpgrade;
         UpgradesController.BuyWalrusPunchUpgrade += BuyWalrusPunchUpgrade;
+        ManagersController.BuyTuskManager += BuyTuskManager;
 
         //turn to grey
         m_snowballImage.color = new Color(0.275f, 0.275f, 0.275f);
@@ -43,4 +45,11 @@ public class TuskController : MonoBehaviour
         m_walrusPunchImage.color = new Color(1f, 1f, 1f);
     }
 
+    void BuyTuskManager()
+    {
+        Debug.Log("Bought Tusk Manager");
+        TuskManager = true;
+        RadiantClickerController clicker = this.GetComponent<RadiantClickerController>();
+        clicker.HasManager = TuskManager;
+    }
 }

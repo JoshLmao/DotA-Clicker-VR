@@ -6,6 +6,7 @@ public class SvenController : MonoBehaviour
 {
     public bool WarCryUpgrade = false;
     public bool GodsStrengthUpgrade = false;
+    public bool SvenManager = false;
 
     GameObject m_warCryButton;
     GameObject m_godsStrengthButton;
@@ -21,6 +22,7 @@ public class SvenController : MonoBehaviour
 
         UpgradesController.BuyWarCryUpgrade += BuyWarCryUpgrade;
         UpgradesController.BuyGodsStrengthUpgrade += BuyGodsStrengthUpgrade;
+        ManagersController.BuySvenManager += BuySvenManager;
 
         //turn to grey
         m_warCryImage.color = new Color(0.275f, 0.275f, 0.275f);
@@ -41,5 +43,13 @@ public class SvenController : MonoBehaviour
         Debug.Log("Bought GodsStrength Upgrade");
         //turn to white
         m_godsStrengthImage.color = new Color(1f, 1f, 1f);
+    }
+
+    void BuySvenManager()
+    {
+        Debug.Log("Bought Sven Manager");
+        SvenManager = true;
+        RadiantClickerController clicker = this.GetComponent<RadiantClickerController>();
+        clicker.HasManager = SvenManager;
     }
 }

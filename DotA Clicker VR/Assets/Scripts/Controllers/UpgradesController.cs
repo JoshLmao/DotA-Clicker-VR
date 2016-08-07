@@ -73,7 +73,7 @@ public class UpgradesController : MonoBehaviour
             Text upgradeCost = newUpgrade.transform.Find("BuyButton/CostCanvas/GoldCost").GetComponent<Text>();
             upgradeCost.text = upgrade.Cost + " gold";
             Button button = newUpgrade.transform.Find("BuyButton").GetComponent<Button>();
-            UpgradeDto clickedUpgrade = upgrade; //Fix for AddListener adding last upgrade to each button click
+            UpgradeDto clickedUpgrade = upgrade; //Fix for AddListener adding current upgrade to each button click
             button.onClick.AddListener(delegate { AddUpgrade(clickedUpgrade); });
         }
 	}

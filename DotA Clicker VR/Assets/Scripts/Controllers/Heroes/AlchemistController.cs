@@ -6,6 +6,7 @@ public class AlchemistController : MonoBehaviour
 {
     public bool GreevilsGreedUpgrade = false;
     public bool ChemicalRageUpgrade = false;
+    public bool AlchemistManager = false;
 
     GameObject m_greevilsGreedButton;
     GameObject m_chemicalRageButton;
@@ -21,6 +22,7 @@ public class AlchemistController : MonoBehaviour
 
         UpgradesController.BuyGreevilsGreedUpgrade += BuyGreevilsGreedUpgrade;
         UpgradesController.BuyChemicalRageUpgrade += BuyChemicalRageUpgrade;
+        ManagersController.BuyAlchemistManager += BuyAlchemistManager;
 
         //turn to grey
         m_greevilsGreedImage.color = new Color(0.275f, 0.275f, 0.275f);
@@ -41,5 +43,13 @@ public class AlchemistController : MonoBehaviour
         Debug.Log("Bought ChemicalRage Upgrade");
         //turn to white
         m_chemicalRageImage.color = new Color(1f, 1f, 1f);
+    }
+
+    void BuyAlchemistManager()
+    {
+        Debug.Log("Bought Alchemist Manager");
+        AlchemistManager = true;
+        RadiantClickerController clicker = this.GetComponent<RadiantClickerController>();
+        clicker.HasManager = AlchemistManager;
     }
 }

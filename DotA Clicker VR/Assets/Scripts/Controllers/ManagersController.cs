@@ -7,11 +7,33 @@ public class ManagersController : MonoBehaviour {
 
     public List<ManagerDto> Managers { get; set; }
 
+    public delegate void OnBuyIoManager();
+    public delegate void OnBuyRubickManager();
+    public delegate void OnBuyOgreMagiManager();
+    public delegate void OnBuyTuskManager();
+    public delegate void OnBuyPhoenixManager();
+    public delegate void OnBuySvenManager();
+    public delegate void OnBuyAntiMageManager();
+    public delegate void OnBuyAlchemistManager();
+
+    public static event OnBuyIoManager BuyIoManager;
+    public static event OnBuyRubickManager BuyRubickManager;
+    public static event OnBuyOgreMagiManager BuyOgreMagiManager;
+    public static event OnBuyTuskManager BuyTuskManager;
+    public static event OnBuyPhoenixManager BuyPhoenixManager;
+    public static event OnBuySvenManager BuySvenManager;
+    public static event OnBuyAntiMageManager BuyAntiMageManager;
+    public static event OnBuyAlchemistManager BuyAlchemistManager;
+
     [SerializeField]
     GameObject ManagerPrefab;
 
+    RadiantSceneController m_sceneController;
+
     void Start ()
     {
+        m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
+
         Managers = new List<ManagerDto>();
         RefreshManagers();
 
@@ -32,6 +54,9 @@ public class ManagersController : MonoBehaviour {
             upgradeName.text = manager.Name + " Manager";
             Text upgradeCost = newManager.transform.Find("BuyButton/CostCanvas/GoldCost").GetComponent<Text>();
             upgradeCost.text = manager.Cost + " gold";
+            Button button = newManager.transform.Find("BuyButton").GetComponent<Button>();
+            ManagerDto clickedManager = manager; //Fix for AddListener adding current manager to each button click
+            button.onClick.AddListener(delegate { AddManager(clickedManager); });
         }
     }
 	
@@ -90,5 +115,55 @@ public class ManagersController : MonoBehaviour {
             Image = Resources.Load<Sprite>("Images/UI/ManagerIcons/Alchemist"),
             Cost = 0,
         });
+    }
+
+    void AddManager(ManagerDto manager)
+    {
+        if (m_sceneController.TotalGold < manager.Cost)
+        {
+            Debug.Log("Can't buy manager '" + manager.Name + "'");
+            return;
+        }
+
+        if (manager.Name == "Io")
+        {
+            Debug.Log("Clicked Io Manager");
+            BuyIoManager(); //Invoke Event
+        }
+        else if (manager.Name == "Rubick")
+        {
+            Debug.Log("Clicked Rubick Manager");
+            BuyRubickManager(); 
+        }
+        else if (manager.Name == "Ogre Magi")
+        {
+            Debug.Log("Clicked Ogre Magi Manager");
+            BuyOgreMagiManager(); 
+        }
+        else if (manager.Name == "Tusk")
+        {
+            Debug.Log("Clicked Tusk Manager");
+            BuyTuskManager(); 
+        }
+        else if (manager.Name == "Phoenix")
+        {
+            Debug.Log("Clicked Phoenix Manager");
+            BuyPhoenixManager(); 
+        }
+        else if (manager.Name == "Sven")
+        {
+            Debug.Log("Clicked Sven Manager");
+            BuySvenManager(); 
+        }
+        else if (manager.Name == "Anti Mage")
+        {
+            Debug.Log("Clicked Anti Mage Manager");
+            BuyAntiMageManager(); 
+        }
+        else if (manager.Name == "Alchemist")
+        {
+            Debug.Log("Clicked Alchemist Manager");
+            BuyAlchemistManager(); 
+        }
     }
 }

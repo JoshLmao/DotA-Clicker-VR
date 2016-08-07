@@ -6,6 +6,7 @@ public class RubickController : MonoBehaviour
 {
     public bool NullFieldUpgrade = false;
     public bool SpellStealUpgrade = false;
+    public bool RubickManager = false;
 
     GameObject m_nullFieldButton;
     GameObject m_relocateButton;
@@ -21,6 +22,7 @@ public class RubickController : MonoBehaviour
 
         UpgradesController.BuyNullFieldUpgrade += BuyNullFieldUpgrade;
         UpgradesController.BuySpellStealUpgrade += BuySpellStealUpgrade;
+        ManagersController.BuyRubickManager += BuyRubickManager;
 
         //turn to grey
         m_nullFieldImage.color = new Color(0.275f, 0.275f, 0.275f);
@@ -41,5 +43,13 @@ public class RubickController : MonoBehaviour
         Debug.Log("Bought Relocate Upgrade");
         //turn to white
         m_spellStealImage.color = new Color(1f, 1f, 1f);
+    }
+
+    void BuyRubickManager()
+    {
+        Debug.Log("Bought Rubick Manager");
+        RubickManager = true;
+        RadiantClickerController clicker = this.GetComponent<RadiantClickerController>();
+        clicker.HasManager = RubickManager;
     }
 }
