@@ -7,11 +7,21 @@ public class UpgradesController : MonoBehaviour
 {
     public List<UpgradeDto> Upgrades { get; set; }
 
+    public delegate void OnBuyOverchargeUpgrade();
+    public static event OnBuyOverchargeUpgrade BuyOverchargeUpgrade;
+
+    public delegate void OnBuyRelocateUpgrade();
+    public static event OnBuyRelocateUpgrade BuyRelocateUpgrade;
+
     [SerializeField]
     GameObject UpgradePrefab;
 
+    RadiantSceneController m_sceneController;
+
 	void Start ()
     {
+        m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
+
         Upgrades = new List<UpgradeDto>();
         RefreshUpgrades();
 
@@ -24,7 +34,7 @@ public class UpgradesController : MonoBehaviour
             newUpgrade.name = upgrade.Name;
 
             newUpgrade.GetComponent<RectTransform>().localPosition = new Vector3(newUpgrade.transform.localPosition.x, addY, newUpgrade.transform.localPosition.z);
-            addY -= 180;
+            addY -= 275; //Space between each UI
 
             Image icon = newUpgrade.transform.Find("UpgradeImage").GetComponent<Image>();
             icon.sprite = upgrade.Image;
@@ -34,6 +44,9 @@ public class UpgradesController : MonoBehaviour
             description.text = upgrade.Description;
             Text upgradeCost = newUpgrade.transform.Find("BuyButton/CostCanvas/GoldCost").GetComponent<Text>();
             upgradeCost.text = upgrade.Cost + " gold";
+            Button button = newUpgrade.transform.Find("BuyButton").GetComponent<Button>();
+            UpgradeDto clickedUpgrade = upgrade; //Fix for AddListener adding last upgrade to each button click
+            button.onClick.AddListener(delegate { AddUpgrade(clickedUpgrade); });
         }
 	}
 	
@@ -47,7 +60,7 @@ public class UpgradesController : MonoBehaviour
         Upgrades.Add(new UpgradeDto()
         {
             Name = "Overcharge",
-            Description = "Overcharges Io to double his output for 30 seconds",
+            Description = "Overcharges Io to double his output for 30 seconds. Cooldown: 1 minute",
             HeroUpgrade = "Io",
             Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Io_Overcharge"),
             Cost = 2000,
@@ -55,7 +68,7 @@ public class UpgradesController : MonoBehaviour
         Upgrades.Add(new UpgradeDto()
         {
             Name = "Relocate",
-            Description = "",
+            Description = "Quadruples Io's click amount for 20 seconds. Cooldown: 3 minutes",
             HeroUpgrade = "Io",
             Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Io_Relocate"),
             Cost = 6000,
@@ -141,5 +154,24 @@ public class UpgradesController : MonoBehaviour
             Cost = 0,
         });
 
+    }
+
+    void AddUpgrade(UpgradeDto upgrade)
+    {
+        if (m_sceneController.TotalGold < upgrade.Cost)
+        {
+            Debug.Log("Can't buy upgrade '" + upgrade.Name + "'");
+            return;
+        }
+
+        if (upgrade.Name == "Overcharge")
+        {
+            Debug.Log("Clicked IO Overcharge");
+            BuyOverchargeUpgrade(); //Invoke Event
+        }
+        else
+        {
+            Debug.Log("Adding other Upgrade");
+        }
     }
 }

@@ -7,7 +7,7 @@ public class RadiantSceneController : MonoBehaviour
 {    
     public List<HeroClicker> SceneHeroes { get; set; }
 
-    public int TotalGold = 0;
+    public int TotalGold = 3000;
 
     Text m_goldUI;
 

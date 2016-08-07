@@ -98,6 +98,10 @@ public class HandController : MonoBehaviour {
             CurrentObject = col.gameObject;
             m_canPickupObj = true;
         }
+        else if(col.tag == "Upgrade")
+        {
+
+        }
     }
 
     void OnTriggerClicked(object sender, ClickedEventArgs e)
