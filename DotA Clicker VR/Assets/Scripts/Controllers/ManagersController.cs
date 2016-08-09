@@ -35,29 +35,9 @@ public class ManagersController : MonoBehaviour {
         m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
 
         Managers = new List<ManagerDto>();
+        AddManagers();
+
         RefreshManagers();
-
-        int addY = 585; //Hack to get positioning of List UI
-
-        foreach (ManagerDto manager in Managers)
-        {
-            GameObject newManager = GameObject.Instantiate(ManagerPrefab);
-            newManager.transform.SetParent(this.transform, false);
-            newManager.name = manager.Name;
-
-            newManager.GetComponent<RectTransform>().localPosition = new Vector3(newManager.transform.localPosition.x, addY, newManager.transform.localPosition.z);
-            addY -= 230;
-
-            Image icon = newManager.transform.Find("ManagerImage").GetComponent<Image>();
-            icon.sprite = manager.Image;
-            Text upgradeName = newManager.transform.Find("ManagerName").GetComponent<Text>();
-            upgradeName.text = manager.Name + " Manager";
-            Text upgradeCost = newManager.transform.Find("BuyButton/CostCanvas/GoldCost").GetComponent<Text>();
-            upgradeCost.text = manager.Cost + " gold";
-            Button button = newManager.transform.Find("BuyButton").GetComponent<Button>();
-            ManagerDto clickedManager = manager; //Fix for AddListener adding current manager to each button click
-            button.onClick.AddListener(delegate { AddManager(clickedManager); });
-        }
     }
 	
 	void Update ()
@@ -65,7 +45,7 @@ public class ManagersController : MonoBehaviour {
 	
 	}
 
-    void RefreshManagers()
+    void AddManagers()
     {
         Managers.Add(new ManagerDto()
         {
@@ -115,6 +95,30 @@ public class ManagersController : MonoBehaviour {
             Image = Resources.Load<Sprite>("Images/UI/ManagerIcons/Alchemist"),
             Cost = 0,
         });
+    }
+
+    void RefreshManagers()
+    {
+        int addY = 585; //Hack to get positioning of List UI
+        foreach (ManagerDto manager in Managers)
+        {
+            GameObject newManager = GameObject.Instantiate(ManagerPrefab);
+            newManager.transform.SetParent(this.transform, false);
+            newManager.name = manager.Name;
+
+            newManager.GetComponent<RectTransform>().localPosition = new Vector3(newManager.transform.localPosition.x, addY, newManager.transform.localPosition.z);
+            addY -= 230;
+
+            Image icon = newManager.transform.Find("ManagerImage").GetComponent<Image>();
+            icon.sprite = manager.Image;
+            Text upgradeName = newManager.transform.Find("ManagerName").GetComponent<Text>();
+            upgradeName.text = manager.Name + " Manager";
+            Text upgradeCost = newManager.transform.Find("BuyButton/CostCanvas/GoldCost").GetComponent<Text>();
+            upgradeCost.text = manager.Cost + " gold";
+            Button button = newManager.transform.Find("BuyButton").GetComponent<Button>();
+            ManagerDto clickedManager = manager; //Fix for AddListener adding current manager to each button click
+            button.onClick.AddListener(delegate { AddManager(clickedManager); });
+        }
     }
 
     void AddManager(ManagerDto manager)

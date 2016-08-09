@@ -43,7 +43,7 @@ public class UpgradesController : MonoBehaviour
 
     [SerializeField]
     GameObject UpgradePrefab;
-
+    List<GameObject> UpgradeObjects { get; set; }
     RadiantSceneController m_sceneController;
 
 	void Start ()
@@ -51,31 +51,9 @@ public class UpgradesController : MonoBehaviour
         m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
 
         Upgrades = new List<UpgradeDto>();
-        RefreshUpgrades();
+        AddDefaultUpgrades();
 
-        int addY = -30; //Hack to get positioning of List UI
-
-        foreach(UpgradeDto upgrade in Upgrades)
-        {
-            GameObject newUpgrade = GameObject.Instantiate(UpgradePrefab);
-            newUpgrade.transform.SetParent(this.transform, false);
-            newUpgrade.name = upgrade.Name;
-
-            newUpgrade.GetComponent<RectTransform>().localPosition = new Vector3(newUpgrade.transform.localPosition.x, addY, newUpgrade.transform.localPosition.z);
-            addY -= 275; //Space between each UI
-
-            Image icon = newUpgrade.transform.Find("UpgradeImage").GetComponent<Image>();
-            icon.sprite = upgrade.Image;
-            Text upgradeName = newUpgrade.transform.Find("UpgradeName").GetComponent<Text>();
-            upgradeName.text = upgrade.Name + " - " + upgrade.HeroUpgrade;
-            Text description = newUpgrade.transform.Find("UpgradeDesc").GetComponent<Text>();
-            description.text = upgrade.Description;
-            Text upgradeCost = newUpgrade.transform.Find("BuyButton/CostCanvas/GoldCost").GetComponent<Text>();
-            upgradeCost.text = upgrade.Cost + " gold";
-            Button button = newUpgrade.transform.Find("BuyButton").GetComponent<Button>();
-            UpgradeDto clickedUpgrade = upgrade; //Fix for AddListener adding current upgrade to each button click
-            button.onClick.AddListener(delegate { AddUpgrade(clickedUpgrade); });
-        }
+        RefreshUpgradesList();
 	}
 	
 	void Update ()
@@ -83,7 +61,7 @@ public class UpgradesController : MonoBehaviour
 	
 	}
 
-    void RefreshUpgrades()
+    void AddDefaultUpgrades()
     {
         Upgrades.Add(new UpgradeDto()
         {
@@ -216,6 +194,39 @@ public class UpgradesController : MonoBehaviour
 
     }
 
+    void RefreshUpgradesList()
+    {
+        var children = new List<GameObject>();
+        foreach (Transform child in transform)
+            children.Add(child.gameObject);
+        children.ForEach(child => Destroy(child));
+
+        int addY = -30; //Hack to get positioning of List UI
+        foreach (UpgradeDto upgrade in Upgrades)
+        {
+            GameObject newUpgrade = GameObject.Instantiate(UpgradePrefab);
+            newUpgrade.transform.SetParent(this.transform, false);
+            newUpgrade.name = upgrade.Name;
+
+            newUpgrade.GetComponent<RectTransform>().localPosition = new Vector3(newUpgrade.transform.localPosition.x, addY, newUpgrade.transform.localPosition.z);
+            addY -= 275; //Space between each UI
+
+            Image icon = newUpgrade.transform.Find("UpgradeImage").GetComponent<Image>();
+            icon.sprite = upgrade.Image;
+            Text upgradeName = newUpgrade.transform.Find("UpgradeName").GetComponent<Text>();
+            upgradeName.text = upgrade.Name + " - " + upgrade.HeroUpgrade;
+            Text description = newUpgrade.transform.Find("UpgradeDesc").GetComponent<Text>();
+            description.text = upgrade.Description;
+            Text upgradeCost = newUpgrade.transform.Find("BuyButton/CostCanvas/GoldCost").GetComponent<Text>();
+            upgradeCost.text = upgrade.Cost + " gold";
+            Button button = newUpgrade.transform.Find("BuyButton").GetComponent<Button>();
+            UpgradeDto clickedUpgrade = upgrade; //Fix for AddListener adding current upgrade to each button click
+            button.onClick.AddListener(delegate { AddUpgrade(clickedUpgrade); });
+
+            //UpgradeObjects.Add(newUpgrade);
+        }
+    }
+
     void AddUpgrade(UpgradeDto upgrade)
     {
         if (m_sceneController.TotalGold < upgrade.Cost)
@@ -304,5 +315,8 @@ public class UpgradesController : MonoBehaviour
             Debug.Log("Clicked Chemical Rage");
             BuyChemicalRageUpgrade(); 
         }
+
+        Upgrades.Remove(upgrade);
+        RefreshUpgradesList();
     }
 }
