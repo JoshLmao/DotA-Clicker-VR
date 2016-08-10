@@ -42,47 +42,8 @@ public class HandController : MonoBehaviour {
 	
 	void Update ()
     {
-        //Toggle for LaserPointer
-	    if(m_controller.triggerPressed && m_controller.gripped)
-        {
-            m_enablePointer = !m_enablePointer;
-        }
-
-        if(m_laserPointer != null)
-        {
-            m_laserPointer.active = m_enablePointer;
-        }
-
         if (m_canClickOnUI)
         {
-            //if (m_activeButtonUI != null)
-            //{
-            //    m_activeButtonUI.Select();
-            //    if (m_controller.triggerPressed)
-            //    {
-            //        Debug.Log("Clicked on Button");
-            //        var yes = m_activeButtonUI.GetComponent<Button>();
-            //        yes.onClick.Invoke(); //do button click
-            //    }
-            //}
-            //else if(m_activeSliderUI != null)
-            //{
-            //    if(m_controller.triggerPressed)
-            //    {
-            //        Debug.Log("Clicked on Slider");
-            //        //m_sliderTranform = m_activeSliderUI.transform;
-            //    }
-            //}
-            //else if(m_activeToggleUI != null)
-            //{
-            //    m_activeToggleUI.Select();
-            //    if(m_controller.triggerPressed)
-            //    {
-            //        Debug.Log("Clicked on Toggle");
-            //        m_activeToggleUI.isOn = !m_activeToggleUI.isOn;
-            //    }
-            //}
-
             //Detect for Scrollable UI
             if (m_scrollableMenu != null)
             {
@@ -150,6 +111,10 @@ public class HandController : MonoBehaviour {
             else if (m_activeSliderUI != null)
             {
                 Debug.Log("Clicked on Slider");
+                if(m_controller.triggerPressed)
+                {
+                   // m_activeSliderUI.value = 
+                }
                 //m_sliderTranform = m_activeSliderUI.transform;
             }
             else if (m_activeToggleUI != null)
@@ -172,6 +137,18 @@ public class HandController : MonoBehaviour {
     void OnPointerIn(object sender, PointerEventArgs e)
     {
         CurrentAimTranform = e.target.transform;
+
+        if(e.target.gameObject.layer == 5)
+        {
+            //Enable LaserPointer
+            m_laserPointer.active = true;
+            Debug.Log("Enabling LaserPointer");
+        }
+        else
+        {
+            m_laserPointer.active = false;
+            Debug.Log("Disabling LaserPointer");
+        }
 
         if(e.target.gameObject.layer == 5 && e.target.gameObject.GetComponent<Button>() && e.target.gameObject.GetComponent<BoxCollider>())
         {
@@ -209,10 +186,13 @@ public class HandController : MonoBehaviour {
     void OnPointerOut(object sender, PointerEventArgs e)
     {
         m_canClickOnUI = false;
-
+        
         m_activeToggleUI = null;
         m_activeSliderUI = null;
         m_activeButtonUI = null;
         m_activeScrollerUI = null;
+
+        //Disable LaserPointer
+        m_laserPointer.active = false;
     }
 }

@@ -12,7 +12,7 @@ public class AmbientSoundManager : MonoBehaviour {
     {
         AudioSource = GameObject.Find("AmbientAudio").GetComponent<AudioSource>();
         MasterVolumeSlider = GameObject.Find("MasterVolSlider").GetComponent<Slider>();
-        //InvokeRepeating("PlayAmbientSound", 1, 1f); //Comment out to stop audio playing
+        InvokeRepeating("PlayAmbientSound", 1, 1f); //Comment out to stop audio playing
     }
 
 	void Update ()
