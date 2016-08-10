@@ -37,7 +37,7 @@ public class ManagersController : MonoBehaviour {
         Managers = new List<ManagerDto>();
         AddManagers();
 
-        RefreshManagers();
+        RefreshManagersList();
     }
 	
 	void Update ()
@@ -97,8 +97,13 @@ public class ManagersController : MonoBehaviour {
         });
     }
 
-    void RefreshManagers()
+    void RefreshManagersList()
     {
+        var children = new List<GameObject>();
+        foreach (Transform child in transform)
+            children.Add(child.gameObject);
+        children.ForEach(child => Destroy(child));
+
         int addY = 585; //Hack to get positioning of List UI
         foreach (ManagerDto manager in Managers)
         {
@@ -169,5 +174,8 @@ public class ManagersController : MonoBehaviour {
             Debug.Log("Clicked Alchemist Manager");
             BuyAlchemistManager(); 
         }
+
+        Managers.RemoveAll(x => x.Name == manager.Name);
+        RefreshManagersList();
     }
 }

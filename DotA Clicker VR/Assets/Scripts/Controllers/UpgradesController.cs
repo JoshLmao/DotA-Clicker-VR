@@ -316,7 +316,7 @@ public class UpgradesController : MonoBehaviour
             BuyChemicalRageUpgrade(); 
         }
 
-        Upgrades.Remove(upgrade);
+        Upgrades.RemoveAll(x => x.Name == upgrade.Name);
         RefreshUpgradesList();
     }
 }

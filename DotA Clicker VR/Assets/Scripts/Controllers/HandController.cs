@@ -55,34 +55,33 @@ public class HandController : MonoBehaviour {
 
         if (m_canClickOnUI)
         {
-            if (m_activeButtonUI != null)
-            {
-                m_activeButtonUI.Select();
-                if (m_controller.triggerPressed)
-                {
-                    Debug.Log("Clicked on Button");
-                    var yes = m_activeButtonUI.GetComponent<Button>();
-                    yes.onClick.Invoke(); //do button click
-                }
-            }
-            else if(m_activeSliderUI != null)
-            {
-                if(m_controller.triggerPressed)
-                {
-                    Debug.Log("Clicked on Slider");
-                    //m_sliderTranform = m_activeSliderUI.transform;
-                }
-            }
-            else if(m_activeToggleUI != null)
-            {
-                m_activeToggleUI.Select();
-                if(m_controller.triggerPressed)
-                {
-                    Debug.Log("Clicked on Toggle");
-                    m_activeToggleUI.isOn = !m_activeToggleUI.isOn;
-                }
-            }
-
+            //if (m_activeButtonUI != null)
+            //{
+            //    m_activeButtonUI.Select();
+            //    if (m_controller.triggerPressed)
+            //    {
+            //        Debug.Log("Clicked on Button");
+            //        var yes = m_activeButtonUI.GetComponent<Button>();
+            //        yes.onClick.Invoke(); //do button click
+            //    }
+            //}
+            //else if(m_activeSliderUI != null)
+            //{
+            //    if(m_controller.triggerPressed)
+            //    {
+            //        Debug.Log("Clicked on Slider");
+            //        //m_sliderTranform = m_activeSliderUI.transform;
+            //    }
+            //}
+            //else if(m_activeToggleUI != null)
+            //{
+            //    m_activeToggleUI.Select();
+            //    if(m_controller.triggerPressed)
+            //    {
+            //        Debug.Log("Clicked on Toggle");
+            //        m_activeToggleUI.isOn = !m_activeToggleUI.isOn;
+            //    }
+            //}
 
             //Detect for Scrollable UI
             if (m_scrollableMenu != null)
@@ -138,6 +137,30 @@ public class HandController : MonoBehaviour {
         if(m_canPickupObj && CurrentObject != null)
         {
             IsHoldingObj = true;
+        }
+
+        if(m_canClickOnUI)
+        {
+            if (m_activeButtonUI != null)
+            {
+                Debug.Log("Clicked on Button");
+                var yes = m_activeButtonUI.GetComponent<Button>();
+                yes.onClick.Invoke(); //do button click
+            }
+            else if (m_activeSliderUI != null)
+            {
+                Debug.Log("Clicked on Slider");
+                //m_sliderTranform = m_activeSliderUI.transform;
+            }
+            else if (m_activeToggleUI != null)
+            {
+                m_activeToggleUI.Select();
+
+                Debug.Log("Clicked on Toggle");
+                m_activeToggleUI.isOn = !m_activeToggleUI.isOn;
+            }
+
+
         }
     }
 
