@@ -23,9 +23,9 @@ public class RubickController : MonoBehaviour
     AudioClip[] SpellStealResponses;
 
     [SerializeField]
-    AudioClip Telekinesis;
+    AudioClip TelekinesisAbilitySound;
     [SerializeField]
-    AudioClip SpellSteal;
+    AudioClip SpellStealAbilitySound;
 
     GameObject m_TelekinesisButton;
     GameObject m_relocateButton;
@@ -92,7 +92,7 @@ public class RubickController : MonoBehaviour
         //Do animation and voice line
         m_rubickAnimator.SetTrigger("useTelekinesis");
         RadiantClickerController.PlayRandomClip(m_audioSource, TelekinesisResponses);
-
+        
         AbilityCooldown(180);
 
         m_TelekinesisImage.color = new Color(1f, 1f, 1f);

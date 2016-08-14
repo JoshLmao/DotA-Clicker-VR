@@ -27,6 +27,7 @@ public class IoController : MonoBehaviour
         m_clickerController.OnClickedButton += ClickedButton;
         m_clickerController.OnClickedFinished += ClickedFinished;
 
+        Io = transform.Find("Io").gameObject;
         m_ioAnimator = Io.GetComponent<Animator>();
         m_audioSource = Io.GetComponent<AudioSource>();
 
