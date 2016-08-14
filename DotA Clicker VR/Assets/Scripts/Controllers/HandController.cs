@@ -77,7 +77,13 @@ public class HandController : MonoBehaviour {
                 }
             }
         }
-	}
+
+        if(IsHoldingObj)
+        {
+            //Position done auto by having set parent to controller
+            CurrentObject.transform.rotation = this.transform.rotation;
+        }
+    }
 
     void OnTriggerEnter(Collider col)
     {
@@ -97,7 +103,18 @@ public class HandController : MonoBehaviour {
     {
         if(m_canPickupObj && CurrentObject != null)
         {
+            CurrentObject.transform.parent = this.gameObject.transform;
+            CurrentObject.transform.rotation = this.transform.rotation;
+
             IsHoldingObj = true;
+        }
+
+        if(IsHoldingObj)
+        {
+            IsHoldingObj = false;
+            CurrentObject.transform.parent = null;
+
+            CurrentObject = null;
         }
 
         if(m_canClickOnUI)
