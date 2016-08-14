@@ -12,14 +12,35 @@ public class PhoenixController : MonoBehaviour
     public bool SupernovaActive = false;
 
     public bool PhoenixManager = false;
+    public GameObject Phoenix;
+
+    [SerializeField]
+    AudioClip[] AttackingResponses;
+
+    [SerializeField]
+    AudioClip[] SunrayResponses;
+
+    [SerializeField]
+    AudioClip[] SupernovaResponses;
 
     GameObject m_sunrayButton;
     GameObject m_supernovaButton;
     Image m_sunrayImage;
     Image m_supernovaImage;
+    Animator m_phoenixAnimator;
+    AudioSource m_audioSource;
+    RadiantClickerController m_clickerController;
 
     void Start()
     {
+        m_clickerController = GetComponent<RadiantClickerController>();
+        m_clickerController.OnClickedButton += ClickedButton;
+        m_clickerController.OnClickedFinished += ClickedFinished;
+
+        Phoenix = transform.Find("Phoenix").gameObject;
+        m_phoenixAnimator = Phoenix.GetComponent<Animator>();
+        m_audioSource = Phoenix.GetComponent<AudioSource>();
+
         m_sunrayButton = transform.Find("Buttons/StandBack/UpgradesCanvas/SunrayBack/SunrayBtn").gameObject;
         m_supernovaButton = transform.Find("Buttons/StandBack/UpgradesCanvas/SupernovaBack/SupernovaBtn").gameObject;
         m_sunrayImage = m_sunrayButton.GetComponent<Image>();
@@ -64,6 +85,10 @@ public class PhoenixController : MonoBehaviour
         m_sunrayImage.color = new Color(0.275f, 0.275f, 0.275f);
         SunrayActive = true;
 
+        //Do animation and voice line
+        m_phoenixAnimator.SetTrigger("useSunray");
+        RadiantClickerController.PlayRandomClip(m_audioSource, SunrayResponses);
+
         AbilityCooldown(180);
 
         m_sunrayImage.color = new Color(1f, 1f, 1f);
@@ -76,6 +101,10 @@ public class PhoenixController : MonoBehaviour
         m_supernovaImage.color = new Color(0.275f, 0.275f, 0.275f);
         SupernovaActive = true;
 
+        //Do animation and voice line
+        m_phoenixAnimator.SetTrigger("useSupernova");
+        RadiantClickerController.PlayRandomClip(m_audioSource, SupernovaResponses);
+
         AbilityCooldown(180);
 
         m_supernovaImage.color = new Color(1f, 1f, 1f);
@@ -85,5 +114,22 @@ public class PhoenixController : MonoBehaviour
     IEnumerator AbilityCooldown(float time)
     {
         yield return new WaitForSeconds(time);
+    }
+
+    void ClickedButton(string name)
+    {
+        if (name == "PhoenixBuyStand")
+        {
+            m_phoenixAnimator.SetBool("isAttacking", true);
+            RadiantClickerController.PlayRandomClip(m_audioSource, AttackingResponses);
+        }
+    }
+
+    void ClickedFinished(string name)
+    {
+        if (name == "PhoenixBuyStand")
+        {
+            m_phoenixAnimator.SetBool("isAttacking", false);
+        }
     }
 }

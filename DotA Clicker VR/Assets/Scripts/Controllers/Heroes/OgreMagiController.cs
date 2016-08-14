@@ -11,14 +11,35 @@ public class OgreMagiController : MonoBehaviour
     public bool BloodlustActive = false;
 
     public bool OgreMagiManager = false;
+    public GameObject OgreMagi;
+
+    [SerializeField]
+    AudioClip[] AttackingResponses;
+
+    [SerializeField]
+    AudioClip[] FireblastResponses;
+
+    [SerializeField]
+    AudioClip[] BloodlustResponses;
 
     GameObject m_fireblastButton;
     GameObject m_bloodlustButton;
     Image m_fireblastImage;
     Image m_bloodlustImage;
+    public Animator m_ogreMagiAnimator;
+    AudioSource m_audioSource;
+    RadiantClickerController m_clickerController;
 
     void Start()
     {
+        m_clickerController = GetComponent<RadiantClickerController>();
+        m_clickerController.OnClickedButton += ClickedButton;
+        m_clickerController.OnClickedFinished += ClickedFinished;
+
+        OgreMagi = transform.Find("OgreMagi").gameObject;
+        m_ogreMagiAnimator = OgreMagi.GetComponent<Animator>();
+        m_audioSource = OgreMagi.GetComponent<AudioSource>();
+
         m_fireblastButton = transform.Find("Buttons/StandBack/UpgradesCanvas/FireblastBack/FireblastBtn").gameObject;
         m_bloodlustButton = transform.Find("Buttons/StandBack/UpgradesCanvas/BloodlustBack/BloodlustBtn").gameObject;
         m_fireblastImage = m_fireblastButton.GetComponent<Image>();
@@ -63,6 +84,10 @@ public class OgreMagiController : MonoBehaviour
         m_fireblastImage.color = new Color(0.275f, 0.275f, 0.275f);
         FireblastActive = true;
 
+        //Do animation and voice line
+        m_ogreMagiAnimator.SetTrigger("useFireblast");
+        RadiantClickerController.PlayRandomClip(m_audioSource, FireblastResponses);
+
         AbilityCooldown(180);
 
         m_fireblastImage.color = new Color(1f, 1f, 1f);
@@ -75,6 +100,11 @@ public class OgreMagiController : MonoBehaviour
         m_bloodlustImage.color = new Color(0.275f, 0.275f, 0.275f);
         BloodlustActive = true;
 
+        //Do animation and voice line
+        m_ogreMagiAnimator.SetTrigger("useBloodlust");
+        RadiantClickerController.PlayRandomClip(m_audioSource, BloodlustResponses);
+
+
         AbilityCooldown(180);
 
         m_bloodlustImage.color = new Color(1f, 1f, 1f);
@@ -84,5 +114,22 @@ public class OgreMagiController : MonoBehaviour
     IEnumerator AbilityCooldown(float time)
     {
         yield return new WaitForSeconds(time);
+    }
+
+    void ClickedButton(string name)
+    {
+        if (name == "OgreMagiBuyStand")
+        {
+            m_ogreMagiAnimator.SetBool("isAttacking", true);
+            RadiantClickerController.PlayRandomClip(m_audioSource, AttackingResponses);
+        }
+    }
+
+    void ClickedFinished(string name)
+    {
+        if (name == "OgreMagiBuyStand")
+        {
+            m_ogreMagiAnimator.SetBool("isAttacking", false);
+        }
     }
 }

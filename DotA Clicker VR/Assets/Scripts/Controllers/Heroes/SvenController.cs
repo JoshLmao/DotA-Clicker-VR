@@ -12,14 +12,35 @@ public class SvenController : MonoBehaviour
     public bool GodsStrengthActive = false;
 
     public bool SvenManager = false;
+    public GameObject Sven;
+
+    [SerializeField]
+    AudioClip[] AttackingResponses;
+
+    [SerializeField]
+    AudioClip[] WarCryResponses;
+
+    [SerializeField]
+    AudioClip[] GodsStrengthResponses;
 
     GameObject m_warCryButton;
     GameObject m_godsStrengthButton;
     Image m_warCryImage;
     Image m_godsStrengthImage;
+    Animator m_svenAnimator;
+    AudioSource m_audioSource;
+    RadiantClickerController m_clickerController; 
 
     void Start()
     {
+        m_clickerController = GetComponent<RadiantClickerController>();
+        m_clickerController.OnClickedButton += ClickedButton;
+        m_clickerController.OnClickedFinished += ClickedFinished;
+
+        Sven = transform.Find("Sven").gameObject;
+        m_svenAnimator = Sven.GetComponent<Animator>();
+        m_audioSource = Sven.GetComponent<AudioSource>();
+
         m_warCryButton = transform.Find("Buttons/StandBack/UpgradesCanvas/WarCryBack/WarCryBtn").gameObject;
         m_godsStrengthButton = transform.Find("Buttons/StandBack/UpgradesCanvas/GodsStrengthBack/GodsStrengthBtn").gameObject;
         m_warCryImage = m_warCryButton.GetComponent<Image>();
@@ -64,6 +85,10 @@ public class SvenController : MonoBehaviour
         m_warCryImage.color = new Color(0.275f, 0.275f, 0.275f);
         WarCryActive = true;
 
+        //Do animation and voice line
+        m_svenAnimator.SetTrigger("useWarCry");
+        RadiantClickerController.PlayRandomClip(m_audioSource, WarCryResponses);
+
         AbilityCooldown(180);
 
         m_warCryImage.color = new Color(1f, 1f, 1f);
@@ -76,6 +101,10 @@ public class SvenController : MonoBehaviour
         m_godsStrengthImage.color = new Color(0.275f, 0.275f, 0.275f);
         GodsStrengthActive = true;
 
+        //Do animation and voice line
+        m_svenAnimator.SetTrigger("useGodsStrength");
+        RadiantClickerController.PlayRandomClip(m_audioSource, GodsStrengthResponses);
+
         AbilityCooldown(180);
 
         m_godsStrengthImage.color = new Color(1f, 1f, 1f);
@@ -85,5 +114,22 @@ public class SvenController : MonoBehaviour
     IEnumerator AbilityCooldown(float time)
     {
         yield return new WaitForSeconds(time);
+    }
+
+    void ClickedButton(string name)
+    {
+        if(name == "SvenBuyStand")
+        {
+            m_svenAnimator.SetBool("isAttacking", true);
+            RadiantClickerController.PlayRandomClip(m_audioSource, AttackingResponses);
+        }
+    }
+
+    void ClickedFinished(string name)
+    {
+        if (name == "AlchemistBuyStand")
+        {
+            m_svenAnimator.SetBool("isAttacking", false);
+        }
     }
 }

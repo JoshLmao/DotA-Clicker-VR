@@ -54,7 +54,6 @@ public class ButtonManager : MonoBehaviour
         {
             if (m_animator.GetCurrentAnimatorStateInfo(0).IsName("ClickButtonPush") || m_clickerController.IsClicked || m_clickerController.ClickerMultiplier == 0) //if (is in animation) || (IsClick is progress)
             {
-                Debug.Log("Can't click button '" + m_clickerController.name + "'");
                 return;
             }
 

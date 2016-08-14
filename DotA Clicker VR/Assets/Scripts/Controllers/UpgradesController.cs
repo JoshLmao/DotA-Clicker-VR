@@ -9,7 +9,7 @@ public class UpgradesController : MonoBehaviour
 
     public delegate void OnBuyOverchargeUpgrade();
     public delegate void OnBuyRelocateUpgrade();
-    public delegate void OnBuyNullFieldUpgrade();
+    public delegate void OnBuyTelekinesisUpgrade();
     public delegate void OnBuySpellStealUpgrade();
     public delegate void OnBuyFireblastUpgrade();
     public delegate void OnBuyBloodlustUpgrade();
@@ -26,7 +26,7 @@ public class UpgradesController : MonoBehaviour
 
     public static event OnBuyOverchargeUpgrade BuyOverchargeUpgrade;
     public static event OnBuyRelocateUpgrade BuyRelocateUpgrade;
-    public static event OnBuyNullFieldUpgrade BuyNullFieldUpgrade;
+    public static event OnBuyTelekinesisUpgrade BuyTelekinesisUpgrade;
     public static event OnBuySpellStealUpgrade BuySpellStealUpgrade;
     public static event OnBuyFireblastUpgrade BuyFireblastUpgrade;
     public static event OnBuyBloodlustUpgrade BuyBloodlustUpgrade;
@@ -81,10 +81,10 @@ public class UpgradesController : MonoBehaviour
         });
         Upgrades.Add(new UpgradeDto()
         {
-            Name = "Null Field",
+            Name = "Telekinesis",
             Description = "",
             HeroUpgrade = "Rubick",
-            Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Rubick_NullField"),
+            Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Rubick_Telekinesis"),
             Cost = 0,
         });
         Upgrades.Add(new UpgradeDto()
@@ -245,10 +245,10 @@ public class UpgradesController : MonoBehaviour
             Debug.Log("Clicked Relocate");
             BuyRelocateUpgrade();
         }
-        else if (upgrade.Name == "Null Field")
+        else if (upgrade.Name == "Telekinesis")
         {
-            Debug.Log("Clicked Null Field");
-            BuyNullFieldUpgrade(); 
+            Debug.Log("Clicked Telekinesis");
+            BuyTelekinesisUpgrade(); 
         }
         else if (upgrade.Name == "Spell Steal")
         {

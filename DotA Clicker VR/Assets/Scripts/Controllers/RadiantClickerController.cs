@@ -56,6 +56,11 @@ public class RadiantClickerController : MonoBehaviour
     /// </summary>
     public bool CanBeClicked = false;
 
+    public delegate void OnClickButton(string clickerName);
+    public event OnClickButton OnClickedButton;
+    public delegate void OnClickFinished(string clickerName);
+    public event OnClickFinished OnClickedFinished;
+
     private RadiantSceneController m_sceneController;
     private DateTime m_lastClickedTime;
 
@@ -91,8 +96,8 @@ public class RadiantClickerController : MonoBehaviour
             if(CurrentClickerTime >= TimeBetweenClicks)
             {
                 Debug.Log("Completed Click");
-                CompletedClick();
                 IsClicked = false;
+                CompletedClick();
             }
         }
 
@@ -129,12 +134,14 @@ public class RadiantClickerController : MonoBehaviour
         //On Clicker first pressed
         m_lastClickedTime = DateTime.Now;
         IsClicked = true;
+        OnClickedButton.Invoke(name);
     }
 
     void CompletedClick()
     {
         //On Clicker timer complete
         m_sceneController.TotalGold += ClickAmount; //Add gold
+        OnClickedFinished.Invoke(name);
     }
 
     public void BuyManager(GameObject obj)
@@ -170,18 +177,18 @@ public class RadiantClickerController : MonoBehaviour
                 io.ActivateRelocate();
             }
         }
-        else if (abilityName == "NullFieldBtn" || abilityName == "SpellStealBtn")
+        else if (abilityName == "TelekinesisBtn" || abilityName == "SpellStealBtn")
         {
             RubickController rubick = GetComponentInParent<RubickController>();
-            if (!rubick.NullFieldUpgrade || !rubick.SpellStealUpgrade)
+            if (!rubick.TelekinesisUpgrade || !rubick.SpellStealUpgrade)
                 return;
 
-            if (abilityName == "NullFieldBtn")
+            if (abilityName == "TelekinesisBtn")
             {
-                if (rubick.NullFieldActive)
+                if (rubick.TelekinesisActive)
                     return;
 
-                rubick.ActivateNullField();
+                rubick.ActivateTelekinesis();
             }
             else if(abilityName == "SpellStealBtn")
             {
@@ -316,6 +323,15 @@ public class RadiantClickerController : MonoBehaviour
 
                 alchemist.ActivateChemicalRage();
             }
+        }   
+    }
+
+    public static void PlayRandomClip(AudioSource audioSource, AudioClip[] clips)
+    {
+        int pick = UnityEngine.Random.Range(0, clips.Length);
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(clips[pick]);
         }
     }
 }

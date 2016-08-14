@@ -11,14 +11,25 @@ public class IoController : MonoBehaviour
     public bool RelocateActive = false;
 
     public bool IoManager = false;
+    public GameObject Io;
 
     GameObject m_overchargeButton;
     GameObject m_relocateButton;
     Image m_overchargeImage;
     Image m_relocateImage;
+    Animator m_ioAnimator;
+    AudioSource m_audioSource;
+    RadiantClickerController m_clickerController;
 
     void Start()
     {
+        m_clickerController = GetComponent<RadiantClickerController>();
+        m_clickerController.OnClickedButton += ClickedButton;
+        m_clickerController.OnClickedFinished += ClickedFinished;
+
+        m_ioAnimator = Io.GetComponent<Animator>();
+        m_audioSource = Io.GetComponent<AudioSource>();
+
         m_overchargeButton = transform.Find("Buttons/StandBack/UpgradesCanvas/OverchargeBack/OverchargeBtn").gameObject;
         m_relocateButton = transform.Find("Buttons/StandBack/UpgradesCanvas/RelocateBack/RelocateBtn").gameObject;
         m_overchargeImage = m_overchargeButton.GetComponent<Image>();
@@ -86,5 +97,21 @@ public class IoController : MonoBehaviour
     IEnumerator AbilityCooldown(float time)
     {
         yield return new WaitForSeconds(time);
+    }
+
+    void ClickedButton(string name)
+    {
+        if(name == "IoBuyStand")
+        {
+            m_ioAnimator.SetBool("isAttacking", true);
+        }
+    }
+
+    void ClickedFinished(string name)
+    {
+        if (name == "IoBuyStand")
+        {
+            m_ioAnimator.SetBool("isAttacking", false);
+        }
     }
 }
