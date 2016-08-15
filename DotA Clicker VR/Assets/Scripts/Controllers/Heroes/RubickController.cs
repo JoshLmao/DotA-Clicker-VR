@@ -22,8 +22,11 @@ public class RubickController : MonoBehaviour
     [SerializeField]
     AudioClip[] SpellStealResponses;
 
+    public int TelekinesisCooldown;
     [SerializeField]
     AudioClip TelekinesisAbilitySound;
+
+    public int SpellStealCooldown;
     [SerializeField]
     AudioClip SpellStealAbilitySound;
 
@@ -33,6 +36,7 @@ public class RubickController : MonoBehaviour
     Image m_spellStealImage;
     Animator m_rubickAnimator;
     AudioSource m_audioSource;
+    AudioSource m_abilitySource;
     RadiantClickerController m_clickerController; //For Events
 
     void Start()
@@ -44,6 +48,7 @@ public class RubickController : MonoBehaviour
         RubickModel = transform.Find("Rubick").gameObject;
         m_rubickAnimator = RubickModel.GetComponent<Animator>();
         m_audioSource = RubickModel.GetComponent<AudioSource>();
+        m_abilitySource = GameObject.Find("Rubick/AbilitySound").GetComponent<AudioSource>();
 
         m_TelekinesisButton = transform.Find("Buttons/StandBack/UpgradesCanvas/TelekinesisBack/TelekinesisBtn").gameObject;
         m_relocateButton = transform.Find("Buttons/StandBack/UpgradesCanvas/SpellStealBack/SpellStealBtn").gameObject;
@@ -85,18 +90,20 @@ public class RubickController : MonoBehaviour
 
     public void ActivateTelekinesis()
     {
+        if (TelekinesisActive) return;
         Debug.Log("Activated Telekinesis");
-        m_TelekinesisImage.color = new Color(0.275f, 0.275f, 0.275f);
         TelekinesisActive = true;
+        m_TelekinesisImage.color = new Color(0.275f, 0.275f, 0.275f);
 
         //Do animation and voice line
         m_rubickAnimator.SetTrigger("useTelekinesis");
-        RadiantClickerController.PlayRandomClip(m_audioSource, TelekinesisResponses);
-        
-        AbilityCooldown(180);
+        if(!m_audioSource.isPlaying)
+            RadiantClickerController.PlayRandomClip(m_audioSource, TelekinesisResponses);
 
-        m_TelekinesisImage.color = new Color(1f, 1f, 1f);
-        TelekinesisActive = false;
+        if (!m_abilitySource.isPlaying)
+            m_audioSource.PlayOneShot(TelekinesisAbilitySound);
+
+        StartCoroutine(AbilityCooldown(TelekinesisCooldown, "Telekinesis"));
     }
 
     public void ActivateSpellSteal()
@@ -107,17 +114,29 @@ public class RubickController : MonoBehaviour
 
         //Do animation and voice line
         m_rubickAnimator.SetTrigger("useSpellSteal");
-        RadiantClickerController.PlayRandomClip(m_audioSource, SpellStealResponses);
+        if(!m_audioSource.isPlaying)
+            RadiantClickerController.PlayRandomClip(m_audioSource, SpellStealResponses);
 
-        AbilityCooldown(180);
+        if (!m_abilitySource.isPlaying)
+            m_audioSource.PlayOneShot(SpellStealAbilitySound);
 
-        m_spellStealImage.color = new Color(1f, 1f, 1f);
-        SpellStealActive = false;
+        StartCoroutine(AbilityCooldown(SpellStealCooldown, "SpellSteal"));
     }
 
-    IEnumerator AbilityCooldown(float time)
+    IEnumerator AbilityCooldown(float time, string ability)
     {
         yield return new WaitForSeconds(time);
+
+        if (ability == "Telekinesis")
+        {
+            m_TelekinesisImage.color = new Color(1f, 1f, 1f);
+            TelekinesisActive = false;
+        }
+        else if (ability == "SpellSteal")
+        {
+            m_spellStealImage.color = new Color(1f, 1f, 1f);
+            SpellStealActive = false;
+        }
     }
 
     void ClickedButton(string name)

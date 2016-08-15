@@ -23,12 +23,21 @@ public class PhoenixController : MonoBehaviour
     [SerializeField]
     AudioClip[] SupernovaResponses;
 
+    public int SunrayCooldown;
+    [SerializeField]
+    AudioClip SunrayAbilitySound;
+
+    public int SupernovaCooldown;
+    [SerializeField]
+    AudioClip SupernovaAbilitySound;
+
     GameObject m_sunrayButton;
     GameObject m_supernovaButton;
     Image m_sunrayImage;
     Image m_supernovaImage;
     Animator m_phoenixAnimator;
     AudioSource m_audioSource;
+    AudioSource m_abilitySource;
     RadiantClickerController m_clickerController;
 
     void Start()
@@ -40,6 +49,7 @@ public class PhoenixController : MonoBehaviour
         Phoenix = transform.Find("Phoenix").gameObject;
         m_phoenixAnimator = Phoenix.GetComponent<Animator>();
         m_audioSource = Phoenix.GetComponent<AudioSource>();
+        m_abilitySource = GameObject.Find("Phoenix/AbilitySound").GetComponent<AudioSource>();
 
         m_sunrayButton = transform.Find("Buttons/StandBack/UpgradesCanvas/SunrayBack/SunrayBtn").gameObject;
         m_supernovaButton = transform.Find("Buttons/StandBack/UpgradesCanvas/SupernovaBack/SupernovaBtn").gameObject;
@@ -81,15 +91,20 @@ public class PhoenixController : MonoBehaviour
 
     public void ActivateSunray()
     {
+        if (SunrayActive) return;
         Debug.Log("Activated Sunray");
-        m_sunrayImage.color = new Color(0.275f, 0.275f, 0.275f);
         SunrayActive = true;
+        m_sunrayImage.color = new Color(0.275f, 0.275f, 0.275f);
 
         //Do animation and voice line
         m_phoenixAnimator.SetTrigger("useSunray");
-        RadiantClickerController.PlayRandomClip(m_audioSource, SunrayResponses);
+        if(!m_audioSource.isPlaying)
+            RadiantClickerController.PlayRandomClip(m_audioSource, SunrayResponses);
 
-        AbilityCooldown(180);
+        if (!m_abilitySource.isPlaying)
+            m_abilitySource.PlayOneShot(SunrayAbilitySound);
+
+        AbilityCooldown(SunrayCooldown);
 
         m_sunrayImage.color = new Color(1f, 1f, 1f);
         SunrayActive = false;
@@ -97,15 +112,20 @@ public class PhoenixController : MonoBehaviour
 
     public void ActivateSupernova()
     {
+        if (SupernovaActive) return;
         Debug.Log("Activated Supernova");
-        m_supernovaImage.color = new Color(0.275f, 0.275f, 0.275f);
         SupernovaActive = true;
+        m_supernovaImage.color = new Color(0.275f, 0.275f, 0.275f);
 
         //Do animation and voice line
         m_phoenixAnimator.SetTrigger("useSupernova");
-        RadiantClickerController.PlayRandomClip(m_audioSource, SupernovaResponses);
+        if(!m_audioSource.isPlaying)
+            RadiantClickerController.PlayRandomClip(m_audioSource, SupernovaResponses);
 
-        AbilityCooldown(180);
+        if (!m_abilitySource.isPlaying)
+            m_abilitySource.PlayOneShot(SupernovaAbilitySound);
+
+        AbilityCooldown(SupernovaCooldown);
 
         m_supernovaImage.color = new Color(1f, 1f, 1f);
         SupernovaActive = false;

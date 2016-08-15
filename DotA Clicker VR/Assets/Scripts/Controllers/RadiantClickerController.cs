@@ -198,7 +198,7 @@ public class RadiantClickerController : MonoBehaviour
                 rubick.ActivateSpellSteal();
             }
         }
-        else if (abilityName == "FireblastBtn" || abilityName == "Bloodlust")
+        else if (abilityName == "FireblastBtn" || abilityName == "BloodlustBtn")
         {
             OgreMagiController ogreMagi = GetComponentInParent<OgreMagiController>();
             if (!ogreMagi.FireblastUpgrade || !ogreMagi.BloodlustUpgrade)

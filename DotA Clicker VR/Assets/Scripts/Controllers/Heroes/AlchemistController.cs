@@ -23,12 +23,21 @@ public class AlchemistController : MonoBehaviour
     [SerializeField]
     AudioClip[] ChemicalRageResponses;
 
+    public int GreevilsGreedCooldown;
+    [SerializeField]
+    AudioClip GreevilsGreedAbilitySound;
+
+    public int ChemicalRageCooldown;
+    [SerializeField]
+    AudioClip ChemicalRageAbilitySound;
+
     GameObject m_greevilsGreedButton;
     GameObject m_chemicalRageButton;
     Image m_greevilsGreedImage;
     Image m_chemicalRageImage;
     Animator m_alcAnimator;
     AudioSource m_audioSource;
+    AudioSource m_abilitySource;
     RadiantClickerController m_clickerController;
 
     void Start()
@@ -40,6 +49,7 @@ public class AlchemistController : MonoBehaviour
         Alchemist = transform.Find("Alchemist").gameObject;
         m_alcAnimator = Alchemist.GetComponent<Animator>();
         m_audioSource = Alchemist.GetComponent<AudioSource>();
+        m_abilitySource = GameObject.Find("Alchemist/AbilitySound").GetComponent<AudioSource>();
 
         m_greevilsGreedButton = transform.Find("Buttons/StandBack/UpgradesCanvas/GreevilsGreedBack/GreevilsGreedBtn").gameObject;
         m_chemicalRageButton = transform.Find("Buttons/StandBack/UpgradesCanvas/ChemicalRageBack/ChemicalRageBtn").gameObject;
@@ -81,42 +91,47 @@ public class AlchemistController : MonoBehaviour
 
     public void ActivateGreevilsGreed()
     {
-        /** Quadruples Io's click amount for 20 seconds. Cooldown: 3 minutes **/
+        if (GreevilsGreedActive) return;
         Debug.Log("Activated Greevils Greed");
-        m_greevilsGreedImage.color = new Color(0.275f, 0.275f, 0.275f);
         GreevilsGreedActive = true;
+        m_greevilsGreedImage.color = new Color(0.275f, 0.275f, 0.275f);
 
         //Do animation and voice line
         m_alcAnimator.SetTrigger("useGreevilsGreed");
         RadiantClickerController.PlayRandomClip(m_audioSource, GreevilsGreedResponses);
 
-        AbilityCooldown(180);
-
-        m_greevilsGreedImage.color = new Color(1f, 1f, 1f);
-        GreevilsGreedActive = false;
+        StartCoroutine(AbilityCooldown(GreevilsGreedCooldown, "GreevilsGreed"));
     }
 
     public void ActivateChemicalRage()
     {
-        /** Quadruples Io's click amount for 20 seconds. Cooldown: 3 minutes **/
+        if (ChemicalRageActive) return;
         Debug.Log("Activated Chemical Rage");
-        m_chemicalRageImage.color = new Color(0.275f, 0.275f, 0.275f);
         GreevilsGreedActive = true;
+        m_chemicalRageImage.color = new Color(0.275f, 0.275f, 0.275f);
 
         //Do animation and voice line
         m_alcAnimator.SetBool("useChemicalRage", true);
         RadiantClickerController.PlayRandomClip(m_audioSource, ChemicalRageResponses);
 
-        AbilityCooldown(180);
-
-        m_chemicalRageImage.color = new Color(1f, 1f, 1f);
-        GreevilsGreedActive = false;
-        m_alcAnimator.SetBool("useChemicalRage", false);
+        StartCoroutine(AbilityCooldown(ChemicalRageCooldown, "ChemicalRage"));
     }
 
-    IEnumerator AbilityCooldown(float time)
+    IEnumerator AbilityCooldown(float time, string ability)
     {
         yield return new WaitForSeconds(time);
+
+        if (ability == "GreevilsGreed")
+        {
+            m_greevilsGreedImage.color = new Color(1f, 1f, 1f);
+            GreevilsGreedActive = false;
+        }
+        else if (ability == "ChemicalRage")
+        {
+            m_chemicalRageImage.color = new Color(1f, 1f, 1f);
+            GreevilsGreedActive = false;
+            m_alcAnimator.SetBool("useChemicalRage", false);
+        }
     }
 
     void ClickedButton(string name)

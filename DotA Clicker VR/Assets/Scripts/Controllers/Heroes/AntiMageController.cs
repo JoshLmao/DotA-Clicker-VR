@@ -23,12 +23,21 @@ public class AntiMageController : MonoBehaviour
     [SerializeField]
     AudioClip[] ManaVoidResponses;
 
+    public int BlinkCooldown;
+    [SerializeField]
+    AudioClip BlinkAbilitySound;
+
+    public int ManaVoidCooldown;
+    [SerializeField]
+    AudioClip ManaVoidAbilitySound;
+
     GameObject m_blinkButton;
     GameObject m_manaVoidButton;
     Image m_blinkImage;
     Image m_manaVoidImage;
     Animator m_antiMageAnimator;
     AudioSource m_audioSource;
+    AudioSource m_abilitySource;
     RadiantClickerController m_clickerController;
 
     void Start()
@@ -40,6 +49,7 @@ public class AntiMageController : MonoBehaviour
         AntiMage = transform.Find("AntiMage").gameObject;
         m_antiMageAnimator = AntiMage.GetComponent<Animator>();
         m_audioSource = AntiMage.GetComponent<AudioSource>();
+        m_abilitySource = GameObject.Find("AntiMage/AbilitySound").GetComponent<AudioSource>();
 
         m_blinkButton = transform.Find("Buttons/StandBack/UpgradesCanvas/BlinkBack/BlinkBtn").gameObject;
         m_manaVoidButton = transform.Find("Buttons/StandBack/UpgradesCanvas/ManaVoidBack/ManaVoidBtn").gameObject;
@@ -81,39 +91,56 @@ public class AntiMageController : MonoBehaviour
 
     public void ActivateBlink()
     {
+        if (BlinkActive) return;
         Debug.Log("Activated Mana Void");
-        m_blinkImage.color = new Color(0.275f, 0.275f, 0.275f);
         BlinkActive = true;
+        m_blinkImage.color = new Color(0.275f, 0.275f, 0.275f);
 
         //Do animation and voice line
-        m_antiMageAnimator.SetTrigger("useGodsStrength");
-        RadiantClickerController.PlayRandomClip(m_audioSource, BlinkResponses);
+        m_antiMageAnimator.SetTrigger("useBlink");
+        if(!m_audioSource.isPlaying)
+            RadiantClickerController.PlayRandomClip(m_audioSource, BlinkResponses);
 
-        AbilityCooldown(180);
+        if (!m_abilitySource.isPlaying)
+            m_abilitySource.PlayOneShot(BlinkAbilitySound);
 
-        m_blinkImage.color = new Color(1f, 1f, 1f);
-        BlinkActive = false;
+        StartCoroutine(AbilityCooldown(BlinkCooldown, "Blink"));
+
+
     }
 
     public void ActivateManaVoid()
     {
+        if (ManaVoidActive) return;
         Debug.Log("Activated Mana Void");
-        m_manaVoidImage.color = new Color(0.275f, 0.275f, 0.275f);
         ManaVoidActive = true;
+        m_manaVoidImage.color = new Color(0.275f, 0.275f, 0.275f);
 
         //Do animation and voice line
-        m_antiMageAnimator.SetTrigger("useGodsStrength");
-        RadiantClickerController.PlayRandomClip(m_audioSource, ManaVoidResponses);
+        m_antiMageAnimator.SetTrigger("useManaVoid");
+        if(!m_audioSource.isPlaying)
+            RadiantClickerController.PlayRandomClip(m_audioSource, ManaVoidResponses);
 
-        AbilityCooldown(180);
+        if (!m_abilitySource.isPlaying)
+            m_abilitySource.PlayOneShot(ManaVoidAbilitySound);
 
-        m_manaVoidImage.color = new Color(1f, 1f, 1f);
-        ManaVoidActive = false;
+        StartCoroutine(AbilityCooldown(ManaVoidCooldown, "ManaVoid"));
     }
 
-    IEnumerator AbilityCooldown(float time)
+    IEnumerator AbilityCooldown(float time, string ability)
     {
         yield return new WaitForSeconds(time);
+
+        if (ability == "Blink")
+        {
+            m_blinkImage.color = new Color(1f, 1f, 1f);
+            BlinkActive = false;
+        }
+        else if (ability == "ManaVoid")
+        {
+            m_manaVoidImage.color = new Color(1f, 1f, 1f);
+            ManaVoidActive = false;
+        }
     }
 
     void ClickedButton(string name)

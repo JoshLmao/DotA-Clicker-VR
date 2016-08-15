@@ -22,12 +22,21 @@ public class OgreMagiController : MonoBehaviour
     [SerializeField]
     AudioClip[] BloodlustResponses;
 
+    public int FireblastCooldown;
+    [SerializeField]
+    AudioClip FireblastAbilitySound;
+
+    public int BloodlustCooldown;
+    [SerializeField]
+    AudioClip BloodlustAbilitySound;
+
     GameObject m_fireblastButton;
     GameObject m_bloodlustButton;
     Image m_fireblastImage;
     Image m_bloodlustImage;
-    public Animator m_ogreMagiAnimator;
+    Animator m_ogreMagiAnimator;
     AudioSource m_audioSource;
+    AudioSource m_abilitySource;
     RadiantClickerController m_clickerController;
 
     void Start()
@@ -39,6 +48,7 @@ public class OgreMagiController : MonoBehaviour
         OgreMagi = transform.Find("OgreMagi").gameObject;
         m_ogreMagiAnimator = OgreMagi.GetComponent<Animator>();
         m_audioSource = OgreMagi.GetComponent<AudioSource>();
+        m_abilitySource = GameObject.Find("OgreMagi/AbilitySound").GetComponent<AudioSource>();
 
         m_fireblastButton = transform.Find("Buttons/StandBack/UpgradesCanvas/FireblastBack/FireblastBtn").gameObject;
         m_bloodlustButton = transform.Find("Buttons/StandBack/UpgradesCanvas/BloodlustBack/BloodlustBtn").gameObject;
@@ -80,40 +90,61 @@ public class OgreMagiController : MonoBehaviour
 
     public void ActivateFireblast()
     {
-        Debug.Log("Activated Mana Void");
-        m_fireblastImage.color = new Color(0.275f, 0.275f, 0.275f);
+        if (FireblastActive) return;
+
+        Debug.Log("Activated FireBlast");
         FireblastActive = true;
+        m_fireblastImage.color = new Color(0.275f, 0.275f, 0.275f);
 
         //Do animation and voice line
         m_ogreMagiAnimator.SetTrigger("useFireblast");
-        RadiantClickerController.PlayRandomClip(m_audioSource, FireblastResponses);
+        if(m_audioSource.isPlaying)
+        {
+            RadiantClickerController.PlayRandomClip(m_audioSource, FireblastResponses);
+        }
 
-        AbilityCooldown(180);
+        if (!m_abilitySource.isPlaying)
+        {
+            m_abilitySource.PlayOneShot(FireblastAbilitySound);
+        }
 
-        m_fireblastImage.color = new Color(1f, 1f, 1f);
-        FireblastActive = false;
+        StartCoroutine(AbilityCooldown(FireblastCooldown, "Fireblast"));
+
     }
 
     public void ActivateBloodlust()
     {
-        Debug.Log("Activated Mana Void");
+        if (BloodlustActive) return;
+
+        Debug.Log("Activated Bloodlust");
         m_bloodlustImage.color = new Color(0.275f, 0.275f, 0.275f);
         BloodlustActive = true;
 
         //Do animation and voice line
         m_ogreMagiAnimator.SetTrigger("useBloodlust");
-        RadiantClickerController.PlayRandomClip(m_audioSource, BloodlustResponses);
+        if(!m_audioSource.isPlaying)
+            RadiantClickerController.PlayRandomClip(m_audioSource, BloodlustResponses);
 
+        if(!m_abilitySource.isPlaying)
+            m_abilitySource.PlayOneShot(BloodlustAbilitySound);
 
-        AbilityCooldown(180);
-
-        m_bloodlustImage.color = new Color(1f, 1f, 1f);
-        BloodlustActive = false;
+        StartCoroutine(AbilityCooldown(BloodlustCooldown, "Bloodlust"));
     }
 
-    IEnumerator AbilityCooldown(float time)
+    IEnumerator AbilityCooldown(float time, string ability)
     {
         yield return new WaitForSeconds(time);
+
+        if(ability == "Fireblast")
+        {
+            m_fireblastImage.color = new Color(1f, 1f, 1f);
+            FireblastActive = false;
+        }
+        else if(ability == "Bloodlust")
+        {
+            m_bloodlustImage.color = new Color(1f, 1f, 1f);
+            BloodlustActive = false;
+        }
     }
 
     void ClickedButton(string name)

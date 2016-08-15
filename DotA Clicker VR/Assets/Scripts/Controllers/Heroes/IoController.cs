@@ -13,12 +13,30 @@ public class IoController : MonoBehaviour
     public bool IoManager = false;
     public GameObject Io;
 
+    [SerializeField]
+    AudioClip[] AttackingResponses;
+
+    [SerializeField]
+    AudioClip[] OverchargeResponses;
+
+    [SerializeField]
+    AudioClip[] RelocateResponses;
+
+    public int OverchargeCooldown;
+    [SerializeField]
+    AudioClip OverchargeAbilitySound;
+
+    public int RelocateCooldown;
+    [SerializeField]
+    AudioClip RelocateAbilitySound;
+
     GameObject m_overchargeButton;
     GameObject m_relocateButton;
     Image m_overchargeImage;
     Image m_relocateImage;
     Animator m_ioAnimator;
     AudioSource m_audioSource;
+    AudioSource m_abilitySource;
     RadiantClickerController m_clickerController;
 
     void Start()
@@ -30,6 +48,7 @@ public class IoController : MonoBehaviour
         Io = transform.Find("Io").gameObject;
         m_ioAnimator = Io.GetComponent<Animator>();
         m_audioSource = Io.GetComponent<AudioSource>();
+        m_abilitySource = GameObject.Find("Io/AbilitySound").GetComponent<AudioSource>();
 
         m_overchargeButton = transform.Find("Buttons/StandBack/UpgradesCanvas/OverchargeBack/OverchargeBtn").gameObject;
         m_relocateButton = transform.Find("Buttons/StandBack/UpgradesCanvas/RelocateBack/RelocateBtn").gameObject;
@@ -71,33 +90,50 @@ public class IoController : MonoBehaviour
 
     public void ActivateOvercharge()
     {
-        /** Overcharges Io to double his output for 30 seconds. Cooldown: 1 minute **/
+        if (OverchargeActive) return;
         Debug.Log("Activated Overcharge");
-        m_overchargeImage.color = new Color(0.275f, 0.275f, 0.275f);
         OverchargeActive = true;
+        m_overchargeImage.color = new Color(0.275f, 0.275f, 0.275f);
 
-        AbilityCooldown(60);
+        if (!m_audioSource.isPlaying)
+            RadiantClickerController.PlayRandomClip(m_audioSource, OverchargeResponses);
 
-        m_relocateImage.color = new Color(1f, 1f, 1f);
-        OverchargeActive = false;
+        if (!m_abilitySource.isPlaying)
+            m_abilitySource.PlayOneShot(OverchargeAbilitySound);
+
+        StartCoroutine(AbilityCooldown(OverchargeCooldown, "Overcharge"));
     }
 
     public void ActivateRelocate()
     {
-        /** Quadruples Io's click amount for 20 seconds. Cooldown: 3 minutes **/
+        if (RelocateActive) return;
         Debug.Log("Activated Relocate");
-        m_relocateImage.color = new Color(0.275f, 0.275f, 0.275f);
         OverchargeActive = true;
+        m_relocateImage.color = new Color(0.275f, 0.275f, 0.275f);
 
-        AbilityCooldown(180);
+        if (!m_audioSource.isPlaying)
+            RadiantClickerController.PlayRandomClip(m_audioSource, RelocateResponses);
 
-        m_relocateImage.color = new Color(1f, 1f, 1f);
-        OverchargeActive = false;
+        if (!m_abilitySource.isPlaying)
+            m_abilitySource.PlayOneShot(RelocateAbilitySound);
+
+        StartCoroutine(AbilityCooldown(RelocateCooldown, "Relocate"));
     }
 
-    IEnumerator AbilityCooldown(float time)
+    IEnumerator AbilityCooldown(float time, string ability)
     {
         yield return new WaitForSeconds(time);
+
+        if (ability == "Overcharge")
+        {
+            m_relocateImage.color = new Color(1f, 1f, 1f);
+            OverchargeActive = false;
+        }
+        else if (ability == "Relocate")
+        {
+            m_relocateImage.color = new Color(1f, 1f, 1f);
+            OverchargeActive = false;
+        }
     }
 
     void ClickedButton(string name)
