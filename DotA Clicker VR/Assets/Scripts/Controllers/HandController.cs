@@ -95,7 +95,7 @@ public class HandController : MonoBehaviour {
         else if(col.tag == "Ability")
         {
             RadiantClickerController controller = col.gameObject.GetComponentInParent<RadiantClickerController>();
-            controller.ActivateAbility(col.gameObject.name);
+            controller.ActivateAbility(col.gameObject.name, m_controller.controllerIndex);
         }
     }
 
@@ -141,8 +141,6 @@ public class HandController : MonoBehaviour {
                 Debug.Log("Clicked on Toggle");
                 m_activeToggleUI.isOn = !m_activeToggleUI.isOn;
             }
-
-
         }
     }
 
@@ -211,5 +209,15 @@ public class HandController : MonoBehaviour {
 
         //Disable LaserPointer
         m_laserPointer.active = false;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="index">Controller Index</param>
+    /// <param name="length">Duration in Milliseconds</param>
+    public static void RumbleController(uint index, ushort length)
+    {
+        SteamVR_Controller.Input((int)index).TriggerHapticPulse(length);
     }
 }

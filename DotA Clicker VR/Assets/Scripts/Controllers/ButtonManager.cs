@@ -30,8 +30,10 @@ public class ButtonManager : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
+        SteamVR_TrackedController controller = col.GetComponent<SteamVR_TrackedController>();
+
         //Buy a multiplier clicker
-        if(col.tag == "ViveController" && m_buttonName == "StandBack")
+        if (col.tag == "ViveController" && m_buttonName == "StandBack")
         {
             if (m_animator.GetCurrentAnimatorStateInfo(0).IsName("BuyButtonPush") 
                 || m_sceneController.TotalGold + m_clickerController.UpgradeCost < m_clickerController.UpgradeCost
@@ -48,6 +50,8 @@ public class ButtonManager : MonoBehaviour
             m_clickerController.OnBuyClickerButtonPressed();
             m_animator.SetBool("isClicked", true);
             StartCoroutine(PlayButtonPushAnimation(0.5f));
+
+            HandController.RumbleController(controller.controllerIndex, 2000);
         }
         //Hero clicker button
         else if(col.tag == "ViveController" && m_buttonName == "ClickButtonBack")
@@ -60,6 +64,8 @@ public class ButtonManager : MonoBehaviour
             m_clickerController.OnClickButtonPressed();
             m_animator.SetBool("isClicked", true);
             StartCoroutine(PlayButtonPushAnimation(0.3f));
+
+            HandController.RumbleController(controller.controllerIndex, 2000);
         }
     }
 

@@ -153,7 +153,7 @@ public class RadiantClickerController : MonoBehaviour
         }
     }
 
-    public void ActivateAbility(string abilityName)
+    public void ActivateAbility(string abilityName, uint index)
     {
         //Very bad of you, but too lazy
         if(abilityName == "OverchargeBtn" || abilityName == "RelocateBtn")
@@ -168,6 +168,7 @@ public class RadiantClickerController : MonoBehaviour
                     return;
 
                 io.ActivateOvercharge();
+                HandController.RumbleController(index, 2000);
             }
             else if(abilityName == "RelocateBtn")
             {
@@ -175,6 +176,7 @@ public class RadiantClickerController : MonoBehaviour
                     return;
 
                 io.ActivateRelocate();
+                HandController.RumbleController(index, 2000);
             }
         }
         else if (abilityName == "TelekinesisBtn" || abilityName == "SpellStealBtn")
@@ -189,6 +191,7 @@ public class RadiantClickerController : MonoBehaviour
                     return;
 
                 rubick.ActivateTelekinesis();
+                HandController.RumbleController(index, 2000);
             }
             else if(abilityName == "SpellStealBtn")
             {
@@ -196,6 +199,7 @@ public class RadiantClickerController : MonoBehaviour
                     return;
 
                 rubick.ActivateSpellSteal();
+                HandController.RumbleController(index, 2000);
             }
         }
         else if (abilityName == "FireblastBtn" || abilityName == "BloodlustBtn")
@@ -210,6 +214,7 @@ public class RadiantClickerController : MonoBehaviour
                     return;
 
                 ogreMagi.ActivateFireblast();
+                HandController.RumbleController(index, 2000);
             }
             else if(abilityName == "BloodlustBtn")
             {
@@ -217,6 +222,7 @@ public class RadiantClickerController : MonoBehaviour
                     return;
 
                 ogreMagi.ActivateBloodlust();
+                HandController.RumbleController(index, 2000);
             }
         }
         else if (abilityName == "SnowballBtn" || abilityName == "WalrusPunchBtn")
@@ -231,6 +237,7 @@ public class RadiantClickerController : MonoBehaviour
                     return;
 
                 tusk.ActivateSnowball();
+                HandController.RumbleController(index, 2000);
             }
             else if(abilityName == "WalrusPunchBtn")
             {
@@ -238,6 +245,7 @@ public class RadiantClickerController : MonoBehaviour
                     return;
 
                 tusk.ActivateWalrusPunch();
+                HandController.RumbleController(index, 2000);
             }
         }
         else if (abilityName == "SunrayBtn" || abilityName == "SupernovaBtn")
@@ -252,6 +260,7 @@ public class RadiantClickerController : MonoBehaviour
                     return;
 
                 phoenix.ActivateSunray();
+                HandController.RumbleController(index, 2000);
             }
             else if(abilityName == "SupernovaBtn")
             {
@@ -259,6 +268,7 @@ public class RadiantClickerController : MonoBehaviour
                     return;
 
                 phoenix.ActivateSupernova();
+                HandController.RumbleController(index, 2000);
             }
         }
         else if (abilityName == "WarCryBtn" || abilityName == "GodsStrengthBtn")
@@ -273,6 +283,7 @@ public class RadiantClickerController : MonoBehaviour
                     return;
 
                 sven.ActivateWarCry();
+                HandController.RumbleController(index, 2000);
             }
             else if (abilityName == "GodsStrengthBtn")
             {
@@ -280,6 +291,7 @@ public class RadiantClickerController : MonoBehaviour
                     return;
 
                 sven.ActivateGodsStrength();
+                HandController.RumbleController(index, 2000);
             }
         }
         else if (abilityName == "BlinkBtn" || abilityName == "ManaVoid")
@@ -294,6 +306,7 @@ public class RadiantClickerController : MonoBehaviour
                     return;
 
                 antiMage.ActivateBlink();
+                HandController.RumbleController(index, 2000);
             }
             else if (abilityName == "ManaVoid")
             {
@@ -301,6 +314,7 @@ public class RadiantClickerController : MonoBehaviour
                     return;
 
                 antiMage.ActivateManaVoid();
+                HandController.RumbleController(index, 2000);
             }
         }
         else if (abilityName == "GreevilsGreedBtn" || abilityName == "ChemicalRageBtn")
@@ -315,6 +329,7 @@ public class RadiantClickerController : MonoBehaviour
                     return;
 
                 alchemist.ActivateGreevilsGreed();
+                HandController.RumbleController(index, 2000);
             }
             else
             {
@@ -322,6 +337,7 @@ public class RadiantClickerController : MonoBehaviour
                     return;
 
                 alchemist.ActivateChemicalRage();
+                HandController.RumbleController(index, 2000);
             }
         }   
     }
