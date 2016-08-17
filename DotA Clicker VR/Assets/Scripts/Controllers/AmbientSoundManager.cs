@@ -5,29 +5,22 @@ using UnityEngine.UI;
 public class AmbientSoundManager : MonoBehaviour {
 
     public AudioClip[] AmbientClips;
-    public AudioSource AudioSource;
-    public Slider MasterVolumeSlider;
-    
-	void Start ()
+    public AudioSource AmbientAudioSource;
+
+    void Start()
     {
-        AudioSource = GameObject.Find("AmbientAudio").GetComponent<AudioSource>();
-        MasterVolumeSlider = GameObject.Find("MasterVolSlider").GetComponent<Slider>();
-        //InvokeRepeating("PlayAmbientSound", 1, 1f); //Comment out to stop audio playing
+        AmbientAudioSource = GameObject.Find("AmbientAudio").GetComponent<AudioSource>();
+
+        //Repeats ambient music, comment out whilst developing
+        InvokeRepeating("PlayAmbientSound", 1, 1f);
     }
-
-	void Update ()
-    {
-        if (AudioSource.isPlaying) return;
-
-        AudioListener.volume = MasterVolumeSlider.value;
-	}
 
     void PlayAmbientSound()
     {
         int randomClips = Random.Range(0, AmbientClips.Length);
-        if (!AudioSource.isPlaying)
+        if (!AmbientAudioSource.isPlaying)
         {
-            AudioSource.PlayOneShot(AmbientClips[randomClips]);
+            AmbientAudioSource.PlayOneShot(AmbientClips[randomClips]);
             Debug.Log("Playing Ambient Sound");
         }
     }
