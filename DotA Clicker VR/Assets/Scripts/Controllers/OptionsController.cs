@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.VR;
+using System;
 
 public class OptionsController : MonoBehaviour {
 
@@ -8,25 +10,32 @@ public class OptionsController : MonoBehaviour {
     public Slider MasterVolSlider;
     public Slider AmbientVolSlider;
     public Slider HeroVolSlider;
+    public Slider SuperSampleSlider;
+    Text m_ssText;
 
     AmbientSoundManager m_ambientSound;
     Toggle m_audioEnabled;
-    Slider m_masterVolumeSlider;
 
 	void Start ()
     {
-        m_masterVolumeSlider = transform.Find("MasterVolSlider").GetComponent<Slider>();
-        m_audioEnabled = transform.Find("AudioEnabledToggle").GetComponent<Toggle>();
+        m_audioEnabled = transform.Find("AudioOptions/AudioEnabledToggle").GetComponent<Toggle>();
         m_ambientSound = GameObject.Find("RadiantSceneController").GetComponent<AmbientSoundManager>();
 
-        MasterVolSlider = transform.Find("MasterVolSlider").GetComponent<Slider>();
-        AmbientVolSlider = transform.Find("AmbientMusicVolSlider").GetComponent<Slider>();
-        HeroVolSlider = transform.Find("HeroesVolSlider").GetComponent<Slider>();
+        MasterVolSlider = transform.Find("AudioOptions/MasterVolumeC/MasterVolSlider").GetComponent<Slider>();
+        AmbientVolSlider = transform.Find("AudioOptions/AmbientVolC/AmbientMusicVolSlider").GetComponent<Slider>();
+        HeroVolSlider = transform.Find("AudioOptions/HeroSoundsVolC/HeroesVolSlider").GetComponent<Slider>();
+
+        SuperSampleSlider = transform.Find("VideoOptions/SSCanvas/SuperSampleSlider").GetComponent<Slider>();
+        m_ssText = transform.Find("VideoOptions/SSCanvas/SSValue").GetComponent<Text>();
 
         //MasterVolSlider.onValueChanged.AddListener(SliderValuesChanged);
         //AmbientVolSlider.onValueChanged.AddListener(SliderValuesChanged);
         //HeroVolSlider.onValueChanged.AddListener(SliderValuesChanged);
+        SuperSampleSlider.onValueChanged.AddListener(SuperSampleChanged);
+
         m_audioEnabled.onValueChanged.AddListener(ToggleValueChanged);
+
+        SuperSampleChanged(0);
     }
 
     void Update()
@@ -78,5 +87,21 @@ public class OptionsController : MonoBehaviour {
             AudioListener.volume = 0;
             return;
         }
+    }
+
+    void SuperSampleChanged(float value)
+    {
+        //VRSettings.renderScale = SuperSampleSlider.value;
+        m_ssText.text = SuperSampleSlider.value.ToString(); //Math.Round(SuperSampleSlider.value, 2).ToString()
+    }
+
+    public void AddSuperSampleValue()
+    {
+        SuperSampleSlider.value += 0.1f;
+    }
+
+    public void MinusSuperSampleValue()
+    {
+        SuperSampleSlider.value -= 0.1f;
     }
 }
