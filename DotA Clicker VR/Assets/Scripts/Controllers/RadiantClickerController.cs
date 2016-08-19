@@ -2,6 +2,7 @@
 using System.Collections;
 using System;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 /// <summary>
 /// Generic class aimed at being used by each clicker. Controls times and multipliers
@@ -55,6 +56,14 @@ public class RadiantClickerController : MonoBehaviour
     /// Can the hero be clicked
     /// </summary>
     public bool CanBeClicked = false;
+    /// <summary>
+    /// Amount of times the Ability has to be pressed to level up at Lvl 1
+    /// </summary>
+    public int Ability1LvlUpCount;
+    /// <summary>
+    /// Amount of times the Ability has to be pressed to level up at Lvl 1
+    /// </summary>
+    public int Ability2LvlUpCount;
 
     public delegate void OnClickButton(string clickerName);
     public event OnClickButton OnClickedButton;
@@ -71,6 +80,18 @@ public class RadiantClickerController : MonoBehaviour
     private Text m_clickButtonGoldText;
     private Text m_upgradeCostText;
 
+    //Level Up System
+    public int Ability1Level = 0;
+    public int Ability2Level = 0;
+    Slider m_abil1Slider;
+    Slider m_abil2Slider;
+    List<GameObject> m_abil1Icons = new List<GameObject>();
+    List<GameObject> m_abil2Icons = new List<GameObject>();
+    public int m_abil1UseCount = 0;
+    public int m_abil2UseCount = 0;
+    Sprite m_notLevelled;
+    Sprite m_levelled;
+
 	void Start ()
     {
         m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
@@ -81,9 +102,37 @@ public class RadiantClickerController : MonoBehaviour
         m_upgradeCostText = transform.Find("Buttons/UpgradeCostBack/UpgradeCostCanvas/Cost/UpCostText").GetComponent<Text>(); ;
         m_progressBar = transform.Find("Buttons/StandBack/StandUI/ProgressSlider").GetComponent<Slider>();
 
+        AbilityLevelUpStart();
+
         TimeBetweenClicks = new TimeSpan(0, 0, 0, SecondsToCompleteClick);
     }
 	
+    void AbilityLevelUpStart()
+    {
+        m_abil1Slider = transform.Find("Buttons/StandBack/UpgradesCanvas/Abil1Progress").GetComponent<Slider>();
+        m_abil2Slider = transform.Find("Buttons/StandBack/UpgradesCanvas/Abil2Progress").GetComponent<Slider>();
+
+        Transform abil1Transform = transform.Find("Buttons/StandBack/UpgradesCanvas/Abil1Levels");
+        Transform abil2Transform = transform.Find("Buttons/StandBack/UpgradesCanvas/Abil2Levels");
+        foreach (Transform trans in abil1Transform)
+        {
+            m_abil1Icons.Add(trans.gameObject);
+        }
+        foreach (Transform trans in abil2Transform)
+        {
+            m_abil2Icons.Add(trans.gameObject);
+        }
+
+        m_notLevelled = Resources.Load<Sprite>("Images/UI/Skills/NotLevelled");
+        m_levelled = Resources.Load<Sprite>("Images/UI/Skills/Levelled");
+
+        m_abil1Slider.maxValue = Ability1LvlUpCount;
+        m_abil1Slider.value = 0;
+
+        m_abil2Slider.maxValue = Ability2LvlUpCount;
+        m_abil2Slider.value = 0;
+    }
+
 	void Update ()
     {
         UpdateCountdownTimer();
@@ -169,6 +218,7 @@ public class RadiantClickerController : MonoBehaviour
 
                 io.ActivateOvercharge();
                 HandController.RumbleController(index, 2000);
+                Ability1Used();
             }
             else if(abilityName == "RelocateBtn")
             {
@@ -177,6 +227,7 @@ public class RadiantClickerController : MonoBehaviour
 
                 io.ActivateRelocate();
                 HandController.RumbleController(index, 2000);
+                Ability2Used();
             }
         }
         else if (abilityName == "TelekinesisBtn" || abilityName == "SpellStealBtn")
@@ -192,6 +243,7 @@ public class RadiantClickerController : MonoBehaviour
 
                 rubick.ActivateTelekinesis();
                 HandController.RumbleController(index, 2000);
+                Ability1Used();
             }
             else if(abilityName == "SpellStealBtn")
             {
@@ -200,6 +252,7 @@ public class RadiantClickerController : MonoBehaviour
 
                 rubick.ActivateSpellSteal();
                 HandController.RumbleController(index, 2000);
+                Ability2Used();
             }
         }
         else if (abilityName == "FireblastBtn" || abilityName == "BloodlustBtn")
@@ -215,6 +268,7 @@ public class RadiantClickerController : MonoBehaviour
 
                 ogreMagi.ActivateFireblast();
                 HandController.RumbleController(index, 2000);
+                Ability1Used();
             }
             else if(abilityName == "BloodlustBtn")
             {
@@ -223,6 +277,7 @@ public class RadiantClickerController : MonoBehaviour
 
                 ogreMagi.ActivateBloodlust();
                 HandController.RumbleController(index, 2000);
+                Ability2Used();
             }
         }
         else if (abilityName == "SnowballBtn" || abilityName == "WalrusPunchBtn")
@@ -238,6 +293,7 @@ public class RadiantClickerController : MonoBehaviour
 
                 tusk.ActivateSnowball();
                 HandController.RumbleController(index, 2000);
+                Ability1Used();
             }
             else if(abilityName == "WalrusPunchBtn")
             {
@@ -246,6 +302,7 @@ public class RadiantClickerController : MonoBehaviour
 
                 tusk.ActivateWalrusPunch();
                 HandController.RumbleController(index, 2000);
+                Ability2Used();
             }
         }
         else if (abilityName == "SunrayBtn" || abilityName == "SupernovaBtn")
@@ -261,6 +318,7 @@ public class RadiantClickerController : MonoBehaviour
 
                 phoenix.ActivateSunray();
                 HandController.RumbleController(index, 2000);
+                Ability1Used();
             }
             else if(abilityName == "SupernovaBtn")
             {
@@ -269,6 +327,7 @@ public class RadiantClickerController : MonoBehaviour
 
                 phoenix.ActivateSupernova();
                 HandController.RumbleController(index, 2000);
+                Ability2Used();
             }
         }
         else if (abilityName == "WarCryBtn" || abilityName == "GodsStrengthBtn")
@@ -284,6 +343,7 @@ public class RadiantClickerController : MonoBehaviour
 
                 sven.ActivateWarCry();
                 HandController.RumbleController(index, 2000);
+                Ability1Used();
             }
             else if (abilityName == "GodsStrengthBtn")
             {
@@ -292,6 +352,7 @@ public class RadiantClickerController : MonoBehaviour
 
                 sven.ActivateGodsStrength();
                 HandController.RumbleController(index, 2000);
+                Ability2Used();
             }
         }
         else if (abilityName == "BlinkBtn" || abilityName == "ManaVoid")
@@ -307,6 +368,7 @@ public class RadiantClickerController : MonoBehaviour
 
                 antiMage.ActivateBlink();
                 HandController.RumbleController(index, 2000);
+                Ability1Used();
             }
             else if (abilityName == "ManaVoid")
             {
@@ -315,6 +377,7 @@ public class RadiantClickerController : MonoBehaviour
 
                 antiMage.ActivateManaVoid();
                 HandController.RumbleController(index, 2000);
+                Ability2Used();
             }
         }
         else if (abilityName == "GreevilsGreedBtn" || abilityName == "ChemicalRageBtn")
@@ -330,6 +393,7 @@ public class RadiantClickerController : MonoBehaviour
 
                 alchemist.ActivateGreevilsGreed();
                 HandController.RumbleController(index, 2000);
+                Ability1Used();
             }
             else
             {
@@ -338,6 +402,7 @@ public class RadiantClickerController : MonoBehaviour
 
                 alchemist.ActivateChemicalRage();
                 HandController.RumbleController(index, 2000);
+                Ability2Used();
             }
         }   
     }
@@ -349,5 +414,93 @@ public class RadiantClickerController : MonoBehaviour
         {
             audioSource.PlayOneShot(clips[pick]);
         }
+    }
+
+    void Ability1Used()
+    {
+        //Add the use count
+        m_abil1UseCount++;
+
+        //If use count matches lvlUp count, level up and reset slider
+        if (m_abil1UseCount >= Ability1LvlUpCount)
+        {
+            //Add a new level if the level isn't lvl 4
+            if (Ability1Level < 4)
+            {
+                Ability1Level++;
+            }
+
+            m_abil1Slider.value = 0;
+            double rounded = Math.Round(Ability1LvlUpCount * 1.5f, 1, MidpointRounding.AwayFromZero);
+            m_abil1Slider.maxValue = (float)rounded;
+
+            ResetLevelIcons("1");
+        }
+        else
+        {
+            m_abil1Slider.value = m_abil1UseCount;
+        }
+
+    }
+
+    void Ability2Used()
+    {
+        //Add the use count
+        m_abil2UseCount++;
+
+        //If use count matches lvlUp count, level up and reset slider
+        if(m_abil2UseCount >= Ability2LvlUpCount)
+        {
+            //Add a new level if the level isn't lvl 4
+            if (Ability2Level < 4)
+            {
+                Ability2Level++;
+            }
+
+            m_abil2Slider.value = 1; //1 as we're adding the current count at start
+            double rounded = Math.Round(Ability2LvlUpCount * 1.5f, 1, MidpointRounding.AwayFromZero);
+            m_abil2Slider.maxValue = (float)rounded;
+
+            ResetLevelIcons("2");
+        }
+        else
+        {
+            //Simply update the value if can't lvl up
+            m_abil2Slider.value = m_abil2UseCount;
+        }
+    }
+
+    public void ResetLevelIcons(string abilityNo)
+    {
+        if(abilityNo == "1")
+        {
+            Debug.Log("Resetting 1");
+            //Reset levels
+            for (int j = 0; j > m_abil1Icons.Count; j++)
+            {
+                Debug.Log("Resetting Levels ==" + j);
+                m_abil1Icons[j].GetComponent<Image>().sprite = m_notLevelled;
+            }
+            //Set correct levels by image
+            for (int i = 0; i < Ability1Level; i++)
+            {
+                Debug.Log("Adding Levels ==" + i);
+                m_abil1Icons[i].GetComponent<Image>().sprite = m_levelled;
+            }
+        }
+        else
+        {
+            for (int j = 0; j > m_abil2Icons.Count; j++)
+            {
+                Debug.Log("Resetting Levels ==" + j);
+                m_abil2Icons[j].GetComponent<Image>().sprite = m_notLevelled;
+            }
+            for (int i = 0; i < Ability2Level; i++)
+            {
+                Debug.Log("Adding Levels ==" + i);
+                m_abil2Icons[i].GetComponent<Image>().sprite = m_levelled;
+            }
+        }
+
     }
 }

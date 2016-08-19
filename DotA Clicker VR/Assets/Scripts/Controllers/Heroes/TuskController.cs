@@ -70,6 +70,8 @@ public class TuskController : MonoBehaviour
         Debug.Log("Bought Snowball Upgrade");
         //turn to white
         m_snowballImage.color = new Color(1f, 1f, 1f);
+        m_clickerController.Ability1Level = 1;
+        m_clickerController.ResetLevelIcons("1");
     }
 
     void BuyWalrusPunchUpgrade()
@@ -78,6 +80,8 @@ public class TuskController : MonoBehaviour
         Debug.Log("Bought WalrusPunch Upgrade");
         //turn to white
         m_walrusPunchImage.color = new Color(1f, 1f, 1f);
+        m_clickerController.Ability2Level = 1;
+        m_clickerController.ResetLevelIcons("2");
     }
 
     void BuyTuskManager()

@@ -71,6 +71,8 @@ public class SvenController : MonoBehaviour
         Debug.Log("Bought WarCry Upgrade");
         //turn to white
         m_warCryImage.color = new Color(1f, 1f, 1f);
+        m_clickerController.Ability1Level = 1;
+        m_clickerController.ResetLevelIcons("1");
     }
 
     void BuyGodsStrengthUpgrade()
@@ -79,6 +81,8 @@ public class SvenController : MonoBehaviour
         Debug.Log("Bought GodsStrength Upgrade");
         //turn to white
         m_godsStrengthImage.color = new Color(1f, 1f, 1f);
+        m_clickerController.Ability2Level = 1;
+        m_clickerController.ResetLevelIcons("2");
     }
 
     void BuySvenManager()

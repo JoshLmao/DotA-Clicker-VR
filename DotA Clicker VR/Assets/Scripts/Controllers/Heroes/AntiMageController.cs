@@ -71,6 +71,8 @@ public class AntiMageController : MonoBehaviour
         Debug.Log("Bought Blink Upgrade");
         //turn to white
         m_blinkImage.color = new Color(1f, 1f, 1f);
+        m_clickerController.Ability1Level = 1;
+        m_clickerController.ResetLevelIcons("1");
     }
 
     void BuyManaVoidUpgrade()
@@ -79,6 +81,8 @@ public class AntiMageController : MonoBehaviour
         Debug.Log("Bought ManaVoid Upgrade");
         //turn to white
         m_manaVoidImage.color = new Color(1f, 1f, 1f);
+        m_clickerController.Ability2Level = 1;
+        m_clickerController.ResetLevelIcons("2");
     }
 
     void BuyAntiMageManager()
@@ -105,8 +109,6 @@ public class AntiMageController : MonoBehaviour
             m_abilitySource.PlayOneShot(BlinkAbilitySound);
 
         StartCoroutine(AbilityCooldown(BlinkCooldown, "Blink"));
-
-
     }
 
     public void ActivateManaVoid()

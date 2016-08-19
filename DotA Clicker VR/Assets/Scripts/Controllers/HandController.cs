@@ -162,7 +162,6 @@ public class HandController : MonoBehaviour {
         else
         {
             m_laserPointer.active = false;
-            Debug.Log("Disabling LaserPointer");
         }
 
         if(e.target.gameObject.layer == 5 && e.target.gameObject.GetComponent<Button>() && e.target.gameObject.GetComponent<BoxCollider>())
@@ -188,7 +187,6 @@ public class HandController : MonoBehaviour {
         }
         else if(e.target.gameObject.layer == 5 && e.target.GetComponent<BoxCollider>() && e.target.gameObject.GetComponent<ScrollRect>())
         {
-            Debug.Log("Aiming at Scrollable Menu");
             m_canClickOnUI = true;
             m_scrollableMenu = e.target.gameObject;
         }

@@ -70,6 +70,8 @@ public class RubickController : MonoBehaviour
         Debug.Log("Bought Telekinesis Upgrade");
         //turn to white
         m_TelekinesisImage.color = new Color(1f, 1f, 1f);
+        m_clickerController.Ability1Level = 1;
+        m_clickerController.ResetLevelIcons("1");
     }
 
     void BuySpellStealUpgrade()
@@ -78,6 +80,8 @@ public class RubickController : MonoBehaviour
         Debug.Log("Bought Relocate Upgrade");
         //turn to white
         m_spellStealImage.color = new Color(1f, 1f, 1f);
+        m_clickerController.Ability2Level = 1;
+        m_clickerController.ResetLevelIcons("2");
     }
 
     void BuyRubickManager()
@@ -86,6 +90,7 @@ public class RubickController : MonoBehaviour
         RubickManager = true;
         RadiantClickerController clicker = this.GetComponent<RadiantClickerController>();
         clicker.HasManager = RubickManager;
+
     }
 
     public void ActivateTelekinesis()

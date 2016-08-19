@@ -70,6 +70,8 @@ public class OgreMagiController : MonoBehaviour
         Debug.Log("Bought Fireblast Upgrade");
         //turn to white
         m_fireblastImage.color = new Color(1f, 1f, 1f);
+        m_clickerController.Ability1Level = 1;
+        m_clickerController.ResetLevelIcons("1");
     }
 
     void BuyBloodlustUpgrade()
@@ -78,6 +80,8 @@ public class OgreMagiController : MonoBehaviour
         Debug.Log("Bought Bloodlust Upgrade");
         //turn to white
         m_bloodlustImage.color = new Color(1f, 1f, 1f);
+        m_clickerController.Ability2Level = 1;
+        m_clickerController.ResetLevelIcons("2");
     }
 
     void BuyOgreMagiManager()
@@ -109,7 +113,6 @@ public class OgreMagiController : MonoBehaviour
         }
 
         StartCoroutine(AbilityCooldown(FireblastCooldown, "Fireblast"));
-
     }
 
     public void ActivateBloodlust()

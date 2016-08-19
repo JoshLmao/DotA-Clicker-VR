@@ -71,6 +71,8 @@ public class AlchemistController : MonoBehaviour
         Debug.Log("Bought GreevilsGreed Upgrade");
         //turn to white
         m_greevilsGreedImage.color = new Color(1f, 1f, 1f);
+        m_clickerController.Ability1Level = 1;
+        m_clickerController.ResetLevelIcons("1");
     }
 
     void BuyChemicalRageUpgrade()
@@ -79,6 +81,8 @@ public class AlchemistController : MonoBehaviour
         Debug.Log("Bought ChemicalRage Upgrade");
         //turn to white
         m_chemicalRageImage.color = new Color(1f, 1f, 1f);
+        m_clickerController.Ability2Level = 1;
+        m_clickerController.ResetLevelIcons("2");
     }
 
     void BuyAlchemistManager()

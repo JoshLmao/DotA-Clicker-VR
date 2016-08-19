@@ -9,6 +9,12 @@ public class RadiantSceneController : MonoBehaviour
 
     public int TotalGold = 3000;
 
+    public const string THOUSAND_FORMAT = "{0}, {1}, {2}";
+    public const string MILLION_FORMAT = "{0} million";
+    public const string BILLION_FORMAT = "{0} billion";
+    public const string TRILLION_FORMAT = "{0} trillion";
+    public const string QUADRILLION_FORMAT = "{0} quadrillion";
+
     Text m_goldUI;
 
 	void Start ()

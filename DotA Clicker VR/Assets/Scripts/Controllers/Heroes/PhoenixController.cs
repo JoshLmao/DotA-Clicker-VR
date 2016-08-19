@@ -71,6 +71,8 @@ public class PhoenixController : MonoBehaviour
         Debug.Log("Bought Sunray Upgrade");
         //turn to white
         m_sunrayImage.color = new Color(1f, 1f, 1f);
+        m_clickerController.Ability1Level = 1;
+        m_clickerController.ResetLevelIcons("1");
     }
 
     void BuySupernovaUpgrade()
@@ -79,6 +81,8 @@ public class PhoenixController : MonoBehaviour
         Debug.Log("Bought Supernova Upgrade");
         //turn to white
         m_supernovaImage.color = new Color(1f, 1f, 1f);
+        m_clickerController.Ability2Level = 1;
+        m_clickerController.ResetLevelIcons("2");
     }
 
     void BuyPhoenixManager()
@@ -104,10 +108,7 @@ public class PhoenixController : MonoBehaviour
         if (!m_abilitySource.isPlaying)
             m_abilitySource.PlayOneShot(SunrayAbilitySound);
 
-        AbilityCooldown(SunrayCooldown);
-
-        m_sunrayImage.color = new Color(1f, 1f, 1f);
-        SunrayActive = false;
+        StartCoroutine(AbilityCooldown(SunrayCooldown, "Sunray"));
     }
 
     public void ActivateSupernova()
@@ -125,15 +126,23 @@ public class PhoenixController : MonoBehaviour
         if (!m_abilitySource.isPlaying)
             m_abilitySource.PlayOneShot(SupernovaAbilitySound);
 
-        AbilityCooldown(SupernovaCooldown);
-
-        m_supernovaImage.color = new Color(1f, 1f, 1f);
-        SupernovaActive = false;
+        StartCoroutine(AbilityCooldown(SupernovaCooldown, "Relocate"));
     }
 
-    IEnumerator AbilityCooldown(float time)
+    IEnumerator AbilityCooldown(float time, string ability)
     {
         yield return new WaitForSeconds(time);
+
+        if (ability == "Sunray")
+        {
+            m_sunrayImage.color = new Color(1f, 1f, 1f);
+            SunrayActive = false;
+        }
+        else if (ability == "Supernova")
+        {
+            m_supernovaImage.color = new Color(1f, 1f, 1f);
+            SupernovaActive = false;
+        }
     }
 
     void ClickedButton(string name)

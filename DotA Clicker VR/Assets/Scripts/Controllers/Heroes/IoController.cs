@@ -70,6 +70,9 @@ public class IoController : MonoBehaviour
         Debug.Log("Bought Overcharge Upgrade");
         //turn to white
         m_overchargeImage.color = new Color(1f, 1f, 1f);
+        //Make hero have lvl 1 of ability
+        m_clickerController.Ability1Level = 1;
+        m_clickerController.ResetLevelIcons("1");
     }
 
     void BuyRelocateUpgrade()
@@ -78,6 +81,9 @@ public class IoController : MonoBehaviour
         Debug.Log("Bought Relocate Upgrade");
         //turn to white
         m_relocateImage.color = new Color(1f, 1f, 1f);
+        //Make hero have lvl 1 of ability
+        m_clickerController.Ability2Level = 1;
+        m_clickerController.ResetLevelIcons("2");
     }
 
     void BuyIoManager()
