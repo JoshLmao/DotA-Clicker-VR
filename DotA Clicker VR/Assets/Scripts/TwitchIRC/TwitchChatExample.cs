@@ -46,7 +46,6 @@ public class TwitchChatExample : MonoBehaviour
         go.transform.localPosition = Vector3.zero;
 
         messages.AddLast(go);
-        Debug.Log("go =" + go);
 
         layout.minHeight = 20f;
         text.text = "<color=" + nameColor + "><b>" + userName + "</b></color>" + ": " + msgString;

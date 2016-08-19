@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class HandController : MonoBehaviour {
 
     public GameObject CurrentObject { get; set; }
+    public Transform PriorTranform { get; set; }
     public bool IsHoldingObj { get; set; }
     public Transform CurrentAimTranform { get; set; }
 
@@ -81,6 +82,7 @@ public class HandController : MonoBehaviour {
         if(IsHoldingObj)
         {
             //Position done auto by having set parent to controller
+            CurrentObject.transform.parent = this.gameObject.transform;
             CurrentObject.transform.rotation = this.transform.rotation;
         }
     }
@@ -103,19 +105,19 @@ public class HandController : MonoBehaviour {
     {
         if(m_canPickupObj && CurrentObject != null)
         {
+            //PriorTranform = CurrentObject.transform.parent;
             CurrentObject.transform.parent = this.gameObject.transform;
-            CurrentObject.transform.rotation = this.transform.rotation;
+            CurrentObject.transform.localPosition = Vector3.zero;
+            CurrentObject.transform.rotation = this.gameObject.transform.rotation;
+
+            Rigidbody rb = CurrentObject.GetComponent<Rigidbody>();
+            rb.isKinematic = true;
+            rb.useGravity = false;
 
             IsHoldingObj = true;
         }
 
-        if(IsHoldingObj)
-        {
-            IsHoldingObj = false;
-            CurrentObject.transform.parent = null;
 
-            CurrentObject = null;
-        }
 
         if(m_canClickOnUI)
         {
@@ -146,7 +148,19 @@ public class HandController : MonoBehaviour {
 
     void OnTriggerUnclicked(object sender, ClickedEventArgs e)
     {
+        if (IsHoldingObj)
+        {
+            IsHoldingObj = false;
+            CurrentObject.transform.parent = null;
 
+            Rigidbody rb = CurrentObject.GetComponent<Rigidbody>();
+            Rigidbody controllerRb = GetComponent<Rigidbody>();
+            rb.isKinematic = false;
+            rb.useGravity = true;
+            rb.AddForce(controllerRb.velocity, ForceMode.Impulse);
+
+            CurrentObject = null;
+        }
     }
 
     void OnPointerIn(object sender, PointerEventArgs e)

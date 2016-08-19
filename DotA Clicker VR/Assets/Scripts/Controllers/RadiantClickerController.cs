@@ -18,10 +18,16 @@ public class RadiantClickerController : MonoBehaviour
     /// <summary>
     /// Current amount the clicker will give if clicked
     /// </summary>
-    public int ClickAmount {
-        get {
+    public int ClickAmount
+    {
+        get
+        {
             if (ClickerMultiplier == 0) return StartClickAmount * 1;
             else return StartClickAmount * ClickerMultiplier;
+        }
+        set
+        {
+            ClickAmount += value;
         }
     }
     /// <summary>

@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class RadiantSceneController : MonoBehaviour
-{    
-    public List<HeroClicker> SceneHeroes { get; set; }
+{
+    public List<RadiantClickerController> SceneHeroes;
 
     public int TotalGold = 3000;
 
@@ -21,6 +21,8 @@ public class RadiantSceneController : MonoBehaviour
     {
         LoadProgress();
         m_goldUI = GameObject.Find("TotalGoldText").GetComponent<Text>();
+
+        SceneHeroes = GetClickerHeroesInScene();
 	}
 
 	void Update ()
@@ -38,12 +40,14 @@ public class RadiantSceneController : MonoBehaviour
         
     }
 
-    void CreateHeroes()
+    public List<RadiantClickerController> GetClickerHeroesInScene()
     {
-        //SceneHeroes.Add(new HeroClicker()
-        //{
-        //    Name = "Io",
-        //    GoldPerClick
-        //});
+        List<RadiantClickerController> listClickers = new List<RadiantClickerController>();
+        RadiantClickerController[] clickers = FindObjectsOfType<RadiantClickerController>();
+        foreach(RadiantClickerController clicker in clickers)
+        {
+            listClickers.Add(clicker);
+        }
+        return listClickers;
     }
 }

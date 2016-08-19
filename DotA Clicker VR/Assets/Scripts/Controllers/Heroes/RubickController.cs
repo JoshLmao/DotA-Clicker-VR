@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class RubickController : MonoBehaviour
 {
@@ -62,6 +63,14 @@ public class RubickController : MonoBehaviour
         //turn to grey
         m_TelekinesisImage.color = new Color(0.275f, 0.275f, 0.275f);
         m_spellStealImage.color = new Color(0.275f, 0.275f, 0.275f);
+    }
+
+    void Update()
+    {
+        if(TelekinesisActive)
+        {
+            m_clickerController.ClickAmount *= 2;
+        }
     }
 
     void BuyTelekinesisUpgrade()
@@ -126,6 +135,7 @@ public class RubickController : MonoBehaviour
             m_audioSource.PlayOneShot(SpellStealAbilitySound);
 
         StartCoroutine(AbilityCooldown(SpellStealCooldown, "SpellSteal"));
+        SpellStealAbility();
     }
 
     IEnumerator AbilityCooldown(float time, string ability)
@@ -159,5 +169,15 @@ public class RubickController : MonoBehaviour
         {
             m_rubickAnimator.SetBool("isAttacking", false);
         }
+    }
+
+    void SpellStealAbility()
+    {
+        RadiantSceneController sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
+        List<RadiantClickerController> clickers = new List<RadiantClickerController>();
+        clickers = sceneController.GetClickerHeroesInScene();
+
+        int heroNo = Random.Range(0, clickers.Count);
+        //clickers[heroNo].
     }
 }
