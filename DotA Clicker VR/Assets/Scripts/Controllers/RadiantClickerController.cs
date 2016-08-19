@@ -96,7 +96,7 @@ public class RadiantClickerController : MonoBehaviour
     {
         m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
         m_heroNameText = transform.FindChild("Buttons/StandBack/StandUI/ClickerNameText").GetComponent<Text>();
-        m_timeRemainingText = transform.FindChild("Buttons/StandBack/StandUI/TimeRemaining").GetComponent<Text>();
+        m_timeRemainingText = transform.FindChild("Buttons/StandBack/StandUI/ProgressSlider/TimeRemaining").GetComponent<Text>();
         m_amountBoughtText = transform.Find("Buttons/StandBack/StandUI/AmountCanvas/AmountText").GetComponent<Text>();
         m_clickButtonGoldText = transform.Find("Buttons/ClickButtonBack/ClickButton/ClickUI/ClickWorthText").GetComponent<Text>();
         m_upgradeCostText = transform.Find("Buttons/UpgradeCostBack/UpgradeCostCanvas/Cost/UpCostText").GetComponent<Text>(); ;
@@ -435,6 +435,7 @@ public class RadiantClickerController : MonoBehaviour
             m_abil1Slider.maxValue = (float)rounded;
 
             ResetLevelIcons("1");
+            m_abil1UseCount = 0;
         }
         else
         {
@@ -462,6 +463,7 @@ public class RadiantClickerController : MonoBehaviour
             m_abil2Slider.maxValue = (float)rounded;
 
             ResetLevelIcons("2");
+            m_abil2UseCount = 0;
         }
         else
         {
