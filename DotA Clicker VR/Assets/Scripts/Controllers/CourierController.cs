@@ -17,12 +17,16 @@ public class CourierController : MonoBehaviour
     public bool FollowPlayer = false;
     public float speed = 0.1f;
 
+    public bool LockRotation = false;
+    public float damping = 6.0f;
+
     GameObject courierWaypoint;
     GameObject m_player;
     Vector3 waypointPos;
     bool isByPlayer = false;
     Animator m_crowAnimator;
     GameObject m_followBtn;
+    GameObject m_lockRotationBtn;
 
     [SerializeField]
     Sprite m_toggleEnabled;
@@ -38,6 +42,7 @@ public class CourierController : MonoBehaviour
         courierWaypoint = GameObject.Find("CourierWaypoint");
         m_crowAnimator = transform.Find("BabyRoshanModel").GetComponent<Animator>();
         m_followBtn = transform.Find("TwitchStreamCanvas/FollowBtn").gameObject;
+        m_lockRotationBtn = transform.Find("TwitchStreamCanvas/LockRotationBtn").gameObject;
 
         //m_streamURL = "http://images.earthcam.com/ec_metros/ourcams/fridays.jpg";//STREAM_BASE + (m_twitchChannel == null ? "JoshLmao" : m_twitchChannel);
         //StartCoroutine(StreamStartup());
@@ -56,7 +61,15 @@ public class CourierController : MonoBehaviour
         {
             m_crowAnimator.SetBool("isMoving", false);
         }
-        transform.LookAt(m_player.transform, Vector3.up);
+
+        if(!LockRotation)
+        {
+            //transform.LookAt(m_player.transform, Vector3.up);
+            //transform.rotation = Quaternion.Slerp(transform.rotation, );
+
+            Quaternion rotation = Quaternion.LookRotation(m_player.transform.position - transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * damping);
+        }
     }
 
     IEnumerator StreamStartup()
@@ -111,7 +124,22 @@ public class CourierController : MonoBehaviour
         {
             m_followBtn.GetComponent<Image>().sprite = m_toggleDisabled;
             m_followBtn.GetComponentInChildren<Text>().text = "Follow";
+        }
+    }
 
+    public void ToggleRotationLock()
+    {
+        LockRotation = !LockRotation;
+
+        if(LockRotation)
+        {
+            m_lockRotationBtn.GetComponent<Image>().sprite = m_toggleEnabled;
+            m_lockRotationBtn.GetComponentInChildren<Text>().text = "Unlock Rotation";
+        }
+        else
+        {
+            m_lockRotationBtn.GetComponent<Image>().sprite = m_toggleDisabled;
+            m_lockRotationBtn.GetComponentInChildren<Text>().text = "Lock Rotation";
         }
     }
 }

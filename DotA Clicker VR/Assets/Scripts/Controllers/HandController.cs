@@ -50,31 +50,32 @@ public class HandController : MonoBehaviour {
             {
                 if (!m_controller.padTouched) return;
 
-                Debug.Log("Can scroll!!!!!!");
-
                 Transform managersScrollable = m_scrollableMenu.transform.parent.transform.Find("ManagersScrollbar");
                 Transform upgradesScrollable = m_scrollableMenu.transform.parent.transform.Find("UpgradesScrollbar");
                 Scrollbar scr;
                 if (managersScrollable != null && managersScrollable.GetComponent<Scrollbar>())
                 {
-                    scr = m_scrollableMenu.transform.parent.transform.Find("ManagersScrollbar").GetComponent<Scrollbar>();
+                    scr = managersScrollable.gameObject.GetComponent<Scrollbar>();
                 }
                 else if(upgradesScrollable != null && upgradesScrollable.GetComponent<Scrollbar>())
                 {
-                     scr = m_scrollableMenu.transform.parent.transform.Find("UpgradesScrollbar").GetComponent<Scrollbar>();
+                     scr = upgradesScrollable.gameObject.GetComponent<Scrollbar>();
                 }
                 else
                 {
                     scr = null;
                 }
 
-                if (m_controller.controllerState.rAxis0.y > 0.5f)
+                if(scr != null)
                 {
-                    scr.value += 0.005f;
-                }
-                else if (m_controller.controllerState.rAxis0.y < 0.5f)
-                {
-                    scr.value -= 0.005f;
+                    if (m_controller.controllerState.rAxis0.y > 0.5f)
+                    {
+                        scr.value += 0.005f;
+                    }
+                    else if (m_controller.controllerState.rAxis0.y < 0.5f)
+                    {
+                        scr.value -= 0.005f;
+                    }
                 }
             }
         }

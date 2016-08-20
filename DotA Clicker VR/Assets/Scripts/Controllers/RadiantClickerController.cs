@@ -141,19 +141,17 @@ public class RadiantClickerController : MonoBehaviour
 
 	void Update ()
     {
-        UpdateCountdownTimer();
         UpdateUIText();
 
         if(IsClicked)
         {
             CurrentClickerTime = DateTime.Now - m_lastClickedTime;
-            m_progressBar.value = CurrentClickerTime.Milliseconds;
             if(CurrentClickerTime >= TimeBetweenClicks)
             {
-                Debug.Log("Completed Click");
                 IsClicked = false;
                 CompletedClick();
             }
+            UpdateCountdownTimer();
         }
 
         if(HasManager)
@@ -167,7 +165,23 @@ public class RadiantClickerController : MonoBehaviour
 
     public void UpdateCountdownTimer()
     {
+        var percent = Divide(CurrentClickerTime, TimeBetweenClicks) * 100f;
+        m_progressBar.value = percent;
+        Debug.Log("percent =" + percent);
 
+        if(percent <= 100f)
+        {
+            m_progressBar.value = percent;
+        }
+        else
+        {
+            m_progressBar.value = 0;
+        }
+    }
+
+    public static float Divide(TimeSpan dividend, TimeSpan divisor)
+    {
+        return (float)dividend.Ticks / (float)divisor.Ticks;
     }
 
     public void OnBuyClickerButtonPressed()
@@ -181,7 +195,11 @@ public class RadiantClickerController : MonoBehaviour
         m_clickButtonGoldText.text = ClickAmount + " gold";
         m_amountBoughtText.text = ClickerMultiplier.ToString();
         m_upgradeCostText.text = UpgradeCost.ToString() + " gold";
-        m_timeRemainingText.text = CurrentClickerTime.ToString();
+
+        if (CurrentClickerTime <= TimeBetweenClicks)
+            m_timeRemainingText.text = CurrentClickerTime.ToString();
+        else
+            m_timeRemainingText.text = new TimeSpan(0, 0, 0, 0).ToString();
     }
 
     public void OnClickButtonPressed()
