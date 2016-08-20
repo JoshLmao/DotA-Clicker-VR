@@ -39,6 +39,11 @@ public class SteamVR_LaserPointer : MonoBehaviour
         pointer.transform.parent = holder.transform;
         pointer.transform.localScale = new Vector3(thickness, thickness, 100f);
         pointer.transform.localPosition = new Vector3(0f, 0f, 50f);
+
+        //My fixes for the rotation being at 144.79 on Y
+        holder.transform.localEulerAngles = Vector3.zero;
+        pointer.transform.localEulerAngles = Vector3.zero;
+
         BoxCollider collider = pointer.GetComponent<BoxCollider>();
         if (addRigidBody)
         {

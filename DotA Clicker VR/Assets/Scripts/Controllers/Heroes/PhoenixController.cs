@@ -13,6 +13,7 @@ public class PhoenixController : MonoBehaviour
 
     public bool PhoenixManager = false;
     public GameObject Phoenix;
+    GameObject PhoenixEgg;
 
     [SerializeField]
     AudioClip[] AttackingResponses;
@@ -39,6 +40,13 @@ public class PhoenixController : MonoBehaviour
     AudioSource m_audioSource;
     AudioSource m_abilitySource;
     RadiantClickerController m_clickerController;
+    
+    //Supernova Animation
+    Transform phoenixOrig;
+    Transform eggOriginal;
+    bool m_rotateEgg;
+    float m_rotateSpeed = 3f;
+    float m_ySpeed = 0.1f;
 
     void Start()
     {
@@ -47,6 +55,8 @@ public class PhoenixController : MonoBehaviour
         m_clickerController.OnClickedFinished += ClickedFinished;
 
         Phoenix = transform.Find("Phoenix").gameObject;
+        PhoenixEgg = transform.Find("Phoenix_Egg").gameObject;
+        PhoenixEgg.SetActive(false);
         m_phoenixAnimator = Phoenix.GetComponent<Animator>();
         m_audioSource = Phoenix.GetComponent<AudioSource>();
         m_abilitySource = GameObject.Find("Phoenix/AbilitySound").GetComponent<AudioSource>();
@@ -63,6 +73,15 @@ public class PhoenixController : MonoBehaviour
         //turn to grey
         m_sunrayImage.color = new Color(0.275f, 0.275f, 0.275f);
         m_supernovaImage.color = new Color(0.275f, 0.275f, 0.275f);
+    }
+
+    void Update()
+    {
+        if(m_rotateEgg)
+        {
+            PhoenixEgg.transform.Rotate(Vector3.forward * Time.deltaTime * m_rotateSpeed);
+            PhoenixEgg.transform.Translate(Vector3.down * Time.deltaTime * m_ySpeed, Space.World);
+        }
     }
 
     void BuySunrayUpgrade()
@@ -123,10 +142,10 @@ public class PhoenixController : MonoBehaviour
         if(!m_audioSource.isPlaying)
             RadiantClickerController.PlayRandomClip(m_audioSource, SupernovaResponses);
 
-        if (!m_abilitySource.isPlaying)
-            m_abilitySource.PlayOneShot(SupernovaAbilitySound);
-
         StartCoroutine(AbilityCooldown(SupernovaCooldown, "Relocate"));
+
+        //Start Supernova Ability Wait
+        StartCoroutine(SupernovaStartWait());
     }
 
     IEnumerator AbilityCooldown(float time, string ability)
@@ -161,4 +180,66 @@ public class PhoenixController : MonoBehaviour
             m_phoenixAnimator.SetBool("isAttacking", false);
         }
     }
+
+
+    IEnumerator SupernovaStartWait()
+    {
+        yield return new WaitForSeconds(0.5f); //Duration it takes to complete Supernova start anim
+
+        //Once animation is done
+        SupernovaAbility();
+        if (!m_abilitySource.isPlaying)
+            m_abilitySource.PlayOneShot(SupernovaAbilitySound);
+    }
+
+    void SupernovaAbility()
+    {
+        phoenixOrig = Phoenix.transform;
+        eggOriginal = PhoenixEgg.transform;
+
+        //Change scale to fit inside
+        Phoenix.transform.localScale = new Vector3(0.001f, 0.001f, 0.001f);
+        //Setting parent reloads animation controller, set Y instead
+        Vector3 pos = Phoenix.transform.localPosition;
+        Phoenix.transform.localPosition = new Vector3(pos.x, 0.4f, pos.z);
+        //Set active, 
+        PhoenixEgg.SetActive(true);
+
+        if (!m_audioSource.isPlaying)
+        {
+            m_audioSource.clip = SupernovaAbilitySound;
+            m_audioSource.PlayDelayed(5f);
+        }
+
+        StartCoroutine(SupernovaMidWait());
+        m_rotateEgg = true;
+    }
+
+    IEnumerator SupernovaMidWait()
+    {
+        yield return new WaitForSeconds(6f); //Duration inside the egg
+
+        //Once animation is done
+        SupernovaAbilityFinish();
+    }
+
+    void SupernovaAbilityFinish()
+    {
+        m_rotateEgg = false;
+
+        //Set position back to normal
+        Vector3 pos = Phoenix.transform.localPosition;
+        Phoenix.transform.localPosition = new Vector3(pos.x, 0.002f, pos.z);
+        Phoenix.transform.localScale = new Vector3(0.004f, 0.004f, 0.004f);
+        Phoenix.transform.rotation = phoenixOrig.rotation;
+
+        //Disable active and restore to original values for next
+        PhoenixEgg.SetActive(false);
+        PhoenixEgg.transform.position = eggOriginal.position;
+        
+        //Finally, the anim
+        m_phoenixAnimator.SetTrigger("finishedSupernova");
+        m_audioSource.clip = null;
+    }
+
 }
