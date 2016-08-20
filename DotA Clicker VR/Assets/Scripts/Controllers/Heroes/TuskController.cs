@@ -12,6 +12,7 @@ public class TuskController : MonoBehaviour
 
     public bool TuskManager = false;
     public GameObject Tusk;
+    GameObject TuskSnowball;
 
     [SerializeField]
     AudioClip[] AttackingResponses;
@@ -39,6 +40,10 @@ public class TuskController : MonoBehaviour
     AudioSource m_abilitySource;
     RadiantClickerController m_clickerController;
 
+    //Snowball animation
+    bool m_rotateSnowball = false;
+    float m_rotateSpeed = 56f;
+
     void Start()
     {
         m_clickerController = GetComponent<RadiantClickerController>();
@@ -46,9 +51,12 @@ public class TuskController : MonoBehaviour
         m_clickerController.OnClickedFinished += ClickedFinished;
 
         Tusk = transform.Find("Tusk").gameObject;
+        TuskSnowball = transform.Find("Tusk_Snowball").gameObject;
+        TuskSnowball.SetActive(false);
+
         m_tuskAnimator = Tusk.GetComponent<Animator>();
         m_audioSource = Tusk.GetComponent<AudioSource>();
-        m_abilitySource = GameObject.Find("Tusk/AbilitySound").GetComponent<AudioSource>();
+        m_abilitySource = transform.Find("AbilitySound").GetComponent<AudioSource>();
 
         m_snowballButton = transform.Find("Buttons/StandBack/UpgradesCanvas/SnowballBack/SnowballBtn").gameObject;
         m_walrusPunchButton = transform.Find("Buttons/StandBack/UpgradesCanvas/WalrusPunchBack/WalrusPunchBtn").gameObject;
@@ -62,6 +70,14 @@ public class TuskController : MonoBehaviour
         //turn to grey
         m_snowballImage.color = new Color(0.275f, 0.275f, 0.275f);
         m_walrusPunchImage.color = new Color(0.275f, 0.275f, 0.275f);
+    }
+
+    void Update()
+    {
+        if(m_rotateSnowball)
+        {
+            TuskSnowball.transform.Rotate(Vector3.right * Time.deltaTime * m_rotateSpeed);
+        }
     }
 
     void BuySnowballUpgrade()
@@ -100,7 +116,7 @@ public class TuskController : MonoBehaviour
         m_snowballImage.color = new Color(0.275f, 0.275f, 0.275f);
 
         //Do animation and voice line
-        m_tuskAnimator.SetTrigger("useSupernova");
+        m_tuskAnimator.SetTrigger("useSnowball");
         if(!m_audioSource.isPlaying)
              RadiantClickerController.PlayRandomClip(m_audioSource, SnowballResponses);
 
@@ -108,6 +124,7 @@ public class TuskController : MonoBehaviour
             m_abilitySource.PlayOneShot(SnowballAbilitySound);
 
         StartCoroutine(AbilityCooldown(SnowballCooldown, "Snowball"));
+        StartCoroutine(SnowballStartWait());
     }
 
     public void ActivateWalrusPunch()
@@ -118,7 +135,7 @@ public class TuskController : MonoBehaviour
         m_walrusPunchImage.color = new Color(0.275f, 0.275f, 0.275f);
 
         //Do animation and voice line
-        m_tuskAnimator.SetTrigger("useSupernova");
+        m_tuskAnimator.SetTrigger("useWalrusPunch");
         if(!m_audioSource.isPlaying)
             RadiantClickerController.PlayRandomClip(m_audioSource, WalrusPunchResponses);
 
@@ -159,5 +176,42 @@ public class TuskController : MonoBehaviour
         {
             m_tuskAnimator.SetBool("isAttacking", false);
         }
+    }
+
+    IEnumerator SnowballStartWait()
+    {
+        yield return new WaitForSeconds(0f); //Duration it takes to get into anim
+
+        //Once animation is done
+        SnowballAbility();
+
+    }
+
+    void SnowballAbility()
+    {
+        Tusk.SetActive(false);
+        TuskSnowball.SetActive(true);
+
+        StartCoroutine(SnowballMidWait());
+        m_rotateSnowball = true;
+    }
+
+    IEnumerator SnowballMidWait()
+    {
+        yield return new WaitForSeconds(6f); //Duration for ability sound clip
+
+        //Once animation is done
+        SnowballAbilityFinish();
+    }
+
+    void SnowballAbilityFinish()
+    {
+        m_rotateSnowball = false;
+        Tusk.SetActive(true);
+        TuskSnowball.SetActive(false);
+        TuskSnowball.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
+
+        m_tuskAnimator.SetTrigger("finishSnowball");
+
     }
 }
