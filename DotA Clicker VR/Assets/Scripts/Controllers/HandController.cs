@@ -17,6 +17,7 @@ public class HandController : MonoBehaviour {
 
     bool m_canPickupObj = false;
     bool m_enablePointer = true;
+    bool m_moveSliderHandle;
 
     bool m_canClickOnUI = false;
     Button m_activeButtonUI;
@@ -26,6 +27,10 @@ public class HandController : MonoBehaviour {
     Scrollbar m_activeScrollerUI;
     GameObject m_scrollableMenu;
 
+    //Sliders
+    Ray sliderRaycast;
+    Vector3 before;
+    Vector3 after;
 
 	void Start ()
     {
@@ -48,35 +53,29 @@ public class HandController : MonoBehaviour {
             //Detect for Scrollable UI
             if (m_scrollableMenu != null)
             {
-                if (!m_controller.padTouched) return;
+                ScrollableMenuMethod();
+            }
 
-                Transform managersScrollable = m_scrollableMenu.transform.parent.transform.Find("ManagersScrollbar");
-                Transform upgradesScrollable = m_scrollableMenu.transform.parent.transform.Find("UpgradesScrollbar");
-                Scrollbar scr;
-                if (managersScrollable != null && managersScrollable.GetComponent<Scrollbar>())
+            //Moving slider handle
+            if(m_moveSliderHandle && m_activeSliderUI != null)
+            {
+                /*
+                 Using the center point of box collider and point of ray on slider, calculate 
+                 */
+                float distance = 1.5f;
+                RaycastHit hit;
+                Ray ray = new Ray(transform.position, Vector3.forward);
+                if (Physics.Raycast(ray, out hit))
                 {
-                    scr = managersScrollable.gameObject.GetComponent<Scrollbar>();
-                }
-                else if(upgradesScrollable != null && upgradesScrollable.GetComponent<Scrollbar>())
-                {
-                     scr = upgradesScrollable.gameObject.GetComponent<Scrollbar>();
-                }
-                else
-                {
-                    scr = null;
+                    Debug.Log("POINT " + hit.point);
                 }
 
-                if(scr != null)
-                {
-                    if (m_controller.controllerState.rAxis0.y > 0.5f)
-                    {
-                        scr.value += 0.005f;
-                    }
-                    else if (m_controller.controllerState.rAxis0.y < 0.5f)
-                    {
-                        scr.value -= 0.005f;
-                    }
-                }
+                Vector3 point = ray.origin + (ray.direction * distance);
+                Vector3 sliderCenter = m_activeSliderUI.GetComponent<BoxCollider>().bounds.center;
+
+                float diff = Vector3.Distance(sliderCenter, hit.point);
+                Debug.Log("Disatnce = " + diff);
+                m_activeSliderUI.value = diff;
             }
         }
 
@@ -118,8 +117,6 @@ public class HandController : MonoBehaviour {
             IsHoldingObj = true;
         }
 
-
-
         if(m_canClickOnUI)
         {
             if (m_activeButtonUI != null)
@@ -131,11 +128,7 @@ public class HandController : MonoBehaviour {
             else if (m_activeSliderUI != null)
             {
                 Debug.Log("Clicked on Slider");
-                if(m_controller.triggerPressed)
-                {
-                   // m_activeSliderUI.value = 
-                }
-                //m_sliderTranform = m_activeSliderUI.transform;
+                m_moveSliderHandle = true;
             }
             else if (m_activeToggleUI != null)
             {
@@ -162,6 +155,8 @@ public class HandController : MonoBehaviour {
 
             CurrentObject = null;
         }
+
+        m_moveSliderHandle = false;
     }
 
     void OnPointerIn(object sender, PointerEventArgs e)
@@ -172,7 +167,6 @@ public class HandController : MonoBehaviour {
         {
             //Enable LaserPointer
             m_laserPointer.active = true;
-            Debug.Log("Enabling LaserPointer");
         }
         else
         {
@@ -181,8 +175,6 @@ public class HandController : MonoBehaviour {
 
         if(e.target.gameObject.layer == 5 && e.target.gameObject.GetComponent<Button>() && e.target.gameObject.GetComponent<BoxCollider>())
         {
-            Debug.Log("Aiming at clickable button");
-
             m_activeButtonUI = e.target.gameObject.GetComponent<Button>();
             m_canClickOnUI = true;
         }
@@ -195,8 +187,6 @@ public class HandController : MonoBehaviour {
         }
         else if(e.target.gameObject.layer == 5 && e.target.gameObject.GetComponent<Toggle>() && e.target.gameObject.GetComponent<BoxCollider>())
         {
-            Debug.Log("Aiming at Toggle");
-
             m_activeToggleUI = e.target.gameObject.GetComponent<Toggle>();
             m_canClickOnUI = true;
         }
@@ -232,5 +222,38 @@ public class HandController : MonoBehaviour {
     public static void RumbleController(uint index, ushort length)
     {
         SteamVR_Controller.Input((int)index).TriggerHapticPulse(length);
+    }
+
+    void ScrollableMenuMethod()
+    {
+        if (!m_controller.padTouched) return;
+
+        Transform managersScrollable = m_scrollableMenu.transform.parent.transform.Find("ManagersScrollbar");
+        Transform upgradesScrollable = m_scrollableMenu.transform.parent.transform.Find("UpgradesScrollbar");
+        Scrollbar scr;
+        if (managersScrollable != null && managersScrollable.GetComponent<Scrollbar>())
+        {
+            scr = managersScrollable.gameObject.GetComponent<Scrollbar>();
+        }
+        else if (upgradesScrollable != null && upgradesScrollable.GetComponent<Scrollbar>())
+        {
+            scr = upgradesScrollable.gameObject.GetComponent<Scrollbar>();
+        }
+        else
+        {
+            scr = null;
+        }
+
+        if (scr != null)
+        {
+            if (m_controller.controllerState.rAxis0.y > 0.5f)
+            {
+                scr.value += 0.005f;
+            }
+            else if (m_controller.controllerState.rAxis0.y < 0.5f)
+            {
+                scr.value -= 0.005f;
+            }
+        }
     }
 }

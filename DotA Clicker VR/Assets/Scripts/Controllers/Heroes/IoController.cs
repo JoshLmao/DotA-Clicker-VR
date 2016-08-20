@@ -32,8 +32,8 @@ public class IoController : MonoBehaviour
 
     GameObject m_overchargeButton;
     GameObject m_relocateButton;
-    Image m_overchargeImage;
-    Image m_relocateImage;
+    Image m_overchargeCooldown;
+    Image m_relocateCooldown;
     Animator m_ioAnimator;
     AudioSource m_audioSource;
     AudioSource m_abilitySource;
@@ -50,26 +50,31 @@ public class IoController : MonoBehaviour
         m_audioSource = Io.GetComponent<AudioSource>();
         m_abilitySource = GameObject.Find("Io/AbilitySound").GetComponent<AudioSource>();
 
+        m_overchargeCooldown = transform.Find("Buttons/StandBack/UpgradesCanvas/OverchargeBack/CDImg").GetComponent<Image>();
+        m_relocateCooldown = transform.Find("Buttons/StandBack/UpgradesCanvas/RelocateBack/CDImg").GetComponent<Image>();
         m_overchargeButton = transform.Find("Buttons/StandBack/UpgradesCanvas/OverchargeBack/OverchargeBtn").gameObject;
         m_relocateButton = transform.Find("Buttons/StandBack/UpgradesCanvas/RelocateBack/RelocateBtn").gameObject;
-        m_overchargeImage = m_overchargeButton.GetComponent<Image>();
-        m_relocateImage = m_relocateButton.GetComponent<Image>();
 
         UpgradesController.BuyOverchargeUpgrade += BuyOverchargeUpgrade;
         UpgradesController.BuyRelocateUpgrade += BuyRelocateUpgrade;
         ManagersController.BuyIoManager += BuyIoManager;
 
-        //turn to grey
-        m_overchargeImage.color = new Color(0.275f, 0.275f, 0.275f);
-        m_relocateImage.color = new Color(0.275f, 0.275f, 0.275f);
+    }
+
+    void Update()
+    {
+        if(OverchargeActive)
+        {
+            m_overchargeCooldown.fillAmount = 1;
+        }
     }
 
     void BuyOverchargeUpgrade()
     {
         OverchargeUpgrade = true;
         Debug.Log("Bought Overcharge Upgrade");
-        //turn to white
-        m_overchargeImage.color = new Color(1f, 1f, 1f);
+        //Give white color to abiity
+        m_overchargeCooldown.fillAmount = 0;
         //Make hero have lvl 1 of ability
         m_clickerController.Ability1Level = 1;
         m_clickerController.ResetLevelIcons("1");
@@ -79,8 +84,8 @@ public class IoController : MonoBehaviour
     {
         RelocateUpgrade = true;
         Debug.Log("Bought Relocate Upgrade");
-        //turn to white
-        m_relocateImage.color = new Color(1f, 1f, 1f);
+        //Give white color to abiity
+        m_relocateCooldown.fillAmount = 0;
         //Make hero have lvl 1 of ability
         m_clickerController.Ability2Level = 1;
         m_clickerController.ResetLevelIcons("2");
@@ -99,7 +104,7 @@ public class IoController : MonoBehaviour
         if (OverchargeActive) return;
         Debug.Log("Activated Overcharge");
         OverchargeActive = true;
-        m_overchargeImage.color = new Color(0.275f, 0.275f, 0.275f);
+        //m_overchargeCD.fillamount = 1;
 
         if (!m_audioSource.isPlaying)
             RadiantClickerController.PlayRandomClip(m_audioSource, OverchargeResponses);
@@ -115,7 +120,7 @@ public class IoController : MonoBehaviour
         if (RelocateActive) return;
         Debug.Log("Activated Relocate");
         OverchargeActive = true;
-        m_relocateImage.color = new Color(0.275f, 0.275f, 0.275f);
+        //m_relocateCooldown.fillAmount = 1;
 
         if (!m_audioSource.isPlaying)
             RadiantClickerController.PlayRandomClip(m_audioSource, RelocateResponses);
@@ -132,12 +137,12 @@ public class IoController : MonoBehaviour
 
         if (ability == "Overcharge")
         {
-            m_relocateImage.color = new Color(1f, 1f, 1f);
+            m_overchargeCooldown.fillAmount = 0;
             OverchargeActive = false;
         }
         else if (ability == "Relocate")
         {
-            m_relocateImage.color = new Color(1f, 1f, 1f);
+            m_relocateCooldown.fillAmount = 0;
             OverchargeActive = false;
         }
     }

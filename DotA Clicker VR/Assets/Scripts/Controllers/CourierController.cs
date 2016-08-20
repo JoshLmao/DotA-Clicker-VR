@@ -20,6 +20,8 @@ public class CourierController : MonoBehaviour
     public bool LockRotation = false;
     public float damping = 6.0f;
 
+    public bool AudioMuted = false;
+
     GameObject courierWaypoint;
     GameObject m_player;
     Vector3 waypointPos;
@@ -27,6 +29,7 @@ public class CourierController : MonoBehaviour
     Animator m_crowAnimator;
     GameObject m_followBtn;
     GameObject m_lockRotationBtn;
+    GameObject m_audioMutedBtn;
 
     [SerializeField]
     Sprite m_toggleEnabled;
@@ -43,7 +46,7 @@ public class CourierController : MonoBehaviour
         m_crowAnimator = transform.Find("BabyRoshanModel").GetComponent<Animator>();
         m_followBtn = transform.Find("TwitchStreamCanvas/FollowBtn").gameObject;
         m_lockRotationBtn = transform.Find("TwitchStreamCanvas/LockRotationBtn").gameObject;
-
+        m_audioMutedBtn = transform.Find("TwitchStreamCanvas/StreamAudioMutedBtn").gameObject;
         //m_streamURL = "http://images.earthcam.com/ec_metros/ourcams/fridays.jpg";//STREAM_BASE + (m_twitchChannel == null ? "JoshLmao" : m_twitchChannel);
         //StartCoroutine(StreamStartup());
     }
@@ -141,5 +144,11 @@ public class CourierController : MonoBehaviour
             m_lockRotationBtn.GetComponent<Image>().sprite = m_toggleDisabled;
             m_lockRotationBtn.GetComponentInChildren<Text>().text = "Lock Rotation";
         }
+    }
+
+    public void ToggleStreamAudio()
+    {
+        AudioMuted = !AudioMuted;
+        m_audioMutedBtn.GetComponent<Toggle>().isOn = AudioMuted;
     }
 }

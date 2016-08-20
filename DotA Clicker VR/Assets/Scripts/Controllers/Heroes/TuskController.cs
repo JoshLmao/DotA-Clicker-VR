@@ -214,4 +214,14 @@ public class TuskController : MonoBehaviour
         m_tuskAnimator.SetTrigger("finishSnowball");
 
     }
+
+    void SnowballActiveStart()
+    {
+
+    }
+
+    void SnowballActiveFinish()
+    {
+
+    }
 }
