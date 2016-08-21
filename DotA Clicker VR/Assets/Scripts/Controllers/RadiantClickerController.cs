@@ -15,6 +15,7 @@ public class RadiantClickerController : MonoBehaviour
     public float UpgradeCost = 10;
     public float UpgradeMultiplier = 1.15f;
     /****************************/
+    public int m_clickAmount;
     /// <summary>
     /// Current amount the clicker will give if clicked
     /// </summary>
@@ -22,12 +23,16 @@ public class RadiantClickerController : MonoBehaviour
     {
         get
         {
-            if (ClickerMultiplier == 0) return StartClickAmount * 1;
-            else return StartClickAmount * ClickerMultiplier;
+            //if (ClickerMultiplier == 0) return StartClickAmount * 1;
+            //else return StartClickAmount * ClickerMultiplier;
+            var calc = m_clickAmount * ClickerMultiplier == 0 ? 1 : ClickerMultiplier;
+            return calc;
         }
         set
         {
-            ClickAmount += value;
+            Debug.Log("Before - " + m_clickAmount);
+            m_clickAmount += value;
+            Debug.Log("After - " + m_clickAmount);
         }
     }
     /// <summary>
@@ -111,6 +116,7 @@ public class RadiantClickerController : MonoBehaviour
         AbilityLevelUpStart();
 
         TimeBetweenClicks = new TimeSpan(0, 0, 0, SecondsToCompleteClick);
+        m_clickAmount = ClickAmount;
     }
 	
     void AbilityLevelUpStart()
@@ -167,7 +173,6 @@ public class RadiantClickerController : MonoBehaviour
     {
         var percent = Divide(CurrentClickerTime, TimeBetweenClicks) * 100f;
         m_progressBar.value = percent;
-        Debug.Log("percent =" + percent);
 
         if(percent <= 100f)
         {
@@ -500,17 +505,14 @@ public class RadiantClickerController : MonoBehaviour
     {
         if(abilityNo == "1")
         {
-            Debug.Log("Resetting 1");
             //Reset levels
             for (int j = 0; j > m_abil1Icons.Count; j++)
             {
-                Debug.Log("Resetting Levels ==" + j);
                 m_abil1Icons[j].GetComponent<Image>().sprite = m_notLevelled;
             }
             //Set correct levels by image
             for (int i = 0; i < Ability1Level; i++)
             {
-                Debug.Log("Adding Levels ==" + i);
                 m_abil1Icons[i].GetComponent<Image>().sprite = m_levelled;
             }
         }
@@ -518,12 +520,10 @@ public class RadiantClickerController : MonoBehaviour
         {
             for (int j = 0; j > m_abil2Icons.Count; j++)
             {
-                Debug.Log("Resetting Levels ==" + j);
                 m_abil2Icons[j].GetComponent<Image>().sprite = m_notLevelled;
             }
             for (int i = 0; i < Ability2Level; i++)
             {
-                Debug.Log("Adding Levels ==" + i);
                 m_abil2Icons[i].GetComponent<Image>().sprite = m_levelled;
             }
         }

@@ -69,7 +69,7 @@ public class UpgradesController : MonoBehaviour
             Description = "Overcharges Io to double his output for 30 seconds. Cooldown: 30 seconds",
             HeroUpgrade = "Io",
             Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Io_Overcharge"),
-            Cost = 2000,
+            Cost = 0,
         });
         Upgrades.Add(new UpgradeDto()
         {
@@ -77,7 +77,7 @@ public class UpgradesController : MonoBehaviour
             Description = "Quadruples Io's click amount for 20 seconds. Cooldown: 1.5 minutes",
             HeroUpgrade = "Io",
             Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Io_Relocate"),
-            Cost = 6000,
+            Cost = 0,
         });
         Upgrades.Add(new UpgradeDto()
         {
