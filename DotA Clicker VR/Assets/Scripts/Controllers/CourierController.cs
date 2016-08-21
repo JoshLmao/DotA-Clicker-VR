@@ -57,7 +57,6 @@ public class CourierController : MonoBehaviour
         {
             waypointPos = new Vector3(courierWaypoint.transform.position.x, transform.position.y, courierWaypoint.transform.position.z);
             transform.position = Vector3.Lerp(transform.position, waypointPos, speed * Time.deltaTime);
-            //Vector3.MoveTowards(transform.position, waypointPos, speed * Time.deltaTime); //old
             m_crowAnimator.SetBool("isMoving", true);
         }
         else if(isByPlayer)

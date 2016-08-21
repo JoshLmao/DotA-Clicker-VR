@@ -29,8 +29,6 @@ public class HandController : MonoBehaviour {
 
     //Sliders
     Ray sliderRaycast;
-    Vector3 before;
-    Vector3 after;
 
 	void Start ()
     {
@@ -98,6 +96,12 @@ public class HandController : MonoBehaviour {
         {
             RadiantClickerController controller = col.gameObject.GetComponentInParent<RadiantClickerController>();
             controller.ActivateAbility(col.gameObject.name, m_controller.controllerIndex);
+        }
+        else if(col.tag == "Creep")
+        {
+            //Kill the creep
+            Debug.Log("Killed creep");
+            col.gameObject.GetComponent<Animator>().SetTrigger("isKilled");
         }
     }
 

@@ -49,7 +49,7 @@ public class TwitchChatExample : MonoBehaviour
 
         layout.minHeight = 20f;
         text.text = "<color=" + nameColor + "><b>" + userName + "</b></color>" + ": " + msgString;
-        text.color = Color.black;
+        text.color = Color.white;
         text.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
         scrollRect.velocity = new Vector2(0, 1000f);
     }

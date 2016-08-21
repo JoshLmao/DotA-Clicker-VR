@@ -15,7 +15,6 @@ public class RadiantClickerController : MonoBehaviour
     public float UpgradeCost = 10;
     public float UpgradeMultiplier = 1.15f;
     /****************************/
-    public int m_clickAmount;
     /// <summary>
     /// Current amount the clicker will give if clicked
     /// </summary>
@@ -23,14 +22,14 @@ public class RadiantClickerController : MonoBehaviour
     {
         get
         {
-            //if (ClickerMultiplier == 0) return StartClickAmount * 1;
-            //else return StartClickAmount * ClickerMultiplier;
-            var calc = m_clickAmount * ClickerMultiplier == 0 ? 1 : ClickerMultiplier;
-            return calc;
+            if (ClickerMultiplier == 0) return StartClickAmount * 1;
+            else return StartClickAmount * ClickerMultiplier;
+            //var calc = m_clickAmount * ClickerMultiplier == 0 ? 1 : ClickerMultiplier;
+            //return calc;
         }
         set
         {
-            m_clickAmount += value;
+            ClickAmount += value;
         }
     }
     /// <summary>
@@ -118,7 +117,7 @@ public class RadiantClickerController : MonoBehaviour
         AbilityLevelUpStart();
 
         TimeBetweenClicks = new TimeSpan(0, 0, 0, SecondsToCompleteClick);
-        m_clickAmount = ClickAmount;
+        //m_clickAmount = ClickAmount;
     }
 	
     void AbilityLevelUpStart()
