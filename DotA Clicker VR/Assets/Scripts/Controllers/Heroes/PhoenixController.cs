@@ -25,17 +25,17 @@ public class PhoenixController : MonoBehaviour
     AudioClip[] SupernovaResponses;
 
     public int SunrayCooldown;
+    public int SunrayActiveDuration;
     [SerializeField]
     AudioClip SunrayAbilitySound;
 
     public int SupernovaCooldown;
+    public int SupernovaActiveDuration;
     [SerializeField]
     AudioClip SupernovaAbilitySound;
 
     GameObject m_sunrayButton;
     GameObject m_supernovaButton;
-    Image m_sunrayImage;
-    Image m_supernovaImage;
     Animator m_phoenixAnimator;
     AudioSource m_audioSource;
     AudioSource m_abilitySource;
@@ -47,6 +47,15 @@ public class PhoenixController : MonoBehaviour
     bool m_rotateEgg;
     float m_rotateSpeed = 3f;
     float m_ySpeed = 0.1f;
+
+    //Countdown
+    Image m_sunrayCooldown, m_supernovaCooldown;
+    float m_sunrayCurrentTime, m_supernovaCurrentTime;
+    float m_sunrayCDImageCount, m_supernovaCDImageCount;
+    bool m_sunrayCountdown, m_supernovaCountdown;
+    Text m_sunrayCooldownTxt, m_supernovaCooldownTxt;
+    Image m_sunrayActiveFade, m_supernovaActiveFade;
+    int m_sunrayCountModifier;
 
     void Start()
     {
@@ -63,16 +72,21 @@ public class PhoenixController : MonoBehaviour
 
         m_sunrayButton = transform.Find("Buttons/StandBack/UpgradesCanvas/SunrayBack/SunrayBtn").gameObject;
         m_supernovaButton = transform.Find("Buttons/StandBack/UpgradesCanvas/SupernovaBack/SupernovaBtn").gameObject;
-        m_sunrayImage = m_sunrayButton.GetComponent<Image>();
-        m_supernovaImage = m_supernovaButton.GetComponent<Image>();
+        m_sunrayCooldown = transform.Find("Buttons/StandBack/UpgradesCanvas/SunrayBack/CDImg").GetComponent<Image>();
+        m_supernovaCooldown = transform.Find("Buttons/StandBack/UpgradesCanvas/SupernovaBack/CDImg").GetComponent<Image>();
+        m_sunrayCooldownTxt = transform.Find("Buttons/StandBack/UpgradesCanvas/SunrayBack/CDText").GetComponent<Text>();
+        m_supernovaCooldownTxt = transform.Find("Buttons/StandBack/UpgradesCanvas/SupernovaBack/CDText").GetComponent<Text>();
+        m_sunrayCooldownTxt.gameObject.SetActive(false);
+        m_supernovaCooldownTxt.gameObject.SetActive(false);
+
+        m_sunrayActiveFade = transform.Find("Buttons/StandBack/UpgradesCanvas/SunrayBack/ActiveFade").GetComponent<Image>();
+        m_supernovaActiveFade = transform.Find("Buttons/StandBack/UpgradesCanvas/SupernovaBack/ActiveFade").GetComponent<Image>();
+        m_sunrayActiveFade.gameObject.SetActive(false);
+        m_supernovaActiveFade.gameObject.SetActive(false);
 
         UpgradesController.BuySunrayUpgrade += BuySunrayUpgrade;
         UpgradesController.BuySupernovaUpgrade += BuySupernovaUpgrade;
         ManagersController.BuyPhoenixManager += BuyPhoenixManager;
-
-        //turn to grey
-        m_sunrayImage.color = new Color(0.275f, 0.275f, 0.275f);
-        m_supernovaImage.color = new Color(0.275f, 0.275f, 0.275f);
     }
 
     void Update()
@@ -82,14 +96,40 @@ public class PhoenixController : MonoBehaviour
             PhoenixEgg.transform.Rotate(Vector3.forward * Time.deltaTime * m_rotateSpeed);
             PhoenixEgg.transform.Translate(Vector3.down * Time.deltaTime * m_ySpeed, Space.World);
         }
+
+        if (SunrayActive && m_sunrayCountdown)
+        {
+            m_sunrayCurrentTime -= Time.deltaTime;
+            m_sunrayCDImageCount = m_sunrayCurrentTime;
+
+            float time = Mathf.Round(m_sunrayCurrentTime);
+            m_sunrayCooldownTxt.text = (time + 1).ToString();
+
+            float scaledValue = (m_sunrayCDImageCount - 0) / (SunrayCooldown - 0);
+            m_sunrayCooldown.fillAmount = scaledValue;
+        }
+
+        if (SupernovaActive && m_supernovaCountdown)
+        {
+            m_supernovaCurrentTime -= Time.deltaTime;
+            m_supernovaCDImageCount = m_supernovaCurrentTime;
+
+            float time = Mathf.Round(m_supernovaCurrentTime);
+            m_supernovaCooldownTxt.text = (time + 1).ToString();
+
+            float scaledValue = (m_supernovaCDImageCount - 0) / (SupernovaCooldown - 0);
+            m_supernovaCooldown.fillAmount = scaledValue;
+        }
     }
 
     void BuySunrayUpgrade()
     {
         SunrayUpgrade = true;
         Debug.Log("Bought Sunray Upgrade");
-        //turn to white
-        m_sunrayImage.color = new Color(1f, 1f, 1f);
+
+        //Give white color to ability
+        m_sunrayCooldown.fillAmount = 0;
+
         m_clickerController.Ability1Level = 1;
         m_clickerController.ResetLevelIcons("1");
     }
@@ -98,8 +138,10 @@ public class PhoenixController : MonoBehaviour
     {
         SupernovaUpgrade = true;
         Debug.Log("Bought Supernova Upgrade");
-        //turn to white
-        m_supernovaImage.color = new Color(1f, 1f, 1f);
+
+        //Give white color to ability
+        m_supernovaCooldown.fillAmount = 0;
+
         m_clickerController.Ability2Level = 1;
         m_clickerController.ResetLevelIcons("2");
     }
@@ -115,9 +157,9 @@ public class PhoenixController : MonoBehaviour
     public void ActivateSunray()
     {
         if (SunrayActive) return;
-        Debug.Log("Activated Sunray");
         SunrayActive = true;
-        m_sunrayImage.color = new Color(0.275f, 0.275f, 0.275f);
+
+        SunrayEffects();
 
         //Do animation and voice line
         m_phoenixAnimator.SetTrigger("useSunray");
@@ -126,23 +168,19 @@ public class PhoenixController : MonoBehaviour
 
         if (!m_abilitySource.isPlaying)
             m_abilitySource.PlayOneShot(SunrayAbilitySound);
-
-        StartCoroutine(AbilityCooldown(SunrayCooldown, "Sunray"));
     }
 
     public void ActivateSupernova()
     {
         if (SupernovaActive) return;
-        Debug.Log("Activated Supernova");
         SupernovaActive = true;
-        m_supernovaImage.color = new Color(0.275f, 0.275f, 0.275f);
+
+        SupernovaEffects();
 
         //Do animation and voice line
         m_phoenixAnimator.SetTrigger("useSupernova");
         if(!m_audioSource.isPlaying)
             RadiantClickerController.PlayRandomClip(m_audioSource, SupernovaResponses);
-
-        StartCoroutine(AbilityCooldown(SupernovaCooldown, "Relocate"));
 
         //Start Supernova Ability Wait
         StartCoroutine(SupernovaStartWait());
@@ -154,14 +192,48 @@ public class PhoenixController : MonoBehaviour
 
         if (ability == "Sunray")
         {
-            m_sunrayImage.color = new Color(1f, 1f, 1f);
+            m_sunrayCooldownTxt.gameObject.SetActive(false);
+            m_sunrayCooldown.fillAmount = 0;
+            m_sunrayCountdown = false;
             SunrayActive = false;
         }
         else if (ability == "Supernova")
         {
-            m_supernovaImage.color = new Color(1f, 1f, 1f);
+            m_supernovaCooldownTxt.gameObject.SetActive(false);
+            m_supernovaCooldown.fillAmount = 0;
+            m_supernovaCountdown = false;
             SupernovaActive = false;
         }
+        /*Do after active effects have done their duration*/
+        else if (ability == "SunrayActiveFinish")
+        {
+            m_sunrayActiveFade.gameObject.SetActive(false);
+
+            RemoveSunrayEffects();
+
+            //Start Cooldown clock once finished
+            m_sunrayCooldown.fillAmount = 1;
+            m_sunrayCooldownTxt.gameObject.SetActive(true);
+            m_sunrayCurrentTime = m_sunrayCDImageCount = SunrayCooldown;
+            m_sunrayCountdown = true;
+
+            StartCoroutine(AbilityCooldown(SunrayCooldown, "sunray"));
+        }
+        else if (ability == "SupernovaActiveFinish")
+        {
+            m_supernovaActiveFade.gameObject.SetActive(false);
+
+            RemoveSupernovaEffects();
+
+            //Cooldown clock
+            m_supernovaCooldown.fillAmount = 1;
+            m_supernovaCooldownTxt.gameObject.SetActive(true);
+            m_supernovaCurrentTime = m_supernovaCDImageCount = SupernovaCooldown;
+            m_supernovaCountdown = true;
+
+            StartCoroutine(AbilityCooldown(SupernovaCooldown, "supernova"));
+        }
+
     }
 
     void ClickedButton(string name)
@@ -242,4 +314,32 @@ public class PhoenixController : MonoBehaviour
         m_audioSource.clip = null;
     }
 
+    void SunrayEffects()
+    {
+        m_sunrayActiveFade.gameObject.SetActive(true);
+
+        //do effct
+
+        StartCoroutine(AbilityCooldown(SunrayActiveDuration, "SunrayActiveFinish"));
+
+    }
+
+    void RemoveSunrayEffects()
+    {
+
+    }
+
+    void SupernovaEffects()
+    {
+        m_sunrayActiveFade.gameObject.SetActive(true);
+
+        //do effect
+
+        StartCoroutine(AbilityCooldown(SupernovaActiveDuration, "SupernovaActiveFinish"));
+    }
+
+    void RemoveSupernovaEffects()
+    {
+
+    }
 }

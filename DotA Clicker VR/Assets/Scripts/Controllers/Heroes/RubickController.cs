@@ -24,21 +24,29 @@ public class RubickController : MonoBehaviour
     AudioClip[] SpellStealResponses;
 
     public int TelekinesisCooldown;
+    public int TelekinesisActiveDuration;
     [SerializeField]
     AudioClip TelekinesisAbilitySound;
 
     public int SpellStealCooldown;
+    public int SpellStealActiveDuration;
     [SerializeField]
     AudioClip SpellStealAbilitySound;
 
-    GameObject m_TelekinesisButton;
-    GameObject m_relocateButton;
-    Image m_TelekinesisImage;
-    Image m_spellStealImage;
+    GameObject m_telekinesisButton;
+    GameObject m_spellStealButton;
     Animator m_rubickAnimator;
     AudioSource m_audioSource;
     AudioSource m_abilitySource;
     RadiantClickerController m_clickerController; //For Events
+
+    //Countdown
+    Image m_telekinesisCooldown, m_spellStealCooldown;
+    float m_telekinesisCurrentTime, m_spellStealCurrentTime;
+    float m_telekinesisCDImageCount, m_spellStealCDImageCount;
+    bool m_telekinesisCountdown, m_spellStealCountdown;
+    Text m_telekinesisCooldownTxt, m_spellStealCooldownTxt;
+    Image m_telekinesisActiveFade, m_spellStealActiveFade;
 
     void Start()
     {
@@ -51,18 +59,23 @@ public class RubickController : MonoBehaviour
         m_audioSource = RubickModel.GetComponent<AudioSource>();
         m_abilitySource = GameObject.Find("Rubick/AbilitySound").GetComponent<AudioSource>();
 
-        m_TelekinesisButton = transform.Find("Buttons/StandBack/UpgradesCanvas/TelekinesisBack/TelekinesisBtn").gameObject;
-        m_relocateButton = transform.Find("Buttons/StandBack/UpgradesCanvas/SpellStealBack/SpellStealBtn").gameObject;
-        m_TelekinesisImage = m_TelekinesisButton.GetComponent<Image>();
-        m_spellStealImage = m_relocateButton.GetComponent<Image>();
+        m_telekinesisButton = transform.Find("Buttons/StandBack/UpgradesCanvas/TelekinesisBack/TelekinesisBtn").gameObject;
+        m_spellStealButton = transform.Find("Buttons/StandBack/UpgradesCanvas/SpellStealBack/SpellStealBtn").gameObject;
+        m_telekinesisCooldown = transform.Find("Buttons/StandBack/UpgradesCanvas/TelekinesisBack/CDImg").GetComponent<Image>();
+        m_spellStealCooldown = transform.Find("Buttons/StandBack/UpgradesCanvas/SpellStealBack/CDImg").GetComponent<Image>();
+        m_telekinesisCooldownTxt = transform.Find("Buttons/StandBack/UpgradesCanvas/TelekinesisBack/CDText").GetComponent<Text>();
+        m_spellStealCooldownTxt = transform.Find("Buttons/StandBack/UpgradesCanvas/SpellStealBack/CDText").GetComponent<Text>();
+        m_telekinesisCooldownTxt.gameObject.SetActive(false);
+        m_spellStealCooldownTxt.gameObject.SetActive(false);
+
+        m_telekinesisActiveFade = transform.Find("Buttons/StandBack/UpgradesCanvas/TelekinesisBack/ActiveFade").GetComponent<Image>();
+        m_spellStealActiveFade = transform.Find("Buttons/StandBack/UpgradesCanvas/SpellStealBack/ActiveFade").GetComponent<Image>();
+        m_telekinesisActiveFade.gameObject.SetActive(false);
+        m_spellStealActiveFade.gameObject.SetActive(false);
 
         UpgradesController.BuyTelekinesisUpgrade += BuyTelekinesisUpgrade;
         UpgradesController.BuySpellStealUpgrade += BuySpellStealUpgrade;
         ManagersController.BuyRubickManager += BuyRubickManager;
-
-        //turn to grey
-        m_TelekinesisImage.color = new Color(0.275f, 0.275f, 0.275f);
-        m_spellStealImage.color = new Color(0.275f, 0.275f, 0.275f);
     }
 
     void Update()
@@ -71,14 +84,40 @@ public class RubickController : MonoBehaviour
         {
             m_clickerController.ClickAmount *= 2;
         }
+
+        if (TelekinesisActive && m_telekinesisCountdown)
+        {
+            m_telekinesisCurrentTime -= Time.deltaTime;
+            m_telekinesisCDImageCount = m_telekinesisCurrentTime;
+
+            float time = Mathf.Round(m_telekinesisCurrentTime);
+            m_telekinesisCooldownTxt.text = (time + 1).ToString();
+
+            float scaledValue = (m_telekinesisCDImageCount - 0) / (TelekinesisCooldown - 0);
+            m_telekinesisCooldown.fillAmount = scaledValue;
+        }
+
+        if (SpellStealActive && m_spellStealCountdown)
+        {
+            m_spellStealCurrentTime -= Time.deltaTime;
+            m_spellStealCDImageCount = m_spellStealCurrentTime;
+
+            float time = Mathf.Round(m_spellStealCurrentTime);
+            m_spellStealCooldownTxt.text = (time + 1).ToString();
+
+            float scaledValue = (m_spellStealCDImageCount - 0) / (SpellStealCooldown - 0);
+            m_spellStealCooldown.fillAmount = scaledValue;
+        }
     }
 
     void BuyTelekinesisUpgrade()
     {
         TelekinesisUpgrade = true;
         Debug.Log("Bought Telekinesis Upgrade");
-        //turn to white
-        m_TelekinesisImage.color = new Color(1f, 1f, 1f);
+
+        //Give white color to abiity
+        m_telekinesisCooldown.fillAmount = 0;
+
         m_clickerController.Ability1Level = 1;
         m_clickerController.ResetLevelIcons("1");
     }
@@ -87,8 +126,10 @@ public class RubickController : MonoBehaviour
     {
         SpellStealUpgrade = true;
         Debug.Log("Bought Relocate Upgrade");
-        //turn to white
-        m_spellStealImage.color = new Color(1f, 1f, 1f);
+
+        //Give white color to abiity
+        m_spellStealCooldown.fillAmount = 0;
+
         m_clickerController.Ability2Level = 1;
         m_clickerController.ResetLevelIcons("2");
     }
@@ -99,15 +140,14 @@ public class RubickController : MonoBehaviour
         RubickManager = true;
         RadiantClickerController clicker = this.GetComponent<RadiantClickerController>();
         clicker.HasManager = RubickManager;
-
     }
 
     public void ActivateTelekinesis()
     {
         if (TelekinesisActive) return;
-        Debug.Log("Activated Telekinesis");
         TelekinesisActive = true;
-        m_TelekinesisImage.color = new Color(0.275f, 0.275f, 0.275f);
+
+        TelekinesisEffects();
 
         //Do animation and voice line
         m_rubickAnimator.SetTrigger("useTelekinesis");
@@ -116,15 +156,14 @@ public class RubickController : MonoBehaviour
 
         if (!m_abilitySource.isPlaying)
             m_audioSource.PlayOneShot(TelekinesisAbilitySound);
-
-        StartCoroutine(AbilityCooldown(TelekinesisCooldown, "Telekinesis"));
     }
 
     public void ActivateSpellSteal()
     {
-        Debug.Log("Activated Spell Steal");
-        m_spellStealImage.color = new Color(0.275f, 0.275f, 0.275f);
+        if (SpellStealActive) return;
         SpellStealActive = true;
+
+        SpellStealEffects();
 
         //Do animation and voice line
         m_rubickAnimator.SetTrigger("useSpellSteal");
@@ -133,9 +172,6 @@ public class RubickController : MonoBehaviour
 
         if (!m_abilitySource.isPlaying)
             m_audioSource.PlayOneShot(SpellStealAbilitySound);
-
-        StartCoroutine(AbilityCooldown(SpellStealCooldown, "SpellSteal"));
-        SpellStealAbility();
     }
 
     IEnumerator AbilityCooldown(float time, string ability)
@@ -144,13 +180,46 @@ public class RubickController : MonoBehaviour
 
         if (ability == "Telekinesis")
         {
-            m_TelekinesisImage.color = new Color(1f, 1f, 1f);
+            m_telekinesisCooldownTxt.gameObject.SetActive(false);
+            m_telekinesisCooldown.fillAmount = 0;
+            m_telekinesisCountdown = false;
             TelekinesisActive = false;
         }
         else if (ability == "SpellSteal")
         {
-            m_spellStealImage.color = new Color(1f, 1f, 1f);
+            m_spellStealCooldownTxt.gameObject.SetActive(false);
+            m_spellStealCooldown.fillAmount = 0;
+            m_spellStealCountdown = false;
             SpellStealActive = false;
+        }
+        /*Do after active effects have done their duration*/
+        else if (ability == "TelekinesisActiveFinish")
+        {
+            m_telekinesisActiveFade.gameObject.SetActive(false);
+
+            RemoveTelekinesisEffects();
+
+            //Start Cooldown clock once finished
+            m_telekinesisCooldown.fillAmount = 1;
+            m_telekinesisCooldownTxt.gameObject.SetActive(true);
+            m_telekinesisCurrentTime = m_telekinesisCDImageCount = TelekinesisCooldown;
+            m_telekinesisCountdown = true;
+
+            StartCoroutine(AbilityCooldown(TelekinesisCooldown, "Telekinesis"));
+        }
+        else if (ability == "SpellStealActiveFinish")
+        {
+            m_spellStealActiveFade.gameObject.SetActive(false);
+
+            RemoveSpellStealEffects();
+
+            //Cooldown clock
+            m_spellStealCooldown.fillAmount = 1;
+            m_spellStealCooldownTxt.gameObject.SetActive(true);
+            m_spellStealCurrentTime = m_spellStealCDImageCount = SpellStealCooldown;
+            m_spellStealCountdown = true;
+
+            StartCoroutine(AbilityCooldown(SpellStealCooldown, "SpellSteal"));
         }
     }
 
@@ -171,13 +240,27 @@ public class RubickController : MonoBehaviour
         }
     }
 
-    void SpellStealAbility()
+    void TelekinesisEffects()
     {
-        RadiantSceneController sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
-        List<RadiantClickerController> clickers = new List<RadiantClickerController>();
-        clickers = sceneController.GetClickerHeroesInScene();
+        m_telekinesisActiveFade.gameObject.SetActive(true);
 
-        int heroNo = Random.Range(0, clickers.Count);
-        //clickers[heroNo].
+        StartCoroutine(AbilityCooldown(TelekinesisActiveDuration, "TelekinesisActiveFinish"));
+    }
+
+    void RemoveTelekinesisEffects()
+    {
+
+    }
+
+    void SpellStealEffects()
+    {
+        m_spellStealActiveFade.gameObject.SetActive(true);
+
+        StartCoroutine(AbilityCooldown(SpellStealActiveDuration, "SpellStealActiveFinish"));
+    }
+
+    void RemoveSpellStealEffects()
+    {
+
     }
 }

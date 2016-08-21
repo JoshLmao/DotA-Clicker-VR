@@ -24,21 +24,29 @@ public class AlchemistController : MonoBehaviour
     AudioClip[] ChemicalRageResponses;
 
     public int GreevilsGreedCooldown;
+    public int GreevilsGreedActiveDuration;
     [SerializeField]
     AudioClip GreevilsGreedAbilitySound;
 
     public int ChemicalRageCooldown;
+    public int ChemicalRageActiveDuration;
     [SerializeField]
     AudioClip ChemicalRageAbilitySound;
 
     GameObject m_greevilsGreedButton;
     GameObject m_chemicalRageButton;
-    Image m_greevilsGreedImage;
-    Image m_chemicalRageImage;
     Animator m_alcAnimator;
     AudioSource m_audioSource;
     AudioSource m_abilitySource;
     RadiantClickerController m_clickerController;
+
+    //Countdown
+    Image m_greevilsGreedCooldown, m_chemicalRageCooldown;
+    float m_greevilsGreedCurrentTime, m_chemicalRageCurrentTime;
+    float m_greevilsGreedCDImageCount, m_chemicalRageCDImageCount;
+    bool m_greevilsGreedCountdown, m_chemicalRageCountdown;
+    Text m_greevilsGreedCooldownTxt, m_chemicalRageCooldownTxt;
+    Image m_greevilsGreedActiveFade, m_chemicalRageActiveFade;
 
     void Start()
     {
@@ -53,24 +61,58 @@ public class AlchemistController : MonoBehaviour
 
         m_greevilsGreedButton = transform.Find("Buttons/StandBack/UpgradesCanvas/GreevilsGreedBack/GreevilsGreedBtn").gameObject;
         m_chemicalRageButton = transform.Find("Buttons/StandBack/UpgradesCanvas/ChemicalRageBack/ChemicalRageBtn").gameObject;
-        m_greevilsGreedImage = m_greevilsGreedButton.GetComponent<Image>();
-        m_chemicalRageImage = m_chemicalRageButton.GetComponent<Image>();
+        m_greevilsGreedCooldown = transform.Find("Buttons/StandBack/UpgradesCanvas/GreevilsGreedBack/CDImg").GetComponent<Image>();
+        m_chemicalRageCooldown = transform.Find("Buttons/StandBack/UpgradesCanvas/ChemicalRageBack/CDImg").GetComponent<Image>();
+        m_greevilsGreedCooldownTxt = transform.Find("Buttons/StandBack/UpgradesCanvas/GreevilsGreedBack/CDText").GetComponent<Text>();
+        m_chemicalRageCooldownTxt = transform.Find("Buttons/StandBack/UpgradesCanvas/ChemicalRageBack/CDText").GetComponent<Text>();
+        m_greevilsGreedCooldownTxt.gameObject.SetActive(false);
+        m_chemicalRageCooldownTxt.gameObject.SetActive(false);
+
+        m_greevilsGreedActiveFade = transform.Find("Buttons/StandBack/UpgradesCanvas/GreevilsGreedBack/ActiveFade").GetComponent<Image>();
+        m_chemicalRageActiveFade = transform.Find("Buttons/StandBack/UpgradesCanvas/ChemicalRageBack/ActiveFade").GetComponent<Image>();
+        m_greevilsGreedActiveFade.gameObject.SetActive(false);
+        m_chemicalRageActiveFade.gameObject.SetActive(false);
 
         UpgradesController.BuyGreevilsGreedUpgrade += BuyGreevilsGreedUpgrade;
         UpgradesController.BuyChemicalRageUpgrade += BuyChemicalRageUpgrade;
         ManagersController.BuyAlchemistManager += BuyAlchemistManager;
+    }
 
-        //turn to grey
-        m_greevilsGreedImage.color = new Color(0.275f, 0.275f, 0.275f);
-        m_chemicalRageImage.color = new Color(0.275f, 0.275f, 0.275f);
+    void Update()
+    {
+        if (GreevilsGreedActive && m_greevilsGreedCountdown)
+        {
+            m_greevilsGreedCurrentTime -= Time.deltaTime;
+            m_greevilsGreedCDImageCount = m_greevilsGreedCurrentTime;
+
+            float time = Mathf.Round(m_greevilsGreedCurrentTime);
+            m_greevilsGreedCooldownTxt.text = (time + 1).ToString();
+
+            float scaledValue = (m_greevilsGreedCDImageCount - 0) / (GreevilsGreedCooldown - 0);
+            m_greevilsGreedCooldown.fillAmount = scaledValue;
+        }
+
+        if (ChemicalRageActive && m_chemicalRageCountdown)
+        {
+            m_chemicalRageCurrentTime -= Time.deltaTime;
+            m_chemicalRageCDImageCount = m_chemicalRageCurrentTime;
+
+            float time = Mathf.Round(m_chemicalRageCurrentTime);
+            m_chemicalRageCooldownTxt.text = (time + 1).ToString();
+
+            float scaledValue = (m_chemicalRageCDImageCount - 0) / (ChemicalRageCooldown - 0);
+            m_chemicalRageCooldown.fillAmount = scaledValue;
+        }
     }
 
     void BuyGreevilsGreedUpgrade()
     {
         GreevilsGreedUpgrade = true;
         Debug.Log("Bought GreevilsGreed Upgrade");
-        //turn to white
-        m_greevilsGreedImage.color = new Color(1f, 1f, 1f);
+
+        //Give white color to ability
+        m_greevilsGreedCooldown.fillAmount = 0;
+
         m_clickerController.Ability1Level = 1;
         m_clickerController.ResetLevelIcons("1");
     }
@@ -79,8 +121,10 @@ public class AlchemistController : MonoBehaviour
     {
         ChemicalRageUpgrade = true;
         Debug.Log("Bought ChemicalRage Upgrade");
-        //turn to white
-        m_chemicalRageImage.color = new Color(1f, 1f, 1f);
+
+        //Give white color to ability
+        m_chemicalRageCooldown.fillAmount = 0;
+
         m_clickerController.Ability2Level = 1;
         m_clickerController.ResetLevelIcons("2");
     }
@@ -96,29 +140,25 @@ public class AlchemistController : MonoBehaviour
     public void ActivateGreevilsGreed()
     {
         if (GreevilsGreedActive) return;
-        Debug.Log("Activated Greevils Greed");
         GreevilsGreedActive = true;
-        m_greevilsGreedImage.color = new Color(0.275f, 0.275f, 0.275f);
+
+        GreevilsGreedEffects();
 
         //Do animation and voice line
         m_alcAnimator.SetTrigger("useGreevilsGreed");
         RadiantClickerController.PlayRandomClip(m_audioSource, GreevilsGreedResponses);
-
-        StartCoroutine(AbilityCooldown(GreevilsGreedCooldown, "GreevilsGreed"));
     }
 
     public void ActivateChemicalRage()
     {
         if (ChemicalRageActive) return;
-        Debug.Log("Activated Chemical Rage");
-        GreevilsGreedActive = true;
-        m_chemicalRageImage.color = new Color(0.275f, 0.275f, 0.275f);
+        ChemicalRageActive = true;
+
+        ChemicalRageEffects();
 
         //Do animation and voice line
         m_alcAnimator.SetBool("useChemicalRage", true);
         RadiantClickerController.PlayRandomClip(m_audioSource, ChemicalRageResponses);
-
-        StartCoroutine(AbilityCooldown(ChemicalRageCooldown, "ChemicalRage"));
     }
 
     IEnumerator AbilityCooldown(float time, string ability)
@@ -127,15 +167,48 @@ public class AlchemistController : MonoBehaviour
 
         if (ability == "GreevilsGreed")
         {
-            m_greevilsGreedImage.color = new Color(1f, 1f, 1f);
+            m_greevilsGreedCooldownTxt.gameObject.SetActive(false);
+            m_greevilsGreedCooldown.fillAmount = 0;
+            m_greevilsGreedCountdown = false;
             GreevilsGreedActive = false;
         }
         else if (ability == "ChemicalRage")
         {
-            m_chemicalRageImage.color = new Color(1f, 1f, 1f);
-            GreevilsGreedActive = false;
-            m_alcAnimator.SetBool("useChemicalRage", false);
+            m_chemicalRageCooldownTxt.gameObject.SetActive(false);
+            m_chemicalRageCooldown.fillAmount = 0;
+            m_chemicalRageCountdown = false;
+            ChemicalRageActive = false;
         }
+        /*Do after active effects have done their duration*/
+        else if (ability == "GreevilsGreedActiveFinish")
+        {
+            m_greevilsGreedActiveFade.gameObject.SetActive(false);
+
+            RemoveGreevilsGreedEffects();
+
+            //Start Cooldown clock once finished
+            m_greevilsGreedCooldown.fillAmount = 1;
+            m_greevilsGreedCooldownTxt.gameObject.SetActive(true);
+            m_greevilsGreedCurrentTime = m_greevilsGreedCDImageCount = GreevilsGreedCooldown;
+            m_greevilsGreedCountdown = true;
+
+            StartCoroutine(AbilityCooldown(GreevilsGreedCooldown, "GreevilsGreed"));
+        }
+        else if (ability == "ChemicalRageActiveFinish")
+        {
+            m_chemicalRageActiveFade.gameObject.SetActive(false);
+
+            RemoveChemicalRageEffects();
+
+            //Cooldown clock
+            m_chemicalRageCooldown.fillAmount = 1;
+            m_chemicalRageCooldownTxt.gameObject.SetActive(true);
+            m_chemicalRageCurrentTime = m_chemicalRageCDImageCount = ChemicalRageCooldown;
+            m_chemicalRageCountdown = true;
+
+            StartCoroutine(AbilityCooldown(ChemicalRageCooldown, "ChemicalRage"));
+        }
+
     }
 
     void ClickedButton(string name)
@@ -152,5 +225,33 @@ public class AlchemistController : MonoBehaviour
         {
             m_alcAnimator.SetBool("isAttacking", false);
         }
+    }
+
+    void GreevilsGreedEffects()
+    {
+        m_greevilsGreedActiveFade.gameObject.SetActive(true);
+
+        //do effects
+
+        StartCoroutine(AbilityCooldown(GreevilsGreedActiveDuration, "GreevilsGreedActiveFinish"));
+    }
+
+    void RemoveGreevilsGreedEffects()
+    {
+
+    }
+
+    void ChemicalRageEffects()
+    {
+        m_chemicalRageActiveFade.gameObject.SetActive(true);
+
+        //do effects
+
+        StartCoroutine(AbilityCooldown(ChemicalRageActiveDuration, "ChemicalRageActiveFinish"));
+    }
+
+    void RemoveChemicalRageEffects()
+    {
+
     }
 }

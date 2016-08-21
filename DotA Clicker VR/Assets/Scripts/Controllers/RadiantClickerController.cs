@@ -30,9 +30,7 @@ public class RadiantClickerController : MonoBehaviour
         }
         set
         {
-            Debug.Log("Before - " + m_clickAmount);
             m_clickAmount += value;
-            Debug.Log("After - " + m_clickAmount);
         }
     }
     /// <summary>
@@ -103,6 +101,9 @@ public class RadiantClickerController : MonoBehaviour
     Sprite m_notLevelled;
     Sprite m_levelled;
 
+    //Cant Use Ability sound
+    AudioClip MagicImmuneSound;
+
 	void Start ()
     {
         m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
@@ -112,6 +113,7 @@ public class RadiantClickerController : MonoBehaviour
         m_clickButtonGoldText = transform.Find("Buttons/ClickButtonBack/ClickButton/ClickUI/ClickWorthText").GetComponent<Text>();
         m_upgradeCostText = transform.Find("Buttons/UpgradeCostBack/UpgradeCostCanvas/Cost/UpCostText").GetComponent<Text>(); ;
         m_progressBar = transform.Find("Buttons/StandBack/StandUI/ProgressSlider").GetComponent<Slider>();
+        MagicImmuneSound = Resources.Load<AudioClip>("Sounds/UI/magic_immune");
 
         AbilityLevelUpStart();
 
@@ -243,7 +245,10 @@ public class RadiantClickerController : MonoBehaviour
             if (abilityName == "OverchargeBtn")
             {
                 if (io.OverchargeActive)
+                {
+                    CantUseAbility();
                     return;
+                }
 
                 io.ActivateOvercharge();
                 HandController.RumbleController(index, 2000);
@@ -252,7 +257,10 @@ public class RadiantClickerController : MonoBehaviour
             else if(abilityName == "RelocateBtn")
             {
                 if (io.RelocateActive)
+                {
+                    CantUseAbility();
                     return;
+                }
 
                 io.ActivateRelocate();
                 HandController.RumbleController(index, 2000);
@@ -268,7 +276,10 @@ public class RadiantClickerController : MonoBehaviour
             if (abilityName == "TelekinesisBtn")
             {
                 if (rubick.TelekinesisActive)
+                {
+                    CantUseAbility();
                     return;
+                }
 
                 rubick.ActivateTelekinesis();
                 HandController.RumbleController(index, 2000);
@@ -277,7 +288,10 @@ public class RadiantClickerController : MonoBehaviour
             else if(abilityName == "SpellStealBtn")
             {
                 if (rubick.SpellStealActive)
+                {
+                    CantUseAbility();
                     return;
+                }
 
                 rubick.ActivateSpellSteal();
                 HandController.RumbleController(index, 2000);
@@ -293,7 +307,10 @@ public class RadiantClickerController : MonoBehaviour
             if (abilityName == "FireblastBtn")
             {
                 if (ogreMagi.FireblastActive)
+                {
+                    CantUseAbility();
                     return;
+                }
 
                 ogreMagi.ActivateFireblast();
                 HandController.RumbleController(index, 2000);
@@ -302,7 +319,10 @@ public class RadiantClickerController : MonoBehaviour
             else if(abilityName == "BloodlustBtn")
             {
                 if (ogreMagi.BloodlustActive)
+                {
+                    CantUseAbility();
                     return;
+                }
 
                 ogreMagi.ActivateBloodlust();
                 HandController.RumbleController(index, 2000);
@@ -318,7 +338,10 @@ public class RadiantClickerController : MonoBehaviour
             if (abilityName == "SnowballBtn")
             {
                 if (tusk.SnowballActive)
+                {
+                    CantUseAbility();
                     return;
+                }
 
                 tusk.ActivateSnowball();
                 HandController.RumbleController(index, 2000);
@@ -327,7 +350,10 @@ public class RadiantClickerController : MonoBehaviour
             else if(abilityName == "WalrusPunchBtn")
             {
                 if (tusk.WalrusPunchActive)
+                {
+                    CantUseAbility();
                     return;
+                }
 
                 tusk.ActivateWalrusPunch();
                 HandController.RumbleController(index, 2000);
@@ -343,7 +369,10 @@ public class RadiantClickerController : MonoBehaviour
             if (abilityName == "SunrayBtn")
             {
                 if (phoenix.SunrayActive)
+                {
+                    CantUseAbility();
                     return;
+                }
 
                 phoenix.ActivateSunray();
                 HandController.RumbleController(index, 2000);
@@ -352,7 +381,10 @@ public class RadiantClickerController : MonoBehaviour
             else if(abilityName == "SupernovaBtn")
             {
                 if (phoenix.SupernovaActive)
+                {
+                    CantUseAbility();
                     return;
+                }
 
                 phoenix.ActivateSupernova();
                 HandController.RumbleController(index, 2000);
@@ -368,7 +400,10 @@ public class RadiantClickerController : MonoBehaviour
             if (abilityName == "WarCryBtn")
             {
                 if (sven.WarCryActive)
+                {
+                    CantUseAbility();
                     return;
+                }
 
                 sven.ActivateWarCry();
                 HandController.RumbleController(index, 2000);
@@ -377,7 +412,10 @@ public class RadiantClickerController : MonoBehaviour
             else if (abilityName == "GodsStrengthBtn")
             {
                 if (sven.GodsStrengthActive)
+                {
+                    CantUseAbility();
                     return;
+                }
 
                 sven.ActivateGodsStrength();
                 HandController.RumbleController(index, 2000);
@@ -393,7 +431,10 @@ public class RadiantClickerController : MonoBehaviour
             if (abilityName == "BlinkBtn")
             {
                 if (antiMage.BlinkActive)
+                {
+                    CantUseAbility();
                     return;
+                }
 
                 antiMage.ActivateBlink();
                 HandController.RumbleController(index, 2000);
@@ -402,7 +443,10 @@ public class RadiantClickerController : MonoBehaviour
             else if (abilityName == "ManaVoid")
             {
                 if (antiMage.ManaVoidActive)
+                {
+                    CantUseAbility();
                     return;
+                }
 
                 antiMage.ActivateManaVoid();
                 HandController.RumbleController(index, 2000);
@@ -418,7 +462,10 @@ public class RadiantClickerController : MonoBehaviour
             if (abilityName == "GreevilsGreedBtn")
             {
                 if (alchemist.GreevilsGreedActive)
+                {
+                    CantUseAbility();
                     return;
+                }
 
                 alchemist.ActivateGreevilsGreed();
                 HandController.RumbleController(index, 2000);
@@ -427,7 +474,10 @@ public class RadiantClickerController : MonoBehaviour
             else
             {
                 if (alchemist.ChemicalRageActive)
+                {
+                    CantUseAbility();
                     return;
+                }
 
                 alchemist.ActivateChemicalRage();
                 HandController.RumbleController(index, 2000);
@@ -527,6 +577,26 @@ public class RadiantClickerController : MonoBehaviour
                 m_abil2Icons[i].GetComponent<Image>().sprite = m_levelled;
             }
         }
+    }
 
+    bool canPlayNopeSound = true;
+
+    void CantUseAbility()
+    {
+        AudioSource source = this.GetComponentInChildren<AudioSource>();
+        //if(!source.isPlaying)]
+        if(canPlayNopeSound)
+        {
+            source.PlayOneShot(MagicImmuneSound);
+            canPlayNopeSound = false;
+            StartCoroutine(CanPlayNopeSound());
+        }
+
+    }
+
+    IEnumerator CanPlayNopeSound()
+    {
+        yield return new WaitForSeconds(0.2f);
+        canPlayNopeSound = true;
     }
 }

@@ -24,21 +24,30 @@ public class SvenController : MonoBehaviour
     AudioClip[] GodsStrengthResponses;
 
     public int WarCryCooldown;
+    public int WarCryActiveDuration;
     [SerializeField]
     AudioClip WarCryAbilitySound;
 
     public int GodsStrengthCooldown;
+    public int GodsStrengthActiveDuration;
     [SerializeField]
     AudioClip GodsStrengthAbilitySound;
 
     GameObject m_warCryButton;
     GameObject m_godsStrengthButton;
-    Image m_warCryImage;
-    Image m_godsStrengthImage;
     Animator m_svenAnimator;
     AudioSource m_audioSource;
     AudioSource m_abilitySource;
-    RadiantClickerController m_clickerController; 
+    RadiantClickerController m_clickerController;
+
+    //Countdown
+    Image m_warCryCooldown, m_godsStrengthCooldown;
+    float m_warCryCurrentTime, m_godsStrengthCurrentTime;
+    float m_warCryCDImageCount, m_godsStrengthCDImageCount;
+    bool m_warCryCountdown, m_godsStrengthCountdown;
+    Text m_warCryCooldownTxt, m_godsStrengthCooldownTxt;
+    Image m_warCryActiveFade, m_godsStrengthActiveFade;
+    int m_warCryCountModifier;
 
     void Start()
     {
@@ -53,24 +62,58 @@ public class SvenController : MonoBehaviour
 
         m_warCryButton = transform.Find("Buttons/StandBack/UpgradesCanvas/WarCryBack/WarCryBtn").gameObject;
         m_godsStrengthButton = transform.Find("Buttons/StandBack/UpgradesCanvas/GodsStrengthBack/GodsStrengthBtn").gameObject;
-        m_warCryImage = m_warCryButton.GetComponent<Image>();
-        m_godsStrengthImage = m_godsStrengthButton.GetComponent<Image>();
+        m_warCryCooldown = transform.Find("Buttons/StandBack/UpgradesCanvas/WarCryBack/CDImg").GetComponent<Image>();
+        m_godsStrengthCooldown = transform.Find("Buttons/StandBack/UpgradesCanvas/GodsStrengthBack/CDImg").GetComponent<Image>();
+        m_warCryCooldownTxt = transform.Find("Buttons/StandBack/UpgradesCanvas/WarCryBack/CDText").GetComponent<Text>();
+        m_godsStrengthCooldownTxt = transform.Find("Buttons/StandBack/UpgradesCanvas/GodsStrengthBack/CDText").GetComponent<Text>();
+        m_warCryCooldownTxt.gameObject.SetActive(false);
+        m_godsStrengthCooldownTxt.gameObject.SetActive(false);
+
+        m_warCryActiveFade = transform.Find("Buttons/StandBack/UpgradesCanvas/WarCryBack/ActiveFade").GetComponent<Image>();
+        m_godsStrengthActiveFade = transform.Find("Buttons/StandBack/UpgradesCanvas/GodsStrengthBack/ActiveFade").GetComponent<Image>();
+        m_warCryActiveFade.gameObject.SetActive(false);
+        m_godsStrengthActiveFade.gameObject.SetActive(false);
 
         UpgradesController.BuyWarCryUpgrade += BuyWarCryUpgrade;
         UpgradesController.BuyGodsStrengthUpgrade += BuyGodsStrengthUpgrade;
         ManagersController.BuySvenManager += BuySvenManager;
+    }
 
-        //turn to grey
-        m_warCryImage.color = new Color(0.275f, 0.275f, 0.275f);
-        m_godsStrengthImage.color = new Color(0.275f, 0.275f, 0.275f);
+    void Update()
+    {
+        if (WarCryActive && m_warCryCountdown)
+        {
+            m_warCryCurrentTime -= Time.deltaTime;
+            m_warCryCDImageCount = m_warCryCurrentTime;
+
+            float time = Mathf.Round(m_warCryCurrentTime);
+            m_warCryCooldownTxt.text = (time + 1).ToString();
+
+            float scaledValue = (m_warCryCDImageCount - 0) / (WarCryCooldown - 0);
+            m_warCryCooldown.fillAmount = scaledValue;
+        }
+
+        if (GodsStrengthActive && m_godsStrengthCountdown)
+        {
+            m_godsStrengthCurrentTime -= Time.deltaTime;
+            m_godsStrengthCDImageCount = m_godsStrengthCurrentTime;
+
+            float time = Mathf.Round(m_godsStrengthCurrentTime);
+            m_godsStrengthCooldownTxt.text = (time + 1).ToString();
+
+            float scaledValue = (m_godsStrengthCDImageCount - 0) / (GodsStrengthCooldown - 0);
+            m_godsStrengthCooldown.fillAmount = scaledValue;
+        }
     }
 
     void BuyWarCryUpgrade()
     {
         WarCryUpgrade = true;
         Debug.Log("Bought WarCry Upgrade");
-        //turn to white
-        m_warCryImage.color = new Color(1f, 1f, 1f);
+        
+        //Give white color to ability
+        m_warCryCooldown.fillAmount = 0;
+
         m_clickerController.Ability1Level = 1;
         m_clickerController.ResetLevelIcons("1");
     }
@@ -79,8 +122,10 @@ public class SvenController : MonoBehaviour
     {
         GodsStrengthUpgrade = true;
         Debug.Log("Bought GodsStrength Upgrade");
-        //turn to white
-        m_godsStrengthImage.color = new Color(1f, 1f, 1f);
+
+        //Give white color to ability
+        m_godsStrengthCooldown.fillAmount = 0;
+
         m_clickerController.Ability2Level = 1;
         m_clickerController.ResetLevelIcons("2");
     }
@@ -96,9 +141,9 @@ public class SvenController : MonoBehaviour
     public void ActivateWarCry()
     {
         if (WarCryActive) return;
-        Debug.Log("Activated War Cry");
         WarCryActive = true;
-        m_warCryImage.color = new Color(0.275f, 0.275f, 0.275f);
+
+        WarCryEffects();
 
         //Do animation and voice line
         m_svenAnimator.SetTrigger("useWarCry");
@@ -108,15 +153,15 @@ public class SvenController : MonoBehaviour
         if (!m_abilitySource.isPlaying)
             m_abilitySource.PlayOneShot(WarCryAbilitySound);
 
-        StartCoroutine(AbilityCooldown(WarCryCooldown, "WarCry"));
+        //StartCoroutine(AbilityCooldown(WarCryCooldown, "WarCry"));
     }
 
     public void ActivateGodsStrength()
     {
         if (GodsStrengthActive) return;
-        Debug.Log("Activated Gods Strength");
-        m_godsStrengthImage.color = new Color(0.275f, 0.275f, 0.275f);
         GodsStrengthActive = true;
+
+        GodsStrengthEffects();
 
         //Do animation and voice line
         m_svenAnimator.SetTrigger("useGodsStrength");
@@ -126,7 +171,7 @@ public class SvenController : MonoBehaviour
         if (!m_abilitySource.isPlaying)
             m_abilitySource.PlayOneShot(GodsStrengthAbilitySound);
 
-        StartCoroutine(AbilityCooldown(GodsStrengthCooldown, "GodsStrength"));
+        //StartCoroutine(AbilityCooldown(GodsStrengthCooldown, "GodsStrength"));
     }
 
     IEnumerator AbilityCooldown(float time, string ability)
@@ -135,13 +180,46 @@ public class SvenController : MonoBehaviour
 
         if (ability == "WarCry")
         {
-            m_warCryImage.color = new Color(1f, 1f, 1f);
+            m_warCryCooldownTxt.gameObject.SetActive(false);
+            m_warCryCooldown.fillAmount = 0;
+            m_warCryCountdown = false;
             WarCryActive = false;
         }
         else if (ability == "GodsStrength")
         {
-            m_godsStrengthImage.color = new Color(1f, 1f, 1f);
+            m_godsStrengthCooldownTxt.gameObject.SetActive(false);
+            m_godsStrengthCooldown.fillAmount = 0;
+            m_godsStrengthCountdown = false;
             GodsStrengthActive = false;
+        }
+        /*Do after active effects have done their duration*/
+        else if (ability == "OverchargeActiveFinish")
+        {
+            m_warCryActiveFade.gameObject.SetActive(false);
+
+            RemoveWarCryEffects();
+
+            //Start Cooldown clock once finished
+            m_warCryCooldown.fillAmount = 1;
+            m_warCryCooldownTxt.gameObject.SetActive(true);
+            m_warCryCurrentTime = m_warCryCDImageCount = WarCryCooldown;
+            m_warCryCountdown = true;
+
+            StartCoroutine(AbilityCooldown(WarCryCooldown, "warCry"));
+        }
+        else if (ability == "RelocateActiveFinish")
+        {
+            m_godsStrengthActiveFade.gameObject.SetActive(false);
+
+            RemoveGodsStrengthEffects();
+
+            //Cooldown clock
+            m_godsStrengthCooldown.fillAmount = 1;
+            m_godsStrengthCooldownTxt.gameObject.SetActive(true);
+            m_godsStrengthCurrentTime = m_godsStrengthCDImageCount = GodsStrengthCooldown;
+            m_godsStrengthCountdown = true;
+
+            StartCoroutine(AbilityCooldown(GodsStrengthCooldown, "godsStrength"));
         }
     }
 
@@ -160,5 +238,34 @@ public class SvenController : MonoBehaviour
         {
             m_svenAnimator.SetBool("isAttacking", false);
         }
+    }
+
+    void WarCryEffects()
+    {
+        m_warCryActiveFade.gameObject.SetActive(true);
+
+        //do effects
+
+        StartCoroutine(AbilityCooldown(WarCryActiveDuration, "WarCryActiveFinish"));
+    }
+
+    void RemoveWarCryEffects()
+    {
+
+    }
+
+    void GodsStrengthEffects()
+    {
+
+    }
+
+    void RemoveGodsStrengthEffects()
+    {
+        m_godsStrengthActiveFade.gameObject.SetActive(true);
+
+        //do effects
+
+        StartCoroutine(AbilityCooldown(GodsStrengthActiveDuration, "GodsStrengthActiveFinish"));
+
     }
 }

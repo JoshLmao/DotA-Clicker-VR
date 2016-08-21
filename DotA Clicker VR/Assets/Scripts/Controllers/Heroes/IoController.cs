@@ -46,7 +46,6 @@ public class IoController : MonoBehaviour
     bool m_overchargeCountdown, m_relocateCountdown;
     Text m_overchargeCooldownTxt, m_relocateCooldownTxt;
     Image m_overchargeActiveFade, m_relocateActiveFade;
-    int m_overchargeCountModifier;
 
     void Start()
     {
@@ -110,7 +109,7 @@ public class IoController : MonoBehaviour
         OverchargeUpgrade = true;
         Debug.Log("Bought Overcharge Upgrade");
         
-        //Give white color to abiity
+        //Give white color to ability
         m_overchargeCooldown.fillAmount = 0;
 
         //Make hero have lvl 1 of ability
@@ -152,7 +151,7 @@ public class IoController : MonoBehaviour
         if (!m_abilitySource.isPlaying)
             m_abilitySource.PlayOneShot(OverchargeAbilitySound);
 
-        StartCoroutine(AbilityCooldown(OverchargeCooldown, "OverchargeAbility"));
+        //StartCoroutine(AbilityCooldown(OverchargeCooldown, "OverchargeAbility"));
     }
 
     public void ActivateRelocate()
@@ -168,7 +167,7 @@ public class IoController : MonoBehaviour
         if (!m_abilitySource.isPlaying)
             m_abilitySource.PlayOneShot(RelocateAbilitySound);
 
-        StartCoroutine(AbilityCooldown(RelocateCooldown, "RelocateAbility"));
+        //StartCoroutine(AbilityCooldown(RelocateCooldown, "RelocateAbility"));
     }
 
     IEnumerator AbilityCooldown(float time, string ability)
@@ -249,7 +248,7 @@ public class IoController : MonoBehaviour
 
     void RemoveOverchargeEffects()
     {
-        m_clickerController.ClickAmount -= (m_overchargeCountModifier / 2);
+        //m_clickerController.ClickAmount -= (m_overchargeCountModifier / 2);
     }
 
     void RelocateEffects()

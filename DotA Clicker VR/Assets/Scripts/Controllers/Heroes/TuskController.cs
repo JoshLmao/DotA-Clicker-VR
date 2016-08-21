@@ -24,17 +24,17 @@ public class TuskController : MonoBehaviour
     AudioClip[] WalrusPunchResponses;
 
     public int SnowballCooldown;
+    public int SnowballActiveDuration;
     [SerializeField]
     AudioClip SnowballAbilitySound;
 
     public int WalrusPunchCooldown;
+    public int WalrusPunchActiveDuration;
     [SerializeField]
     AudioClip WalrusPunchAbilitySound;
 
     GameObject m_snowballButton;
     GameObject m_walrusPunchButton;
-    Image m_snowballImage;
-    Image m_walrusPunchImage;
     Animator m_tuskAnimator;
     AudioSource m_audioSource;
     AudioSource m_abilitySource;
@@ -43,6 +43,15 @@ public class TuskController : MonoBehaviour
     //Snowball animation
     bool m_rotateSnowball = false;
     float m_rotateSpeed = 56f;
+
+    //Countdown
+    Image m_snowballCooldown, m_walrusPunchCooldown;
+    float m_snowballCurrentTime, m_walrusPunchCurrentTime;
+    float m_snowballCDImageCount, m_walrusPunchCDImageCount;
+    bool m_snowballCountdown, m_walrusPunchCountdown;
+    Text m_snowballCooldownTxt, m_walrusPunchCooldownTxt;
+    Image m_snowballActiveFade, m_walrusPunchActiveFade;
+    int m_snowballCountModifier;
 
     void Start()
     {
@@ -60,23 +69,52 @@ public class TuskController : MonoBehaviour
 
         m_snowballButton = transform.Find("Buttons/StandBack/UpgradesCanvas/SnowballBack/SnowballBtn").gameObject;
         m_walrusPunchButton = transform.Find("Buttons/StandBack/UpgradesCanvas/WalrusPunchBack/WalrusPunchBtn").gameObject;
-        m_snowballImage = m_snowballButton.GetComponent<Image>();
-        m_walrusPunchImage = m_walrusPunchButton.GetComponent<Image>();
+        m_snowballCooldown = transform.Find("Buttons/StandBack/UpgradesCanvas/SnowballBack/CDImg").GetComponent<Image>();
+        m_walrusPunchCooldown = transform.Find("Buttons/StandBack/UpgradesCanvas/WalrusPunchBack/CDImg").GetComponent<Image>();
+        m_snowballCooldownTxt = transform.Find("Buttons/StandBack/UpgradesCanvas/SnowballBack/CDText").GetComponent<Text>();
+        m_walrusPunchCooldownTxt = transform.Find("Buttons/StandBack/UpgradesCanvas/WalrusPunchBack/CDText").GetComponent<Text>();
+        m_snowballCooldownTxt.gameObject.SetActive(false);
+        m_walrusPunchCooldownTxt.gameObject.SetActive(false);
+
+        m_snowballActiveFade = transform.Find("Buttons/StandBack/UpgradesCanvas/SnowballBack/ActiveFade").GetComponent<Image>();
+        m_walrusPunchActiveFade = transform.Find("Buttons/StandBack/UpgradesCanvas/WalrusPunchBack/ActiveFade").GetComponent<Image>();
+        m_snowballActiveFade.gameObject.SetActive(false);
+        m_walrusPunchActiveFade.gameObject.SetActive(false);
 
         UpgradesController.BuySnowballUpgrade += BuySnowballUpgrade;
         UpgradesController.BuyWalrusPunchUpgrade += BuyWalrusPunchUpgrade;
         ManagersController.BuyTuskManager += BuyTuskManager;
-
-        //turn to grey
-        m_snowballImage.color = new Color(0.275f, 0.275f, 0.275f);
-        m_walrusPunchImage.color = new Color(0.275f, 0.275f, 0.275f);
     }
 
     void Update()
     {
-        if(m_rotateSnowball)
+        if (m_rotateSnowball)
         {
             TuskSnowball.transform.Rotate(Vector3.right * Time.deltaTime * m_rotateSpeed);
+        }
+
+        if (SnowballActive && m_snowballCountdown)
+        {
+            m_snowballCurrentTime -= Time.deltaTime;
+            m_snowballCDImageCount = m_snowballCurrentTime;
+
+            float time = Mathf.Round(m_snowballCurrentTime);
+            m_snowballCooldownTxt.text = (time + 1).ToString();
+
+            float scaledValue = (m_snowballCDImageCount - 0) / (SnowballCooldown - 0);
+            m_snowballCooldown.fillAmount = scaledValue;
+        }
+
+        if (WalrusPunchActive && m_walrusPunchCountdown)
+        {
+            m_walrusPunchCurrentTime -= Time.deltaTime;
+            m_walrusPunchCDImageCount = m_walrusPunchCurrentTime;
+
+            float time = Mathf.Round(m_walrusPunchCurrentTime);
+            m_walrusPunchCooldownTxt.text = (time + 1).ToString();
+
+            float scaledValue = (m_walrusPunchCDImageCount - 0) / (WalrusPunchCooldown - 0);
+            m_walrusPunchCooldown.fillAmount = scaledValue;
         }
     }
 
@@ -84,8 +122,10 @@ public class TuskController : MonoBehaviour
     {
         SnowballUpgrade = true;
         Debug.Log("Bought Snowball Upgrade");
-        //turn to white
-        m_snowballImage.color = new Color(1f, 1f, 1f);
+
+        //Give white color to ability
+        m_snowballCooldown.fillAmount = 0;
+
         m_clickerController.Ability1Level = 1;
         m_clickerController.ResetLevelIcons("1");
     }
@@ -94,8 +134,10 @@ public class TuskController : MonoBehaviour
     {
         WalrusPunchUpgrade = true;
         Debug.Log("Bought WalrusPunch Upgrade");
-        //turn to white
-        m_walrusPunchImage.color = new Color(1f, 1f, 1f);
+
+        //Give white color to ability
+        m_walrusPunchCooldown.fillAmount = 0;
+
         m_clickerController.Ability2Level = 1;
         m_clickerController.ResetLevelIcons("2");
     }
@@ -111,38 +153,35 @@ public class TuskController : MonoBehaviour
     public void ActivateSnowball()
     {
         if (SnowballActive) return;
-        Debug.Log("Activated Snowball");
         SnowballActive = true;
-        m_snowballImage.color = new Color(0.275f, 0.275f, 0.275f);
+
+        SnowballEffects();
 
         //Do animation and voice line
         m_tuskAnimator.SetTrigger("useSnowball");
-        if(!m_audioSource.isPlaying)
-             RadiantClickerController.PlayRandomClip(m_audioSource, SnowballResponses);
+        if (!m_audioSource.isPlaying)
+            RadiantClickerController.PlayRandomClip(m_audioSource, SnowballResponses);
 
         if (!m_abilitySource.isPlaying)
             m_abilitySource.PlayOneShot(SnowballAbilitySound);
 
-        StartCoroutine(AbilityCooldown(SnowballCooldown, "Snowball"));
         StartCoroutine(SnowballStartWait());
     }
 
     public void ActivateWalrusPunch()
     {
         if (WalrusPunchActive) return;
-        Debug.Log("Activated Walrus Punch");
         WalrusPunchActive = true;
-        m_walrusPunchImage.color = new Color(0.275f, 0.275f, 0.275f);
+
+        WalrusPunchEffects();
 
         //Do animation and voice line
         m_tuskAnimator.SetTrigger("useWalrusPunch");
-        if(!m_audioSource.isPlaying)
+        if (!m_audioSource.isPlaying)
             RadiantClickerController.PlayRandomClip(m_audioSource, WalrusPunchResponses);
 
         if (!m_abilitySource.isPlaying)
             m_abilitySource.PlayOneShot(WalrusPunchAbilitySound);
-
-        StartCoroutine(AbilityCooldown(WalrusPunchCooldown, "WalrusPunch"));
     }
 
     IEnumerator AbilityCooldown(float time, string ability)
@@ -151,13 +190,46 @@ public class TuskController : MonoBehaviour
 
         if (ability == "Snowball")
         {
-            m_walrusPunchImage.color = new Color(1f, 1f, 1f);
-            WalrusPunchActive = false;
+            m_snowballCooldownTxt.gameObject.SetActive(false);
+            m_snowballCooldown.fillAmount = 0;
+            m_snowballCountdown = false;
+            SnowballActive = false;
         }
         else if (ability == "WalrusPunch")
         {
-            m_snowballImage.color = new Color(1f, 1f, 1f);
-            SnowballActive = false;
+            m_walrusPunchCooldownTxt.gameObject.SetActive(false);
+            m_walrusPunchCooldown.fillAmount = 0;
+            m_walrusPunchCountdown = false;
+            WalrusPunchActive = false;
+        }
+        /*Do after active effects have done their duration*/
+        else if (ability == "OverchargeActiveFinish")
+        {
+            m_snowballActiveFade.gameObject.SetActive(false);
+
+            RemoveSnowballEffects();
+
+            //Start Cooldown clock once finished
+            m_snowballCooldown.fillAmount = 1;
+            m_snowballCooldownTxt.gameObject.SetActive(true);
+            m_snowballCurrentTime = m_snowballCDImageCount = SnowballCooldown;
+            m_snowballCountdown = true;
+
+            StartCoroutine(AbilityCooldown(SnowballCooldown, "Snowball"));
+        }
+        else if (ability == "RelocateActiveFinish")
+        {
+            m_walrusPunchActiveFade.gameObject.SetActive(false);
+
+            RemoveWalrusPunchEffects();
+
+            //Cooldown clock
+            m_walrusPunchCooldown.fillAmount = 1;
+            m_walrusPunchCooldownTxt.gameObject.SetActive(true);
+            m_walrusPunchCurrentTime = m_walrusPunchCDImageCount = WalrusPunchCooldown;
+            m_walrusPunchCountdown = true;
+
+            StartCoroutine(AbilityCooldown(WalrusPunchCooldown, "WalrusPunch"));
         }
     }
 
@@ -184,7 +256,6 @@ public class TuskController : MonoBehaviour
 
         //Once animation is done
         SnowballAbility();
-
     }
 
     void SnowballAbility()
@@ -215,12 +286,30 @@ public class TuskController : MonoBehaviour
 
     }
 
-    void SnowballActiveStart()
+    void SnowballEffects()
+    {
+        m_snowballActiveFade.gameObject.SetActive(true);
+
+        //do effects
+
+        StartCoroutine(AbilityCooldown(SnowballActiveDuration, "OverchargeActiveFinish"));
+    }
+
+    void RemoveSnowballEffects()
     {
 
     }
 
-    void SnowballActiveFinish()
+    void WalrusPunchEffects()
+    {
+        m_walrusPunchActiveFade.gameObject.SetActive(true);
+
+        //do effects
+
+        StartCoroutine(AbilityCooldown(WalrusPunchActiveDuration, "OverchargeActiveFinish"));
+    }
+
+    void RemoveWalrusPunchEffects()
     {
 
     }

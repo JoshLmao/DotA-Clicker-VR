@@ -24,21 +24,29 @@ public class AntiMageController : MonoBehaviour
     AudioClip[] ManaVoidResponses;
 
     public int BlinkCooldown;
+    public int BlinkActiveDuration;
     [SerializeField]
     AudioClip BlinkAbilitySound;
 
     public int ManaVoidCooldown;
+    public int ManaVoidActiveDuration;
     [SerializeField]
     AudioClip ManaVoidAbilitySound;
 
     GameObject m_blinkButton;
     GameObject m_manaVoidButton;
-    Image m_blinkImage;
-    Image m_manaVoidImage;
     Animator m_antiMageAnimator;
     AudioSource m_audioSource;
     AudioSource m_abilitySource;
     RadiantClickerController m_clickerController;
+
+    //Countdown
+    Image m_blinkCooldown, m_manaVoidCooldown;
+    float m_blinkCurrentTime, m_manaVoidCurrentTime;
+    float m_blinkCDImageCount, m_manaVoidCDImageCount;
+    bool m_blinkCountdown, m_manaVoidCountdown;
+    Text m_blinkCooldownTxt, m_manaVoidCooldownTxt;
+    Image m_blinkActiveFade, m_manaVoidActiveFade;
 
     void Start()
     {
@@ -53,24 +61,58 @@ public class AntiMageController : MonoBehaviour
 
         m_blinkButton = transform.Find("Buttons/StandBack/UpgradesCanvas/BlinkBack/BlinkBtn").gameObject;
         m_manaVoidButton = transform.Find("Buttons/StandBack/UpgradesCanvas/ManaVoidBack/ManaVoidBtn").gameObject;
-        m_blinkImage = m_blinkButton.GetComponent<Image>();
-        m_manaVoidImage = m_manaVoidButton.GetComponent<Image>();
+        m_blinkCooldown = transform.Find("Buttons/StandBack/UpgradesCanvas/BlinkBack/CDImg").GetComponent<Image>();
+        m_manaVoidCooldown = transform.Find("Buttons/StandBack/UpgradesCanvas/ManaVoidBack/CDImg").GetComponent<Image>();
+        m_blinkCooldownTxt = transform.Find("Buttons/StandBack/UpgradesCanvas/BlinkBack/CDText").GetComponent<Text>();
+        m_manaVoidCooldownTxt = transform.Find("Buttons/StandBack/UpgradesCanvas/ManaVoidBack/CDText").GetComponent<Text>();
+        m_blinkCooldownTxt.gameObject.SetActive(false);
+        m_manaVoidCooldownTxt.gameObject.SetActive(false);
+
+        m_blinkActiveFade = transform.Find("Buttons/StandBack/UpgradesCanvas/BlinkBack/ActiveFade").GetComponent<Image>();
+        m_manaVoidActiveFade = transform.Find("Buttons/StandBack/UpgradesCanvas/ManaVoidBack/ActiveFade").GetComponent<Image>();
+        m_blinkActiveFade.gameObject.SetActive(false);
+        m_manaVoidActiveFade.gameObject.SetActive(false);
 
         UpgradesController.BuyBlinkUpgrade += BuyBlinkUpgrade;
         UpgradesController.BuyManaVoidUpgrade += BuyManaVoidUpgrade;
         ManagersController.BuyAntiMageManager += BuyAntiMageManager;
+    }
 
-        //turn to grey
-        m_blinkImage.color = new Color(0.275f, 0.275f, 0.275f);
-        m_manaVoidImage.color = new Color(0.275f, 0.275f, 0.275f);
+    void Update()
+    {
+        if (BlinkActive && m_blinkCountdown)
+        {
+            m_blinkCurrentTime -= Time.deltaTime;
+            m_blinkCDImageCount = m_blinkCurrentTime;
+
+            float time = Mathf.Round(m_blinkCurrentTime);
+            m_blinkCooldownTxt.text = (time + 1).ToString();
+
+            float scaledValue = (m_blinkCDImageCount - 0) / (BlinkCooldown - 0);
+            m_blinkCooldown.fillAmount = scaledValue;
+        }
+
+        if (ManaVoidActive && m_manaVoidCountdown)
+        {
+            m_manaVoidCurrentTime -= Time.deltaTime;
+            m_manaVoidCDImageCount = m_manaVoidCurrentTime;
+
+            float time = Mathf.Round(m_manaVoidCurrentTime);
+            m_manaVoidCooldownTxt.text = (time + 1).ToString();
+
+            float scaledValue = (m_manaVoidCDImageCount - 0) / (ManaVoidCooldown - 0);
+            m_manaVoidCooldown.fillAmount = scaledValue;
+        }
     }
 
     void BuyBlinkUpgrade()
     {
         BlinkUpgrade = true;
         Debug.Log("Bought Blink Upgrade");
-        //turn to white
-        m_blinkImage.color = new Color(1f, 1f, 1f);
+
+        //Give white color to ability
+        m_blinkCooldown.fillAmount = 0;
+
         m_clickerController.Ability1Level = 1;
         m_clickerController.ResetLevelIcons("1");
     }
@@ -79,8 +121,10 @@ public class AntiMageController : MonoBehaviour
     {
         ManaVoidUpgrade = true;
         Debug.Log("Bought ManaVoid Upgrade");
-        //turn to white
-        m_manaVoidImage.color = new Color(1f, 1f, 1f);
+
+        //Give white color to ability
+        m_manaVoidCooldown.fillAmount = 0;
+
         m_clickerController.Ability2Level = 1;
         m_clickerController.ResetLevelIcons("2");
     }
@@ -96,9 +140,9 @@ public class AntiMageController : MonoBehaviour
     public void ActivateBlink()
     {
         if (BlinkActive) return;
-        Debug.Log("Activated Mana Void");
         BlinkActive = true;
-        m_blinkImage.color = new Color(0.275f, 0.275f, 0.275f);
+
+        BlinkEffects();
 
         //Do animation and voice line
         m_antiMageAnimator.SetTrigger("useBlink");
@@ -107,16 +151,14 @@ public class AntiMageController : MonoBehaviour
 
         if (!m_abilitySource.isPlaying)
             m_abilitySource.PlayOneShot(BlinkAbilitySound);
-
-        StartCoroutine(AbilityCooldown(BlinkCooldown, "Blink"));
     }
 
     public void ActivateManaVoid()
     {
         if (ManaVoidActive) return;
-        Debug.Log("Activated Mana Void");
         ManaVoidActive = true;
-        m_manaVoidImage.color = new Color(0.275f, 0.275f, 0.275f);
+
+        ManaVoidEffects();
 
         //Do animation and voice line
         m_antiMageAnimator.SetTrigger("useManaVoid");
@@ -125,8 +167,6 @@ public class AntiMageController : MonoBehaviour
 
         if (!m_abilitySource.isPlaying)
             m_abilitySource.PlayOneShot(ManaVoidAbilitySound);
-
-        StartCoroutine(AbilityCooldown(ManaVoidCooldown, "ManaVoid"));
     }
 
     IEnumerator AbilityCooldown(float time, string ability)
@@ -135,13 +175,46 @@ public class AntiMageController : MonoBehaviour
 
         if (ability == "Blink")
         {
-            m_blinkImage.color = new Color(1f, 1f, 1f);
+            m_blinkCooldownTxt.gameObject.SetActive(false);
+            m_blinkCooldown.fillAmount = 0;
+            m_blinkCountdown = false;
             BlinkActive = false;
         }
         else if (ability == "ManaVoid")
         {
-            m_manaVoidImage.color = new Color(1f, 1f, 1f);
+            m_manaVoidCooldownTxt.gameObject.SetActive(false);
+            m_manaVoidCooldown.fillAmount = 0;
+            m_manaVoidCountdown = false;
             ManaVoidActive = false;
+        }
+        /*Do after active effects have done their duration*/
+        else if (ability == "BlinkActiveFinish")
+        {
+            m_blinkActiveFade.gameObject.SetActive(false);
+
+            RemoveBlinkEffects();
+
+            //Start Cooldown clock once finished
+            m_blinkCooldown.fillAmount = 1;
+            m_blinkCooldownTxt.gameObject.SetActive(true);
+            m_blinkCurrentTime = m_blinkCDImageCount = BlinkCooldown;
+            m_blinkCountdown = true;
+
+            StartCoroutine(AbilityCooldown(BlinkCooldown, "Blink"));
+        }
+        else if (ability == "ManaVoidActiveFinish")
+        {
+            m_manaVoidActiveFade.gameObject.SetActive(false);
+
+            RemoveManaVoidEffects();
+
+            //Cooldown clock
+            m_manaVoidCooldown.fillAmount = 1;
+            m_manaVoidCooldownTxt.gameObject.SetActive(true);
+            m_manaVoidCurrentTime = m_manaVoidCDImageCount = ManaVoidCooldown;
+            m_manaVoidCountdown = true;
+
+            StartCoroutine(AbilityCooldown(ManaVoidCooldown, "ManaVoid"));
         }
     }
 
@@ -160,5 +233,33 @@ public class AntiMageController : MonoBehaviour
         {
             m_antiMageAnimator.SetBool("isAttacking", false);
         }
+    }
+
+    void BlinkEffects()
+    {
+        m_blinkActiveFade.gameObject.SetActive(true);
+
+        //do effects
+
+        StartCoroutine(AbilityCooldown(BlinkActiveDuration, "BlinkActiveFinish"));
+    }
+
+    void RemoveBlinkEffects()
+    {
+
+    }
+
+    void ManaVoidEffects()
+    {
+        m_manaVoidActiveFade.gameObject.SetActive(true);
+
+        //do effects
+
+        StartCoroutine(AbilityCooldown(ManaVoidActiveDuration, "ManaVoidActiveFinish"));
+    }
+
+    void RemoveManaVoidEffects()
+    {
+
     }
 }
