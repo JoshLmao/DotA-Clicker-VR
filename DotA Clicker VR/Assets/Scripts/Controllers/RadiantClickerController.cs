@@ -24,12 +24,10 @@ public class RadiantClickerController : MonoBehaviour
         {
             if (ClickerMultiplier == 0) return StartClickAmount * 1;
             else return StartClickAmount * ClickerMultiplier;
-            //var calc = m_clickAmount * ClickerMultiplier == 0 ? 1 : ClickerMultiplier;
-            //return calc;
         }
         set
         {
-            ClickAmount += value;
+            StartClickAmount = value;
         }
     }
     /// <summary>

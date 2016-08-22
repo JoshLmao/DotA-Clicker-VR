@@ -48,6 +48,9 @@ public class RubickController : MonoBehaviour
     Text m_telekinesisCooldownTxt, m_spellStealCooldownTxt;
     Image m_telekinesisActiveFade, m_spellStealActiveFade;
 
+    //Effects
+    int m_telekinesisModifiedValue;
+
     void Start()
     {
         m_clickerController = GetComponent<RadiantClickerController>();
@@ -244,17 +247,22 @@ public class RubickController : MonoBehaviour
     {
         m_telekinesisActiveFade.gameObject.SetActive(true);
 
+        m_telekinesisModifiedValue = m_clickerController.ClickAmount * 2;
+        m_clickerController.ClickAmount = m_telekinesisModifiedValue;
+
         StartCoroutine(AbilityCooldown(TelekinesisActiveDuration, "TelekinesisActiveFinish"));
     }
 
     void RemoveTelekinesisEffects()
     {
-
+        m_clickerController.ClickAmount -= (m_telekinesisModifiedValue / 2);
     }
 
     void SpellStealEffects()
     {
         m_spellStealActiveFade.gameObject.SetActive(true);
+
+        /*Rubick steals another heroes click amount for one click. Cooldown: 3 minutes*/
 
         StartCoroutine(AbilityCooldown(SpellStealActiveDuration, "SpellStealActiveFinish"));
     }

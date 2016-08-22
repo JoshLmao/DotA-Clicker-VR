@@ -30,6 +30,7 @@ public class CourierController : MonoBehaviour
     GameObject m_followBtn;
     GameObject m_lockRotationBtn;
     GameObject m_audioMutedBtn;
+    Transform m_playerTransform;
 
     [SerializeField]
     Sprite m_toggleEnabled;
@@ -55,7 +56,8 @@ public class CourierController : MonoBehaviour
     {
         if(!isByPlayer && FollowPlayer)
         {
-            waypointPos = new Vector3(courierWaypoint.transform.position.x, transform.position.y, courierWaypoint.transform.position.z);
+            m_playerTransform = GameObject.Find("[CameraRig]").transform;
+            waypointPos = new Vector3(courierWaypoint.transform.position.x, m_playerTransform.position.y, courierWaypoint.transform.position.z);
             transform.position = Vector3.Lerp(transform.position, waypointPos, speed * Time.deltaTime);
             m_crowAnimator.SetBool("isMoving", true);
         }

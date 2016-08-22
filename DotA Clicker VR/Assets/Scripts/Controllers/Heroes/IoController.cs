@@ -47,6 +47,10 @@ public class IoController : MonoBehaviour
     Text m_overchargeCooldownTxt, m_relocateCooldownTxt;
     Image m_overchargeActiveFade, m_relocateActiveFade;
 
+    //Effects
+    int m_overchargeModifiedValue;
+    int m_relocateModifiedValue;
+
     void Start()
     {
         m_clickerController = GetComponent<RadiantClickerController>();
@@ -240,26 +244,29 @@ public class IoController : MonoBehaviour
     {
         m_overchargeActiveFade.gameObject.SetActive(true);
 
-        //m_overchargeCountModifier = m_clickerController.ClickAmount;
-       // m_clickerController.ClickAmount += (m_overchargeCountModifier * 2);
+        m_overchargeModifiedValue = m_clickerController.ClickAmount * 2;
+        m_clickerController.ClickAmount = m_overchargeModifiedValue;
 
         StartCoroutine(AbilityCooldown(OverchargeActiveDuration, "OverchargeActiveFinish"));
     }
 
     void RemoveOverchargeEffects()
     {
-        //m_clickerController.ClickAmount -= (m_overchargeCountModifier / 2);
+        m_clickerController.ClickAmount -= (m_overchargeModifiedValue / 2);
     }
 
     void RelocateEffects()
     {
         m_relocateActiveFade.gameObject.SetActive(true);
 
+        m_relocateModifiedValue = m_clickerController.ClickAmount * 4; 
+        m_clickerController.ClickAmount = m_relocateModifiedValue;
+
         StartCoroutine(AbilityCooldown(RelocateActiveDuration, "RelocateActiveFinish"));
     }
 
     void RemoveRelocateEffects()
     {
-
+        m_clickerController.ClickAmount -= (m_relocateModifiedValue / 2);
     }
 }

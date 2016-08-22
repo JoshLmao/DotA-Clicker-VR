@@ -66,7 +66,7 @@ public class UpgradesController : MonoBehaviour
         Upgrades.Add(new UpgradeDto()
         {
             Name = "Overcharge",
-            Description = "Overcharges Io to double his output for 30 seconds. Cooldown: 30 seconds",
+            Description = "Overcharges Io to double his output for 30 seconds. Cooldown: 45 seconds",
             HeroUpgrade = "Io",
             Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Io_Overcharge"),
             Cost = 0,
@@ -82,7 +82,7 @@ public class UpgradesController : MonoBehaviour
         Upgrades.Add(new UpgradeDto()
         {
             Name = "Telekinesis",
-            Description = "Rubick lifts his click amount by 2 for 30 seconds. Cooldown: 1 minutes",
+            Description = "Rubick lifts his click amount by 2 for 30 seconds. Cooldown: 1 minute",
             HeroUpgrade = "Rubick",
             Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Rubick_Telekinesis"),
             Cost = 0,
@@ -98,7 +98,7 @@ public class UpgradesController : MonoBehaviour
         Upgrades.Add(new UpgradeDto()
         {
             Name = "Fireblast",
-            Description = "The Ogre Magi blasts a wave of fire giving 3x his click amount for 1 minute. Cooldown: 10 minutes",
+            Description = "The Ogre Magi blasts a wave of fire giving 3x his click amount for 45 seconds. Cooldown: 5 minutes",
             HeroUpgrade = "Ogre Magi",
             Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/OgreMagi_Fireblast"),
             Cost = 0,

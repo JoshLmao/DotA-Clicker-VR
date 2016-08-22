@@ -48,6 +48,10 @@ public class OgreMagiController : MonoBehaviour
     Image m_fireblastActiveFade, m_bloodlustActiveFade;
     int m_fireblastCountModifier;
 
+    //Effects
+    int m_fireblastModifiedValue;
+    int m_bloodlustModifiedValue;
+
     void Start()
     {
         m_clickerController = GetComponent<RadiantClickerController>();
@@ -239,21 +243,24 @@ public class OgreMagiController : MonoBehaviour
     {
         m_fireblastActiveFade.gameObject.SetActive(true);
 
-        
+        m_fireblastModifiedValue = m_clickerController.ClickAmount * 3;
+        m_clickerController.ClickAmount = m_fireblastModifiedValue;
+
 
         StartCoroutine(AbilityCooldown(FireblastActiveDuration, "OverchargeActiveFinish"));
     }
 
     void RemoveFireblastEffects()
     {
-
+        m_clickerController.ClickAmount -= (m_fireblastModifiedValue / 2);
     }
 
     void BloodlustEffects()
     {
         m_bloodlustActiveFade.gameObject.SetActive(true);
 
-
+        m_bloodlustModifiedValue = m_clickerController.TimeBetweenClicks.Seconds;
+        //m_clickerController.TimeBetweenClicks -= 30;
 
         StartCoroutine(AbilityCooldown(BloodlustActiveDuration, "BloodlustActiveFinish"));
     }
