@@ -132,7 +132,7 @@ ModelImporter:
     7400002: radiant_ranged_attack2
     7400004: radiant_ranged_attack3
     7400006: radiant_ranged_BindPose
-    7400008: radiant_ranged.qc_skeleton|cast_fence
+    7400008: radiant_ranged_cast_fence
     7400010: radiant_ranged_death
     7400012: radiant_ranged_death_fallBack
     7400014: radiant_ranged_defeat_idle
@@ -141,8 +141,8 @@ ModelImporter:
     7400020: radiant_ranged_idle
     7400022: radiant_ranged_portrait
     7400024: radiant_ranged_relax_in
-    7400026: radiant_ranged.qc_skeleton|relax_loop
-    7400028: radiant_ranged.qc_skeleton|relax_out
+    7400026: radiant_ranged_relax_loop
+    7400028: radiant_ranged_relax_out
     7400030: radiant_ranged_run
     7400032: radiant_ranged_run2
     7400034: radiant_ranged_run3
@@ -777,7 +777,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: radiant_ranged.qc_skeleton|cast_fence
+      name: radiant_ranged_cast_fence
       takeName: radiant_ranged.qc_skeleton|cast_fence
       firstFrame: 0
       lastFrame: 78
@@ -2127,7 +2127,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: radiant_ranged.qc_skeleton|relax_loop
+      name: radiant_ranged_relax_loop
       takeName: radiant_ranged.qc_skeleton|relax_loop
       firstFrame: 0
       lastFrame: 40
@@ -2277,7 +2277,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: radiant_ranged.qc_skeleton|relax_out
+      name: radiant_ranged_relax_out
       takeName: radiant_ranged.qc_skeleton|relax_out
       firstFrame: 0
       lastFrame: 20

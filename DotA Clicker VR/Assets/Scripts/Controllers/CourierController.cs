@@ -64,7 +64,7 @@ public class CourierController : MonoBehaviour
         else if(isByPlayer)
         {
             m_crowAnimator.SetBool("isMoving", false);
-        }
+        }   
 
         if(!LockRotation)
         {
