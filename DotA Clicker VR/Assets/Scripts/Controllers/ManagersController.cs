@@ -104,7 +104,7 @@ public class ManagersController : MonoBehaviour {
             children.Add(child.gameObject);
         children.ForEach(child => Destroy(child));
 
-        int addY = 585; //Hack to get positioning of List UI
+        int addY = -30; //Hack to get positioning of List UI
         foreach (ManagerDto manager in Managers)
         {
             GameObject newManager = GameObject.Instantiate(ManagerPrefab);

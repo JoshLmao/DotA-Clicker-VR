@@ -27,10 +27,22 @@ public class HandController : MonoBehaviour {
     Scrollbar m_activeScrollerUI;
     GameObject m_scrollableMenu;
 
+    Vector3 m_holdingPreviousFrame;
+    Vector3 m_holdingCurrentFrame;
+
     //Sliders
     Ray sliderRaycast;
 
-	void Start ()
+    public Rigidbody attachPoint;
+    SteamVR_TrackedObject trackedObj;
+    FixedJoint joint;
+
+    void Awake()
+    {
+        trackedObj = GetComponent<SteamVR_TrackedObject>();
+    }
+
+    void Start ()
     {
         m_controller = this.GetComponent<SteamVR_TrackedController>();
         m_laserPointer = GetComponent<SteamVR_LaserPointer>();
@@ -43,8 +55,8 @@ public class HandController : MonoBehaviour {
             m_laserPointer.PointerOut += OnPointerOut;
         }
     }
-	
-	void Update ()
+
+    void Update()
     {
         if (m_canClickOnUI)
         {
@@ -55,33 +67,68 @@ public class HandController : MonoBehaviour {
             }
 
             //Moving slider handle
-            if(m_moveSliderHandle && m_activeSliderUI != null)
-            {
-                /*
-                 Using the center point of box collider and point of ray on slider, calculate 
-                 */
-                float distance = 1.5f;
-                RaycastHit hit;
-                Ray ray = new Ray(transform.position, Vector3.forward);
-                if (Physics.Raycast(ray, out hit))
-                {
-                    Debug.Log("POINT " + hit.point);
-                }
+            //if (m_moveSliderHandle && m_activeSliderUI != null)
+            //{
+            //    /*
+            //     Using the center point of box collider and point of ray on slider, calculate 
+            //     */
+            //    float distance = 1.5f;
+            //    RaycastHit hit;
+            //    Ray ray = new Ray(transform.position, Vector3.forward);
+            //    if (Physics.Raycast(ray, out hit))
+            //    {
+            //        Debug.Log("POINT " + hit.point);
+            //    }
 
-                Vector3 point = ray.origin + (ray.direction * distance);
-                Vector3 sliderCenter = m_activeSliderUI.GetComponent<BoxCollider>().bounds.center;
+            //    Vector3 point = ray.origin + (ray.direction * distance);
+            //    Vector3 sliderCenter = m_activeSliderUI.GetComponent<BoxCollider>().bounds.center;
 
-                float diff = Vector3.Distance(sliderCenter, hit.point);
-                Debug.Log("Disatnce = " + diff);
-                m_activeSliderUI.value = diff;
-            }
+            //    float diff = Vector3.Distance(sliderCenter, hit.point);
+            //    Debug.Log("Disatnce = " + diff);
+            //    m_activeSliderUI.value = diff;
+            //}
         }
+    }
 
-        if(IsHoldingObj)
+    //Physics based stuffs
+    void FixedUpdate()
+    {
+        //Hijacked from SteamVR_TestThrow
+        var device = SteamVR_Controller.Input((int)trackedObj.index);
+        if (joint == null && device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger) && CurrentObject != null)
         {
-            //Position done auto by having set parent to controller
-            CurrentObject.transform.parent = this.gameObject.transform;
-            CurrentObject.transform.rotation = this.transform.rotation;
+            var go = CurrentObject;
+            go.transform.position = attachPoint.transform.position;
+
+            joint = go.AddComponent<FixedJoint>();
+            joint.connectedBody = attachPoint;
+        }
+        else if (joint != null && device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
+        {
+            var go = joint.gameObject;
+            var rigidbody = go.GetComponent<Rigidbody>();
+            Object.DestroyImmediate(joint);
+            joint = null;
+            Object.Destroy(go, 15.0f);
+
+            // We should probably apply the offset between trackedObj.transform.position
+            // and device.transform.pos to insert into the physics sim at the correct
+            // location, however, we would then want to predict ahead the visual representation
+            // by the same amount we are predicting our render poses.
+
+            var origin = trackedObj.origin ? trackedObj.origin : trackedObj.transform.parent;
+            if (origin != null)
+            {
+                rigidbody.velocity = origin.TransformVector(device.velocity);
+                rigidbody.angularVelocity = origin.TransformVector(device.angularVelocity);
+            }
+            else
+            {
+                rigidbody.velocity = device.velocity;
+                rigidbody.angularVelocity = device.angularVelocity;
+            }
+
+            rigidbody.maxAngularVelocity = rigidbody.angularVelocity.magnitude;
         }
     }
 
@@ -107,19 +154,19 @@ public class HandController : MonoBehaviour {
 
     void OnTriggerClicked(object sender, ClickedEventArgs e)
     {
-        if(m_canPickupObj && CurrentObject != null)
-        {
-            //PriorTranform = CurrentObject.transform.parent;
-            CurrentObject.transform.parent = this.gameObject.transform;
-            CurrentObject.transform.localPosition = Vector3.zero;
-            CurrentObject.transform.rotation = this.gameObject.transform.rotation;
+        //if(m_canPickupObj && CurrentObject != null)
+        //{
+        //    //PriorTranform = CurrentObject.transform.parent;
+        //    CurrentObject.transform.parent = this.gameObject.transform;
+        //    CurrentObject.transform.localPosition = Vector3.zero;
+        //    CurrentObject.transform.rotation = this.gameObject.transform.rotation;
 
-            Rigidbody rb = CurrentObject.GetComponent<Rigidbody>();
-            rb.isKinematic = true;
-            rb.useGravity = false;
+        //    Rigidbody rb = CurrentObject.GetComponent<Rigidbody>();
+        //    rb.isKinematic = true;
+        //    rb.useGravity = false;
 
-            IsHoldingObj = true;
-        }
+        //    IsHoldingObj = true;
+        //}
 
         if(m_canClickOnUI)
         {
@@ -155,7 +202,10 @@ public class HandController : MonoBehaviour {
             Rigidbody controllerRb = GetComponent<Rigidbody>();
             rb.isKinematic = false;
             rb.useGravity = true;
-            rb.AddForce(controllerRb.velocity, ForceMode.Impulse);
+            //rb.AddForce(controllerRb.velocity, ForceMode.Impulse);
+            m_holdingCurrentFrame = CurrentObject.transform.position;
+            Debug.Log("Current Frame = " + m_holdingCurrentFrame);
+            //rb.velocity = m_holdingPreviousFrame - m_holdingCurrentFrame;
 
             CurrentObject = null;
         }
