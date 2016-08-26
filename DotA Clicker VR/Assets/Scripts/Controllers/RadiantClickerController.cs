@@ -87,13 +87,25 @@ public class RadiantClickerController : MonoBehaviour
     private Text m_upgradeCostText;
 
     //Level Up System
+    /// <summary>
+    /// Ability 1 Level
+    /// </summary>
     public int Ability1Level = 0;
+    /// <summary>
+    /// Ability 2 Level
+    /// </summary>
     public int Ability2Level = 0;
     Slider m_abil1Slider;
     Slider m_abil2Slider;
     List<GameObject> m_abil1Icons = new List<GameObject>();
     List<GameObject> m_abil2Icons = new List<GameObject>();
+    /// <summary>
+    /// Amount needed to level up from previous to next level - Ability 1
+    /// </summary>
     public int m_abil1UseCount = 0;
+    /// <summary>
+    /// Amount needed to level up from previous to next level - Ability 2
+    /// </summary>
     public int m_abil2UseCount = 0;
     Sprite m_notLevelled;
     Sprite m_levelled;
@@ -111,7 +123,6 @@ public class RadiantClickerController : MonoBehaviour
         m_upgradeCostText = transform.Find("Buttons/UpgradeCostBack/UpgradeCostCanvas/Cost/UpCostText").GetComponent<Text>(); ;
         m_progressBar = transform.Find("Buttons/StandBack/StandUI/ProgressSlider").GetComponent<Slider>();
         MagicImmuneSound = Resources.Load<AudioClip>("Sounds/UI/magic_immune");
-
         AbilityLevelUpStart();
 
         TimeBetweenClicks = new TimeSpan(0, 0, 0, SecondsToCompleteClick);

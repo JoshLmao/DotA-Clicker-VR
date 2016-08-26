@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System;
 
 public class OgreMagiController : MonoBehaviour
 {
@@ -254,19 +255,21 @@ public class OgreMagiController : MonoBehaviour
     {
         m_clickerController.ClickAmount -= (m_fireblastModifiedValue / 2);
     }
+    int bloodlustOldValue;
 
     void BloodlustEffects()
     {
         m_bloodlustActiveFade.gameObject.SetActive(true);
 
-        m_bloodlustModifiedValue = m_clickerController.TimeBetweenClicks.Seconds;
-        //m_clickerController.TimeBetweenClicks -= 30;
+        bloodlustOldValue = m_clickerController.TimeBetweenClicks.Seconds;
+        m_bloodlustModifiedValue = (m_clickerController.TimeBetweenClicks.Seconds - 30) < 0 ? 1 : m_clickerController.TimeBetweenClicks.Seconds - 30;
+        m_clickerController.TimeBetweenClicks = new TimeSpan(0, 0, m_bloodlustModifiedValue);
 
         StartCoroutine(AbilityCooldown(BloodlustActiveDuration, "BloodlustActiveFinish"));
     }
 
     void RemoveBloodlustEffects()
     {
-
+        m_clickerController.TimeBetweenClicks = new TimeSpan(0, 0, bloodlustOldValue);
     }
 }

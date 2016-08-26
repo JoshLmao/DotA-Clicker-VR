@@ -57,6 +57,9 @@ public class PhoenixController : MonoBehaviour
     Image m_sunrayActiveFade, m_supernovaActiveFade;
     int m_sunrayCountModifier;
 
+    //Ability Effects
+    public AudioClip GoldEarnedSound;
+
     void Start()
     {
         m_clickerController = GetComponent<RadiantClickerController>();
@@ -318,10 +321,20 @@ public class PhoenixController : MonoBehaviour
     {
         m_sunrayActiveFade.gameObject.SetActive(true);
 
-        //do effct
+        //do effect
+        var sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
+        foreach(RadiantClickerController clicker in sceneController.SceneHeroes)
+        {
+            if ((clicker.TimeBetweenClicks.Seconds - 60) < 0)
+            {
+                clicker.TimeBetweenClicks -= new TimeSpan(0, 0, clicker.TimeBetweenClicks.Seconds - clicker.TimeBetweenClicks.Seconds);
+                continue;
+            }
+
+            clicker.TimeBetweenClicks = new TimeSpan(0, 0, clicker.TimeBetweenClicks.Seconds - 60);
+        }
 
         StartCoroutine(AbilityCooldown(SunrayActiveDuration, "SunrayActiveFinish"));
-
     }
 
     void RemoveSunrayEffects()
@@ -334,8 +347,18 @@ public class PhoenixController : MonoBehaviour
         m_sunrayActiveFade.gameObject.SetActive(true);
 
         //do effect
+        InvokeRepeating("SupernovaRepeating", 6, 1);
 
         StartCoroutine(AbilityCooldown(SupernovaActiveDuration, "SupernovaActiveFinish"));
+    }
+
+    void SupernovaRepeating()
+    {
+        var sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().TotalGold;
+        sceneController += m_clickerController.ClickAmount;
+
+        if (!m_abilitySource.isPlaying)
+            m_abilitySource.PlayOneShot(GoldEarnedSound);
     }
 
     void RemoveSupernovaEffects()

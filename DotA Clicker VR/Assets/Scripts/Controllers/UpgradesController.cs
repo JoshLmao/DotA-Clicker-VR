@@ -154,7 +154,7 @@ public class UpgradesController : MonoBehaviour
         Upgrades.Add(new UpgradeDto()
         {
             Name = "God's Strength",
-            Description = "Sven channels his rogue strength, increasing his teammates click amount by 2. Cooldown: 15 minutes",
+            Description = "Sven channels his rogue strength, increasing his teammates click amount by 2 for 30 seconds. Cooldown: 15 minutes",
             HeroUpgrade = "Sven",
             Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Sven_GodsStrength"),
             Cost = 0,
@@ -170,7 +170,7 @@ public class UpgradesController : MonoBehaviour
         Upgrades.Add(new UpgradeDto()
         {
             Name = "Mana Void",
-            Description = ". Cooldown: 10 minutes",
+            Description = "For each second missing from AM's current click duration, the surrounding heroes get that duration taken off their current time. Cooldown: 10 minutes",
             HeroUpgrade = "Anti Mage",
             Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/AntiMage_ManaVoid"),
             Cost = 0,
@@ -178,7 +178,7 @@ public class UpgradesController : MonoBehaviour
         Upgrades.Add(new UpgradeDto()
         {
             Name = "Greevil's Greed",
-            Description = "For every attack, the Alchemist reduces his click duration by 30 seconds, lasts 1 minute. Cooldown: 20 minutes",
+            Description = "For every attack, the Alchemist reduces his click duration by 20 seconds, lasts 1 minute. Cooldown: 20 minutes",
             HeroUpgrade = "Alchemist",
             Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Alchemist_GreevilsGreed"),
             Cost = 0,
@@ -186,7 +186,7 @@ public class UpgradesController : MonoBehaviour
         Upgrades.Add(new UpgradeDto()
         {
             Name = "Chemical Rage",
-            Description = "The Alchemist causes his Ogre to enter a chemically induced rage reducing his click duration by half. Cooldown: 30 minutes",
+            Description = "The Alchemist causes his Ogre to enter a chemically induced rage reducing his current click by 3/4. Cooldown: 30 minutes",
             HeroUpgrade = "Alchemist",
             Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Alchemist_ChemicalRage"),
             Cost = 0,

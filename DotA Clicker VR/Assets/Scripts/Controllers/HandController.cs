@@ -37,6 +37,8 @@ public class HandController : MonoBehaviour {
     SteamVR_TrackedObject trackedObj;
     FixedJoint joint;
 
+    GameObject LeftHandCanvas;
+
     void Awake()
     {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
@@ -54,10 +56,15 @@ public class HandController : MonoBehaviour {
             m_laserPointer.PointerIn += OnPointerIn;
             m_laserPointer.PointerOut += OnPointerOut;
         }
+
+        LeftHandCanvas = transform.Find("WorldSpaceMenu").gameObject;
     }
 
     void Update()
     {
+        if(LeftHandCanvas != null)
+            LeftHandCanvas.transform.localPosition = new Vector3(0f, 0f, 0f);
+
         if (m_canClickOnUI)
         {
             //Detect for Scrollable UI

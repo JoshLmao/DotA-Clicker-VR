@@ -2,11 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System.IO;
+using System;
+using Newtonsoft.Json;
 
 public class RadiantSceneController : MonoBehaviour
 {
     public List<RadiantClickerController> SceneHeroes;
-
+    public SaveFileDto CurrentSaveFile;
     public int TotalGold = 3000;
 
     public const string THOUSAND_FORMAT = "{0}, {1}, {2}";
@@ -14,8 +17,13 @@ public class RadiantSceneController : MonoBehaviour
     public const string BILLION_FORMAT = "{0} billion";
     public const string TRILLION_FORMAT = "{0} trillion";
     public const string QUADRILLION_FORMAT = "{0} quadrillion";
+    readonly string SAVE_FILE_PATH = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\JoshLmao\\";
+    readonly string SAVE_FILE = "SaveFile.json";
 
+    string SAVE_FILE_LOCATION { get { return SAVE_FILE_PATH + SAVE_FILE; } }
     Text m_goldUI;
+    OptionsController m_options;
+    float m_totalPlayTime;
 
 	void Start ()
     {
@@ -23,6 +31,7 @@ public class RadiantSceneController : MonoBehaviour
         m_goldUI = GameObject.Find("TotalGoldText").GetComponent<Text>();
 
         SceneHeroes = GetClickerHeroesInScene();
+        m_options = GameObject.Find("OptionsCanvas").GetComponent<OptionsController>();
 	}
 
 	void Update ()
@@ -37,7 +46,12 @@ public class RadiantSceneController : MonoBehaviour
 
     public void LoadProgress()
     {
-        
+        if (!File.Exists(SAVE_FILE_LOCATION))
+            return;
+
+        string file = File.ReadAllText(SAVE_FILE_LOCATION);
+        SaveFileDto loadedSaveFile = JsonConvert.DeserializeObject<SaveFileDto>(file);
+        CurrentSaveFile = loadedSaveFile;
     }
 
     public List<RadiantClickerController> GetClickerHeroesInScene()
@@ -49,5 +63,110 @@ public class RadiantSceneController : MonoBehaviour
             listClickers.Add(clicker);
         }
         return listClickers;
+    }
+
+    public void OnApplicationQuit()
+    {
+        SaveFile();
+    }
+
+    public void SaveFile()
+    {
+        //Check if folders & file exists
+        SaveFileExists();
+
+        //Add current playtime to total play time
+        CurrentSaveFile.SessionStats.TotalPlayTime += Time.realtimeSinceStartup;
+
+        //Save data
+        SaveFileDto saveFile = new SaveFileDto()
+        {
+            PlayerName = "Test",
+            RadiantSide = new RadiantSideDto()
+            {
+                TotalGold = TotalGold,
+                /*
+                 * Hero Order in List:
+                 * 0 = Alchemist, 1 = Ogre, 2 = Tusk, 3 = Io, 4 = AntiMagi, 5 = Sven, 6 = Phoenix, 7 = Rubick
+                 */
+                Io = new HeroDto()
+                {
+                    ClickersBought = SceneHeroes[3].ClickerMultiplier,
+                    Ability1Level = SceneHeroes[3].Ability1Level,
+                    Ability2Level = SceneHeroes[3].Ability2Level,
+                },
+                Rubick = new HeroDto()
+                {
+                    ClickersBought = SceneHeroes[7].ClickerMultiplier,
+                    Ability1Level = SceneHeroes[7].Ability1Level,
+                    Ability2Level = SceneHeroes[7].Ability2Level,
+                },
+                OgreMagi = new HeroDto()
+                {
+                    ClickersBought = SceneHeroes[1].ClickerMultiplier,
+                    Ability1Level = SceneHeroes[1].Ability1Level,
+                    Ability2Level = SceneHeroes[1].Ability2Level,
+                },
+                Tusk = new HeroDto()
+                {
+                    ClickersBought = SceneHeroes[2].ClickerMultiplier,
+                    Ability1Level = SceneHeroes[2].Ability1Level,
+                    Ability2Level = SceneHeroes[2].Ability2Level,
+                },
+                Phoenix = new HeroDto()
+                {
+                    ClickersBought = SceneHeroes[6].ClickerMultiplier,
+                    Ability1Level = SceneHeroes[6].Ability1Level,
+                    Ability2Level = SceneHeroes[6].Ability2Level,
+                },
+                Sven = new HeroDto()
+                {
+                    ClickersBought = SceneHeroes[5].ClickerMultiplier,
+                    Ability1Level = SceneHeroes[5].Ability1Level,
+                    Ability2Level = SceneHeroes[5].Ability2Level,
+                },
+                AntiMage = new HeroDto()
+                {
+                    ClickersBought = SceneHeroes[4].ClickerMultiplier,
+                    Ability1Level = SceneHeroes[4].Ability1Level,
+                    Ability2Level = SceneHeroes[4].Ability2Level,
+                },
+                Alchemist = new HeroDto()
+                {
+                    ClickersBought = SceneHeroes[0].ClickerMultiplier,
+                    Ability1Level = SceneHeroes[0].Ability1Level,
+                    Ability2Level = SceneHeroes[0].Ability2Level,
+                },
+            },
+            Preferences = new PreferencesDto()
+            {
+                MasterVolume = m_options.MasterVolSlider.value,
+                AmbientVolume = m_options.AmbientVolSlider.value,
+                HeroVolume = m_options.HeroVolSlider.value,
+                MusicEnabled = m_options.IsMusicEnabled,
+                AllAudioEnabled = m_options.AllAudioDisabled,
+                SuperSampleScale = m_options.SuperSampleValue,
+            },
+            SessionStats = new StatsDto()
+            {
+                TotalPlayTime = CurrentSaveFile.SessionStats.TotalPlayTime,
+            }
+        };
+        string json = JsonConvert.SerializeObject(saveFile, Formatting.Indented);
+        File.WriteAllText(SAVE_FILE_LOCATION, json);
+    }
+
+    void SaveFileExists()
+    {
+        if (!Directory.Exists(SAVE_FILE_PATH))
+            Directory.CreateDirectory(SAVE_FILE_PATH);
+
+        if (!File.Exists(SAVE_FILE_LOCATION))
+            File.Create(SAVE_FILE_LOCATION).Dispose();
+    }
+
+    public void OnDestroy()
+    {
+        SaveFile();
     }
 }

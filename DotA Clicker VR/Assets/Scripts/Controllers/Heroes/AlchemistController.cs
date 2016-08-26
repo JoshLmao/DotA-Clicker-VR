@@ -232,8 +232,15 @@ public class AlchemistController : MonoBehaviour
         m_greevilsGreedActiveFade.gameObject.SetActive(true);
 
         //do effects
+        GreevilGreedAttackReduce();
+        InvokeRepeating("GreevilsGreedAttackReduce", GreevilsGreedActiveDuration, 1.07f);
 
         StartCoroutine(AbilityCooldown(GreevilsGreedActiveDuration, "GreevilsGreedActiveFinish"));
+    }
+
+    void GreevilGreedAttackReduce()
+    {
+        m_clickerController.CurrentClickerTime -= new TimeSpan(0, 0, m_clickerController.CurrentClickerTime.Seconds - 20);
     }
 
     void RemoveGreevilsGreedEffects()
@@ -246,6 +253,9 @@ public class AlchemistController : MonoBehaviour
         m_chemicalRageActiveFade.gameObject.SetActive(true);
 
         //do effects
+        int quarter = m_clickerController.CurrentClickerTime.Seconds / 4;
+        int seconds = (quarter * 4) - (quarter * 3);
+        m_clickerController.CurrentClickerTime = new TimeSpan(0, 0, seconds);
 
         StartCoroutine(AbilityCooldown(ChemicalRageActiveDuration, "ChemicalRageActiveFinish"));
     }

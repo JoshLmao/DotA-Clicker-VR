@@ -1,19 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
-public class RadiantSideDto : MonoBehaviour
+[Serializable]
+public class RadiantSideDto
 {
-    public class RadiantSideData
-    {
-        public int CurrentGold { get; set; }
-        /*Clickers*/
-        public int Io { get; set; }
-        public int Rubick { get; set; }
-        public int OgreMagi { get; set; }
-        public int Tusk { get; set; }
-        public int Phoenix { get; set; }
-        public int Sven { get; set; }
-        public int Alchemist { get; set; }
-        public int AntiMage { get; set; }
-    }
+    public int TotalGold { get; set; }
+    /*Clickers*/
+    public HeroDto Io { get; set; }
+    public HeroDto Rubick { get; set; }
+    public HeroDto OgreMagi { get; set; }
+    public HeroDto Tusk { get; set; }
+    public HeroDto Phoenix { get; set; }
+    public HeroDto Sven { get; set; }
+    public HeroDto Alchemist { get; set; }
+    public HeroDto AntiMage { get; set; }
 }

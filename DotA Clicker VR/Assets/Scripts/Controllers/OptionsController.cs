@@ -6,13 +6,17 @@ using System;
 
 public class OptionsController : MonoBehaviour {
 
+    public bool IsMusicEnabled { get { return m_audioEnabled.isOn; } }
+    public bool AllAudioDisabled { get { return m_audioEnabled.isOn; } }
+    public float SuperSampleValue { get { return SuperSampleSlider.value; } }
+
     public AudioSource[] HeroesAudioSource;
     public Slider MasterVolSlider;
     public Slider AmbientVolSlider;
     public Slider HeroVolSlider;
     public Slider SuperSampleSlider;
-    Text m_ssText;
 
+    Text m_ssText;
     AmbientSoundManager m_ambientSound;
     Toggle m_audioEnabled;
 
@@ -66,18 +70,6 @@ public class OptionsController : MonoBehaviour {
             AudioListener.volume = 0;
             return;
         }
-
-        /*
-        //Master Volume
-        AudioListener.volume = MasterVolSlider.value;
-        //Ambient Sound Volume
-        m_ambientSound.AmbientAudioSource.volume = AmbientVolSlider.value;
-        //Hero Volume
-        foreach (AudioSource source in HeroesAudioSource)
-        {
-            source.volume = HeroVolSlider.value;
-        }
-        */
     }
 
     void ToggleValueChanged(bool toggle)

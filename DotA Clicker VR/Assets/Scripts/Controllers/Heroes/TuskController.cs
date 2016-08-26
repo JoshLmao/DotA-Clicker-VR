@@ -53,6 +53,10 @@ public class TuskController : MonoBehaviour
     Image m_snowballActiveFade, m_walrusPunchActiveFade;
     int m_snowballCountModifier;
 
+    //Effects
+    int m_snowballModifiedValue;
+    int m_walrusPunchModifiedValue;
+
     void Start()
     {
         m_clickerController = GetComponent<RadiantClickerController>();
@@ -291,13 +295,15 @@ public class TuskController : MonoBehaviour
         m_snowballActiveFade.gameObject.SetActive(true);
 
         //do effects
+        m_snowballModifiedValue = m_clickerController.ClickAmount * 2;
+        m_clickerController.ClickAmount = m_snowballModifiedValue;
 
         StartCoroutine(AbilityCooldown(SnowballActiveDuration, "OverchargeActiveFinish"));
     }
 
     void RemoveSnowballEffects()
     {
-
+        m_clickerController.ClickAmount -= (m_snowballModifiedValue / 2);
     }
 
     void WalrusPunchEffects()
@@ -305,12 +311,14 @@ public class TuskController : MonoBehaviour
         m_walrusPunchActiveFade.gameObject.SetActive(true);
 
         //do effects
+        var m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
+        m_sceneController.TotalGold += m_clickerController.ClickAmount;
 
         StartCoroutine(AbilityCooldown(WalrusPunchActiveDuration, "OverchargeActiveFinish"));
     }
 
     void RemoveWalrusPunchEffects()
     {
-
+        //Don't need. Keep for consistency sake
     }
 }
