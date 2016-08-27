@@ -12,7 +12,7 @@ public class HandController : MonoBehaviour {
     public bool IsHoldingObj { get; set; }
     public Transform CurrentAimTranform { get; set; }
 
-    SteamVR_TrackedController m_controller { get; set; }
+    protected SteamVR_TrackedController m_controller { get; set; }
     SteamVR_LaserPointer m_laserPointer { get; set; }
 
     bool m_canPickupObj = false;
@@ -51,6 +51,7 @@ public class HandController : MonoBehaviour {
 
         m_controller.TriggerClicked += OnTriggerClicked;
         m_controller.TriggerUnclicked += OnTriggerUnclicked;
+
         if(m_laserPointer != null)
         {
             m_laserPointer.PointerIn += OnPointerIn;

@@ -72,7 +72,6 @@ namespace Wacki {
                 pointer.SetActive(true);
             else
                 pointer.SetActive(false);
-            Debug.Log(this.GetComponent<HandController>().AimingAtUI);
 
             Ray ray = new Ray(transform.position, transform.forward);
             RaycastHit hitInfo;
