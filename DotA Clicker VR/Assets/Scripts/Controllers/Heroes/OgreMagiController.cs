@@ -272,4 +272,12 @@ public class OgreMagiController : MonoBehaviour
     {
         m_clickerController.TimeBetweenClicks = new TimeSpan(0, 0, bloodlustOldValue);
     }
+
+    IEnumerator RareIdleCount(float time)
+    {
+        yield return new WaitForSeconds(time);
+        m_ogreMagiAnimator.SetTrigger("doRareIdle");
+        int pick = UnityEngine.Random.Range(60, 300);
+        StartCoroutine(RareIdleCount(pick));
+    }
 }

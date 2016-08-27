@@ -11,6 +11,9 @@ public class RadiantSceneController : MonoBehaviour
     public List<RadiantClickerController> SceneHeroes;
     public SaveFileDto CurrentSaveFile;
     public int TotalGold = 3000;
+    public GameObject[] RoshanPrefab;
+    public GameObject AegisPrefab;
+    public GameObject CheesePrefab;
 
     public const string THOUSAND_FORMAT = "{0}, {1}, {2}";
     public const string MILLION_FORMAT = "{0} million";
@@ -24,19 +27,34 @@ public class RadiantSceneController : MonoBehaviour
     Text m_goldUI;
     OptionsController m_options;
     float m_totalPlayTime;
+    
+    //Roshan Controls
+    bool m_canSpawnRoshan = false;
+    /// <summary>
+    /// Controller for the current or last roshan event
+    /// </summary>
+    RoshanController m_activeRoshan;
+    public float RoshanEventCount;
 
-	void Start ()
+    void Start ()
     {
         LoadProgress();
         m_goldUI = GameObject.Find("TotalGoldText").GetComponent<Text>();
 
         SceneHeroes = GetClickerHeroesInScene();
         m_options = GameObject.Find("OptionsCanvas").GetComponent<OptionsController>();
+
+        RoshanController.RoshanEventEnded += OnRoshanEventEnded;
 	}
 
 	void Update ()
     {
         m_goldUI.text = TotalGold.ToString();
+
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            DoRoshanEvent();
+        }
 	}
 
     void FixedUpdate()
@@ -168,5 +186,29 @@ public class RadiantSceneController : MonoBehaviour
     public void OnDestroy()
     {
         SaveFile();
+    }
+
+    void DoRoshanEvent()
+    {
+        RoshanEventCount++; //Increment count of how many roshan events
+
+        int roshanCount = UnityEngine.Random.Range(0, RoshanPrefab.Length);
+        var roshanPrefab = Instantiate(RoshanPrefab[roshanCount]);
+        m_activeRoshan = roshanPrefab.GetComponent<RoshanController>();
+    }
+
+    void OnRoshanEventEnded()
+    {
+        //Roshan Event has ended
+        //Instantiate cheese & aegis
+        var aegis = Instantiate(AegisPrefab);
+        aegis.transform.position = m_activeRoshan.Roshan.transform.position + new Vector3(0f, 7f, 0f); //Spawn it above the floor
+        aegis.transform.rotation = new Quaternion(aegis.transform.rotation.x, aegis.transform.rotation.y + 15f, aegis.transform.rotation.z, aegis.transform.rotation.w); //Give rotation for velocity
+        aegis.GetComponent<Rigidbody>().velocity += new Vector3(0f, 0f, 7f); //Give velocity
+
+        var cheese = Instantiate(CheesePrefab);
+        cheese.transform.position = m_activeRoshan.Roshan.transform.position + new Vector3(0f, 7f, 0f);
+        cheese.transform.rotation = new Quaternion(cheese.transform.rotation.x, cheese.transform.rotation.y - 15f, cheese.transform.rotation.z, cheese.transform.rotation.w);
+        cheese.GetComponent<Rigidbody>().velocity += new Vector3(0f, 0f, 7f);
     }
 }

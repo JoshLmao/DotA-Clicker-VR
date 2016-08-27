@@ -57,7 +57,7 @@ public class HandController : MonoBehaviour {
             m_laserPointer.PointerOut += OnPointerOut;
         }
 
-        LeftHandCanvas = transform.Find("WorldSpaceMenu").gameObject;
+        //LeftHandCanvas = transform.Find("WorldSpaceMenu").gameObject;
     }
 
     void Update()
@@ -72,28 +72,6 @@ public class HandController : MonoBehaviour {
             {
                 ScrollableMenuMethod();
             }
-
-            //Moving slider handle
-            //if (m_moveSliderHandle && m_activeSliderUI != null)
-            //{
-            //    /*
-            //     Using the center point of box collider and point of ray on slider, calculate 
-            //     */
-            //    float distance = 1.5f;
-            //    RaycastHit hit;
-            //    Ray ray = new Ray(transform.position, Vector3.forward);
-            //    if (Physics.Raycast(ray, out hit))
-            //    {
-            //        Debug.Log("POINT " + hit.point);
-            //    }
-
-            //    Vector3 point = ray.origin + (ray.direction * distance);
-            //    Vector3 sliderCenter = m_activeSliderUI.GetComponent<BoxCollider>().bounds.center;
-
-            //    float diff = Vector3.Distance(sliderCenter, hit.point);
-            //    Debug.Log("Disatnce = " + diff);
-            //    m_activeSliderUI.value = diff;
-            //}
         }
     }
 
@@ -276,7 +254,7 @@ public class HandController : MonoBehaviour {
     }
 
     /// <summary>
-    /// 
+    /// Method for added haptics to controllers. Specify which controller and for how long. Keep under 5000ms for length
     /// </summary>
     /// <param name="index">Controller Index</param>
     /// <param name="length">Duration in Milliseconds</param>

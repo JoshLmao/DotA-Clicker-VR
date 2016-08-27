@@ -321,4 +321,12 @@ public class TuskController : MonoBehaviour
     {
         //Don't need. Keep for consistency sake
     }
+
+    IEnumerator RareIdleCount(float time)
+    {
+        yield return new WaitForSeconds(time);
+        m_tuskAnimator.SetTrigger("doRareIdle");
+        int pick = UnityEngine.Random.Range(60, 300);
+        StartCoroutine(RareIdleCount(pick));
+    }
 }

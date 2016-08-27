@@ -287,4 +287,12 @@ public class AntiMageController : MonoBehaviour
     {
 
     }
+
+    IEnumerator RareIdleCount(float time)
+    {
+        yield return new WaitForSeconds(time);
+        m_antiMageAnimator.SetTrigger("doRareIdle");
+        int pick = UnityEngine.Random.Range(60, 300);
+        StartCoroutine(RareIdleCount(pick));
+    }
 }

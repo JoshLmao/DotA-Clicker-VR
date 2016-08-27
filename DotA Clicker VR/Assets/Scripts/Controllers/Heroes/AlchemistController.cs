@@ -264,4 +264,12 @@ public class AlchemistController : MonoBehaviour
     {
 
     }
+
+    IEnumerator RareIdleCount(float time)
+    {
+        yield return new WaitForSeconds(time);
+        m_alcAnimator.SetTrigger("doRareIdle");
+        int pick = UnityEngine.Random.Range(60, 300);
+        StartCoroutine(RareIdleCount(pick));
+    }
 }

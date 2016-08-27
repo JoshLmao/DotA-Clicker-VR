@@ -271,4 +271,12 @@ public class RubickController : MonoBehaviour
     {
 
     }
+
+    IEnumerator RareIdleCount(float time)
+    {
+        yield return new WaitForSeconds(time);
+        m_rubickAnimator.SetTrigger("doRareIdle");
+        int pick = UnityEngine.Random.Range(60, 300);
+        StartCoroutine(RareIdleCount(pick));
+    }
 }

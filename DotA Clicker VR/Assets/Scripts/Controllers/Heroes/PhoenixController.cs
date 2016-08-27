@@ -90,6 +90,9 @@ public class PhoenixController : MonoBehaviour
         UpgradesController.BuySunrayUpgrade += BuySunrayUpgrade;
         UpgradesController.BuySupernovaUpgrade += BuySupernovaUpgrade;
         ManagersController.BuyPhoenixManager += BuyPhoenixManager;
+
+        int pick = UnityEngine.Random.Range(60, 300);
+        StartCoroutine(RareIdleCount(pick));
     }
 
     void Update()
@@ -364,5 +367,13 @@ public class PhoenixController : MonoBehaviour
     void RemoveSupernovaEffects()
     {
 
+    }
+
+    IEnumerator RareIdleCount(float time)
+    {
+        yield return new WaitForSeconds(time);
+        m_phoenixAnimator.SetTrigger("doRareIdle");
+        int pick = UnityEngine.Random.Range(60, 300);
+        StartCoroutine(RareIdleCount(pick));
     }
 }

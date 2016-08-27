@@ -79,6 +79,9 @@ public class IoController : MonoBehaviour
         UpgradesController.BuyOverchargeUpgrade += BuyOverchargeUpgrade;
         UpgradesController.BuyRelocateUpgrade += BuyRelocateUpgrade;
         ManagersController.BuyIoManager += BuyIoManager;
+
+        int pick = Random.Range(60, 300);
+        StartCoroutine(RareIdleCount(pick));
     }
 
     void Update()
@@ -268,5 +271,13 @@ public class IoController : MonoBehaviour
     void RemoveRelocateEffects()
     {
         m_clickerController.ClickAmount -= (m_relocateModifiedValue / 2);
+    }
+
+    IEnumerator RareIdleCount(float time)
+    {
+        yield return new WaitForSeconds(time);
+        m_ioAnimator.SetTrigger("doRareIdle");
+        int pick = Random.Range(60, 300);
+        StartCoroutine(RareIdleCount(pick));
     }
 }

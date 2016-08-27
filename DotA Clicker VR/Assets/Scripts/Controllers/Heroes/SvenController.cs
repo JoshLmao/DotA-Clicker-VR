@@ -77,6 +77,9 @@ public class SvenController : MonoBehaviour
         UpgradesController.BuyWarCryUpgrade += BuyWarCryUpgrade;
         UpgradesController.BuyGodsStrengthUpgrade += BuyGodsStrengthUpgrade;
         ManagersController.BuySvenManager += BuySvenManager;
+
+        int pick = UnityEngine.Random.Range(60, 300);
+        StartCoroutine(RareIdleCount(pick));
     }
 
     void Update()
@@ -267,5 +270,13 @@ public class SvenController : MonoBehaviour
 
         StartCoroutine(AbilityCooldown(GodsStrengthActiveDuration, "GodsStrengthActiveFinish"));
 
+    }
+
+    IEnumerator RareIdleCount(float time)
+    {
+        yield return new WaitForSeconds(time);
+        m_svenAnimator.SetTrigger("doRareIdle");
+        int pick = UnityEngine.Random.Range(60, 300);
+        StartCoroutine(RareIdleCount(pick));
     }
 }
