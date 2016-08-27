@@ -278,42 +278,58 @@ public class UpgradesController : MonoBehaviour
         else if (upgrade.Name == "Sunray")
         {
             Debug.Log("Clicked Sunray");
-            BuySunrayUpgrade(); 
+            BuySunrayUpgrade();
+
+            GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().EnableRoshanEvents();
         }
         else if (upgrade.Name == "Supernova")
         {
             Debug.Log("Clicked Supernova");
-            BuySupernovaUpgrade(); 
+            BuySupernovaUpgrade();
+
+            GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().EnableRoshanEvents();
         }
         else if (upgrade.Name == "War Cry")
         {
             Debug.Log("Clicked War Cry");
-            BuyWarCryUpgrade(); 
+            BuyWarCryUpgrade();
+
+            GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().EnableRoshanEvents();
         }
         else if (upgrade.Name == "God's Strength")
         {
             Debug.Log("Clicked God's Strength");
-            BuyGodsStrengthUpgrade(); 
+            BuyGodsStrengthUpgrade();
+
+            GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().EnableRoshanEvents();
         }
         else if (upgrade.Name == "Blink")
         {
             Debug.Log("Clicked Blink");
-            BuyBlinkUpgrade(); 
+            BuyBlinkUpgrade();
+
+            GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().EnableRoshanEvents();
         }
         else if (upgrade.Name == "Mana Void")
         {
             Debug.Log("Clicked Mana Void");
-            BuyManaVoidUpgrade(); 
+            BuyManaVoidUpgrade();
+
+            GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().EnableRoshanEvents();
         }
         else if (upgrade.Name == "Greevil's Greed")
         {
             Debug.Log("Clicked Greevil's Greed");
-            BuyGreevilsGreedUpgrade(); 
+            BuyGreevilsGreedUpgrade();
+
+            GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().EnableRoshanEvents();
         }
         else if (upgrade.Name == "Chemical Rage")
         {
             Debug.Log("Clicked Chemical Rage");
-            BuyChemicalRageUpgrade(); 
+            BuyChemicalRageUpgrade();
+
+            GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().EnableRoshanEvents();
         }
 
         this.GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("Sounds/UI/buy"));

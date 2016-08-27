@@ -39,7 +39,7 @@ public class RoshanController : MonoBehaviour {
     /// </summary>
     float EventCount;
 
-    void Start ()
+    void Start()
     {
         if (RoshanEventStarted != null)
             RoshanEventStarted.Invoke();
@@ -51,15 +51,20 @@ public class RoshanController : MonoBehaviour {
         m_roshanAnimator = this.GetComponent<Animator>();
         m_activeHealth = transform.Find("RoshanHealthUI/HealthBarRedActive").GetComponent<Image>();
         RoshanAudioSource = this.GetComponent<AudioSource>();
+
+        //Health multiplied by eventCount divided by 1.6. Don't want to double health after every event
+        if (EventCount > 0)
+            m_roshanStartHealth *= (EventCount / 1.6f);
     }
-	
-	void Update ()
+
+	void Update()
     {
         m_playerCurrentGold = m_sceneController.TotalGold;
 
         if(!hasReachedPoint)
         {
-            Roshan.transform.position += new Vector3(0, 0, 4f * Time.deltaTime);
+
+            //Roshan.transform.position += new Vector3(0, 0, 4f * Time.deltaTime);
         }
 
         if(m_playerCurrentGold > 0 && m_playerCurrentGold > 0 && !isDead)

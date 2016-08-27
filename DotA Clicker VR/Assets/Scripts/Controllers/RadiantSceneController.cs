@@ -29,12 +29,13 @@ public class RadiantSceneController : MonoBehaviour
     float m_totalPlayTime = 0;
     
     //Roshan Controls
-    bool m_canSpawnRoshan = false;
+    public bool m_canDoRoshanEvent = false;
     /// <summary>
     /// Controller for the current or last roshan event
     /// </summary>
     RoshanController m_activeRoshan;
-    public float RoshanEventCount;
+    public float RoshanEventCount = 0;
+    bool m_roshanWaitingToSpawn = false;
 
     void Start ()
     {
@@ -45,16 +46,14 @@ public class RadiantSceneController : MonoBehaviour
         m_options = GameObject.Find("OptionsCanvas").GetComponent<OptionsController>();
 
         RoshanController.RoshanEventEnded += OnRoshanEventEnded;
+
+        if (m_canDoRoshanEvent)
+            StartRoshanCountdown();
 	}
 
 	void Update ()
     {
         m_goldUI.text = TotalGold.ToString();
-
-        if(Input.GetKeyDown(KeyCode.P))
-        {
-            DoRoshanEvent();
-        }
 	}
 
     void FixedUpdate()
@@ -210,5 +209,33 @@ public class RadiantSceneController : MonoBehaviour
         cheese.transform.position = m_activeRoshan.Roshan.transform.position + new Vector3(0f, 7f, 0f);
         cheese.transform.rotation = new Quaternion(cheese.transform.rotation.x, cheese.transform.rotation.y - 15f, cheese.transform.rotation.z, cheese.transform.rotation.w);
         cheese.GetComponent<Rigidbody>().velocity += new Vector3(0f, 0f, 7f);
+    }
+
+    public void EnableRoshanEvents()
+    {
+        if (!m_canDoRoshanEvent)
+            m_canDoRoshanEvent = true;
+        else
+            return;
+    }
+
+    void StartRoshanCountdown()
+    {
+        if (!m_canDoRoshanEvent && m_roshanWaitingToSpawn)
+            return;
+
+        //Sound to indicate that roshan events can happen
+        int secondsToEvent = UnityEngine.Random.Range(1200, 3600); //Can do event between 20 mins or a hour
+        StartCoroutine(TriggerRoshanEvent(secondsToEvent));
+        m_roshanWaitingToSpawn = true;
+    }
+
+    IEnumerator TriggerRoshanEvent(float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        DoRoshanEvent(); //Do the event
+
+        m_roshanWaitingToSpawn = false;
     }
 }
