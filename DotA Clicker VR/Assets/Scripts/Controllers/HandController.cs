@@ -19,7 +19,7 @@ public class HandController : MonoBehaviour {
     bool m_enablePointer = true;
     bool m_moveSliderHandle;
 
-    bool m_canClickOnUI = false;
+    public bool AimingAtUI = false;
     Button m_activeButtonUI;
     Slider m_activeSliderUI;
     Transform m_sliderTranform;
@@ -65,8 +65,9 @@ public class HandController : MonoBehaviour {
         if(LeftHandCanvas != null)
             LeftHandCanvas.transform.localPosition = new Vector3(0f, 0f, 0f);
 
-        if (m_canClickOnUI)
+        if (AimingAtUI)
         {
+
             //Detect for Scrollable UI
             if (m_scrollableMenu != null)
             {
@@ -82,6 +83,7 @@ public class HandController : MonoBehaviour {
         var device = SteamVR_Controller.Input((int)trackedObj.index);
         if (joint == null && device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger) && CurrentObject != null)
         {
+            this.GetComponent<SphereCollider>().enabled = false;
             var go = CurrentObject;
             go.transform.position = attachPoint.transform.position;
 
@@ -115,6 +117,8 @@ public class HandController : MonoBehaviour {
 
             rigidbody.maxAngularVelocity = rigidbody.angularVelocity.magnitude;
         }
+
+        this.GetComponent<SphereCollider>().enabled = true;
     }
 
     void OnTriggerEnter(Collider col)
@@ -138,119 +142,73 @@ public class HandController : MonoBehaviour {
     }
 
     void OnTriggerClicked(object sender, ClickedEventArgs e)
-    {
-        //if(m_canPickupObj && CurrentObject != null)
-        //{
-        //    //PriorTranform = CurrentObject.transform.parent;
-        //    CurrentObject.transform.parent = this.gameObject.transform;
-        //    CurrentObject.transform.localPosition = Vector3.zero;
-        //    CurrentObject.transform.rotation = this.gameObject.transform.rotation;
+    { 
 
-        //    Rigidbody rb = CurrentObject.GetComponent<Rigidbody>();
-        //    rb.isKinematic = true;
-        //    rb.useGravity = false;
-
-        //    IsHoldingObj = true;
-        //}
-
-        if(m_canClickOnUI)
-        {
-            if (m_activeButtonUI != null)
-            {
-                Debug.Log("Clicked on Button");
-                var yes = m_activeButtonUI.GetComponent<Button>();
-                yes.onClick.Invoke(); //do button click
-            }
-            else if (m_activeSliderUI != null)
-            {
-                Debug.Log("Clicked on Slider");
-                m_moveSliderHandle = true;
-            }
-            else if (m_activeToggleUI != null)
-            {
-                m_activeToggleUI.Select();
-
-                Debug.Log("Clicked on Toggle");
-                m_activeToggleUI.isOn = !m_activeToggleUI.isOn;
-            }
-        }
     }
 
     void OnTriggerUnclicked(object sender, ClickedEventArgs e)
     {
-        if (IsHoldingObj)
-        {
-            IsHoldingObj = false;
-            CurrentObject.transform.parent = null;
-
-            Rigidbody rb = CurrentObject.GetComponent<Rigidbody>();
-            Rigidbody controllerRb = GetComponent<Rigidbody>();
-            rb.isKinematic = false;
-            rb.useGravity = true;
-            //rb.AddForce(controllerRb.velocity, ForceMode.Impulse);
-            m_holdingCurrentFrame = CurrentObject.transform.position;
-            Debug.Log("Current Frame = " + m_holdingCurrentFrame);
-            //rb.velocity = m_holdingPreviousFrame - m_holdingCurrentFrame;
-
-            CurrentObject = null;
-        }
-
         m_moveSliderHandle = false;
     }
 
     void OnPointerIn(object sender, PointerEventArgs e)
     {
-        CurrentAimTranform = e.target.transform;
+        //CurrentAimTranform = e.target.transform;
+
+        //if(e.target.gameObject.layer == 5)
+        //{
+        //    //Enable LaserPointer
+        //    m_laserPointer.active = true;
+        //}
+        //else
+        //{
+        //    m_laserPointer.active = false;
+        //}
+
+        //if(e.target.gameObject.layer == 5 && e.target.gameObject.GetComponent<Button>() && e.target.gameObject.GetComponent<BoxCollider>())
+        //{
+        //    m_activeButtonUI = e.target.gameObject.GetComponent<Button>();
+        //    m_canClickOnUI = true;
+        //}
+        //else if(e.target.gameObject.layer == 5 && e.target.gameObject.GetComponent<BoxCollider>() && e.target.gameObject.GetComponentInParent<Slider>())
+        //{
+        //    Debug.Log("Aiming at Slider");
+
+        //    m_activeSliderUI = e.target.gameObject.GetComponentInParent<Slider>();
+        //    m_canClickOnUI = true;
+        //}
+        //else if(e.target.gameObject.layer == 5 && e.target.gameObject.GetComponent<Toggle>() && e.target.gameObject.GetComponent<BoxCollider>())
+        //{
+        //    m_activeToggleUI = e.target.gameObject.GetComponent<Toggle>();
+        //    m_canClickOnUI = true;
+        //}
+        //else if(e.target.gameObject.layer == 5 && e.target.GetComponent<BoxCollider>() && e.target.gameObject.GetComponent<ScrollRect>())
+        //{
+        //    m_canClickOnUI = true;
+        //    m_scrollableMenu = e.target.gameObject;
+        //}
 
         if(e.target.gameObject.layer == 5)
         {
-            //Enable LaserPointer
-            m_laserPointer.active = true;
+            AimingAtUI = true;
         }
         else
         {
-            m_laserPointer.active = false;
-        }
-
-        if(e.target.gameObject.layer == 5 && e.target.gameObject.GetComponent<Button>() && e.target.gameObject.GetComponent<BoxCollider>())
-        {
-            m_activeButtonUI = e.target.gameObject.GetComponent<Button>();
-            m_canClickOnUI = true;
-        }
-        else if(e.target.gameObject.layer == 5 && e.target.gameObject.GetComponent<BoxCollider>() && e.target.gameObject.GetComponentInParent<Slider>())
-        {
-            Debug.Log("Aiming at Slider");
-
-            m_activeSliderUI = e.target.gameObject.GetComponentInParent<Slider>();
-            m_canClickOnUI = true;
-        }
-        else if(e.target.gameObject.layer == 5 && e.target.gameObject.GetComponent<Toggle>() && e.target.gameObject.GetComponent<BoxCollider>())
-        {
-            m_activeToggleUI = e.target.gameObject.GetComponent<Toggle>();
-            m_canClickOnUI = true;
-        }
-        else if(e.target.gameObject.layer == 5 && e.target.GetComponent<BoxCollider>() && e.target.gameObject.GetComponent<ScrollRect>())
-        {
-            m_canClickOnUI = true;
-            m_scrollableMenu = e.target.gameObject;
-        }
-        else
-        {
-            m_canClickOnUI = false;
+            AimingAtUI = false;
         }
     }
 
     void OnPointerOut(object sender, PointerEventArgs e)
     {
-        m_canClickOnUI = false;
+        //m_canClickOnUI = false;
         
-        m_activeToggleUI = null;
-        m_activeSliderUI = null;
-        m_activeButtonUI = null;
-        m_activeScrollerUI = null;
+        //m_activeToggleUI = null;
+        //m_activeSliderUI = null;
+        //m_activeButtonUI = null;
+        //m_activeScrollerUI = null;
 
-        //Disable LaserPointer
-        m_laserPointer.active = false;
+        ////Disable LaserPointer
+        //m_laserPointer.active = false;
     }
 
     /// <summary>

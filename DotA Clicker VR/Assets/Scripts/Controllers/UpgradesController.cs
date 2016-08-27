@@ -316,6 +316,7 @@ public class UpgradesController : MonoBehaviour
             BuyChemicalRageUpgrade(); 
         }
 
+        this.GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("Sounds/UI/buy"));
         Upgrades.RemoveAll(x => x.Name == upgrade.Name);
         RefreshUpgradesList();
     }

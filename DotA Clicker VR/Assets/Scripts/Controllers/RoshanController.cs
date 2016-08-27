@@ -111,8 +111,8 @@ public class RoshanController : MonoBehaviour {
 
         foreach(Transform child in transform)
         {
-            Destroy(child.gameObject);
+            DestroyImmediate(child.gameObject);
         }
-        Destroy(this);
+        DestroyImmediate(this.gameObject);
     }
 }

@@ -68,6 +68,12 @@ namespace Wacki {
 
         protected virtual void Update()
         {
+            if (this.GetComponent<HandController>().AimingAtUI)
+                pointer.SetActive(true);
+            else
+                pointer.SetActive(false);
+            Debug.Log(this.GetComponent<HandController>().AimingAtUI);
+
             Ray ray = new Ray(transform.position, transform.forward);
             RaycastHit hitInfo;
             bool bHit = Physics.Raycast(ray, out hitInfo);

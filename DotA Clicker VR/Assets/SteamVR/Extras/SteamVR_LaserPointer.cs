@@ -61,8 +61,10 @@ public class SteamVR_LaserPointer : MonoBehaviour
                 Object.Destroy(collider);
             }
         }
-        Material newMaterial = new Material(Shader.Find("Unlit/Color"));
-        newMaterial.SetColor("_Color", color);
+        Material newMaterial = new Material(Shader.Find("Standard"));
+        //newMaterial.SetColor("_Color", color);
+        newMaterial.SetFloat("_Mode", 2.0f);
+        newMaterial.color = new Color(0f, 0f, 0f, 0f);
         pointer.GetComponent<MeshRenderer>().material = newMaterial;
 	}
 

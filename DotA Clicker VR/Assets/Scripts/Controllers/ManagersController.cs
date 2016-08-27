@@ -175,6 +175,7 @@ public class ManagersController : MonoBehaviour {
             BuyAlchemistManager(); 
         }
 
+        this.GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("Sounds/UI/buy"));
         Managers.RemoveAll(x => x.Name == manager.Name);
         RefreshManagersList();
     }

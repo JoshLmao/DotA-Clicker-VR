@@ -26,7 +26,7 @@ public class RadiantSceneController : MonoBehaviour
     string SAVE_FILE_LOCATION { get { return SAVE_FILE_PATH + SAVE_FILE; } }
     Text m_goldUI;
     OptionsController m_options;
-    float m_totalPlayTime;
+    float m_totalPlayTime = 0;
     
     //Roshan Controls
     bool m_canSpawnRoshan = false;
@@ -94,7 +94,7 @@ public class RadiantSceneController : MonoBehaviour
         SaveFileExists();
 
         //Add current playtime to total play time
-        CurrentSaveFile.SessionStats.TotalPlayTime += Time.realtimeSinceStartup;
+        m_totalPlayTime += Time.realtimeSinceStartup;
 
         //Save data
         SaveFileDto saveFile = new SaveFileDto()
@@ -167,7 +167,7 @@ public class RadiantSceneController : MonoBehaviour
             },
             SessionStats = new StatsDto()
             {
-                TotalPlayTime = CurrentSaveFile.SessionStats.TotalPlayTime,
+                TotalPlayTime = CurrentSaveFile != null ? CurrentSaveFile.SessionStats.TotalPlayTime += m_totalPlayTime : m_totalPlayTime,
             }
         };
         string json = JsonConvert.SerializeObject(saveFile, Formatting.Indented);
