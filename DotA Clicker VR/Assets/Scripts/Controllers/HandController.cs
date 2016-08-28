@@ -115,6 +115,7 @@ public class HandController : MonoBehaviour {
             }
 
             rigidbody.maxAngularVelocity = rigidbody.angularVelocity.magnitude;
+            CurrentObject = null;
         }
 
         this.GetComponent<SphereCollider>().enabled = true;
