@@ -134,10 +134,9 @@ public class HandController : MonoBehaviour {
             RadiantClickerController controller = col.gameObject.GetComponentInParent<RadiantClickerController>();
             controller.ActivateAbility(col.gameObject.name, m_controller.controllerIndex);
         }
-        else if(col.tag == "Creep")
+        else if(col.tag == "Killable") //Creeps, Wards, etc. Anything that can do SetTrigger("isKilled")
         {
-            //Kill the creep
-            Debug.Log("Killed creep");
+            Debug.Log("Killed 'Killable' tagged obj");
             col.gameObject.GetComponent<Animator>().SetTrigger("isKilled");
         }
     }

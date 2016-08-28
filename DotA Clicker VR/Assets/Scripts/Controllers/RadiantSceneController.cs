@@ -36,6 +36,7 @@ public class RadiantSceneController : MonoBehaviour
     RoshanController m_activeRoshan;
     public float RoshanEventCount = 0;
     bool m_roshanWaitingToSpawn = false;
+    bool m_roshanEventInProgress = false;
 
     void Start ()
     {
@@ -46,19 +47,19 @@ public class RadiantSceneController : MonoBehaviour
         m_options = GameObject.Find("OptionsCanvas").GetComponent<OptionsController>();
 
         RoshanController.RoshanEventEnded += OnRoshanEventEnded;
-
-        if (m_canDoRoshanEvent)
-            StartRoshanCountdown();
 	}
 
 	void Update ()
     {
         m_goldUI.text = TotalGold.ToString();
-	}
 
-    void FixedUpdate()
-    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            DoRoshanEvent();
+        }
 
+        if (m_canDoRoshanEvent && !m_roshanWaitingToSpawn)
+            StartRoshanCountdown();
     }
 
     public void LoadProgress()
@@ -66,6 +67,7 @@ public class RadiantSceneController : MonoBehaviour
         if (!File.Exists(SAVE_FILE_LOCATION))
             return;
 
+        //Deserialize existing file
         string file = File.ReadAllText(SAVE_FILE_LOCATION);
         SaveFileDto loadedSaveFile = JsonConvert.DeserializeObject<SaveFileDto>(file);
         CurrentSaveFile = loadedSaveFile;
@@ -189,11 +191,16 @@ public class RadiantSceneController : MonoBehaviour
 
     void DoRoshanEvent()
     {
+        if (m_roshanEventInProgress)
+            return;
+
         RoshanEventCount++; //Increment count of how many roshan events
 
         int roshanCount = UnityEngine.Random.Range(0, RoshanPrefab.Length);
         var roshanPrefab = Instantiate(RoshanPrefab[roshanCount]);
         m_activeRoshan = roshanPrefab.GetComponent<RoshanController>();
+
+        m_roshanEventInProgress = true;
     }
 
     void OnRoshanEventEnded()
@@ -205,12 +212,21 @@ public class RadiantSceneController : MonoBehaviour
         aegis.transform.rotation = new Quaternion(aegis.transform.rotation.x, aegis.transform.rotation.y + 15f, aegis.transform.rotation.z, aegis.transform.rotation.w); //Give rotation for velocity
         aegis.GetComponent<Rigidbody>().velocity += new Vector3(0f, 0f, 7f); //Give velocity
 
-        var cheese = Instantiate(CheesePrefab);
-        cheese.transform.position = m_activeRoshan.Roshan.transform.position + new Vector3(0f, 7f, 0f);
-        cheese.transform.rotation = new Quaternion(cheese.transform.rotation.x, cheese.transform.rotation.y - 15f, cheese.transform.rotation.z, cheese.transform.rotation.w);
-        cheese.GetComponent<Rigidbody>().velocity += new Vector3(0f, 0f, 7f);
+        if(RoshanEventCount > 3)
+        {
+            var cheese = Instantiate(CheesePrefab);
+            cheese.transform.position = m_activeRoshan.Roshan.transform.position + new Vector3(0f, 7f, 0f);
+            cheese.transform.rotation = new Quaternion(cheese.transform.rotation.x, cheese.transform.rotation.y - 15f, cheese.transform.rotation.z, cheese.transform.rotation.w);
+            cheese.GetComponent<Rigidbody>().velocity += new Vector3(0f, 0f, 7f);
+        }
+
+        m_roshanEventInProgress = false;
     }
 
+    /// <summary>
+    /// Called when buying abilities for heroes Phoenix and above. Switches toggle to be able to 
+    /// start the RoshanCountdown timer
+    /// </summary>
     public void EnableRoshanEvents()
     {
         if (!m_canDoRoshanEvent)
@@ -219,12 +235,15 @@ public class RadiantSceneController : MonoBehaviour
             return;
     }
 
+    /// <summary>
+    /// Called to pick a random time between 20 mins (1600 s) and an hour (3600 s) to start the roshan event
+    /// </summary>
     void StartRoshanCountdown()
     {
         if (!m_canDoRoshanEvent && m_roshanWaitingToSpawn)
             return;
 
-        //Sound to indicate that roshan events can happen
+        //Todo: Sound to indicate that roshan events can happen
         int secondsToEvent = UnityEngine.Random.Range(1200, 3600); //Can do event between 20 mins or a hour
         StartCoroutine(TriggerRoshanEvent(secondsToEvent));
         m_roshanWaitingToSpawn = true;

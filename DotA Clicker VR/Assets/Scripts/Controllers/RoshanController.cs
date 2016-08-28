@@ -39,6 +39,13 @@ public class RoshanController : MonoBehaviour {
     /// </summary>
     float EventCount;
 
+
+    //Spline stuff
+    public Transform[] waypoints;
+    int currentWayPoint = 0;
+    Transform targetWaypoint;
+    float speed = 4f;
+
     void Start()
     {
         if (RoshanEventStarted != null)
@@ -55,26 +62,27 @@ public class RoshanController : MonoBehaviour {
         //Health multiplied by eventCount divided by 1.6. Don't want to double health after every event
         if (EventCount > 0)
             m_roshanStartHealth *= (EventCount / 1.6f);
+
+        waypoints[0] = GameObject.Find("Misc/RoshanWaypoints/1").gameObject.transform;
+        waypoints[1] = GameObject.Find("Misc/RoshanWaypoints/2").gameObject.transform;
     }
 
 	void Update()
     {
         m_playerCurrentGold = m_sceneController.TotalGold;
 
-        if(!hasReachedPoint)
+        if(!hasReachedPoint && currentWayPoint < waypoints.Length)
         {
+            if (targetWaypoint == null)
+                targetWaypoint = waypoints[currentWayPoint];
 
-            //Roshan.transform.position += new Vector3(0, 0, 4f * Time.deltaTime);
+            WalkAlongPath();
         }
 
         if(m_playerCurrentGold > 0 && m_playerCurrentGold > 0 && !isDead)
         {
-            //float healthValue = (m_playerGoldOnStart / m_playerCurrentGold) / ;
             float difference = m_playerCurrentGold - m_playerGoldOnStart;
             float actualHP = m_roshanStartHealth - difference;
-
-
-            //return (float)dividend.Ticks / (float)divisor.Ticks;
             float scaledValue = (actualHP - 0) / (m_roshanStartHealth - 0);
 
             m_activeHealth.fillAmount = scaledValue;
@@ -119,5 +127,20 @@ public class RoshanController : MonoBehaviour {
             DestroyImmediate(child.gameObject);
         }
         DestroyImmediate(this.gameObject);
+    }
+
+    void WalkAlongPath()
+    {
+        // rotate towards the target
+        transform.forward = Vector3.RotateTowards(transform.forward, targetWaypoint.position - transform.position, speed * Time.deltaTime, 0.0f);
+
+        // move towards the target
+        transform.position = Vector3.MoveTowards(transform.position, targetWaypoint.position, speed * Time.deltaTime);
+
+        if (transform.position == targetWaypoint.position)
+        {
+            currentWayPoint++;
+            targetWaypoint = waypoints[currentWayPoint];
+        }
     }
 }
