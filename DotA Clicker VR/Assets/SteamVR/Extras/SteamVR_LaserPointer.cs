@@ -40,9 +40,11 @@ public class SteamVR_LaserPointer : MonoBehaviour
         pointer.transform.localScale = new Vector3(thickness, thickness, 100f);
         pointer.transform.localPosition = new Vector3(0f, 0f, 50f);
 
+        /* 28/08 - Causes issues with teleporter and new pointer
         //My fixes for the rotation being at 144.79 on Y
-        holder.transform.localEulerAngles = Vector3.zero;
-        pointer.transform.localEulerAngles = Vector3.zero;
+        //holder.transform.localEulerAngles = Vector3.zero;
+        //pointer.transform.localEulerAngles = Vector3.zero;
+        */
 
         BoxCollider collider = pointer.GetComponent<BoxCollider>();
         if (addRigidBody)
@@ -61,10 +63,10 @@ public class SteamVR_LaserPointer : MonoBehaviour
                 Object.Destroy(collider);
             }
         }
-        Material newMaterial = new Material(Shader.Find("Standard"));
-        //newMaterial.SetColor("_Color", color);
-        newMaterial.SetFloat("_Mode", 2.0f);
-        newMaterial.color = new Color(0f, 0f, 0f, 0f);
+        //Hack to hide the SteamVR_Laser and keep our other one
+        Material newMaterial = new Material(Shader.Find("Legacy Shaders/Transparent/Bumped Diffuse"));
+        newMaterial.SetFloat("_Mode", 1.0f);
+        newMaterial.color = new Color(255f, 255f, 255f, 0f);
         pointer.GetComponent<MeshRenderer>().material = newMaterial;
 	}
 
@@ -84,7 +86,7 @@ public class SteamVR_LaserPointer : MonoBehaviour
     // Update is called once per frame
 	void Update ()
     {
-        //Toggles laser pointer
+        ////Toggles laser pointer
         holder.SetActive(active);
         pointer.SetActive(active);
 
@@ -145,6 +147,7 @@ public class SteamVR_LaserPointer : MonoBehaviour
         {
             pointer.transform.localScale = new Vector3(thickness, thickness, dist);
         }
+
         pointer.transform.localPosition = new Vector3(0f, 0f, dist/2f);
     }
 }
