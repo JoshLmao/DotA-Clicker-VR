@@ -43,7 +43,7 @@ public class UpgradesController : MonoBehaviour
 
     [SerializeField]
     GameObject UpgradePrefab;
-    List<GameObject> UpgradeObjects { get; set; }
+
     RadiantSceneController m_sceneController;
 
 	void Start ()
@@ -222,8 +222,6 @@ public class UpgradesController : MonoBehaviour
             Button button = newUpgrade.transform.Find("BuyButton").GetComponent<Button>();
             UpgradeDto clickedUpgrade = upgrade; //Fix for AddListener adding current upgrade to each button click
             button.onClick.AddListener(delegate { AddUpgrade(clickedUpgrade); });
-
-            //UpgradeObjects.Add(newUpgrade);
         }
     }
 
@@ -232,6 +230,7 @@ public class UpgradesController : MonoBehaviour
         if (m_sceneController.TotalGold < upgrade.Cost)
         {
             Debug.Log("Can't buy upgrade '" + upgrade.Name + "'");
+            this.GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("Sounds/UI/magic_immune"));
             return;
         }
 

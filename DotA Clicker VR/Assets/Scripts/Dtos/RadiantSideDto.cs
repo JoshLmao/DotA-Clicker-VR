@@ -15,4 +15,7 @@ public class RadiantSideDto
     public HeroDto Sven { get; set; }
     public HeroDto Alchemist { get; set; }
     public HeroDto AntiMage { get; set; }
+
+    //Can do Roshan Events?
+    public bool RoshanEvents { get; set; }
 }

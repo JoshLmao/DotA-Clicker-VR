@@ -156,6 +156,7 @@ public class RadiantSceneController : MonoBehaviour
                     Ability1Level = SceneHeroes[0].Ability1Level,
                     Ability2Level = SceneHeroes[0].Ability2Level,
                 },
+                RoshanEvents = m_canDoRoshanEvent,
             },
             Preferences = new PreferencesDto()
             {
@@ -171,6 +172,7 @@ public class RadiantSceneController : MonoBehaviour
                 TotalPlayTime = CurrentSaveFile != null ? CurrentSaveFile.SessionStats.TotalPlayTime += m_totalPlayTime : m_totalPlayTime,
             }
         };
+
         string json = JsonConvert.SerializeObject(saveFile, Formatting.Indented);
         File.WriteAllText(SAVE_FILE_LOCATION, json);
     }

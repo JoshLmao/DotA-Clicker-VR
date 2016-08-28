@@ -57,8 +57,6 @@ public class HandController : MonoBehaviour {
             m_laserPointer.PointerIn += OnPointerIn;
             m_laserPointer.PointerOut += OnPointerOut;
         }
-
-        //LeftHandCanvas = transform.Find("WorldSpaceMenu").gameObject;
     }
 
     void Update()
@@ -153,41 +151,6 @@ public class HandController : MonoBehaviour {
 
     void OnPointerIn(object sender, PointerEventArgs e)
     {
-        //CurrentAimTranform = e.target.transform;
-
-        //if(e.target.gameObject.layer == 5)
-        //{
-        //    //Enable LaserPointer
-        //    m_laserPointer.active = true;
-        //}
-        //else
-        //{
-        //    m_laserPointer.active = false;
-        //}
-
-        //if(e.target.gameObject.layer == 5 && e.target.gameObject.GetComponent<Button>() && e.target.gameObject.GetComponent<BoxCollider>())
-        //{
-        //    m_activeButtonUI = e.target.gameObject.GetComponent<Button>();
-        //    m_canClickOnUI = true;
-        //}
-        //else if(e.target.gameObject.layer == 5 && e.target.gameObject.GetComponent<BoxCollider>() && e.target.gameObject.GetComponentInParent<Slider>())
-        //{
-        //    Debug.Log("Aiming at Slider");
-
-        //    m_activeSliderUI = e.target.gameObject.GetComponentInParent<Slider>();
-        //    m_canClickOnUI = true;
-        //}
-        //else if(e.target.gameObject.layer == 5 && e.target.gameObject.GetComponent<Toggle>() && e.target.gameObject.GetComponent<BoxCollider>())
-        //{
-        //    m_activeToggleUI = e.target.gameObject.GetComponent<Toggle>();
-        //    m_canClickOnUI = true;
-        //}
-        //else if(e.target.gameObject.layer == 5 && e.target.GetComponent<BoxCollider>() && e.target.gameObject.GetComponent<ScrollRect>())
-        //{
-        //    m_canClickOnUI = true;
-        //    m_scrollableMenu = e.target.gameObject;
-        //}
-
         if(e.target.gameObject.layer == 5)
         {
             AimingAtUI = true;
@@ -200,15 +163,7 @@ public class HandController : MonoBehaviour {
 
     void OnPointerOut(object sender, PointerEventArgs e)
     {
-        //m_canClickOnUI = false;
-        
-        //m_activeToggleUI = null;
-        //m_activeSliderUI = null;
-        //m_activeButtonUI = null;
-        //m_activeScrollerUI = null;
 
-        ////Disable LaserPointer
-        //m_laserPointer.active = false;
     }
 
     /// <summary>

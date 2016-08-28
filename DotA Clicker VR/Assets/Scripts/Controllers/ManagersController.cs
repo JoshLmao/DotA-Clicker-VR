@@ -131,6 +131,7 @@ public class ManagersController : MonoBehaviour {
         if (m_sceneController.TotalGold < manager.Cost)
         {
             Debug.Log("Can't buy manager '" + manager.Name + "'");
+            this.GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("Sounds/UI/magic_immune"));
             return;
         }
 
