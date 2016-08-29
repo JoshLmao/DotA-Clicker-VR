@@ -6,5 +6,5 @@ using System;
 public class StatsDto
 {
     public float TotalPlayTime { get; set; }
-    
+    public float ClickCount { get; set; }
 }

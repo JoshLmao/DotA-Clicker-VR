@@ -8,6 +8,9 @@ using Newtonsoft.Json;
 
 public class RadiantSceneController : MonoBehaviour
 {
+    public delegate void OnLoadedSaveFile();
+    public static event OnLoadedSaveFile LoadedSaveFile;
+
     public List<RadiantClickerController> SceneHeroes;
     public SaveFileDto CurrentSaveFile;
     public int TotalGold = 3000;
@@ -22,6 +25,8 @@ public class RadiantSceneController : MonoBehaviour
     public const string QUADRILLION_FORMAT = "{0} quadrillion";
     readonly string SAVE_FILE_PATH = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\JoshLmao\\";
     readonly string SAVE_FILE = "SaveFile.json";
+
+    public float ClickCount;
 
     string SAVE_FILE_LOCATION { get { return SAVE_FILE_PATH + SAVE_FILE; } }
     Text m_goldUI;
@@ -69,10 +74,20 @@ public class RadiantSceneController : MonoBehaviour
         if (!File.Exists(SAVE_FILE_LOCATION))
             return;
 
-        //Deserialize existing file
-        string file = File.ReadAllText(SAVE_FILE_LOCATION);
-        SaveFileDto loadedSaveFile = JsonConvert.DeserializeObject<SaveFileDto>(file);
-        CurrentSaveFile = loadedSaveFile;
+        try
+        {
+            //Deserialize existing file
+            string file = File.ReadAllText(SAVE_FILE_LOCATION);
+            SaveFileDto loadedSaveFile = JsonConvert.DeserializeObject<SaveFileDto>(file);
+            CurrentSaveFile = loadedSaveFile;
+        }
+        catch(Exception e)
+        {
+            Debug.Log("Exception - Can't load save file");
+        }
+
+        if (LoadedSaveFile != null)
+            LoadedSaveFile.Invoke();
     }
 
     public List<RadiantClickerController> GetClickerHeroesInScene()
@@ -172,11 +187,25 @@ public class RadiantSceneController : MonoBehaviour
             SessionStats = new StatsDto()
             {
                 TotalPlayTime = CurrentSaveFile != null ? CurrentSaveFile.SessionStats.TotalPlayTime += m_totalPlayTime : m_totalPlayTime,
+                ClickCount = ClickCount,
+            },
+            Achievements = new AchievementsDto()
+            {
+                ClickOnce = false,
+                TheAegisIsMine = false,
+                WhenDidEGThrowLast = false,
             }
         };
 
-        string json = JsonConvert.SerializeObject(saveFile, Formatting.Indented);
-        File.WriteAllText(SAVE_FILE_LOCATION, json);
+        try
+        {
+            string json = JsonConvert.SerializeObject(saveFile, Formatting.Indented);
+            File.WriteAllText(SAVE_FILE_LOCATION, json);
+        }
+        catch (Exception e)
+        {
+            Debug.Log("Exception occured: - Can't save file");
+        }
     }
 
     void SaveFileExists()
@@ -236,7 +265,8 @@ public class RadiantSceneController : MonoBehaviour
         Destroy(ActiveRoshan);
 
         m_roshanEventInProgress = false;
-        if(RoshanEventCount != 0)
+
+        if (RoshanEventCount != 0)
             RoshanEventCount--; //Minus since it was an unsucessful event
     }
 

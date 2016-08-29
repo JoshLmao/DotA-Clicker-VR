@@ -24,4 +24,15 @@ public class AmbientSoundManager : MonoBehaviour {
             Debug.Log("Playing Ambient Sound");
         }
     }
+
+    public void StopInvokeRepeating()
+    {
+        AmbientAudioSource.Stop();
+        CancelInvoke("PlayAmbientSound");
+    }
+
+    public void StartInvokeRepeating()
+    {
+        InvokeRepeating("PlayAmbientSound", 1, 1f);
+    }
 }

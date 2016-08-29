@@ -19,10 +19,12 @@ public class OptionsController : MonoBehaviour {
     Text m_ssText;
     AmbientSoundManager m_ambientSound;
     Toggle m_audioEnabled;
+    Toggle m_musicEnabled;
 
 	void Start ()
     {
         m_audioEnabled = transform.Find("AudioOptions/AudioEnabledToggle").GetComponent<Toggle>();
+        m_musicEnabled = transform.Find("AudioOptions/AmbientAudioEnabled").GetComponent<Toggle>();
         m_ambientSound = GameObject.Find("RadiantSceneController").GetComponent<AmbientSoundManager>();
 
         MasterVolSlider = transform.Find("AudioOptions/MasterVolumeC/MasterVolSlider").GetComponent<Slider>();
@@ -32,14 +34,14 @@ public class OptionsController : MonoBehaviour {
         SuperSampleSlider = transform.Find("VideoOptions/SSCanvas/SuperSampleSlider").GetComponent<Slider>();
         m_ssText = transform.Find("VideoOptions/SSCanvas/SSValue").GetComponent<Text>();
 
-        //MasterVolSlider.onValueChanged.AddListener(SliderValuesChanged);
-        //AmbientVolSlider.onValueChanged.AddListener(SliderValuesChanged);
-        //HeroVolSlider.onValueChanged.AddListener(SliderValuesChanged);
         SuperSampleSlider.onValueChanged.AddListener(SuperSampleChanged);
 
-        m_audioEnabled.onValueChanged.AddListener(ToggleValueChanged);
+        m_audioEnabled.onValueChanged.AddListener(AudioToggle);
+        m_musicEnabled.onValueChanged.AddListener(AmbientMusicToggle);
 
         SuperSampleChanged(0);
+
+        m_ambientSound.AmbientAudioSource.volume = AmbientVolSlider.value;
     }
 
     void Update()
@@ -52,8 +54,6 @@ public class OptionsController : MonoBehaviour {
         }
         //Master Volume
         AudioListener.volume = MasterVolSlider.value;
-        //Ambient Sound Volume
-        m_ambientSound.AmbientAudioSource.volume = AmbientVolSlider.value;
         //Hero Volume
         foreach (AudioSource source in HeroesAudioSource)
         {
@@ -61,23 +61,29 @@ public class OptionsController : MonoBehaviour {
         }
     }
 
-    void SliderValuesChanged(/*float anything*/)
-    {
-        //Set all volume levels
-        //Is Audio On?
-        if(m_audioEnabled.isOn)
-        {
-            AudioListener.volume = 0;
-            return;
-        }
-    }
-
-    void ToggleValueChanged(bool toggle)
+    void AudioToggle(bool toggle)
     {
         if (m_audioEnabled.isOn)
         {
-            AudioListener.volume = 0;
-            return;
+            AudioListener.volume = 0f;
+        }
+        else
+        {
+            AudioListener.volume = 1f;
+        }
+    }
+
+    void AmbientMusicToggle(bool toggle)
+    {
+        if (m_musicEnabled.isOn)
+        {
+            m_ambientSound.StartInvokeRepeating();
+            m_ambientSound.AmbientAudioSource.volume = AmbientVolSlider.value;
+        }
+        else
+        {
+            m_ambientSound.AmbientAudioSource.volume = 0f;
+            m_ambientSound.StopInvokeRepeating();
         }
     }
 
