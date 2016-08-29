@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BuyableItemsController : MonoBehaviour
 {
@@ -14,11 +15,19 @@ public class BuyableItemsController : MonoBehaviour
     [SerializeField]
     GameObject[] ItemsPrefabs; //For the actual item models
 
+    bool isOnMainMenu = false;
     RadiantSceneController m_sceneController;
 
     void Start()
     {
-        m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
+        if(SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            isOnMainMenu = true;
+        }
+        else
+        {
+            m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
+        }
 
         Items = new List<ItemDto>();
 
@@ -172,7 +181,7 @@ public class BuyableItemsController : MonoBehaviour
 
     void AddUpgrade(ItemDto item)
     {
-        if (m_sceneController.TotalGold < item.Cost)
+        if (m_sceneController.TotalGold < item.Cost || isOnMainMenu)
         {
             Debug.Log("Can't buy item '" + item.Name + "'");
             this.GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("Sounds/UI/magic_immune"));

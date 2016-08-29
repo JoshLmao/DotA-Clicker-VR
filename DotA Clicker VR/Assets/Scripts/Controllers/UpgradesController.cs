@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UpgradesController : MonoBehaviour
 {
@@ -44,11 +45,19 @@ public class UpgradesController : MonoBehaviour
     [SerializeField]
     GameObject UpgradePrefab;
 
+    bool isOnMainMenu = false;
     RadiantSceneController m_sceneController;
 
 	void Start ()
     {
-        m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
+        if (SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            isOnMainMenu = true;
+        }
+        else
+        {
+            m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
+        }
 
         Upgrades = new List<UpgradeDto>();
         AddDefaultUpgrades();
@@ -227,7 +236,7 @@ public class UpgradesController : MonoBehaviour
 
     void AddUpgrade(UpgradeDto upgrade)
     {
-        if (m_sceneController.TotalGold < upgrade.Cost)
+        if (m_sceneController.TotalGold < upgrade.Cost || isOnMainMenu)
         {
             Debug.Log("Can't buy upgrade '" + upgrade.Name + "'");
             this.GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("Sounds/UI/magic_immune"));

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ManagersController : MonoBehaviour {
 
@@ -28,12 +29,19 @@ public class ManagersController : MonoBehaviour {
     [SerializeField]
     GameObject ManagerPrefab;
 
+    bool isOnMainMenu = false;
     RadiantSceneController m_sceneController;
 
     void Start ()
     {
-        m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
-
+        if (SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            isOnMainMenu = true;
+        }
+        else
+        {
+            m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
+        }
         Managers = new List<ManagerDto>();
         AddManagers();
 
@@ -128,7 +136,7 @@ public class ManagersController : MonoBehaviour {
 
     void AddManager(ManagerDto manager)
     {
-        if (m_sceneController.TotalGold < manager.Cost)
+        if (m_sceneController.TotalGold < manager.Cost || isOnMainMenu)
         {
             Debug.Log("Can't buy manager '" + manager.Name + "'");
             this.GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("Sounds/UI/magic_immune"));
