@@ -37,6 +37,7 @@ public class RadiantSceneController : MonoBehaviour
     public float RoshanEventCount = 0;
     bool m_roshanWaitingToSpawn = false;
     bool m_roshanEventInProgress = false;
+    GameObject ActiveRoshan;
 
     void Start ()
     {
@@ -47,6 +48,7 @@ public class RadiantSceneController : MonoBehaviour
         m_options = GameObject.Find("OptionsCanvas").GetComponent<OptionsController>();
 
         RoshanController.RoshanEventEnded += OnRoshanEventEnded;
+        RoshanController.RoshanEventEndedNotKilled += OnRoshanEventEndedNotKilled;
 	}
 
 	void Update ()
@@ -199,15 +201,15 @@ public class RadiantSceneController : MonoBehaviour
         RoshanEventCount++; //Increment count of how many roshan events
 
         int roshanCount = UnityEngine.Random.Range(0, RoshanPrefab.Length);
-        var roshanPrefab = Instantiate(RoshanPrefab[roshanCount]);
-        m_activeRoshan = roshanPrefab.GetComponent<RoshanController>();
+        ActiveRoshan = Instantiate(RoshanPrefab[roshanCount]);
+        m_activeRoshan = ActiveRoshan.GetComponent<RoshanController>();
 
         m_roshanEventInProgress = true;
     }
 
     void OnRoshanEventEnded()
     {
-        //Roshan Event has ended
+        //Roshan Event has ended, been killed
         //Instantiate cheese & aegis
         var aegis = Instantiate(AegisPrefab);
         aegis.transform.position = m_activeRoshan.Roshan.transform.position + new Vector3(0f, 7f, 0f); //Spawn it above the floor
@@ -223,6 +225,19 @@ public class RadiantSceneController : MonoBehaviour
         }
 
         m_roshanEventInProgress = false;
+    }
+
+    void OnRoshanEventEndedNotKilled()
+    {
+        foreach (Transform child in ActiveRoshan.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        Destroy(ActiveRoshan);
+
+        m_roshanEventInProgress = false;
+        if(RoshanEventCount != 0)
+            RoshanEventCount--; //Minus since it was an unsucessful event
     }
 
     /// <summary>
@@ -259,4 +274,6 @@ public class RadiantSceneController : MonoBehaviour
 
         m_roshanWaitingToSpawn = false;
     }
+
+
 }

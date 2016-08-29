@@ -11,6 +11,9 @@ public class RoshanController : MonoBehaviour {
     public delegate void OnRoshanEventEnded();
     public static event OnRoshanEventEnded RoshanEventEnded;
 
+    public delegate void OnRoshanEventEndedNotKilled();
+    public static event OnRoshanEventEndedNotKilled RoshanEventEndedNotKilled;
+
     public GameObject Roshan;
     /// <summary>
     /// Amount needed for the player to earn to kill roshan the first time. Multiply this by event times count
@@ -35,7 +38,7 @@ public class RoshanController : MonoBehaviour {
     float m_playerCurrentGold;
     bool hasReachedPoint = false;
     /// <summary>
-    /// How many times the event has 
+    /// How many times the event has been done
     /// </summary>
     float EventCount;
 
@@ -45,6 +48,8 @@ public class RoshanController : MonoBehaviour {
     int currentWayPoint = 0;
     Transform targetWaypoint;
     float speed = 4f;
+    bool goToHalfWay = true;
+    bool goToHome = false;
 
     void Start()
     {
@@ -63,8 +68,12 @@ public class RoshanController : MonoBehaviour {
         if (EventCount > 0)
             m_roshanStartHealth *= (EventCount / 1.6f);
 
+        //Because Prefab doesn't save these
         waypoints[0] = GameObject.Find("Misc/RoshanWaypoints/1").gameObject.transform;
         waypoints[1] = GameObject.Find("Misc/RoshanWaypoints/2").gameObject.transform;
+        waypoints[2] = GameObject.Find("Misc/RoshanWaypoints/3").gameObject.transform;
+        waypoints[3] = GameObject.Find("Misc/RoshanWaypoints/4").gameObject.transform;
+        waypoints[4] = GameObject.Find("Misc/RoshanWaypoints/5").gameObject.transform;
     }
 
 	void Update()
@@ -97,10 +106,30 @@ public class RoshanController : MonoBehaviour {
 
     void OnTriggerEnter(Collider col)
     {
-        if(col.tag == "Trigger" && col.name == "RoshanStandPoint")
+        if (col.tag == "Trigger" && col.name == "RoshanStandPoint" && !hasReachedPoint && goToHalfWay)
         {
             m_roshanAnimator.SetTrigger("hasReachedPosition");
             hasReachedPoint = true;
+
+            goToHome = true;
+            goToHalfWay = false;
+
+            //Start countdown till event is over in seconds
+            float time = (120 / EventCount) * 2; //Standard time of 120s. Should scale with amount of events
+            StartCoroutine(EventEndTime(time));
+        }
+        else if (col.tag == "Trigger" && col.name == "RoshanReturnPoint" && !hasReachedPoint && goToHome)
+        {
+            m_roshanAnimator.SetTrigger("hasReachedPosition");
+            hasReachedPoint = true;
+
+            goToHome = false;
+            goToHalfWay = true;
+
+            currentWayPoint = 0;
+
+            if (RoshanEventEndedNotKilled != null)
+                RoshanEventEndedNotKilled.Invoke(); //Event ended without being killed
         }
     }
 
@@ -142,5 +171,22 @@ public class RoshanController : MonoBehaviour {
             currentWayPoint++;
             targetWaypoint = waypoints[currentWayPoint];
         }
+    }
+
+    IEnumerator EventEndTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        m_roshanAnimator.SetTrigger("doFirebreath");
+
+        StartCoroutine(WaitForEventEndAnim());
+    }
+
+    IEnumerator WaitForEventEndAnim()
+    {
+        yield return new WaitForSeconds(7f); //Firebreath animation duration //6.4
+
+        m_roshanAnimator.SetTrigger("isWalking");
+        hasReachedPoint = false;
     }
 }
