@@ -236,6 +236,8 @@ public class UpgradesController : MonoBehaviour
 
     void AddUpgrade(UpgradeDto upgrade)
     {
+        bool gotBothAbilityAchievement = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().CurrentSaveFile.Achievements.BuyAllAbilitiesForAHero;
+
         if (m_sceneController.TotalGold < upgrade.Cost || isOnMainMenu)
         {
             Debug.Log("Can't buy upgrade '" + upgrade.Name + "'");
@@ -247,41 +249,98 @@ public class UpgradesController : MonoBehaviour
         {
             Debug.Log("Clicked IO Overcharge");
             BuyOverchargeUpgrade(); //Invoke Event
+
+            bool canFindAbility = Upgrades.Exists(x => x.Name == "Relocate");
+            if (!canFindAbility && !gotBothAbilityAchievement)
+            {
+                AchievementEvents events = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
+                events.BuyAllAbilitiesForAHero.Invoke();
+                Debug.Log("Bought abilities for hero Achievements");
+            }
         }
         else if(upgrade.Name == "Relocate")
         {
             Debug.Log("Clicked Relocate");
             BuyRelocateUpgrade();
+
+            if (!Upgrades.Exists(x => x.Name == "Overcharge") && !gotBothAbilityAchievement)
+            {
+                AchievementEvents events = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
+                events.BuyAllAbilitiesForAHero.Invoke();
+                Debug.Log("Bought abilities for hero Achievements");
+            }
         }
         else if (upgrade.Name == "Telekinesis")
         {
             Debug.Log("Clicked Telekinesis");
-            BuyTelekinesisUpgrade(); 
+            BuyTelekinesisUpgrade();
+
+            if (!Upgrades.Exists(x => x.Name == "Spell Steal") && !gotBothAbilityAchievement)
+            {
+                AchievementEvents events = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
+                events.BuyAllAbilitiesForAHero.Invoke();
+                Debug.Log("Bought abilities for hero Achievements");
+            }
         }
         else if (upgrade.Name == "Spell Steal")
         {
             Debug.Log("Clicked Spell Steal");
-            BuySpellStealUpgrade(); 
+            BuySpellStealUpgrade();
+
+            if (!Upgrades.Exists(x => x.Name == "Telekinesis") && !gotBothAbilityAchievement)
+            {
+                AchievementEvents events = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
+                events.BuyAllAbilitiesForAHero.Invoke();
+                Debug.Log("Bought abilities for hero Achievements");
+            }
         }
         else if (upgrade.Name == "Fireblast")
         {
             Debug.Log("Clicked Fireblast");
-            BuyFireblastUpgrade(); 
+            BuyFireblastUpgrade();
+
+            if (!Upgrades.Exists(x => x.Name == "Bloodlust") && !gotBothAbilityAchievement)
+            {
+                AchievementEvents events = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
+                events.BuyAllAbilitiesForAHero.Invoke();
+                Debug.Log("Bought abilities for hero Achievements");
+            }
         }
         else if (upgrade.Name == "Bloodlust")
         {
             Debug.Log("Clicked Bloodlust");
-            BuyBloodlustUpgrade(); 
+            BuyBloodlustUpgrade();
+
+            if (!Upgrades.Exists(x => x.Name == "Fireblast") && !gotBothAbilityAchievement)
+            {
+                AchievementEvents events = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
+                events.BuyAllAbilitiesForAHero.Invoke();
+                Debug.Log("Bought abilities for hero Achievements");
+            }
         }
         else if (upgrade.Name == "Snowball")
         {
             Debug.Log("Clicked Snowball");
-            BuySnowballUpgrade(); 
+            BuySnowballUpgrade();
+
+            if (!Upgrades.Exists(x => x.Name == "Walrus Punch") && !gotBothAbilityAchievement)
+            {
+                AchievementEvents events = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
+                events.BuyAllAbilitiesForAHero.Invoke();
+                Debug.Log("Bought abilities for hero Achievements");
+            }
         }
         else if (upgrade.Name == "Walrus Punch")
         {
             Debug.Log("Clicked Walrus Punch");
-            BuyWalrusPunchUpgrade(); 
+            BuyWalrusPunchUpgrade();
+
+            if (!Upgrades.Exists(x => x.Name == "Snowball") && !gotBothAbilityAchievement)
+            {
+                AchievementEvents events = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
+                events.BuyAllAbilitiesForAHero.Invoke();
+                Debug.Log("Bought abilities for hero Achievements");
+            }
         }
         else if (upgrade.Name == "Sunray")
         {
@@ -289,6 +348,13 @@ public class UpgradesController : MonoBehaviour
             BuySunrayUpgrade();
 
             GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().EnableRoshanEvents();
+
+            if (!Upgrades.Exists(x => x.Name == "Supernova") && !gotBothAbilityAchievement)
+            {
+                AchievementEvents events = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
+                events.BuyAllAbilitiesForAHero.Invoke();
+                Debug.Log("Bought abilities for hero Achievements");
+            }
         }
         else if (upgrade.Name == "Supernova")
         {
@@ -296,6 +362,13 @@ public class UpgradesController : MonoBehaviour
             BuySupernovaUpgrade();
 
             GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().EnableRoshanEvents();
+
+            if (!Upgrades.Exists(x => x.Name == "Sunray") && !gotBothAbilityAchievement)
+            {
+                AchievementEvents events = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
+                events.BuyAllAbilitiesForAHero.Invoke();
+                Debug.Log("Bought abilities for hero Achievements");
+            }
         }
         else if (upgrade.Name == "War Cry")
         {
@@ -303,6 +376,13 @@ public class UpgradesController : MonoBehaviour
             BuyWarCryUpgrade();
 
             GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().EnableRoshanEvents();
+
+            if (!Upgrades.Exists(x => x.Name == "God's Strength") && !gotBothAbilityAchievement)
+            {
+                AchievementEvents events = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
+                events.BuyAllAbilitiesForAHero.Invoke();
+                Debug.Log("Bought abilities for hero Achievements");
+            }
         }
         else if (upgrade.Name == "God's Strength")
         {
@@ -310,6 +390,13 @@ public class UpgradesController : MonoBehaviour
             BuyGodsStrengthUpgrade();
 
             GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().EnableRoshanEvents();
+
+            if (!Upgrades.Exists(x => x.Name == "War Cry") && !gotBothAbilityAchievement)
+            {
+                AchievementEvents events = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
+                events.BuyAllAbilitiesForAHero.Invoke();
+                Debug.Log("Bought abilities for hero Achievements");
+            }
         }
         else if (upgrade.Name == "Blink")
         {
@@ -317,6 +404,13 @@ public class UpgradesController : MonoBehaviour
             BuyBlinkUpgrade();
 
             GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().EnableRoshanEvents();
+
+            if (!Upgrades.Exists(x => x.Name == "Mana Void") && !gotBothAbilityAchievement)
+            {
+                AchievementEvents events = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
+                events.BuyAllAbilitiesForAHero.Invoke();
+                Debug.Log("Bought abilities for hero Achievements");
+            }
         }
         else if (upgrade.Name == "Mana Void")
         {
@@ -324,6 +418,13 @@ public class UpgradesController : MonoBehaviour
             BuyManaVoidUpgrade();
 
             GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().EnableRoshanEvents();
+
+            if (!Upgrades.Exists(x => x.Name == "Blink") && !gotBothAbilityAchievement)
+            {
+                AchievementEvents events = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
+                events.BuyAllAbilitiesForAHero.Invoke();
+                Debug.Log("Bought abilities for hero Achievements");
+            }
         }
         else if (upgrade.Name == "Greevil's Greed")
         {
@@ -331,6 +432,13 @@ public class UpgradesController : MonoBehaviour
             BuyGreevilsGreedUpgrade();
 
             GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().EnableRoshanEvents();
+
+            if (!Upgrades.Exists(x => x.Name == "Chemical Rage") && !gotBothAbilityAchievement)
+            {
+                AchievementEvents events = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
+                events.BuyAllAbilitiesForAHero.Invoke();
+                Debug.Log("Bought abilities for hero Achievements");
+            }
         }
         else if (upgrade.Name == "Chemical Rage")
         {
@@ -338,10 +446,30 @@ public class UpgradesController : MonoBehaviour
             BuyChemicalRageUpgrade();
 
             GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().EnableRoshanEvents();
+
+            if (!Upgrades.Exists(x => x.Name == "Greevil's Greed") && !gotBothAbilityAchievement)
+            {
+                AchievementEvents events = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
+                events.BuyAllAbilitiesForAHero.Invoke();
+                Debug.Log("Bought abilities for hero Achievements");
+            }
         }
 
         this.GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("Sounds/UI/buy"));
         Upgrades.RemoveAll(x => x.Name == upgrade.Name);
         RefreshUpgradesList();
+
+        if(Upgrades.Count == (Upgrades.Count - 1)) //One less than count
+        {
+            AchievementEvents events = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
+            events.BuyAnAbility.Invoke();
+            Debug.Log("Bought an Ability Achievements");
+        }
+        else if(Upgrades.Count <= 0)
+        {
+            AchievementEvents events = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
+            events.BuyAllAbilities.Invoke();
+            Debug.Log("Bought All Abilities Achievements");
+        }
     }
 }

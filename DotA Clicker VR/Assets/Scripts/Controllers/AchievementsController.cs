@@ -12,10 +12,12 @@ public class AchievementsController : MonoBehaviour {
     GameObject UIItemPrefab; //For UI prefab
 
     RadiantSceneController m_sceneController;
+    AchievementEvents m_achievementEvents;
 
     void Start()
     {
         m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
+        m_achievementEvents = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
 
         Achievements = new List<AchievementDto>();
         AddDefaultItems();
@@ -272,39 +274,39 @@ public class AchievementsController : MonoBehaviour {
 
     void AssignAchievementEvents()
     {
-        AchievementEvents.Earn625GoldAchievement += OnEarn625Gold;
-        AchievementEvents.Earn6200GoldAchievement += OnEarn6200Gold;
-        AchievementEvents.Earn15000GoldAchievement += OnEarn15000Gold;
-        AchievementEvents.Earn100000GoldAchievement += OnEarn100000Gold;
-        AchievementEvents.EarnMillionGoldAchievement += OnEarnMillionGold;
+        m_achievementEvents.Earn625Gold.AddListener(OnEarn625Gold);
+        m_achievementEvents.Earn6200Gold.AddListener(OnEarn6200Gold);
+        m_achievementEvents.Earn15000Gold.AddListener(OnEarn15000Gold);
+        m_achievementEvents.Earn100000Gold.AddListener(OnEarn100000Gold);
+        m_achievementEvents.EarnMillionGold.AddListener(OnEarnMillionGold);
 
-        AchievementEvents.ClickOnceAchievement += OnClickOnceAchievement;
-        AchievementEvents.ClickFiveHundredAchievement += OnClickFiveHundred;
-        AchievementEvents.ClickThousandAchievement += OnClickThousand;
-        AchievementEvents.ClickFifteenThousandAchievement += OnClickFifteenThousand;
-        AchievementEvents.ClickFiftyThousandAchievement += OnClickFiftyThousand;
+        m_achievementEvents.ClickOnce.AddListener(OnClickOnceAchievement);
+        m_achievementEvents.ClickFiveHundred.AddListener(OnClickFiveHundred);
+        m_achievementEvents.ClickThousand.AddListener(OnClickThousand);
+        m_achievementEvents.ClickFifteenThousand.AddListener(OnClickFifteenThousand);
+        m_achievementEvents.ClickFiftyThousand.AddListener(OnClickFiftyThousand);
 
-        AchievementEvents.BuyAManagerAchievement += OnBuyAManager;
-        AchievementEvents.BuyAllManagersAchievement += OnBuyAllManagers;
-
-        AchievementEvents.BuyAnAbilityAchievement += OnBuyAnAbility;
-        AchievementEvents.BuyAllAbilitiesForAHeroAchievement += OnBuyAllAbilitiesForAHero;
-        AchievementEvents.BuyAllAbilitiesAchievement += OnBuyAllAbilities;
-
-        AchievementEvents.BuyAnItemAchievement += OnBuyAnItem;
-        AchievementEvents.BuyEachItemOnceAchievement += OnBuyEachItemOnce;
-
-        AchievementEvents.DefeatRoshanAchievement += OnDefeatRoshan;
-        AchievementEvents.DefeatRoshanTenTimesAchievement += OnDefeatRoshanTenTimes;
-
-        AchievementEvents.TheAegisIsMineAchievement += OnTheAegisIsMine;
-        AchievementEvents.CheeseGromitAchievement += OnCheeseGromit;
+        m_achievementEvents.BuyAManager.AddListener(OnBuyAManager);
+        m_achievementEvents.BuyAllManagers.AddListener(OnBuyAllManagers);
+        
+        m_achievementEvents.BuyAnAbility.AddListener(OnBuyAnAbility);
+        m_achievementEvents.BuyAllAbilitiesForAHero.AddListener(OnBuyAllAbilitiesForAHero);
+        m_achievementEvents.BuyAllAbilities.AddListener(OnBuyAllAbilities);
+        
+        m_achievementEvents.BuyAnItem.AddListener(OnBuyAnItem);
+        m_achievementEvents.BuyEachItemOnce.AddListener(OnBuyEachItemOnce);
+        
+        m_achievementEvents.DefeatRoshan.AddListener(OnDefeatRoshan);
+        m_achievementEvents.DefeatRoshanTenTimes.AddListener(OnDefeatRoshanTenTimes);
+        
+        m_achievementEvents.TheAegisIsMine.AddListener(OnTheAegisIsMine);
+        m_achievementEvents.CheeseGromit.AddListener(OnCheeseGromit);
 
         /*Secret Achievements*/
-        AchievementEvents.TheClosestYoullGetToABattleCupAchievement += OnTCYGTABCA;
-        AchievementEvents.WhenDidEGThrowLastAchievement += OnWDEGTL;
-        AchievementEvents.TheManTheMythTheLegendAchievement += OnTMTMTL;
-        AchievementEvents.DongsOutForBulldogAchievement += OnDongsOutForBulldog;
+        m_achievementEvents.TheClosestYoullGetToABattleCup.AddListener(OnDongsOutForBulldog);
+        m_achievementEvents.WhenDidEGThrowLast.AddListener(OnDongsOutForBulldog);
+        m_achievementEvents.TheManTheMythTheLegend.AddListener(OnDongsOutForBulldog);
+        m_achievementEvents.DongsOutForBulldog.AddListener(OnDongsOutForBulldog);
     }
 
     private void OnEarn625Gold()

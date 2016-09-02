@@ -88,6 +88,13 @@ public class RadiantSceneController : MonoBehaviour
 
         if (LoadedSaveFile != null)
             LoadedSaveFile.Invoke();
+
+        if(CurrentSaveFile.PlayerName.ToLower() == "420bootywizard")
+        {
+            AchievementEvents events = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
+            events.TheManTheMythTheLegend.Invoke();
+            Debug.Log("420BootyWizard Achievements");
+        }
     }
 
     public List<RadiantClickerController> GetClickerHeroesInScene()
@@ -283,6 +290,19 @@ public class RadiantSceneController : MonoBehaviour
         }
 
         m_roshanEventInProgress = false;
+
+        if(RoshanEventCount == 1)
+        {
+            AchievementEvents events = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
+            events.DefeatRoshan.Invoke();
+            Debug.Log("Defeat Roshan Achievements");
+        }
+        else if(RoshanEventCount == 10)
+        {
+            AchievementEvents events = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
+            events.DefeatRoshanTenTimes.Invoke();
+            Debug.Log("Defeat Roshan 10 Times Achievements");
+        }
     }
 
     void OnRoshanEventEndedNotKilled()

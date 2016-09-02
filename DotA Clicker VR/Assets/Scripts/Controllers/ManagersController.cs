@@ -187,5 +187,18 @@ public class ManagersController : MonoBehaviour {
         this.GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("Sounds/UI/buy"));
         Managers.RemoveAll(x => x.Name == manager.Name);
         RefreshManagersList();
+
+        if(Managers.Count <= 0)
+        {
+            AchievementEvents events = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
+            events.BuyAllManagers.Invoke();
+            Debug.Log("Bought all Managers Achievements");
+        }
+        else if(Managers.Count == (Managers.Count - 1)) //One less than max
+        {
+            AchievementEvents events = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
+            events.BuyAManager.Invoke();
+            Debug.Log("Bought a Manager Achievements");
+        }
     }
 }

@@ -6,8 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class BuyableItemsController : MonoBehaviour
 {
-
     public List<ItemDto> Items { get; set; }
+    public int ItemBoughtCount = 0;
+
+    public int IronBranchCount, ClarityCount, MagicStickCount, QuellingBladeCount, MangoCount, PowerTreadsCount, 
+        BottleCount, BlinkDaggerCount, HyperstoneCount, BloodstoneCount, ReaverCount, DivineRapierCount, RecipeCount;
 
     [SerializeField]
     GameObject UIItemPrefab; //For UI prefab
@@ -175,11 +178,11 @@ public class BuyableItemsController : MonoBehaviour
             upgradeCost.text = item.Cost + " gold";
             Button button = newUpgrade.transform.Find("BuyButton").GetComponent<Button>();
             ItemDto clickedItem = item; //Fix for AddListener adding current upgrade to each button click
-            button.onClick.AddListener(delegate { AddUpgrade(clickedItem); });
+            button.onClick.AddListener(delegate { BuyItem(clickedItem); });
         }
     }
 
-    void AddUpgrade(ItemDto item)
+    void BuyItem(ItemDto item)
     {
         if (m_sceneController.TotalGold < item.Cost || isOnMainMenu)
         {
@@ -190,7 +193,78 @@ public class BuyableItemsController : MonoBehaviour
 
         SpawnItem(item);
 
+        if(item.Name == "Iron Branch")
+        {
+            IronBranchCount++;
+        }
+        else if(item.Name == "Clarity")
+        {
+            ClarityCount++;
+        }
+        else if (item.Name == "Magic Stick")
+        {
+            MagicStickCount++;
+        }
+        else if (item.Name == "Quelling Blade")
+        {
+            QuellingBladeCount++;
+        }
+        else if (item.Name == "Mango")
+        {
+            MangoCount++;
+        }
+        else if (item.Name == "Power Treads")
+        {
+            PowerTreadsCount++;
+        }
+        else if (item.Name == "Bottle")
+        {
+            BottleCount++;
+        }
+        else if (item.Name == "Blink Dagger")
+        {
+            BlinkDaggerCount++;
+        }
+        else if (item.Name == "Hyperstone")
+        {
+            HyperstoneCount++;
+        }
+        else if (item.Name == "Bloodstone")
+        {
+            BloodstoneCount++;
+        }
+        else if (item.Name == "Reaver")
+        {
+            ReaverCount++;
+        }
+        else if (item.Name == "Divine Rapier")
+        {
+            DivineRapierCount++;
+        }
+        else if (item.Name == "Recipe")
+        {
+            RecipeCount++;
+        }
+
         this.GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("Sounds/UI/buy"));
+        ItemBoughtCount++;
+
+        if(ItemBoughtCount == Items.Count)
+        {
+            AchievementEvents events = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
+            events.BuyAnItem.Invoke();
+            Debug.Log("Bought One Item Achievements");
+        }
+
+        //check if the achievement has been unlocked
+        bool boughtEachItem = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().CurrentSaveFile.Achievements.BuyEachItemOnce;
+        if(IronBranchCount >= 1 && ClarityCount >= 1 && MagicStickCount >= 1 && QuellingBladeCount >= 1 && MangoCount >= 1 && PowerTreadsCount >= 1 && BottleCount >= 1 
+            && BlinkDaggerCount >= 1 &&HyperstoneCount >= 1 && BloodstoneCount >= 1 && ReaverCount >= 1 && DivineRapierCount >= 1 && RecipeCount >= 1 && !boughtEachItem)
+        {
+            AchievementEvents events = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
+            events.BuyEachItemOnce.Invoke();
+            Debug.Log("Bought one of each item Achievements");
+        }
     }
 
     void SpawnItem(ItemDto item)
