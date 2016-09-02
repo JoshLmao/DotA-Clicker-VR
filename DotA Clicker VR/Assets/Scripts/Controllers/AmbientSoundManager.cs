@@ -9,7 +9,7 @@ public class AmbientSoundManager : MonoBehaviour {
 
     void Start()
     {
-        AmbientAudioSource = GameObject.Find("AmbientAudio").GetComponent<AudioSource>();
+        AmbientAudioSource = GameObject.Find("SceneEnvironment/AmbientAudio").GetComponent<AudioSource>();
 
         //Repeats ambient music, comment out whilst developing
         InvokeRepeating("PlayAmbientSound", 1, 1f);
@@ -34,5 +34,10 @@ public class AmbientSoundManager : MonoBehaviour {
     public void StartInvokeRepeating()
     {
         InvokeRepeating("PlayAmbientSound", 1, 1f);
+    }
+
+    void OnApplicationQuit()
+    {
+        StopInvokeRepeating();
     }
 }

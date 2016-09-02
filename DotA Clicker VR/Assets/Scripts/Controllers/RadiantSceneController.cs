@@ -191,9 +191,38 @@ public class RadiantSceneController : MonoBehaviour
             },
             Achievements = new AchievementsDto()
             {
+                Earn625Gold = false,
+                Earn6200Gold = false,
+                Earn15000Gold = false,
+                Earn100000Gold = false,
+                EarnMillionGold = false,
+
                 ClickOnce = false,
+                ClickFiveHundred = false,
+                ClickThousand = false,
+                ClickFifteenThousand = false,
+                ClickFiftyThousand = false,
+
+                BuyAnAbility = false,
+                BuyAllAbilitiesForAHero = false,
+                BuyAllAbilities = false,
+
+                BuyAManager = false,
+                BuyAllManagers = false,
+
+                BuyAnItem = false,
+                BuyEachItemOnce = false,
+
+                DefeatRoshan = false,
+                DefeatRoshanTenTimes = false,
+
                 TheAegisIsMine = false,
+                CheeseGromit = false,
+
+                TheClosestYoullGetToABattleCup = false,
                 WhenDidEGThrowLast = false,
+                TheManTheMythTheLegend = false,
+                DongsOutForBulldog = false,
             }
         };
 
