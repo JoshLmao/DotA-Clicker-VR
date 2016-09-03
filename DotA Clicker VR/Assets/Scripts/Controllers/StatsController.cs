@@ -12,30 +12,49 @@ public class StatsController : MonoBehaviour {
 
     Text m_ironBranch, m_clarity, m_magicStick, m_mangos, m_quellingBlade, m_powerTreads;
     Text m_bottles, m_blinkDaggers, m_hyperstones, m_bloodstones, m_reavers, m_divineRapiers, m_recipes;
-
     GameObject m_recipesUI;
+
+    Text m_overchargeCount, m_relocateCount, m_telekinesisCount, m_spellStealCount, m_fireblastCount, m_bloodlustCount, m_snowballCount, m_walrusPunchCount;
+    Text m_sunrayCount, m_supernovaCount, m_warCryCount, m_godsStrengthCount, m_blinkCount, m_manaVoidCount, m_greevilsGreedCount, m_chemicalRageCount;
 
     void Start ()
     {
         m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
 
-        m_totalTimePlayedText = transform.Find("GeneralStats/TotalTime/TTText").GetComponent<Text>();
-        m_totalClicksText = transform.Find("GeneralStats/TotalClicks/TCText").GetComponent<Text>();
+        m_totalTimePlayedText = transform.Find("StatsScrollable/StatsListCanvas/GeneralStats/TotalTime/TTText").GetComponent<Text>();
+        m_totalClicksText = transform.Find("StatsScrollable/StatsListCanvas/GeneralStats/TotalClicks/TCText").GetComponent<Text>();
 
-        m_ironBranch = transform.Find("ItemsBought/IronBranchCount/Count").GetComponent<Text>();
-        m_clarity = transform.Find("ItemsBought/ClarityCount/Count").GetComponent<Text>();
-        m_magicStick = transform.Find("ItemsBought/MagicStickCount/Count").GetComponent<Text>();
-        m_mangos = transform.Find("ItemsBought/MangoCount/Count").GetComponent<Text>();
-        m_quellingBlade = transform.Find("ItemsBought/QuellingBladeCount/Count").GetComponent<Text>();
-        m_powerTreads = transform.Find("ItemsBought/PowerTreadsCount/Count").GetComponent<Text>();
-        m_bottles = transform.Find("ItemsBought/BottleCount/Count").GetComponent<Text>();
-        m_blinkDaggers= transform.Find("ItemsBought/BlinkDaggerCount/Count").GetComponent<Text>();
-        m_hyperstones = transform.Find("ItemsBought/HyperstoneCount/Count").GetComponent<Text>();
-        m_bloodstones = transform.Find("ItemsBought/BloodstoneCount/Count").GetComponent<Text>();
-        m_reavers = transform.Find("ItemsBought/ReaverCount/Count").GetComponent<Text>();
-        m_divineRapiers = transform.Find("ItemsBought/DivineRapiersCount/Count").GetComponent<Text>();
-        m_recipesUI = transform.Find("ItemsBought/RecipesUI").gameObject;
-        m_recipes = transform.Find("ItemsBought/RecipesUI/RecipesCount").GetComponent<Text>();
+        m_ironBranch = transform.Find("StatsScrollable/StatsListCanvas/ItemsBought/IronBranchCount/Count").GetComponent<Text>();
+        m_clarity = transform.Find("StatsScrollable/StatsListCanvas/ItemsBought/ClarityCount/Count").GetComponent<Text>();
+        m_magicStick = transform.Find("StatsScrollable/StatsListCanvas/ItemsBought/MagicStickCount/Count").GetComponent<Text>();
+        m_mangos = transform.Find("StatsScrollable/StatsListCanvas/ItemsBought/MangoCount/Count").GetComponent<Text>();
+        m_quellingBlade = transform.Find("StatsScrollable/StatsListCanvas/ItemsBought/QuellingBladeCount/Count").GetComponent<Text>();
+        m_powerTreads = transform.Find("StatsScrollable/StatsListCanvas/ItemsBought/PowerTreadsCount/Count").GetComponent<Text>();
+        m_bottles = transform.Find("StatsScrollable/StatsListCanvas/ItemsBought/BottleCount/Count").GetComponent<Text>();
+        m_blinkDaggers= transform.Find("StatsScrollable/StatsListCanvas/ItemsBought/BlinkDaggerCount/Count").GetComponent<Text>();
+        m_hyperstones = transform.Find("StatsScrollable/StatsListCanvas/ItemsBought/HyperstoneCount/Count").GetComponent<Text>();
+        m_bloodstones = transform.Find("StatsScrollable/StatsListCanvas/ItemsBought/BloodstoneCount/Count").GetComponent<Text>();
+        m_reavers = transform.Find("StatsScrollable/StatsListCanvas/ItemsBought/ReaverCount/Count").GetComponent<Text>();
+        m_divineRapiers = transform.Find("StatsScrollable/StatsListCanvas/ItemsBought/DivineRapiersCount/Count").GetComponent<Text>();
+        m_recipesUI = transform.Find("StatsScrollable/StatsListCanvas/ItemsBought/RecipesUI").gameObject;
+        m_recipes = transform.Find("StatsScrollable/StatsListCanvas/ItemsBought/RecipesUI/RecipesCount").GetComponent<Text>();
+
+        m_overchargeCount = transform.Find("StatsScrollable/StatsListCanvas/HeroStats/Io/Abil1/Count").GetComponent<Text>();
+        m_relocateCount = transform.Find("StatsScrollable/StatsListCanvas/HeroStats/Io/Abil2/Count").GetComponent<Text>();
+        m_telekinesisCount = transform.Find("StatsScrollable/StatsListCanvas/HeroStats/Rubick/Abil1/Count").GetComponent<Text>();
+        m_spellStealCount = transform.Find("StatsScrollable/StatsListCanvas/HeroStats/Rubick/Abil2/Count").GetComponent<Text>();
+        m_fireblastCount = transform.Find("StatsScrollable/StatsListCanvas/HeroStats/OgreMagi/Abil1/Count").GetComponent<Text>();
+        m_bloodlustCount = transform.Find("StatsScrollable/StatsListCanvas/HeroStats/OgreMagi/Abil2/Count").GetComponent<Text>();
+        m_snowballCount = transform.Find("StatsScrollable/StatsListCanvas/HeroStats/Tusk/Abil1/Count").GetComponent<Text>();
+        m_walrusPunchCount = transform.Find("StatsScrollable/StatsListCanvas/HeroStats/Tusk/Abil2/Count").GetComponent<Text>();
+        m_sunrayCount = transform.Find("StatsScrollable/StatsListCanvas/HeroStats/Phoenix/Abil1/Count").GetComponent<Text>();
+        m_supernovaCount = transform.Find("StatsScrollable/StatsListCanvas/HeroStats/Phoenix/Abil2/Count").GetComponent<Text>();
+        m_warCryCount = transform.Find("StatsScrollable/StatsListCanvas/HeroStats/Sven/Abil1/Count").GetComponent<Text>();
+        m_godsStrengthCount = transform.Find("StatsScrollable/StatsListCanvas/HeroStats/Sven/Abil2/Count").GetComponent<Text>();
+        m_blinkCount = transform.Find("StatsScrollable/StatsListCanvas/HeroStats/AntiMage/Abil1/Count").GetComponent<Text>();
+        m_manaVoidCount = transform.Find("StatsScrollable/StatsListCanvas/HeroStats/AntiMage/Abil2/Count").GetComponent<Text>();
+        m_greevilsGreedCount = transform.Find("StatsScrollable/StatsListCanvas/HeroStats/Alchemist/Abil1/Count").GetComponent<Text>();
+        m_chemicalRageCount = transform.Find("StatsScrollable/StatsListCanvas/HeroStats/Alchemist/Abil2/Count").GetComponent<Text>();
     }
 	
 	void Update ()
@@ -48,6 +67,7 @@ public class StatsController : MonoBehaviour {
         m_totalClicksText.text = m_sceneController.ClickCount.ToString() + " clicks";
 
         UpdateItemsCountUI();
+        UpdateAbilityCountUI();
     }
 
     void UpdateItemsCountUI()
@@ -78,4 +98,22 @@ public class StatsController : MonoBehaviour {
         }
     }
 
+    void UpdateAbilityCountUI()
+    {
+        /* Hero Order in List: 0 = Alchemist, 1 = Ogre, 2 = Tusk, 3 = Io, 4 = AntiMagi, 5 = Sven, 6 = Phoenix, 7 = Rubick */
+        m_overchargeCount.text = m_sceneController.SceneHeroes[3].Ability1UseCount.ToString();
+        m_relocateCount.text = m_sceneController.SceneHeroes[3].Ability2UseCount.ToString();
+        m_telekinesisCount.text = m_sceneController.SceneHeroes[7].Ability1UseCount.ToString();
+        m_spellStealCount.text = m_sceneController.SceneHeroes[7].Ability2UseCount.ToString();
+        m_fireblastCount.text = m_sceneController.SceneHeroes[2].Ability1UseCount.ToString();
+        m_bloodlustCount.text = m_sceneController.SceneHeroes[2].Ability2UseCount.ToString();
+        m_sunrayCount.text = m_sceneController.SceneHeroes[6].Ability1UseCount.ToString();
+        m_supernovaCount.text = m_sceneController.SceneHeroes[6].Ability2UseCount.ToString();
+        m_warCryCount.text = m_sceneController.SceneHeroes[5].Ability1UseCount.ToString();
+        m_godsStrengthCount.text = m_sceneController.SceneHeroes[5].Ability2UseCount.ToString();
+        m_blinkCount.text = m_sceneController.SceneHeroes[4].Ability1UseCount.ToString();
+        m_manaVoidCount.text = m_sceneController.SceneHeroes[4].Ability2UseCount.ToString();
+        m_greevilsGreedCount.text = m_sceneController.SceneHeroes[0].Ability1UseCount.ToString();
+        m_chemicalRageCount.text = m_sceneController.SceneHeroes[0].Ability2UseCount.ToString();
+    }
 }

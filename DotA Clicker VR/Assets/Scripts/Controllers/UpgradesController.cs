@@ -63,6 +63,8 @@ public class UpgradesController : MonoBehaviour
         AddDefaultUpgrades();
 
         RefreshUpgradesList();
+
+        RadiantSceneController.LoadedSaveFile += OnLoadedSaveFile;
 	}
 	
 	void Update ()
@@ -471,5 +473,10 @@ public class UpgradesController : MonoBehaviour
             events.BuyAllAbilities.Invoke();
             Debug.Log("Bought All Abilities Achievements");
         }
+    }
+
+    void OnLoadedSaveFile(SaveFileDto saveFile)
+    {
+
     }
 }

@@ -70,6 +70,14 @@ public class RadiantClickerController : MonoBehaviour
     /// Amount of times the Ability has to be pressed to level up at Lvl 1
     /// </summary>
     public int Ability2LvlUpCount;
+    /// <summary>
+    /// For stats and saving
+    /// </summary>
+    public float Ability1UseCount;
+    /// <summary>
+    /// For stats and saving
+    /// </summary>
+    public float Ability2UseCount;
 
     public delegate void OnClickButton(string clickerName);
     public event OnClickButton OnClickedButton;
@@ -153,6 +161,8 @@ public class RadiantClickerController : MonoBehaviour
 
         m_abil2Slider.maxValue = Ability2LvlUpCount;
         m_abil2Slider.value = 0;
+
+        RadiantSceneController.LoadedSaveFile += OnLoadedSaveFile;
     }
 
 	void Update ()
@@ -263,6 +273,7 @@ public class RadiantClickerController : MonoBehaviour
                 io.ActivateOvercharge();
                 HandController.RumbleController(index, 2000);
                 Ability1Used();
+                Ability1UseCount++;
             }
             else if(abilityName == "RelocateBtn")
             {
@@ -275,6 +286,7 @@ public class RadiantClickerController : MonoBehaviour
                 io.ActivateRelocate();
                 HandController.RumbleController(index, 2000);
                 Ability2Used();
+                Ability2UseCount++;
             }
         }
         else if (abilityName == "TelekinesisBtn" || abilityName == "SpellStealBtn")
@@ -294,6 +306,7 @@ public class RadiantClickerController : MonoBehaviour
                 rubick.ActivateTelekinesis();
                 HandController.RumbleController(index, 2000);
                 Ability1Used();
+                Ability1UseCount++;
             }
             else if(abilityName == "SpellStealBtn")
             {
@@ -306,6 +319,7 @@ public class RadiantClickerController : MonoBehaviour
                 rubick.ActivateSpellSteal();
                 HandController.RumbleController(index, 2000);
                 Ability2Used();
+                Ability2UseCount++;
             }
         }
         else if (abilityName == "FireblastBtn" || abilityName == "BloodlustBtn")
@@ -325,6 +339,7 @@ public class RadiantClickerController : MonoBehaviour
                 ogreMagi.ActivateFireblast();
                 HandController.RumbleController(index, 2000);
                 Ability1Used();
+                Ability1UseCount++;
             }
             else if(abilityName == "BloodlustBtn")
             {
@@ -337,6 +352,7 @@ public class RadiantClickerController : MonoBehaviour
                 ogreMagi.ActivateBloodlust();
                 HandController.RumbleController(index, 2000);
                 Ability2Used();
+                Ability2UseCount++;
             }
         }
         else if (abilityName == "SnowballBtn" || abilityName == "WalrusPunchBtn")
@@ -356,6 +372,7 @@ public class RadiantClickerController : MonoBehaviour
                 tusk.ActivateSnowball();
                 HandController.RumbleController(index, 2000);
                 Ability1Used();
+                Ability1UseCount++;
             }
             else if(abilityName == "WalrusPunchBtn")
             {
@@ -368,6 +385,7 @@ public class RadiantClickerController : MonoBehaviour
                 tusk.ActivateWalrusPunch();
                 HandController.RumbleController(index, 2000);
                 Ability2Used();
+                Ability2UseCount++;
             }
         }
         else if (abilityName == "SunrayBtn" || abilityName == "SupernovaBtn")
@@ -387,6 +405,7 @@ public class RadiantClickerController : MonoBehaviour
                 phoenix.ActivateSunray();
                 HandController.RumbleController(index, 2000);
                 Ability1Used();
+                Ability1UseCount++;
             }
             else if(abilityName == "SupernovaBtn")
             {
@@ -399,6 +418,7 @@ public class RadiantClickerController : MonoBehaviour
                 phoenix.ActivateSupernova();
                 HandController.RumbleController(index, 2000);
                 Ability2Used();
+                Ability2UseCount++;
             }
         }
         else if (abilityName == "WarCryBtn" || abilityName == "GodsStrengthBtn")
@@ -418,6 +438,7 @@ public class RadiantClickerController : MonoBehaviour
                 sven.ActivateWarCry();
                 HandController.RumbleController(index, 2000);
                 Ability1Used();
+                Ability1UseCount++;
             }
             else if (abilityName == "GodsStrengthBtn")
             {
@@ -430,6 +451,7 @@ public class RadiantClickerController : MonoBehaviour
                 sven.ActivateGodsStrength();
                 HandController.RumbleController(index, 2000);
                 Ability2Used();
+                Ability2UseCount++;
             }
         }
         else if (abilityName == "BlinkBtn" || abilityName == "ManaVoid")
@@ -449,6 +471,7 @@ public class RadiantClickerController : MonoBehaviour
                 antiMage.ActivateBlink();
                 HandController.RumbleController(index, 2000);
                 Ability1Used();
+                Ability1UseCount++;
             }
             else if (abilityName == "ManaVoid")
             {
@@ -461,6 +484,7 @@ public class RadiantClickerController : MonoBehaviour
                 antiMage.ActivateManaVoid();
                 HandController.RumbleController(index, 2000);
                 Ability2Used();
+                Ability2UseCount++;
             }
         }
         else if (abilityName == "GreevilsGreedBtn" || abilityName == "ChemicalRageBtn")
@@ -480,6 +504,7 @@ public class RadiantClickerController : MonoBehaviour
                 alchemist.ActivateGreevilsGreed();
                 HandController.RumbleController(index, 2000);
                 Ability1Used();
+                Ability1UseCount++;
             }
             else
             {
@@ -492,6 +517,7 @@ public class RadiantClickerController : MonoBehaviour
                 alchemist.ActivateChemicalRage();
                 HandController.RumbleController(index, 2000);
                 Ability2Used();
+                Ability2UseCount++;
             }
         }   
     }
@@ -608,5 +634,10 @@ public class RadiantClickerController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
         canPlayNopeSound = true;
+    }
+
+    void OnLoadedSaveFile(SaveFileDto saveFile)
+    {
+
     }
 }

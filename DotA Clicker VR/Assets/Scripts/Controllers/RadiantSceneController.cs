@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 public class RadiantSceneController : MonoBehaviour
 {
-    public delegate void OnLoadedSaveFile();
+    public delegate void OnLoadedSaveFile(SaveFileDto saveFile);
     public static event OnLoadedSaveFile LoadedSaveFile;
 
     public List<RadiantClickerController> SceneHeroes;
@@ -43,9 +43,12 @@ public class RadiantSceneController : MonoBehaviour
     bool m_roshanWaitingToSpawn = false;
     bool m_roshanEventInProgress = false;
     GameObject ActiveRoshan;
+    AchievementEvents m_achievementEvents;
 
     void Start ()
     {
+        m_achievementEvents = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
+
         LoadProgress();
         m_goldUI = GameObject.Find("TotalGoldText").GetComponent<Text>();
 
@@ -54,9 +57,10 @@ public class RadiantSceneController : MonoBehaviour
 
         RoshanController.RoshanEventEnded += OnRoshanEventEnded;
         RoshanController.RoshanEventEndedNotKilled += OnRoshanEventEndedNotKilled;
-	}
 
-	void Update ()
+    }
+
+    void Update ()
     {
         m_goldUI.text = TotalGold.ToString();
 
@@ -87,7 +91,7 @@ public class RadiantSceneController : MonoBehaviour
         }
 
         if (LoadedSaveFile != null)
-            LoadedSaveFile.Invoke();
+            LoadedSaveFile.Invoke(CurrentSaveFile);
 
         if(CurrentSaveFile.PlayerName.ToLower() == "420bootywizard")
         {
@@ -120,6 +124,10 @@ public class RadiantSceneController : MonoBehaviour
 
         //Add current playtime to total play time
         m_totalPlayTime += Time.realtimeSinceStartup;
+        bool hasSaveFile = false;
+
+        if (CurrentSaveFile != null)
+            hasSaveFile = true;
 
         //Save data
         SaveFileDto saveFile = new SaveFileDto()
@@ -136,49 +144,65 @@ public class RadiantSceneController : MonoBehaviour
                 {
                     ClickersBought = SceneHeroes[3].ClickerMultiplier,
                     Ability1Level = SceneHeroes[3].Ability1Level,
+                    Ability1UseCount = SceneHeroes[3].Ability1UseCount,
                     Ability2Level = SceneHeroes[3].Ability2Level,
+                    Ability2UseCount = SceneHeroes[3].Ability2UseCount,
                 },
                 Rubick = new HeroDto()
                 {
                     ClickersBought = SceneHeroes[7].ClickerMultiplier,
                     Ability1Level = SceneHeroes[7].Ability1Level,
+                    Ability1UseCount = SceneHeroes[7].Ability1UseCount,
                     Ability2Level = SceneHeroes[7].Ability2Level,
+                    Ability2UseCount = SceneHeroes[7].Ability2UseCount,
                 },
                 OgreMagi = new HeroDto()
                 {
                     ClickersBought = SceneHeroes[1].ClickerMultiplier,
                     Ability1Level = SceneHeroes[1].Ability1Level,
+                    Ability1UseCount = SceneHeroes[1].Ability1UseCount,
                     Ability2Level = SceneHeroes[1].Ability2Level,
+                    Ability2UseCount = SceneHeroes[1].Ability2UseCount,
                 },
                 Tusk = new HeroDto()
                 {
                     ClickersBought = SceneHeroes[2].ClickerMultiplier,
                     Ability1Level = SceneHeroes[2].Ability1Level,
+                    Ability1UseCount = SceneHeroes[2].Ability1UseCount,
                     Ability2Level = SceneHeroes[2].Ability2Level,
+                    Ability2UseCount = SceneHeroes[2].Ability2UseCount,
                 },
                 Phoenix = new HeroDto()
                 {
                     ClickersBought = SceneHeroes[6].ClickerMultiplier,
                     Ability1Level = SceneHeroes[6].Ability1Level,
+                    Ability1UseCount = SceneHeroes[6].Ability1UseCount,
                     Ability2Level = SceneHeroes[6].Ability2Level,
+                    Ability2UseCount = SceneHeroes[6].Ability2UseCount,
                 },
                 Sven = new HeroDto()
                 {
                     ClickersBought = SceneHeroes[5].ClickerMultiplier,
                     Ability1Level = SceneHeroes[5].Ability1Level,
+                    Ability1UseCount = SceneHeroes[5].Ability1UseCount,
                     Ability2Level = SceneHeroes[5].Ability2Level,
+                    Ability2UseCount = SceneHeroes[5].Ability2UseCount,
                 },
                 AntiMage = new HeroDto()
                 {
                     ClickersBought = SceneHeroes[4].ClickerMultiplier,
                     Ability1Level = SceneHeroes[4].Ability1Level,
+                    Ability1UseCount = SceneHeroes[4].Ability1UseCount,
                     Ability2Level = SceneHeroes[4].Ability2Level,
+                    Ability2UseCount = SceneHeroes[4].Ability2UseCount,
                 },
                 Alchemist = new HeroDto()
                 {
                     ClickersBought = SceneHeroes[0].ClickerMultiplier,
                     Ability1Level = SceneHeroes[0].Ability1Level,
+                    Ability1UseCount = SceneHeroes[0].Ability1UseCount,
                     Ability2Level = SceneHeroes[0].Ability2Level,
+                    Ability2UseCount = SceneHeroes[0].Ability2UseCount,
                 },
                 RoshanEvents = m_canDoRoshanEvent,
             },
@@ -193,43 +217,43 @@ public class RadiantSceneController : MonoBehaviour
             },
             SessionStats = new StatsDto()
             {
-                TotalPlayTime = CurrentSaveFile != null ? CurrentSaveFile.SessionStats.TotalPlayTime += m_totalPlayTime : m_totalPlayTime,
+                TotalPlayTime = hasSaveFile ? CurrentSaveFile.SessionStats.TotalPlayTime += m_totalPlayTime : m_totalPlayTime,
                 ClickCount = ClickCount,
             },
             Achievements = new AchievementsDto()
             {
-                Earn625Gold = false,
-                Earn6200Gold = false,
-                Earn15000Gold = false,
-                Earn100000Gold = false,
-                EarnMillionGold = false,
+                Earn625Gold = m_achievementEvents.Earn625GoldStatus,
+                Earn6200Gold = m_achievementEvents.Earn6200GoldStatus,
+                Earn15000Gold = m_achievementEvents.Earn15000GoldStatus,
+                Earn100000Gold = m_achievementEvents.Earn100000GoldStatus,
+                EarnMillionGold = m_achievementEvents.EarnMillionGoldStatus,
 
-                ClickOnce = false,
-                ClickFiveHundred = false,
-                ClickThousand = false,
-                ClickFifteenThousand = false,
-                ClickFiftyThousand = false,
+                ClickOnce = m_achievementEvents.ClickOnceStatus,
+                ClickFiveHundred = m_achievementEvents.ClickFiveHundredStatus,
+                ClickThousand = m_achievementEvents.ClickThousandStatus,
+                ClickFifteenThousand = m_achievementEvents.ClickFifteenThousandStatus,
+                ClickFiftyThousand = m_achievementEvents.ClickFiftyThousandStatus,
 
-                BuyAnAbility = false,
-                BuyAllAbilitiesForAHero = false,
-                BuyAllAbilities = false,
+                BuyAnAbility = m_achievementEvents.BuyAnAbilityStatus,
+                BuyAllAbilitiesForAHero = m_achievementEvents.BuyAllAbilitiesForAHeroStatus,
+                BuyAllAbilities = m_achievementEvents.BuyAllAbilitiesStatus,
 
-                BuyAManager = false,
-                BuyAllManagers = false,
+                BuyAManager = m_achievementEvents.BuyAManagerStatus,
+                BuyAllManagers = m_achievementEvents.BuyAllManagersStatus,
 
-                BuyAnItem = false,
-                BuyEachItemOnce = false,
+                BuyAnItem = m_achievementEvents.BuyAnItemStatus,
+                BuyEachItemOnce = m_achievementEvents.BuyEachItenOnceStatus,
 
-                DefeatRoshan = false,
-                DefeatRoshanTenTimes = false,
+                DefeatRoshan = m_achievementEvents.DefeatRoshanStatus,
+                DefeatRoshanTenTimes = m_achievementEvents.DefeatRoshanTenTimesStatus,
 
-                TheAegisIsMine = false,
-                CheeseGromit = false,
+                TheAegisIsMine = m_achievementEvents.AegisIsMineStatus,
+                CheeseGromit = m_achievementEvents.CheeseGromitStatus,
 
-                TheClosestYoullGetToABattleCup = false,
-                WhenDidEGThrowLast = false,
-                TheManTheMythTheLegend = false,
-                DongsOutForBulldog = false,
+                TheClosestYoullGetToABattleCup = m_achievementEvents.ClosestYoullGetStatus,
+                WhenDidEGThrowLast = m_achievementEvents.EGThrowLastStatus,
+                TheManTheMythTheLegend = m_achievementEvents.ManMythLegendStatus,
+                DongsOutForBulldog = m_achievementEvents.DongsOutStatus,
             }
         };
 
