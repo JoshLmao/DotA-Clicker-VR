@@ -72,7 +72,7 @@ public class StatsController : MonoBehaviour {
 
     void UpdateItemsCountUI()
     {
-        BuyableItemsController itemsController = GameObject.Find("SceneEnvironment/SideShop/ItemsCanvas/ItemsScrollable/ItemsListCanvas").GetComponent<BuyableItemsController>();
+        BuyableItemsController itemsController = GameObject.Find("SceneEnvironment/AncientSideShopArea/Structures/SideShop/ItemsCanvas/ItemsScrollable/ItemsListCanvas").GetComponent<BuyableItemsController>();
 
         m_ironBranch.text = itemsController.IronBranchCount.ToString();
         m_clarity.text = itemsController.ClarityCount.ToString();
