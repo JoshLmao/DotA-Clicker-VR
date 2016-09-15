@@ -196,7 +196,7 @@ public class SvenController : MonoBehaviour
             GodsStrengthActive = false;
         }
         /*Do after active effects have done their duration*/
-        else if (ability == "OverchargeActiveFinish")
+        else if (ability == "WarCryActiveFinish")
         {
             m_warCryActiveFade.gameObject.SetActive(false);
 
@@ -210,7 +210,7 @@ public class SvenController : MonoBehaviour
 
             StartCoroutine(AbilityCooldown(WarCryCooldown, "warCry"));
         }
-        else if (ability == "RelocateActiveFinish")
+        else if (ability == "GodsStrengthActiveFinish")
         {
             m_godsStrengthActiveFade.gameObject.SetActive(false);
 

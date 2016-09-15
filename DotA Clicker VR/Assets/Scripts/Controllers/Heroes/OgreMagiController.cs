@@ -248,7 +248,7 @@ public class OgreMagiController : MonoBehaviour
         m_clickerController.ClickAmount = m_fireblastModifiedValue;
 
 
-        StartCoroutine(AbilityCooldown(FireblastActiveDuration, "OverchargeActiveFinish"));
+        StartCoroutine(AbilityCooldown(FireblastActiveDuration, "FireblastActiveFinish"));
     }
 
     void RemoveFireblastEffects()

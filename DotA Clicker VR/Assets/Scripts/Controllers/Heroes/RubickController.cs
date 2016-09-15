@@ -128,7 +128,7 @@ public class RubickController : MonoBehaviour
     void BuySpellStealUpgrade()
     {
         SpellStealUpgrade = true;
-        Debug.Log("Bought Relocate Upgrade");
+        Debug.Log("Bought Spell Steal Upgrade");
 
         //Give white color to abiity
         m_spellStealCooldown.fillAmount = 0;

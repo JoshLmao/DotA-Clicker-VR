@@ -175,6 +175,7 @@ public class RoshanController : MonoBehaviour {
 
     IEnumerator EventEndTime(float time)
     {
+        Debug.Log("Roshan Event: Waiting '" + time + "' for event to end");
         yield return new WaitForSeconds(time);
 
         m_roshanAnimator.SetTrigger("doFirebreath");

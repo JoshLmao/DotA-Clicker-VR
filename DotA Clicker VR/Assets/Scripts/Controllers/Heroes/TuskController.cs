@@ -207,7 +207,7 @@ public class TuskController : MonoBehaviour
             WalrusPunchActive = false;
         }
         /*Do after active effects have done their duration*/
-        else if (ability == "OverchargeActiveFinish")
+        else if (ability == "SnowballActiveFinish")
         {
             m_snowballActiveFade.gameObject.SetActive(false);
 
@@ -221,7 +221,7 @@ public class TuskController : MonoBehaviour
 
             StartCoroutine(AbilityCooldown(SnowballCooldown, "Snowball"));
         }
-        else if (ability == "RelocateActiveFinish")
+        else if (ability == "WalrusPunchActiveFinish")
         {
             m_walrusPunchActiveFade.gameObject.SetActive(false);
 
@@ -298,7 +298,7 @@ public class TuskController : MonoBehaviour
         m_snowballModifiedValue = m_clickerController.ClickAmount * 2;
         m_clickerController.ClickAmount = m_snowballModifiedValue;
 
-        StartCoroutine(AbilityCooldown(SnowballActiveDuration, "OverchargeActiveFinish"));
+        StartCoroutine(AbilityCooldown(SnowballActiveDuration, "SnowballActiveFinish"));
     }
 
     void RemoveSnowballEffects()
@@ -314,7 +314,7 @@ public class TuskController : MonoBehaviour
         var m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
         m_sceneController.TotalGold += m_clickerController.ClickAmount;
 
-        StartCoroutine(AbilityCooldown(WalrusPunchActiveDuration, "OverchargeActiveFinish"));
+        StartCoroutine(AbilityCooldown(WalrusPunchActiveDuration, "WalrusPunchActiveFinish"));
     }
 
     void RemoveWalrusPunchEffects()

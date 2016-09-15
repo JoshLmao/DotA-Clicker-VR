@@ -366,6 +366,7 @@ public class RadiantSceneController : MonoBehaviour
         //Todo: Sound to indicate that roshan events can happen
         int secondsToEvent = UnityEngine.Random.Range(1200, 3600); //Can do event between 20 mins or a hour
         StartCoroutine(TriggerRoshanEvent(secondsToEvent));
+        Debug.Log("Seconds to Roshan Event: '" + secondsToEvent + "'");
         m_roshanWaitingToSpawn = true;
     }
 

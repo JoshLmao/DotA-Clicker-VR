@@ -14,7 +14,7 @@ public class StatsController : MonoBehaviour {
     Text m_bottles, m_blinkDaggers, m_hyperstones, m_bloodstones, m_reavers, m_divineRapiers, m_recipes;
     GameObject m_recipesUI;
 
-    Text m_overchargeCount, m_relocateCount, m_telekinesisCount, m_spellStealCount, m_fireblastCount, m_bloodlustCount, m_snowballCount, m_walrusPunchCount;
+    Text m_crystalNovaCount, m_frostbiteCount, m_telekinesisCount, m_spellStealCount, m_fireblastCount, m_bloodlustCount, m_snowballCount, m_walrusPunchCount;
     Text m_sunrayCount, m_supernovaCount, m_warCryCount, m_godsStrengthCount, m_blinkCount, m_manaVoidCount, m_greevilsGreedCount, m_chemicalRageCount;
 
     void Start ()
@@ -39,8 +39,8 @@ public class StatsController : MonoBehaviour {
         m_recipesUI = transform.Find("StatsScrollable/StatsListCanvas/ItemsBought/RecipesUI").gameObject;
         m_recipes = transform.Find("StatsScrollable/StatsListCanvas/ItemsBought/RecipesUI/RecipesCount").GetComponent<Text>();
 
-        m_overchargeCount = transform.Find("StatsScrollable/StatsListCanvas/HeroStats/Io/Abil1/Count").GetComponent<Text>();
-        m_relocateCount = transform.Find("StatsScrollable/StatsListCanvas/HeroStats/Io/Abil2/Count").GetComponent<Text>();
+        m_crystalNovaCount = transform.Find("StatsScrollable/StatsListCanvas/HeroStats/CM/Abil1/Count").GetComponent<Text>();
+        m_frostbiteCount = transform.Find("StatsScrollable/StatsListCanvas/HeroStats/CM/Abil2/Count").GetComponent<Text>();
         m_telekinesisCount = transform.Find("StatsScrollable/StatsListCanvas/HeroStats/Rubick/Abil1/Count").GetComponent<Text>();
         m_spellStealCount = transform.Find("StatsScrollable/StatsListCanvas/HeroStats/Rubick/Abil2/Count").GetComponent<Text>();
         m_fireblastCount = transform.Find("StatsScrollable/StatsListCanvas/HeroStats/OgreMagi/Abil1/Count").GetComponent<Text>();
@@ -101,8 +101,8 @@ public class StatsController : MonoBehaviour {
     void UpdateAbilityCountUI()
     {
         /* Hero Order in List: 0 = Alchemist, 1 = Ogre, 2 = Tusk, 3 = Io, 4 = AntiMagi, 5 = Sven, 6 = Phoenix, 7 = Rubick */
-        m_overchargeCount.text = m_sceneController.SceneHeroes[3].Ability1UseCount.ToString();
-        m_relocateCount.text = m_sceneController.SceneHeroes[3].Ability2UseCount.ToString();
+        m_crystalNovaCount.text = m_sceneController.SceneHeroes[3].Ability1UseCount.ToString();
+        m_frostbiteCount.text = m_sceneController.SceneHeroes[3].Ability2UseCount.ToString();
         m_telekinesisCount.text = m_sceneController.SceneHeroes[7].Ability1UseCount.ToString();
         m_spellStealCount.text = m_sceneController.SceneHeroes[7].Ability2UseCount.ToString();
         m_fireblastCount.text = m_sceneController.SceneHeroes[2].Ability1UseCount.ToString();

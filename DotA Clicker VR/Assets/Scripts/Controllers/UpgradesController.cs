@@ -8,8 +8,8 @@ public class UpgradesController : MonoBehaviour
 {
     public List<UpgradeDto> Upgrades { get; set; }
 
-    public delegate void OnBuyOverchargeUpgrade();
-    public delegate void OnBuyRelocateUpgrade();
+    public delegate void OnBuyCrystalNovaUpgrade();
+    public delegate void OnBuyFrostbiteUpgrade();
     public delegate void OnBuyTelekinesisUpgrade();
     public delegate void OnBuySpellStealUpgrade();
     public delegate void OnBuyFireblastUpgrade();
@@ -25,8 +25,8 @@ public class UpgradesController : MonoBehaviour
     public delegate void OnBuyGreevilsGreedUpgrade();
     public delegate void OnBuyChemicalRageUpgrade();
 
-    public static event OnBuyOverchargeUpgrade BuyOverchargeUpgrade;
-    public static event OnBuyRelocateUpgrade BuyRelocateUpgrade;
+    public static event OnBuyCrystalNovaUpgrade BuyCrystalNovaUpgrade;
+    public static event OnBuyFrostbiteUpgrade BuyFrostbiteUpgrade;
     public static event OnBuyTelekinesisUpgrade BuyTelekinesisUpgrade;
     public static event OnBuySpellStealUpgrade BuySpellStealUpgrade;
     public static event OnBuyFireblastUpgrade BuyFireblastUpgrade;
@@ -76,18 +76,18 @@ public class UpgradesController : MonoBehaviour
     {
         Upgrades.Add(new UpgradeDto()
         {
-            Name = "Overcharge",
+            Name = "Crystal Nova",
             Description = "Overcharges Io to double his output for 30 seconds. Cooldown: 45 seconds",
-            HeroUpgrade = "Io",
-            Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Io_Overcharge"),
+            HeroUpgrade = "Crystal Maiden",
+            Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/CM_CrystalNova"),
             Cost = 0,
         });
         Upgrades.Add(new UpgradeDto()
         {
-            Name = "Relocate",
+            Name = "Frostbite",
             Description = "Quadruples Io's click amount for 20 seconds. Cooldown: 1.5 minutes",
-            HeroUpgrade = "Io",
-            Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Io_Relocate"),
+            HeroUpgrade = "Crystal Maiden",
+            Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/CM_Frostbite"),
             Cost = 0,
         });
         Upgrades.Add(new UpgradeDto()
@@ -247,12 +247,12 @@ public class UpgradesController : MonoBehaviour
             return;
         }
 
-        if (upgrade.Name == "Overcharge")
+        if (upgrade.Name == "Crystal Nova")
         {
-            Debug.Log("Clicked IO Overcharge");
-            BuyOverchargeUpgrade(); //Invoke Event
+            Debug.Log("Clicked Crystal Nova");
+            BuyCrystalNovaUpgrade(); //Invoke Event
 
-            bool canFindAbility = Upgrades.Exists(x => x.Name == "Relocate");
+            bool canFindAbility = Upgrades.Exists(x => x.Name == "Crystal Nova");
             if (!canFindAbility && !gotBothAbilityAchievement)
             {
                 AchievementEvents events = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
@@ -260,12 +260,12 @@ public class UpgradesController : MonoBehaviour
                 Debug.Log("Bought abilities for hero Achievements");
             }
         }
-        else if(upgrade.Name == "Relocate")
+        else if(upgrade.Name == "Frostbite")
         {
-            Debug.Log("Clicked Relocate");
-            BuyRelocateUpgrade();
+            Debug.Log("Clicked Frostbite");
+            BuyFrostbiteUpgrade();
 
-            if (!Upgrades.Exists(x => x.Name == "Overcharge") && !gotBothAbilityAchievement)
+            if (!Upgrades.Exists(x => x.Name == "Frostbite") && !gotBothAbilityAchievement)
             {
                 AchievementEvents events = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
                 events.BuyAllAbilitiesForAHero.Invoke();

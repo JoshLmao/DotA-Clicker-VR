@@ -256,34 +256,34 @@ public class RadiantClickerController : MonoBehaviour
     public void ActivateAbility(string abilityName, uint index)
     {
         //Very bad of you, but too lazy
-        if(abilityName == "OverchargeBtn" || abilityName == "RelocateBtn")
+        if(abilityName == "CrystalNovaBtn" || abilityName == "FrostbiteBtn")
         {
-            IoController io = GetComponentInParent<IoController>();
-            if (!io.OverchargeUpgrade || !io.RelocateUpgrade)
+            CMController cm = GetComponentInParent<CMController>();
+            if (!cm.CrystalNovaUpgrade || !cm.FrostbiteUpgrade)
                 return;
 
-            if (abilityName == "OverchargeBtn")
+            if (abilityName == "CrystalNovaBtn")
             {
-                if (io.OverchargeActive)
+                if (cm.CrystalNovaActive)
                 {
                     CantUseAbility();
                     return;
                 }
 
-                io.ActivateOvercharge();
+                cm.ActivateCrystalNova();
                 HandController.RumbleController(index, 2000);
                 Ability1Used();
                 Ability1UseCount++;
             }
-            else if(abilityName == "RelocateBtn")
+            else if(abilityName == "FrostbiteBtn")
             {
-                if (io.RelocateActive)
+                if (cm.FrostbiteActive)
                 {
                     CantUseAbility();
                     return;
                 }
 
-                io.ActivateRelocate();
+                cm.ActivateFrostbite();
                 HandController.RumbleController(index, 2000);
                 Ability2Used();
                 Ability2UseCount++;
