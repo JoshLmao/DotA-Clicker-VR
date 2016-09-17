@@ -60,7 +60,7 @@ public class CMController : MonoBehaviour
         CrystalMaiden = transform.Find("CrystalMaiden").gameObject;
         m_cmAnimator = CrystalMaiden.GetComponent<Animator>();
         m_audioSource = CrystalMaiden.GetComponent<AudioSource>();
-        m_abilitySource = GameObject.Find("Io/AbilitySound").GetComponent<AudioSource>();
+        m_abilitySource = GameObject.Find("CrystalMaiden/AbilitySound").GetComponent<AudioSource>();
 
         m_crystalNovaButton = transform.Find("Buttons/StandBack/UpgradesCanvas/CrystalNovaBack/CrystalNovaBtn").gameObject;
         m_frostbiteButton = transform.Find("Buttons/StandBack/UpgradesCanvas/FrostbiteBack/FrostbiteBtn").gameObject;
@@ -157,8 +157,6 @@ public class CMController : MonoBehaviour
 
         if (!m_abilitySource.isPlaying)
             m_abilitySource.PlayOneShot(CrystalNovaAbilitySound);
-
-        //StartCoroutine(AbilityCooldown(OverchargeCooldown, "OverchargeAbility"));
     }
 
     public void ActivateFrostbite()
@@ -173,8 +171,6 @@ public class CMController : MonoBehaviour
 
         if (!m_abilitySource.isPlaying)
             m_abilitySource.PlayOneShot(FrostbiteAbilitySound);
-
-        //StartCoroutine(AbilityCooldown(RelocateCooldown, "RelocateAbility"));
     }
 
     IEnumerator AbilityCooldown(float time, string ability)

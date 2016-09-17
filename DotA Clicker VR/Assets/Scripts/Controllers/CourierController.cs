@@ -37,6 +37,12 @@ public class CourierController : MonoBehaviour
     [SerializeField]
     Sprite m_toggleDisabled;
 
+    TwitchIRC m_twitchChat;
+    KeyboardController m_keyboardController;
+    GameObject m_keyboard;
+    GameObject m_streamURLUI;
+    GameObject m_displayKeyboardBtn;
+
     void Start ()
     {
         m_courier = this.gameObject;
@@ -48,8 +54,20 @@ public class CourierController : MonoBehaviour
         m_followBtn = transform.Find("TwitchStreamCanvas/FollowBtn").gameObject;
         m_lockRotationBtn = transform.Find("TwitchStreamCanvas/LockRotationBtn").gameObject;
         m_audioMutedBtn = transform.Find("TwitchStreamCanvas/StreamAudioMutedBtn").gameObject;
-        //m_streamURL = "http://images.earthcam.com/ec_metros/ourcams/fridays.jpg";//STREAM_BASE + (m_twitchChannel == null ? "JoshLmao" : m_twitchChannel);
-        //StartCoroutine(StreamStartup());
+        m_twitchChat = transform.Find("TwitchStreamCanvas/TwitchChat").GetComponent<TwitchIRC>();
+        m_displayKeyboardBtn = transform.Find("TwitchStreamCanvas/ChangeStreamBtn").gameObject;
+
+        m_keyboardController = transform.Find("Keyboard").GetComponent<KeyboardController>();
+        KeyboardController.EnterPressed += KeyboardEnter;
+
+        m_keyboard = transform.Find("Keyboard").gameObject;
+        m_streamURLUI = transform.Find("TwitchStreamCanvas/URL").gameObject;
+
+        m_twitchChat.channelName = "";
+        m_twitchChat.StartIRC();
+
+        m_keyboard.SetActive(false);
+        m_streamURLUI.SetActive(false);
     }
 
     void Update ()
@@ -68,12 +86,12 @@ public class CourierController : MonoBehaviour
 
         if(!LockRotation)
         {
-            //transform.LookAt(m_player.transform, Vector3.up);
-            //transform.rotation = Quaternion.Slerp(transform.rotation, );
-
             Quaternion rotation = Quaternion.LookRotation(m_player.transform.position - transform.position);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * damping);
         }
+
+        //Update InputText
+        m_streamURLUI.transform.Find("InputStream").GetComponent<Text>().text = m_keyboardController.Input;
     }
 
     IEnumerator StreamStartup()
@@ -151,5 +169,29 @@ public class CourierController : MonoBehaviour
     {
         AudioMuted = !AudioMuted;
         m_audioMutedBtn.GetComponent<Toggle>().isOn = AudioMuted;
+    }
+
+    public void DisplayKeyboard()
+    {
+        m_displayKeyboardBtn.GetComponent<Image>().sprite = m_toggleEnabled;
+
+        m_keyboard.SetActive(true);
+        m_streamURLUI.SetActive(true);
+
+        m_keyboardController.ClearStream();
+    }
+
+    public void KeyboardEnter()
+    {
+        m_displayKeyboardBtn.GetComponent<Image>().sprite = m_toggleDisabled;
+
+        m_twitchChat.channelName = m_keyboardController.Input;
+        m_twitchChat.StartIRC();
+
+        m_keyboard.SetActive(false);
+        m_streamURLUI.SetActive(false);
+
+        m_twitchChat.ClearMessageList();
+        m_keyboardController.ClearStream();
     }
 }
