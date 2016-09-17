@@ -1,0 +1,472 @@
+fileFormatVersion: 2
+guid: babb62e86f96eea4baf232789e6c77ff
+timeCreated: 1474140609
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: L_foot
+    100002: L_foot_end
+    100004: L_knee
+    100006: L_thigh
+    100008: Neck
+    100010: Neck_end
+    100012: R_foot
+    100014: R_foot_end
+    100016: R_knee
+    100018: R_thigh
+    100020: Root
+    100022: Tail
+    100024: Tail_end
+    100026: //RootNode
+    100028: wildlife_birdsmall005.qc_skeleton
+    100030: wildlife_birdsmall005_reference
+    400000: L_foot
+    400002: L_foot_end
+    400004: L_knee
+    400006: L_thigh
+    400008: Neck
+    400010: Neck_end
+    400012: R_foot
+    400014: R_foot_end
+    400016: R_knee
+    400018: R_thigh
+    400020: Root
+    400022: Tail
+    400024: Tail_end
+    400026: //RootNode
+    400028: wildlife_birdsmall005.qc_skeleton
+    400030: wildlife_birdsmall005_reference
+    4300000: wildlife_birdsmall005_reference
+    7400000: birdsmall005_BindPose
+    7400002: wildlife_birdsmall003_idle001
+    7400004: wildlife_birdsmall003_idle002
+    7400006: wildlife_birdsmall003_idle003
+    7400008: wildlife_birdsmall003_idle004
+    7400010: wildlife_birdsmall003_idle005
+    9500000: //RootNode
+    13700000: wildlife_birdsmall005_reference
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: birdsmall005_BindPose
+      takeName: wildlife_birdsmall005.qc_skeleton|BindPose
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/L_thigh
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/L_thigh/L_knee
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/L_thigh/L_knee/L_foot
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/L_thigh/L_knee/L_foot/L_foot_end
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/Neck
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/Neck/Neck_end
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/R_thigh
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/R_thigh/R_knee
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/R_thigh/R_knee/R_foot
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/R_thigh/R_knee/R_foot/R_foot_end
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/Tail
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/Tail/Tail_end
+        weight: 1
+      - path: wildlife_birdsmall005_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: wildlife_birdsmall003_idle001
+      takeName: wildlife_birdsmall005.qc_skeleton|wildlife_birdsmall003_idle001
+      firstFrame: 0
+      lastFrame: 500
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/L_thigh
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/L_thigh/L_knee
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/L_thigh/L_knee/L_foot
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/L_thigh/L_knee/L_foot/L_foot_end
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/Neck
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/Neck/Neck_end
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/R_thigh
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/R_thigh/R_knee
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/R_thigh/R_knee/R_foot
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/R_thigh/R_knee/R_foot/R_foot_end
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/Tail
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/Tail/Tail_end
+        weight: 1
+      - path: wildlife_birdsmall005_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: wildlife_birdsmall003_idle002
+      takeName: wildlife_birdsmall005.qc_skeleton|wildlife_birdsmall003_idle002
+      firstFrame: 0
+      lastFrame: 280
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/L_thigh
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/L_thigh/L_knee
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/L_thigh/L_knee/L_foot
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/L_thigh/L_knee/L_foot/L_foot_end
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/Neck
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/Neck/Neck_end
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/R_thigh
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/R_thigh/R_knee
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/R_thigh/R_knee/R_foot
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/R_thigh/R_knee/R_foot/R_foot_end
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/Tail
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/Tail/Tail_end
+        weight: 1
+      - path: wildlife_birdsmall005_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: wildlife_birdsmall003_idle003
+      takeName: wildlife_birdsmall005.qc_skeleton|wildlife_birdsmall003_idle003
+      firstFrame: 0
+      lastFrame: 280
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/L_thigh
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/L_thigh/L_knee
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/L_thigh/L_knee/L_foot
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/L_thigh/L_knee/L_foot/L_foot_end
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/Neck
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/Neck/Neck_end
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/R_thigh
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/R_thigh/R_knee
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/R_thigh/R_knee/R_foot
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/R_thigh/R_knee/R_foot/R_foot_end
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/Tail
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/Tail/Tail_end
+        weight: 1
+      - path: wildlife_birdsmall005_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: wildlife_birdsmall003_idle004
+      takeName: wildlife_birdsmall005.qc_skeleton|wildlife_birdsmall003_idle004
+      firstFrame: 0
+      lastFrame: 500
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/L_thigh
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/L_thigh/L_knee
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/L_thigh/L_knee/L_foot
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/L_thigh/L_knee/L_foot/L_foot_end
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/Neck
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/Neck/Neck_end
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/R_thigh
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/R_thigh/R_knee
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/R_thigh/R_knee/R_foot
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/R_thigh/R_knee/R_foot/R_foot_end
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/Tail
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/Tail/Tail_end
+        weight: 1
+      - path: wildlife_birdsmall005_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: wildlife_birdsmall003_idle005
+      takeName: wildlife_birdsmall005.qc_skeleton|wildlife_birdsmall003_idle005
+      firstFrame: 0
+      lastFrame: 280
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/L_thigh
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/L_thigh/L_knee
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/L_thigh/L_knee/L_foot
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/L_thigh/L_knee/L_foot/L_foot_end
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/Neck
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/Neck/Neck_end
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/R_thigh
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/R_thigh/R_knee
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/R_thigh/R_knee/R_foot
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/R_thigh/R_knee/R_foot/R_foot_end
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/Tail
+        weight: 1
+      - path: wildlife_birdsmall005.qc_skeleton/Root/Tail/Tail_end
+        weight: 1
+      - path: wildlife_birdsmall005_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
