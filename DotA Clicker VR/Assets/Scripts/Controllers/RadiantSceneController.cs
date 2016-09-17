@@ -13,6 +13,7 @@ public class RadiantSceneController : MonoBehaviour
 
     public List<RadiantClickerController> SceneHeroes;
     public SaveFileDto CurrentSaveFile;
+    public ConfigDto CurrentConfigFile;
     public int TotalGold = 3000;
     public GameObject[] RoshanPrefab;
     public GameObject AegisPrefab;
@@ -23,12 +24,18 @@ public class RadiantSceneController : MonoBehaviour
     public const string BILLION_FORMAT = "{0} billion";
     public const string TRILLION_FORMAT = "{0} trillion";
     public const string QUADRILLION_FORMAT = "{0} quadrillion";
+
     readonly string SAVE_FILE_PATH = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\JoshLmao\\";
     readonly string SAVE_FILE = "SaveFile.json";
+
+    readonly string LOCAL_APPDATA = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\DotAClickerVR\\";
+    readonly string CONFIG_FILE = "ConfigFile.json";
 
     public float ClickCount;
 
     string SAVE_FILE_LOCATION { get { return SAVE_FILE_PATH + SAVE_FILE; } }
+    string APPDATA_CONFIG_LOCATION { get { return LOCAL_APPDATA + CONFIG_FILE; } }
+
     Text m_goldUI;
     OptionsController m_options;
     float m_totalPlayTime = 0;
@@ -50,6 +57,7 @@ public class RadiantSceneController : MonoBehaviour
         m_achievementEvents = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
 
         LoadProgress();
+        CurrentConfigFile = LoadConfig();
         m_goldUI = GameObject.Find("TotalGoldText").GetComponent<Text>();
 
         SceneHeroes = GetClickerHeroesInScene();
@@ -57,7 +65,6 @@ public class RadiantSceneController : MonoBehaviour
 
         RoshanController.RoshanEventEnded += OnRoshanEventEnded;
         RoshanController.RoshanEventEndedNotKilled += OnRoshanEventEndedNotKilled;
-
     }
 
     void Update ()
@@ -379,5 +386,43 @@ public class RadiantSceneController : MonoBehaviour
         m_roshanWaitingToSpawn = false;
     }
 
+    public ConfigDto LoadConfig()
+    {
+        ConfigDto config;
 
+        if(!Directory.Exists(LOCAL_APPDATA))
+            Directory.CreateDirectory(LOCAL_APPDATA);
+        
+        if (!File.Exists(APPDATA_CONFIG_LOCATION))
+        {
+            //File doesnt exist. Create default file with content
+            File.Create(APPDATA_CONFIG_LOCATION);
+
+            config = new ConfigDto()
+            {
+                TwitchUsername = "",
+                TwitchAuthCode = "",
+            };
+
+            string json = JsonConvert.SerializeObject(config);
+            File.WriteAllText(APPDATA_CONFIG_LOCATION, json);
+            return config;
+        }
+        else
+        {
+            //File exists. Load it
+            string content = File.ReadAllText(APPDATA_CONFIG_LOCATION);
+            try
+            {
+                config = JsonConvert.DeserializeObject<ConfigDto>(content);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Can't deserialize Config File");
+                return null;
+            }
+
+            return config;
+        }
+    }
 }

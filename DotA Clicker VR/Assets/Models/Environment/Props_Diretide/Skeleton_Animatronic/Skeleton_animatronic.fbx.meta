@@ -1,0 +1,1151 @@
+fileFormatVersion: 2
+guid: d0c7bf8cc9b5a1b42984d6a066b95005
+timeCreated: 1474127066
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: ankle_L
+    100002: ankle_L_end
+    100004: ankle_R
+    100006: ankle_R_end
+    100008: bicep_L
+    100010: bicep_R
+    100012: elbow_L
+    100014: elbow_R
+    100016: head
+    100018: head_end
+    100020: knee_L
+    100022: knee_R
+    100024: neck1
+    100026: root
+    100028: //RootNode
+    100030: skeleton_animatronic.qc_skeleton
+    100032: skeleton_animatronic_reference
+    100034: spine1
+    100036: spine2
+    100038: thigh_L
+    100040: thigh_R
+    100042: wrist_L
+    100044: wrist_L_end
+    100046: wrist_R
+    100048: wrist_R_end
+    400000: ankle_L
+    400002: ankle_L_end
+    400004: ankle_R
+    400006: ankle_R_end
+    400008: bicep_L
+    400010: bicep_R
+    400012: elbow_L
+    400014: elbow_R
+    400016: head
+    400018: head_end
+    400020: knee_L
+    400022: knee_R
+    400024: neck1
+    400026: root
+    400028: //RootNode
+    400030: skeleton_animatronic.qc_skeleton
+    400032: skeleton_animatronic_reference
+    400034: spine1
+    400036: spine2
+    400038: thigh_L
+    400040: thigh_R
+    400042: wrist_L
+    400044: wrist_L_end
+    400046: wrist_R
+    400048: wrist_R_end
+    4300000: skeleton_animatronic_reference
+    7400000: skeleton_BindPose
+    7400002: coffin_anim_1_skeleton
+    7400004: coffin_anim_2_skeleton
+    7400006: coffin_anim_3_skeleton
+    7400008: skeleton_float_1
+    7400010: skeleton_float_2
+    7400012: skeleton_float_3
+    7400014: skeleton_pose_coffin_1
+    7400016: skeleton_pose_coffin_2
+    7400018: skeleton_pose_slump_1
+    7400020: skeleton_pose_slump_2
+    7400022: skeleton_pose_slump_3
+    7400024: skeleton_pose_slump_4
+    9500000: //RootNode
+    13700000: skeleton_animatronic_reference
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: skeleton_BindPose
+      takeName: skeleton_animatronic.qc_skeleton|BindPose
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L/wrist_L/wrist_L_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R/wrist_R/wrist_R_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1/head
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1/head/head_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L/ankle_L/ankle_L_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R/ankle_R/ankle_R_end
+        weight: 1
+      - path: skeleton_animatronic_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: coffin_anim_1_skeleton
+      takeName: skeleton_animatronic.qc_skeleton|coffin_anim_1_skeleton
+      firstFrame: 0
+      lastFrame: 429
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L/wrist_L/wrist_L_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R/wrist_R/wrist_R_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1/head
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1/head/head_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L/ankle_L/ankle_L_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R/ankle_R/ankle_R_end
+        weight: 1
+      - path: skeleton_animatronic_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: coffin_anim_2_skeleton
+      takeName: skeleton_animatronic.qc_skeleton|coffin_anim_2_skeleton
+      firstFrame: 0
+      lastFrame: 249
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L/wrist_L/wrist_L_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R/wrist_R/wrist_R_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1/head
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1/head/head_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L/ankle_L/ankle_L_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R/ankle_R/ankle_R_end
+        weight: 1
+      - path: skeleton_animatronic_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: coffin_anim_3_skeleton
+      takeName: skeleton_animatronic.qc_skeleton|coffin_anim_3_skeleton
+      firstFrame: 0
+      lastFrame: 429
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L/wrist_L/wrist_L_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R/wrist_R/wrist_R_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1/head
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1/head/head_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L/ankle_L/ankle_L_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R/ankle_R/ankle_R_end
+        weight: 1
+      - path: skeleton_animatronic_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: skeleton_float_1
+      takeName: skeleton_animatronic.qc_skeleton|float_1
+      firstFrame: 0
+      lastFrame: 276
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L/wrist_L/wrist_L_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R/wrist_R/wrist_R_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1/head
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1/head/head_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L/ankle_L/ankle_L_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R/ankle_R/ankle_R_end
+        weight: 1
+      - path: skeleton_animatronic_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: skeleton_float_2
+      takeName: skeleton_animatronic.qc_skeleton|float_2
+      firstFrame: 0
+      lastFrame: 276
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L/wrist_L/wrist_L_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R/wrist_R/wrist_R_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1/head
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1/head/head_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L/ankle_L/ankle_L_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R/ankle_R/ankle_R_end
+        weight: 1
+      - path: skeleton_animatronic_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: skeleton_float_3
+      takeName: skeleton_animatronic.qc_skeleton|float_3
+      firstFrame: 0
+      lastFrame: 276
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L/wrist_L/wrist_L_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R/wrist_R/wrist_R_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1/head
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1/head/head_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L/ankle_L/ankle_L_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R/ankle_R/ankle_R_end
+        weight: 1
+      - path: skeleton_animatronic_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: skeleton_pose_coffin_1
+      takeName: skeleton_animatronic.qc_skeleton|pose_coffin_1
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L/wrist_L/wrist_L_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R/wrist_R/wrist_R_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1/head
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1/head/head_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L/ankle_L/ankle_L_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R/ankle_R/ankle_R_end
+        weight: 1
+      - path: skeleton_animatronic_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: skeleton_pose_coffin_2
+      takeName: skeleton_animatronic.qc_skeleton|pose_coffin_2
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L/wrist_L/wrist_L_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R/wrist_R/wrist_R_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1/head
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1/head/head_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L/ankle_L/ankle_L_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R/ankle_R/ankle_R_end
+        weight: 1
+      - path: skeleton_animatronic_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: skeleton_pose_slump_1
+      takeName: skeleton_animatronic.qc_skeleton|pose_slump_1
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L/wrist_L/wrist_L_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R/wrist_R/wrist_R_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1/head
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1/head/head_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L/ankle_L/ankle_L_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R/ankle_R/ankle_R_end
+        weight: 1
+      - path: skeleton_animatronic_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: skeleton_pose_slump_2
+      takeName: skeleton_animatronic.qc_skeleton|pose_slump_2
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L/wrist_L/wrist_L_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R/wrist_R/wrist_R_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1/head
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1/head/head_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L/ankle_L/ankle_L_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R/ankle_R/ankle_R_end
+        weight: 1
+      - path: skeleton_animatronic_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: skeleton_pose_slump_3
+      takeName: skeleton_animatronic.qc_skeleton|pose_slump_3
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L/wrist_L/wrist_L_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R/wrist_R/wrist_R_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1/head
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1/head/head_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L/ankle_L/ankle_L_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R/ankle_R/ankle_R_end
+        weight: 1
+      - path: skeleton_animatronic_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: skeleton_pose_slump_4
+      takeName: skeleton_animatronic.qc_skeleton|pose_slump_4
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_L/elbow_L/wrist_L/wrist_L_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/bicep_R/elbow_R/wrist_R/wrist_R_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1/head
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/spine1/spine2/neck1/head/head_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_L/knee_L/ankle_L/ankle_L_end
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: skeleton_animatronic.qc_skeleton/root/thigh_R/knee_R/ankle_R/ankle_R_end
+        weight: 1
+      - path: skeleton_animatronic_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

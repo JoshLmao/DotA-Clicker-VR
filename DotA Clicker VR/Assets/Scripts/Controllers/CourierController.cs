@@ -42,9 +42,12 @@ public class CourierController : MonoBehaviour
     GameObject m_keyboard;
     GameObject m_streamURLUI;
     GameObject m_displayKeyboardBtn;
+    RadiantSceneController m_sceneController;
 
     void Start ()
     {
+        m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
+
         m_courier = this.gameObject;
         m_stream = transform.Find("TwitchStreamCanvas/StreamTexture").GetComponent<GUITexture>();
         m_streamAudio = transform.Find("TwitchStreamCanvas/StreamAudioSource").GetComponent<AudioSource>();
@@ -68,6 +71,14 @@ public class CourierController : MonoBehaviour
 
         m_keyboard.SetActive(false);
         m_streamURLUI.SetActive(false);
+
+        if(m_sceneController.CurrentConfigFile != null)
+        {
+            m_twitchChat.oauth = m_sceneController.CurrentConfigFile.TwitchAuthCode;
+            m_twitchChat.nickName = m_sceneController.CurrentConfigFile.TwitchUsername;
+
+            m_twitchChat.StartIRC();
+        }
     }
 
     void Update ()
