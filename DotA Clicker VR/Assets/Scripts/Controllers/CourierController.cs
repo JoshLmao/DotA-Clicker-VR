@@ -43,6 +43,7 @@ public class CourierController : MonoBehaviour
     GameObject m_streamURLUI;
     GameObject m_displayKeyboardBtn;
     RadiantSceneController m_sceneController;
+    GameObject m_invalidTwitchAuth;
 
     void Start ()
     {
@@ -59,6 +60,9 @@ public class CourierController : MonoBehaviour
         m_audioMutedBtn = transform.Find("TwitchStreamCanvas/StreamAudioMutedBtn").gameObject;
         m_twitchChat = transform.Find("TwitchStreamCanvas/TwitchChat").GetComponent<TwitchIRC>();
         m_displayKeyboardBtn = transform.Find("TwitchStreamCanvas/ChangeStreamBtn").gameObject;
+
+        m_invalidTwitchAuth = transform.Find("TwitchStreamCanvas/TwitchChat/ChatScrollable/InvalidAuthKey").gameObject;
+        m_invalidTwitchAuth.SetActive(false);
 
         m_keyboardController = transform.Find("Keyboard").GetComponent<KeyboardController>();
         KeyboardController.EnterPressed += KeyboardEnter;
@@ -78,6 +82,10 @@ public class CourierController : MonoBehaviour
             m_twitchChat.nickName = m_sceneController.CurrentConfigFile.TwitchUsername;
 
             m_twitchChat.StartIRC();
+        }
+        else
+        {
+            m_invalidTwitchAuth.SetActive(true);
         }
     }
 
@@ -194,9 +202,11 @@ public class CourierController : MonoBehaviour
 
     public void KeyboardEnter()
     {
+        m_twitchChat.stopThreads = true;
         m_displayKeyboardBtn.GetComponent<Image>().sprite = m_toggleDisabled;
 
         m_twitchChat.channelName = m_keyboardController.Input;
+        m_twitchChat.stopThreads = false;
         m_twitchChat.StartIRC();
 
         m_keyboard.SetActive(false);
@@ -204,5 +214,24 @@ public class CourierController : MonoBehaviour
 
         m_twitchChat.ClearMessageList();
         m_keyboardController.ClearStream();
+    }
+
+    public void RetryOAuth()
+    {
+        if (m_sceneController.CurrentConfigFile != null)
+        {
+            m_twitchChat.stopThreads = true;
+            m_twitchChat.ClearMessageList();
+            m_sceneController.LoadConfig();
+
+            m_twitchChat.oauth = m_sceneController.CurrentConfigFile.TwitchAuthCode;
+            m_twitchChat.nickName = m_sceneController.CurrentConfigFile.TwitchUsername;
+            m_twitchChat.stopThreads = false;
+            m_twitchChat.StartIRC();
+        }
+        else
+        {
+            Debug.Log("Config File is null");
+        }
     }
 }

@@ -10,6 +10,8 @@ public class RadiantSceneController : MonoBehaviour
 {
     public delegate void OnLoadedSaveFile(SaveFileDto saveFile);
     public static event OnLoadedSaveFile LoadedSaveFile;
+    public delegate void OnLoadedConfigFile(ConfigDto config);
+    public static event OnLoadedConfigFile LoadedConfigFile;
 
     public List<RadiantClickerController> SceneHeroes;
     public SaveFileDto CurrentSaveFile;
@@ -25,16 +27,14 @@ public class RadiantSceneController : MonoBehaviour
     public const string TRILLION_FORMAT = "{0} trillion";
     public const string QUADRILLION_FORMAT = "{0} quadrillion";
 
-    readonly string SAVE_FILE_PATH = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\JoshLmao\\";
+    readonly string FILE_PATHS = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\My Games\\DotAClickerVR\\";
     readonly string SAVE_FILE = "SaveFile.json";
-
-    readonly string LOCAL_APPDATA = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\DotAClickerVR\\";
     readonly string CONFIG_FILE = "ConfigFile.json";
 
     public float ClickCount;
 
-    string SAVE_FILE_LOCATION { get { return SAVE_FILE_PATH + SAVE_FILE; } }
-    string APPDATA_CONFIG_LOCATION { get { return LOCAL_APPDATA + CONFIG_FILE; } }
+    string SAVE_FILE_LOCATION { get { return FILE_PATHS + SAVE_FILE; } }
+    string CONFIG_LOCATION { get { return FILE_PATHS + CONFIG_FILE; } }
 
     Text m_goldUI;
     OptionsController m_options;
@@ -58,7 +58,7 @@ public class RadiantSceneController : MonoBehaviour
 
         LoadProgress();
         CurrentConfigFile = LoadConfig();
-        m_goldUI = GameObject.Find("TotalGoldText").GetComponent<Text>();
+        m_goldUI = GameObject.Find("UI/WorldSpaceUI/TotalGoldCanvas/TotalGoldText").GetComponent<Text>();
 
         SceneHeroes = GetClickerHeroesInScene();
         m_options = GameObject.Find("OptionsCanvas").GetComponent<OptionsController>();
@@ -277,11 +277,11 @@ public class RadiantSceneController : MonoBehaviour
 
     void SaveFileExists()
     {
-        if (!Directory.Exists(SAVE_FILE_PATH))
-            Directory.CreateDirectory(SAVE_FILE_PATH);
+        if (!Directory.Exists(FILE_PATHS))
+            Directory.CreateDirectory(FILE_PATHS);
 
         if (!File.Exists(SAVE_FILE_LOCATION))
-            File.Create(SAVE_FILE_LOCATION).Dispose();
+            File.Create(SAVE_FILE_LOCATION).Close();
     }
 
     public void OnDestroy()
@@ -390,28 +390,29 @@ public class RadiantSceneController : MonoBehaviour
     {
         ConfigDto config;
 
-        if(!Directory.Exists(LOCAL_APPDATA))
-            Directory.CreateDirectory(LOCAL_APPDATA);
+        if(!Directory.Exists(FILE_PATHS))
+            Directory.CreateDirectory(FILE_PATHS);
         
-        if (!File.Exists(APPDATA_CONFIG_LOCATION))
+        if (!File.Exists(CONFIG_LOCATION))
         {
             //File doesnt exist. Create default file with content
-            File.Create(APPDATA_CONFIG_LOCATION);
+            var stream = File.Create(CONFIG_LOCATION);
+            stream.Close();
 
             config = new ConfigDto()
             {
-                TwitchUsername = "",
-                TwitchAuthCode = "",
+                TwitchUsername = "DotAClickerVR",
+                TwitchAuthCode = "oauth:93tmro12txrri3b1mobo6mirxz0wg9",
             };
 
-            string json = JsonConvert.SerializeObject(config);
-            File.WriteAllText(APPDATA_CONFIG_LOCATION, json);
+            string json = JsonConvert.SerializeObject(config, Formatting.Indented);
+            File.WriteAllText(CONFIG_LOCATION, json);
             return config;
         }
         else
         {
             //File exists. Load it
-            string content = File.ReadAllText(APPDATA_CONFIG_LOCATION);
+            string content = File.ReadAllText(CONFIG_LOCATION);
             try
             {
                 config = JsonConvert.DeserializeObject<ConfigDto>(content);
@@ -421,6 +422,9 @@ public class RadiantSceneController : MonoBehaviour
                 Console.WriteLine("Can't deserialize Config File");
                 return null;
             }
+
+            if(LoadedConfigFile != null)
+                LoadedConfigFile.Invoke(config);
 
             return config;
         }

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class TwitchIRC : MonoBehaviour
 {
@@ -15,13 +16,20 @@ public class TwitchIRC : MonoBehaviour
     public MsgEvent messageRecievedEvent = new MsgEvent();
 
     private string buffer = string.Empty;
-    private bool stopThreads = false;
+    public bool stopThreads = false;
     private Queue<string> commandQueue = new Queue<string>();
     private List<string> recievedMsgs = new List<string>();
     private System.Threading.Thread inProc, outProc;
 
+    RadiantSceneController m_sceneController;
+    Text m_currentChannelText;
+
     public void StartIRC()
     {
+        m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
+        RadiantSceneController.LoadedConfigFile += LoadedConfigFile;
+        m_currentChannelText = transform.Find("CurrentChannelHolder/CurrentChannel").GetComponent<Text>();
+
         System.Net.Sockets.TcpClient sock = new System.Net.Sockets.TcpClient();
         sock.Connect(server, port);
         if (!sock.Connected)
@@ -33,17 +41,28 @@ public class TwitchIRC : MonoBehaviour
         var input = new System.IO.StreamReader(networkStream);
         var output = new System.IO.StreamWriter(networkStream);
 
-        //Send PASS & NICK.
-        output.WriteLine("PASS " + oauth);
-        output.WriteLine("NICK " + nickName.ToLower());
-        output.Flush();
+        if(m_sceneController.CurrentConfigFile != null && m_sceneController.CurrentConfigFile.TwitchAuthCode != "" && m_sceneController.CurrentConfigFile.TwitchUsername != "")
+        {
+            oauth = m_sceneController.CurrentConfigFile.TwitchAuthCode;
+            nickName = m_sceneController.CurrentConfigFile.TwitchUsername;
 
-        //output proc
-        outProc = new System.Threading.Thread(() => IRCOutputProcedure(output));
-        outProc.Start();
-        //input proc
-        inProc = new System.Threading.Thread(() => IRCInputProcedure(input, networkStream));
-        inProc.Start();
+            //Send PASS & NICK.
+            output.WriteLine("PASS " + oauth);
+            output.WriteLine("NICK " + nickName.ToLower());
+            output.Flush();
+
+            //output proc
+            outProc = new System.Threading.Thread(() => IRCOutputProcedure(output));
+            outProc.Start();
+            //input proc
+            inProc = new System.Threading.Thread(() => IRCInputProcedure(input, networkStream));
+            inProc.Start();
+        }
+        else
+        {
+            Debug.Log("No oauth key or Nickname");
+            return;
+        }
     }
 
     private void IRCInputProcedure(System.IO.TextReader input, System.Net.Sockets.NetworkStream networkStream)
@@ -159,6 +178,15 @@ public class TwitchIRC : MonoBehaviour
                 recievedMsgs.Clear();
             }
         }
+
+        if(channelName != "")
+        {
+            m_currentChannelText.text = "Current Channel: '" + channelName + "'";
+        }
+        else
+        {
+            m_currentChannelText.text = "Current Channel: 'NO CHANNEL'";
+        }
     }
 
     public void ClearMessageList()
@@ -169,5 +197,12 @@ public class TwitchIRC : MonoBehaviour
         {
             GameObject.Destroy(obj.gameObject);
         }
+    }
+
+    void LoadedConfigFile(ConfigDto config)
+    {
+        oauth = config.TwitchAuthCode;
+        nickName = config.TwitchUsername;
+        StartIRC();
     }
 }
