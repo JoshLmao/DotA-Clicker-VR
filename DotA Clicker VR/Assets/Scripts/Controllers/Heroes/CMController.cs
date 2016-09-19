@@ -150,6 +150,7 @@ public class CMController : MonoBehaviour
         if (CrystalNovaActive) return;
         CrystalNovaActive = true;
 
+        m_cmAnimator.SetTrigger("useCrystalNova");
         CrystalNovaEffects();
 
         if (!m_audioSource.isPlaying)
@@ -164,6 +165,7 @@ public class CMController : MonoBehaviour
         if (FrostbiteActive) return;
         FrostbiteActive = true;
 
+        m_cmAnimator.SetTrigger("useFrostbite");
         FrostbiteEffects();
 
         if (!m_audioSource.isPlaying)
@@ -228,6 +230,7 @@ public class CMController : MonoBehaviour
         if(name == "CMBuyStand")
         {
             m_cmAnimator.SetBool("isAttacking", true);
+            RadiantClickerController.PlayRandomClip(m_audioSource, AttackingResponses);
         }
     }
 
