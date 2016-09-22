@@ -80,7 +80,7 @@ public class HandController : MonoBehaviour {
     {
         //Hijacked from SteamVR_TestThrow
         var device = SteamVR_Controller.Input((int)trackedObj.index);
-        if (joint == null && device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger) && CurrentObject != null)
+        if (joint == null && device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger) && CurrentObject == null)
         {
             this.GetComponent<SphereCollider>().enabled = false;
             var go = CurrentObject;
@@ -116,6 +116,11 @@ public class HandController : MonoBehaviour {
 
             rigidbody.maxAngularVelocity = rigidbody.angularVelocity.magnitude;
             CurrentObject = null;
+        }
+
+        if (joint != null && CurrentObject != null && device.GetPressDown(SteamVR_Controller.ButtonMask.Trigger) &&  device.GetPressDown(SteamVR_Controller.ButtonMask.Grip))
+        {
+            Debug.Log("Can use holding item");
         }
 
         this.GetComponent<SphereCollider>().enabled = true;
