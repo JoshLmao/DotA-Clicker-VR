@@ -279,4 +279,5 @@ public class CMController : MonoBehaviour
         int pick = Random.Range(60, 300);
         StartCoroutine(RareIdleCount(pick));
     }
+
 }

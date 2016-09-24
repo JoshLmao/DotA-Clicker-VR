@@ -5,7 +5,34 @@ using UnityEngine.UI;
 /// <summary>
 /// Controller for both Vive Controllers
 /// </summary>
-public class HandController : MonoBehaviour {
+public class HandController : MonoBehaviour
+{
+    public delegate void OnIronBranchModifier(string hero);
+    public static event OnIronBranchModifier IronBranchModifierAdded;
+    public delegate void OnClarityModifier(string hero);
+    public static event OnClarityModifier ClarityModifierAdded;
+    public delegate void OnMagicStickModifier(string hero);
+    public static event OnMagicStickModifier MagicStickModifierAdded;
+    public delegate void OnQuellingBladeModifier(string hero);
+    public static event OnQuellingBladeModifier QuellingBladeModifierAdded;
+    public delegate void OnMangoModifier(string hero);
+    public static event OnMangoModifier MangoModifierAdded;
+    public delegate void OnPowerTreadsModifier(string hero);
+    public static event OnPowerTreadsModifier PowerTreadsModifierAdded;
+    public delegate void OnBottleModifier(string hero);
+    public static event OnBottleModifier BottleModifierAdded;
+    public delegate void OnBlinkDaggerModifier(string hero);
+    public static event OnBlinkDaggerModifier BlinkDaggerModifierAdded;
+    public delegate void OnHyperstoneModifier(string hero);
+    public static event OnHyperstoneModifier HyperstoneModifierAdded;
+    public delegate void OnBloodstoneModifier(string hero);
+    public static event OnBloodstoneModifier BloodstoneModifierAdded;
+    public delegate void OnReaverModifier(string hero);
+    public static event OnReaverModifier ReaverModifierAdded;
+    public delegate void OnDivineRapierModifier(string hero);
+    public static event OnDivineRapierModifier DivineRapierModifierAdded;
+    public delegate void OnRecipeModifier(string hero);
+    public static event OnRecipeModifier RecipeModifierAdded;
 
     public GameObject CurrentObject { get; set; }
     public Transform PriorTranform { get; set; }
@@ -80,7 +107,7 @@ public class HandController : MonoBehaviour {
     {
         //Hijacked from SteamVR_TestThrow
         var device = SteamVR_Controller.Input((int)trackedObj.index);
-        if (joint == null && device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger) && CurrentObject == null)
+        if (joint == null && device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger) && CurrentObject != null)
         {
             this.GetComponent<SphereCollider>().enabled = false;
             var go = CurrentObject;
@@ -143,6 +170,85 @@ public class HandController : MonoBehaviour {
             Debug.Log("Killed 'Killable' tagged obj");
             col.gameObject.GetComponent<Animator>().SetTrigger("isKilled");
         }
+    }
+
+    void OnTriggerStay(Collider col)
+    {
+        if (col.tag == "ItemModifier" && CurrentObject != null) //Is holding an object & in item modifier trigger
+        {
+            string hero = col.transform.parent.name;
+            if (CurrentObject.name.Contains("iron_branchPrefab"))
+            {
+                if (IronBranchModifierAdded != null)
+                    IronBranchModifierAdded.Invoke(hero);
+            }
+            else if (CurrentObject.name.Contains("clarityPrefab"))
+            {
+                if (ClarityModifierAdded != null)
+                    ClarityModifierAdded.Invoke(hero);
+            }
+            else if (CurrentObject.name.Contains("magic_stickPrefab"))
+            {
+                if (MagicStickModifierAdded != null)
+                    MagicStickModifierAdded.Invoke(hero);
+            }
+            else if (CurrentObject.name.Contains("quelling_bladePrefab"))
+            {
+                if (QuellingBladeModifierAdded != null)
+                    QuellingBladeModifierAdded.Invoke(hero);
+            }
+            else if (CurrentObject.name.Contains("mangoPrefab"))
+            {
+                if (MangoModifierAdded != null)
+                    MangoModifierAdded.Invoke(hero);
+            }
+            else if (CurrentObject.name.Contains("power_treadsPrefab"))
+            {
+                if (PowerTreadsModifierAdded != null)
+                    PowerTreadsModifierAdded.Invoke(hero);
+            }
+            else if (CurrentObject.name.Contains("bottlePrefab"))
+            {
+                if (BottleModifierAdded != null)
+                    BottleModifierAdded.Invoke(hero);
+            }
+            else if (CurrentObject.name.Contains("blink_daggerPrefab"))
+            {
+                if (BlinkDaggerModifierAdded != null)
+                    BlinkDaggerModifierAdded.Invoke(hero);
+            }
+            else if (CurrentObject.name.Contains("hyperstonePrefab"))
+            {
+                if (HyperstoneModifierAdded != null)
+                    HyperstoneModifierAdded.Invoke(hero);
+            }
+            else if (CurrentObject.name.Contains("bloodstonePrefab"))
+            {
+                if (BloodstoneModifierAdded != null)
+                    BloodstoneModifierAdded.Invoke(hero);
+            }
+            else if (CurrentObject.name.Contains("reaverPrefab"))
+            {
+                if (ReaverModifierAdded != null)
+                    ReaverModifierAdded.Invoke(hero);
+            }
+            else if (CurrentObject.name.Contains("divine_rapierPrefab"))
+            {
+                if (DivineRapierModifierAdded != null)
+                    DivineRapierModifierAdded.Invoke(hero);
+            }
+            else if (CurrentObject.name.Contains("recipePrefab"))
+            {
+                if (RecipeModifierAdded != null)
+                    RecipeModifierAdded.Invoke(hero);
+            }
+            GameObject.Destroy(CurrentObject);
+        }
+    }
+
+    void OnTriggerExit(Collider col)
+    {
+        CurrentObject = null;
     }
 
     void OnTriggerClicked(object sender, ClickedEventArgs e)

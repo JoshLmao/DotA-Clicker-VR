@@ -78,6 +78,10 @@ public class RadiantClickerController : MonoBehaviour
     /// For stats and saving
     /// </summary>
     public float Ability2UseCount;
+    /// <summary>
+    /// 
+    /// </summary>
+    public int ItemModifierMultiplier = 1;
 
     public delegate void OnClickButton(string clickerName);
     public event OnClickButton OnClickedButton;
@@ -121,7 +125,19 @@ public class RadiantClickerController : MonoBehaviour
     //Cant Use Ability sound
     AudioClip MagicImmuneSound;
 
-	void Start ()
+    //ItemModifiers
+    bool m_ironBranchModifierActive = false, m_clarityModifierActive = false, m_magicStickModifierActive = false,
+        m_quellingBladeModifierActive = false, m_mangoModifierActive = false, m_powerTreadsModifierActive = false,
+        m_bottleModifierActive = false, m_blinkDaggerModifierActive = false, m_hyperstoneModifierActive = false,
+        m_bloodstoneModifierActive = false, m_reaverModifierActive = false, m_divineRapierModifierActive = false,
+        m_recipeModifierActive = false;
+
+    int m_ironBranchModify, m_clarityModify, m_magicStickModify, m_quellingBladeModify, m_mangoModify, m_powerTreadsModify,
+        m_bottleModify, m_blinkDaggerModify, m_hyperstoneModify, m_bloodstoneModify, m_reaverModify, m_divineRapierModify, m_recipeModify;
+
+    Image m_activeModifier = null;
+
+    void Start ()
     {
         m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
         m_heroNameText = transform.FindChild("Buttons/StandBack/StandUI/ClickerNameText").GetComponent<Text>();
@@ -135,6 +151,9 @@ public class RadiantClickerController : MonoBehaviour
 
         TimeBetweenClicks = new TimeSpan(0, 0, 0, SecondsToCompleteClick);
         //m_clickAmount = ClickAmount;
+
+        m_activeModifier = transform.Find("Buttons/StandBack/StandUI/ActiveModifierUI/ActiveModifier").GetComponent<Image>();
+        m_activeModifier.color = new Color(255, 255, 255, 0);
     }
 	
     void AbilityLevelUpStart()
@@ -163,9 +182,23 @@ public class RadiantClickerController : MonoBehaviour
         m_abil2Slider.value = 0;
 
         RadiantSceneController.LoadedSaveFile += OnLoadedSaveFile;
+
+        HandController.IronBranchModifierAdded += OnIronBranchModifier;
+        HandController.ClarityModifierAdded += OnClarityModifier;
+        HandController.MagicStickModifierAdded += OnMagicStickModifier;
+        HandController.QuellingBladeModifierAdded += OnQuellingBladeModifier;
+        HandController.MangoModifierAdded += OnMangoModifier;
+        HandController.PowerTreadsModifierAdded += OnPowerTreadsModifier;
+        HandController.BottleModifierAdded += OnBottleModifier;
+        HandController.BlinkDaggerModifierAdded += OnBlinkDaggerModifier;
+        HandController.HyperstoneModifierAdded += OnHyperstoneModifier;
+        HandController.BloodstoneModifierAdded += OnBloodstoneModifier;
+        HandController.ReaverModifierAdded += OnReaverModifier;
+        HandController.DivineRapierModifierAdded += OnDivineRapierModifier;
+        HandController.RecipeModifierAdded += OnRecipeModifier;
     }
 
-	void Update ()
+    void Update ()
     {
         UpdateUIText();
 
@@ -627,7 +660,6 @@ public class RadiantClickerController : MonoBehaviour
             canPlayNopeSound = false;
             StartCoroutine(CanPlayNopeSound());
         }
-
     }
 
     IEnumerator CanPlayNopeSound()
@@ -639,5 +671,329 @@ public class RadiantClickerController : MonoBehaviour
     void OnLoadedSaveFile(SaveFileDto saveFile)
     {
 
+    }
+
+    IEnumerator WaitForItemModifier(float activeDuration, string modifier)
+    {
+        yield return new WaitForSeconds(activeDuration);
+
+        RemoveModifier(modifier);
+    }
+
+    void OnIronBranchModifier(string hero)
+    {
+        if(!CheckIfModifierActive())
+        {
+            return;
+        }
+
+        StartCoroutine(WaitForItemModifier(30, "ironBranch"));
+
+        m_ironBranchModify = ClickAmount * ItemModifierMultiplier;
+        ClickAmount = m_ironBranchModify;
+
+        m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/iron_BranchModifier");
+        m_activeModifier.color = new Color(255, 255, 255, 1);
+        m_ironBranchModifierActive = true;
+    }
+
+    void OnClarityModifier(string hero)
+    {
+        //If a modifier is active or the clicker GameObject name isnt the same as the hero string
+        //The hero string is the parent name of the Item Prefab, which is the clicker itself.
+        if (!CheckIfModifierActive() || name != hero)
+        {
+            return;
+        }
+
+        StartCoroutine(WaitForItemModifier(30, "clarity"));
+
+        m_clarityModify = ClickAmount * (ItemModifierMultiplier * (int)1.5);
+        ClickAmount = m_clarityModify;
+
+        m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/clarityModifier");
+        m_activeModifier.color = new Color(255, 255, 255, 1);
+        m_clarityModifierActive = true;
+    }
+
+    void OnMagicStickModifier(string hero)
+    {
+        if (!CheckIfModifierActive() || name != hero)
+        {
+            return;
+        }
+
+        StartCoroutine(WaitForItemModifier(30, "magicStick"));
+
+        m_magicStickModify = ClickAmount * (ItemModifierMultiplier * (int)2);
+        ClickAmount = m_magicStickModify;
+
+        m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/magic_StickModifier");
+        m_activeModifier.color = new Color(255, 255, 255, 1);
+        m_magicStickModifierActive = true;
+    }
+
+    void OnQuellingBladeModifier(string hero)
+    {
+        if (!CheckIfModifierActive() || name != hero)
+        {
+            return;
+        }
+
+        StartCoroutine(WaitForItemModifier(30, "quellingBlade"));
+
+        m_quellingBladeModify = ClickAmount * (ItemModifierMultiplier * (int)2.5);
+        ClickAmount = m_quellingBladeModify;
+
+        m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/quelling_BladeModifier");
+        m_activeModifier.color = new Color(255, 255, 255, 1);
+        m_quellingBladeModifierActive = true;
+    }
+
+    void OnMangoModifier(string hero)
+    {
+        if (!CheckIfModifierActive() || name != hero)
+        {
+            return;
+        }
+
+        StartCoroutine(WaitForItemModifier(30, "mango"));
+
+        m_mangoModify = ClickAmount * (ItemModifierMultiplier * (int)3);
+        ClickAmount = m_mangoModify;
+
+        m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/mangoModifier");
+        m_activeModifier.color = new Color(255, 255, 255, 1);
+        m_mangoModifierActive = true;
+    }
+
+    void OnPowerTreadsModifier(string hero)
+    {
+        if (!CheckIfModifierActive() || name != hero)
+        {
+            return;
+        }
+
+        StartCoroutine(WaitForItemModifier(30, "powerTreads"));
+
+        m_powerTreadsModify = ClickAmount * (ItemModifierMultiplier * (int)3.5);
+        ClickAmount = m_powerTreadsModify;
+
+        m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/power_TreadsModifier");
+        m_activeModifier.color = new Color(255, 255, 255, 1);
+        m_powerTreadsModifierActive = true;
+    }
+
+    void OnBottleModifier(string hero)
+    {
+        if (!CheckIfModifierActive() || name != hero)
+        {
+            return;
+        }
+
+        StartCoroutine(WaitForItemModifier(30, "bottle"));
+
+        m_bottleModify = ClickAmount * (ItemModifierMultiplier * (int)4);
+        ClickAmount = m_bottleModify;
+
+        m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/bottleModifier");
+        m_activeModifier.color = new Color(255, 255, 255, 1);
+        m_bottleModifierActive = true;
+    }
+
+    void OnBlinkDaggerModifier(string hero)
+    {
+        if (!CheckIfModifierActive() || name != hero)
+        {
+            return;
+        }
+
+        StartCoroutine(WaitForItemModifier(30, "blinkDagger"));
+
+        m_blinkDaggerModify = ClickAmount * (ItemModifierMultiplier * (int)4.5);
+        ClickAmount = m_blinkDaggerModify;
+
+        m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/blink_DaggerModifier");
+        m_activeModifier.color = new Color(255, 255, 255, 1);
+        m_blinkDaggerModifierActive = true;
+    }
+
+    void OnHyperstoneModifier(string hero)
+    {
+        if (!CheckIfModifierActive() || name != hero)
+        {
+            return;
+        }
+
+        StartCoroutine(WaitForItemModifier(30, "hyperstone"));
+
+        m_hyperstoneModify = ClickAmount * (ItemModifierMultiplier * (int)5);
+        ClickAmount = m_hyperstoneModify;
+
+        m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/hyperstoneModifier");
+        m_activeModifier.color = new Color(255, 255, 255, 1);
+        m_hyperstoneModifierActive = true;
+    }
+
+    void OnBloodstoneModifier(string hero)
+    {
+        if (!CheckIfModifierActive() || name != hero)
+        {
+            return;
+        }
+
+        StartCoroutine(WaitForItemModifier(30, "bloodstone"));
+
+        m_bloodstoneModify = ClickAmount * (ItemModifierMultiplier * (int)5.5);
+        ClickAmount = m_bloodstoneModify;
+
+        m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/bloodstoneModifier");
+        m_activeModifier.color = new Color(255, 255, 255, 1);
+        m_bloodstoneModifierActive = true;
+    }
+
+    void OnReaverModifier(string hero)
+    {
+        if (!CheckIfModifierActive() || name != hero)
+        {
+            return;
+        }
+
+        StartCoroutine(WaitForItemModifier(30, "reaver"));
+
+        m_reaverModify = ClickAmount * (ItemModifierMultiplier * (int)6);
+        ClickAmount = m_reaverModify;
+
+        m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/reaverModifier");
+        m_activeModifier.color = new Color(255, 255, 255, 1);
+        m_reaverModifierActive = true;
+    }
+
+    void OnDivineRapierModifier(string hero)
+    {
+        if (!CheckIfModifierActive() || name != hero)
+        {
+            return;
+        }
+
+        StartCoroutine(WaitForItemModifier(30, "divineRaiper"));
+
+        m_divineRapierModify = ClickAmount * (ItemModifierMultiplier * (int)6.5);
+        ClickAmount = m_divineRapierModify;
+
+        m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/divine_RapierModifier");
+        m_activeModifier.color = new Color(255, 255, 255, 1);
+        m_divineRapierModifierActive = true;
+    }
+
+    void OnRecipeModifier(string hero)
+    {
+        if (!CheckIfModifierActive() || name != hero)
+        {
+            return;
+        }
+
+        StartCoroutine(WaitForItemModifier(30, "recipe"));
+
+        m_recipeModify = ClickAmount * (ItemModifierMultiplier * (int)10);
+        ClickAmount = m_recipeModify;
+
+        m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/recipeModifier");
+        m_activeModifier.color = new Color(255, 255, 255, 1);
+        m_recipeModifierActive = true;
+    }
+    /// <summary>
+    /// Returns false if a modifier is active. Return true if you can add a modifier
+    /// </summary>
+    /// <returns></returns>
+    bool CheckIfModifierActive()
+    {
+        if (m_ironBranchModifierActive || m_clarityModifierActive || m_magicStickModifierActive || m_quellingBladeModifierActive || m_mangoModifierActive || 
+            m_powerTreadsModifierActive || m_bottleModifierActive || m_blinkDaggerModifierActive || m_hyperstoneModifierActive || m_bloodstoneModifierActive || 
+            m_reaverModifierActive || m_divineRapierModifierActive || m_reaverModifierActive)
+        {
+            //Theres already a modifier applied to current hero, return false
+            return false;
+        }
+        else
+        {
+            //No modifier active on hero
+            return true;
+        }
+    }
+
+    void RemoveModifier(string modifier)
+    {
+        switch(modifier)
+        {
+            case "ironBranch":
+                {
+                    ClickAmount -= m_ironBranchModify;
+                    break;
+                }
+            case "clarity":
+                {
+                    ClickAmount -= m_clarityModify;
+                    break;
+                }
+            case "magicStick":
+                {
+                    ClickAmount -= m_magicStickModify;
+                    break;
+                }
+            case "quellingBlade":
+                {
+                    ClickAmount -= m_quellingBladeModify;
+                    break;
+                }
+            case "mango":
+                {
+                    ClickAmount -= m_mangoModify;
+                    break;
+                }
+            case "powerTreads":
+                {
+                    ClickAmount -= m_powerTreadsModify;
+                    break;
+                }
+            case "bottle":
+                {
+                    ClickAmount -= m_bottleModify;
+                    break;
+                }
+            case "blinkDagger":
+                {
+                    ClickAmount -= m_blinkDaggerModify;
+                    break;
+                }
+            case "hyperstone":
+                {
+                    ClickAmount -= m_hyperstoneModify;
+                    break;
+                }
+            case "bloodstone":
+                {
+                    ClickAmount -= m_bloodstoneModify;
+                    break;
+                }
+            case "reaver":
+                {
+                    ClickAmount -= m_reaverModify;
+                    break;
+                }
+            case "divineRapier":
+                {
+                    ClickAmount -= m_divineRapierModify;
+                    break;
+                }
+            case "recipe":
+                {
+                    ClickAmount -= m_recipeModify;
+                    break;
+                }
+        }
+        //Remove modifier image & set to transparent
+        m_activeModifier.sprite = null;
+        m_activeModifier.color = new Color(255, 255, 255, 0);
     }
 }
