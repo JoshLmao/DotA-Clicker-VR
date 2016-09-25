@@ -136,6 +136,8 @@ public class RadiantClickerController : MonoBehaviour
         m_bottleModify, m_blinkDaggerModify, m_hyperstoneModify, m_bloodstoneModify, m_reaverModify, m_divineRapierModify, m_recipeModify;
 
     Image m_activeModifier = null;
+    Transform m_itemModifierHolder;
+    GameObject m_activeItemModifierPrefab;
 
     void Start ()
     {
@@ -154,6 +156,7 @@ public class RadiantClickerController : MonoBehaviour
 
         m_activeModifier = transform.Find("Buttons/StandBack/StandUI/ActiveModifierUI/ActiveModifier").GetComponent<Image>();
         m_activeModifier.color = new Color(255, 255, 255, 0);
+        m_itemModifierHolder = transform.Find("ItemModifierStand/ItemHolderTransform").gameObject.transform;
     }
 	
     void AbilityLevelUpStart()
@@ -695,6 +698,15 @@ public class RadiantClickerController : MonoBehaviour
         m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/iron_BranchModifier");
         m_activeModifier.color = new Color(255, 255, 255, 1);
         m_ironBranchModifierActive = true;
+
+        if(m_activeItemModifierPrefab == null)
+        {
+            m_activeItemModifierPrefab = Instantiate(m_sceneController.ItemModifierDisplayPrefabs[0]);
+            //Make changes to rigidbody & position and parent it
+            m_activeItemModifierPrefab.transform.parent = m_itemModifierHolder.transform;
+            m_activeItemModifierPrefab.transform.position = Vector3.zero;
+            m_activeItemModifierPrefab.transform.rotation = Quaternion.identity;
+        }
     }
 
     void OnClarityModifier(string hero)
@@ -714,6 +726,15 @@ public class RadiantClickerController : MonoBehaviour
         m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/clarityModifier");
         m_activeModifier.color = new Color(255, 255, 255, 1);
         m_clarityModifierActive = true;
+
+        if (m_activeItemModifierPrefab == null)
+        {
+            m_activeItemModifierPrefab = Instantiate(m_sceneController.ItemModifierDisplayPrefabs[1]);
+            //Make changes to rigidbody & position and parent it
+            m_activeItemModifierPrefab.transform.parent = m_itemModifierHolder.transform;
+            m_activeItemModifierPrefab.transform.position = Vector3.zero;
+            m_activeItemModifierPrefab.transform.rotation = Quaternion.identity;
+        }
     }
 
     void OnMagicStickModifier(string hero)
@@ -731,6 +752,15 @@ public class RadiantClickerController : MonoBehaviour
         m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/magic_StickModifier");
         m_activeModifier.color = new Color(255, 255, 255, 1);
         m_magicStickModifierActive = true;
+
+        if (m_activeItemModifierPrefab == null)
+        {
+            m_activeItemModifierPrefab = Instantiate(m_sceneController.ItemModifierDisplayPrefabs[2]);
+            //Make changes to rigidbody & position and parent it
+            m_activeItemModifierPrefab.transform.parent = m_itemModifierHolder.transform;
+            m_activeItemModifierPrefab.transform.position = Vector3.zero;
+            m_activeItemModifierPrefab.transform.rotation = Quaternion.identity;
+        }
     }
 
     void OnQuellingBladeModifier(string hero)
@@ -748,6 +778,15 @@ public class RadiantClickerController : MonoBehaviour
         m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/quelling_BladeModifier");
         m_activeModifier.color = new Color(255, 255, 255, 1);
         m_quellingBladeModifierActive = true;
+
+        if (m_activeItemModifierPrefab == null)
+        {
+            m_activeItemModifierPrefab = Instantiate(m_sceneController.ItemModifierDisplayPrefabs[3]);
+            //Make changes to rigidbody & position and parent it
+            m_activeItemModifierPrefab.transform.parent = m_itemModifierHolder.transform;
+            m_activeItemModifierPrefab.transform.position = Vector3.zero;
+            m_activeItemModifierPrefab.transform.rotation = Quaternion.identity;
+        }
     }
 
     void OnMangoModifier(string hero)
@@ -765,6 +804,15 @@ public class RadiantClickerController : MonoBehaviour
         m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/mangoModifier");
         m_activeModifier.color = new Color(255, 255, 255, 1);
         m_mangoModifierActive = true;
+
+        if (m_activeItemModifierPrefab == null)
+        {
+            m_activeItemModifierPrefab = Instantiate(m_sceneController.ItemModifierDisplayPrefabs[4]);
+            //Make changes to rigidbody & position and parent it
+            m_activeItemModifierPrefab.transform.parent = m_itemModifierHolder.transform;
+            m_activeItemModifierPrefab.transform.position = Vector3.zero;
+            m_activeItemModifierPrefab.transform.rotation = Quaternion.identity;
+        }
     }
 
     void OnPowerTreadsModifier(string hero)
@@ -782,6 +830,15 @@ public class RadiantClickerController : MonoBehaviour
         m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/power_TreadsModifier");
         m_activeModifier.color = new Color(255, 255, 255, 1);
         m_powerTreadsModifierActive = true;
+
+        if (m_activeItemModifierPrefab == null)
+        {
+            m_activeItemModifierPrefab = Instantiate(m_sceneController.ItemModifierDisplayPrefabs[5]);
+            //Make changes to rigidbody & position and parent it
+            m_activeItemModifierPrefab.transform.parent = m_itemModifierHolder.transform;
+            m_activeItemModifierPrefab.transform.position = Vector3.zero;
+            m_activeItemModifierPrefab.transform.rotation = Quaternion.identity;
+        }
     }
 
     void OnBottleModifier(string hero)
@@ -799,6 +856,15 @@ public class RadiantClickerController : MonoBehaviour
         m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/bottleModifier");
         m_activeModifier.color = new Color(255, 255, 255, 1);
         m_bottleModifierActive = true;
+
+        if (m_activeItemModifierPrefab == null)
+        {
+            m_activeItemModifierPrefab = Instantiate(m_sceneController.ItemModifierDisplayPrefabs[6]);
+            //Make changes to rigidbody & position and parent it
+            m_activeItemModifierPrefab.transform.parent = m_itemModifierHolder.transform;
+            m_activeItemModifierPrefab.transform.position = Vector3.zero;
+            m_activeItemModifierPrefab.transform.rotation = Quaternion.identity;
+        }
     }
 
     void OnBlinkDaggerModifier(string hero)
@@ -816,6 +882,15 @@ public class RadiantClickerController : MonoBehaviour
         m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/blink_DaggerModifier");
         m_activeModifier.color = new Color(255, 255, 255, 1);
         m_blinkDaggerModifierActive = true;
+
+        if (m_activeItemModifierPrefab == null)
+        {
+            m_activeItemModifierPrefab = Instantiate(m_sceneController.ItemModifierDisplayPrefabs[7]);
+            //Make changes to rigidbody & position and parent it
+            m_activeItemModifierPrefab.transform.parent = m_itemModifierHolder.transform;
+            m_activeItemModifierPrefab.transform.position = Vector3.zero;
+            m_activeItemModifierPrefab.transform.rotation = Quaternion.identity;
+        }
     }
 
     void OnHyperstoneModifier(string hero)
@@ -833,6 +908,15 @@ public class RadiantClickerController : MonoBehaviour
         m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/hyperstoneModifier");
         m_activeModifier.color = new Color(255, 255, 255, 1);
         m_hyperstoneModifierActive = true;
+
+        if (m_activeItemModifierPrefab == null)
+        {
+            m_activeItemModifierPrefab = Instantiate(m_sceneController.ItemModifierDisplayPrefabs[8]);
+            //Make changes to rigidbody & position and parent it
+            m_activeItemModifierPrefab.transform.parent = m_itemModifierHolder.transform;
+            m_activeItemModifierPrefab.transform.position = Vector3.zero;
+            m_activeItemModifierPrefab.transform.rotation = Quaternion.identity;
+        }
     }
 
     void OnBloodstoneModifier(string hero)
@@ -850,6 +934,15 @@ public class RadiantClickerController : MonoBehaviour
         m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/bloodstoneModifier");
         m_activeModifier.color = new Color(255, 255, 255, 1);
         m_bloodstoneModifierActive = true;
+
+        if (m_activeItemModifierPrefab == null)
+        {
+            m_activeItemModifierPrefab = Instantiate(m_sceneController.ItemModifierDisplayPrefabs[9]);
+            //Make changes to rigidbody & position and parent it
+            m_activeItemModifierPrefab.transform.parent = m_itemModifierHolder.transform;
+            m_activeItemModifierPrefab.transform.position = Vector3.zero;
+            m_activeItemModifierPrefab.transform.rotation = Quaternion.identity;
+        }
     }
 
     void OnReaverModifier(string hero)
@@ -867,6 +960,15 @@ public class RadiantClickerController : MonoBehaviour
         m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/reaverModifier");
         m_activeModifier.color = new Color(255, 255, 255, 1);
         m_reaverModifierActive = true;
+
+        if (m_activeItemModifierPrefab == null)
+        {
+            m_activeItemModifierPrefab = Instantiate(m_sceneController.ItemModifierDisplayPrefabs[10]);
+            //Make changes to rigidbody & position and parent it
+            m_activeItemModifierPrefab.transform.parent = m_itemModifierHolder.transform;
+            m_activeItemModifierPrefab.transform.position = Vector3.zero;
+            m_activeItemModifierPrefab.transform.rotation = Quaternion.identity;
+        }
     }
 
     void OnDivineRapierModifier(string hero)
@@ -884,6 +986,15 @@ public class RadiantClickerController : MonoBehaviour
         m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/divine_RapierModifier");
         m_activeModifier.color = new Color(255, 255, 255, 1);
         m_divineRapierModifierActive = true;
+
+        if (m_activeItemModifierPrefab == null)
+        {
+            m_activeItemModifierPrefab = Instantiate(m_sceneController.ItemModifierDisplayPrefabs[11]);
+            //Make changes to rigidbody & position and parent it
+            m_activeItemModifierPrefab.transform.parent = m_itemModifierHolder.transform;
+            m_activeItemModifierPrefab.transform.position = Vector3.zero;
+            m_activeItemModifierPrefab.transform.rotation = Quaternion.identity;
+        }
     }
 
     void OnRecipeModifier(string hero)
@@ -901,7 +1012,17 @@ public class RadiantClickerController : MonoBehaviour
         m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/recipeModifier");
         m_activeModifier.color = new Color(255, 255, 255, 1);
         m_recipeModifierActive = true;
+
+        if (m_activeItemModifierPrefab == null)
+        {
+            m_activeItemModifierPrefab = Instantiate(m_sceneController.ItemModifierDisplayPrefabs[12]);
+            //Make changes to rigidbody & position and parent it
+            m_activeItemModifierPrefab.transform.parent = m_itemModifierHolder.transform;
+            m_activeItemModifierPrefab.transform.position = Vector3.zero;
+            m_activeItemModifierPrefab.transform.rotation = Quaternion.identity;
+        }
     }
+
     /// <summary>
     /// Returns false if a modifier is active. Return true if you can add a modifier
     /// </summary>
@@ -995,5 +1116,9 @@ public class RadiantClickerController : MonoBehaviour
         //Remove modifier image & set to transparent
         m_activeModifier.sprite = null;
         m_activeModifier.color = new Color(255, 255, 255, 0);
+        
+        //Delete active item
+        Destroy(m_activeItemModifierPrefab);
+        m_activeItemModifierPrefab = null;
     }
 }

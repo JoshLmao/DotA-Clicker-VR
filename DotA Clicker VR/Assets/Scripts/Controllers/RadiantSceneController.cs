@@ -21,6 +21,8 @@ public class RadiantSceneController : MonoBehaviour
     public GameObject AegisPrefab;
     public GameObject CheesePrefab;
 
+    public GameObject[] ItemModifierDisplayPrefabs;
+
     public const string THOUSAND_FORMAT = "{0}, {1}, {2}";
     public const string MILLION_FORMAT = "{0} million";
     public const string BILLION_FORMAT = "{0} billion";
