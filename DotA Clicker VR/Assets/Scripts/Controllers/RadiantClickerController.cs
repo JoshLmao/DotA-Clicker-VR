@@ -685,7 +685,7 @@ public class RadiantClickerController : MonoBehaviour
 
     void OnIronBranchModifier(string hero)
     {
-        if(!CheckIfModifierActive())
+        if(!CheckIfModifierActive() || name != hero)
         {
             return;
         }
@@ -978,7 +978,7 @@ public class RadiantClickerController : MonoBehaviour
             return;
         }
 
-        StartCoroutine(WaitForItemModifier(30, "divineRaiper"));
+        StartCoroutine(WaitForItemModifier(30, "divineRapier"));
 
         m_divineRapierModify = ClickAmount * (ItemModifierMultiplier * (int)6.5);
         ClickAmount = m_divineRapierModify;
@@ -1050,69 +1050,83 @@ public class RadiantClickerController : MonoBehaviour
             case "ironBranch":
                 {
                     ClickAmount -= m_ironBranchModify;
+                    m_ironBranchModifierActive = false;
                     break;
                 }
             case "clarity":
                 {
                     ClickAmount -= m_clarityModify;
+                    m_clarityModifierActive = false;
                     break;
                 }
             case "magicStick":
                 {
                     ClickAmount -= m_magicStickModify;
+                    m_magicStickModifierActive = false;
                     break;
                 }
             case "quellingBlade":
                 {
                     ClickAmount -= m_quellingBladeModify;
+                    m_quellingBladeModifierActive = false;
                     break;
                 }
             case "mango":
                 {
                     ClickAmount -= m_mangoModify;
+                    m_mangoModifierActive = false;
                     break;
                 }
             case "powerTreads":
                 {
                     ClickAmount -= m_powerTreadsModify;
+                    m_powerTreadsModifierActive = false;
                     break;
                 }
             case "bottle":
                 {
                     ClickAmount -= m_bottleModify;
+                    m_bottleModifierActive = false;
                     break;
                 }
             case "blinkDagger":
                 {
                     ClickAmount -= m_blinkDaggerModify;
+                    m_blinkDaggerModifierActive = false;
                     break;
                 }
             case "hyperstone":
                 {
                     ClickAmount -= m_hyperstoneModify;
+                    m_hyperstoneModifierActive = false;
                     break;
                 }
             case "bloodstone":
                 {
                     ClickAmount -= m_bloodstoneModify;
+                    m_bloodstoneModifierActive = false;
                     break;
                 }
             case "reaver":
                 {
                     ClickAmount -= m_reaverModify;
+                    m_reaverModifierActive = false;
                     break;
                 }
             case "divineRapier":
                 {
                     ClickAmount -= m_divineRapierModify;
+                    m_divineRapierModifierActive = false;
                     break;
                 }
             case "recipe":
                 {
                     ClickAmount -= m_recipeModify;
+                    m_recipeModifierActive = false;
                     break;
                 }
         }
+
         //Remove modifier image & set to transparent
         m_activeModifier.sprite = null;
         m_activeModifier.color = new Color(255, 255, 255, 0);

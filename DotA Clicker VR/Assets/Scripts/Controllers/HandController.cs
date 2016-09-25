@@ -176,7 +176,7 @@ public class HandController : MonoBehaviour
     {
         if (col.tag == "ItemModifier" && CurrentObject != null) //Is holding an object & in item modifier trigger
         {
-            string hero = col.transform.parent.name;
+            string hero = col.transform.parent.parent.name; //Heirarchy is [ClickerName]BuyStand > ItemModifierStand > Collider
             if (CurrentObject.name.Contains("iron_branchPrefab"))
             {
                 if (IronBranchModifierAdded != null)
