@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System;
 
 public class CMController : MonoBehaviour
 {
@@ -80,7 +81,7 @@ public class CMController : MonoBehaviour
         UpgradesController.BuyFrostbiteUpgrade += BuyFrostbiteUpgrade;
         ManagersController.BuyIoManager += BuyIoManager;
 
-        int pick = Random.Range(60, 300);
+        int pick = UnityEngine.Random.Range(60, 300);
         StartCoroutine(RareIdleCount(pick));
     }
 
@@ -255,6 +256,7 @@ public class CMController : MonoBehaviour
     void RemoveCrystalNovaEffects()
     {
         m_clickerController.ClickAmount -= (m_crystalNovaModifiedValue / 2);
+        m_clickerController.m_ability1ClickTime = DateTime.MinValue;
     }
 
     void FrostbiteEffects()
@@ -270,13 +272,14 @@ public class CMController : MonoBehaviour
     void RemoveFrostbiteEffects()
     {
         m_clickerController.ClickAmount -= (m_frostbiteModifiedValue / 2);
+        m_clickerController.m_ability2ClickTime = DateTime.MinValue;
     }
 
     IEnumerator RareIdleCount(float time)
     {
         yield return new WaitForSeconds(time);
         m_cmAnimator.SetTrigger("doRareIdle");
-        int pick = Random.Range(60, 300);
+        int pick = UnityEngine.Random.Range(60, 300);
         StartCoroutine(RareIdleCount(pick));
     }
 

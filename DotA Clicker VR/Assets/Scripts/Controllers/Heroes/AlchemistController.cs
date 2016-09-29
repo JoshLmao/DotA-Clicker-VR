@@ -246,6 +246,7 @@ public class AlchemistController : MonoBehaviour
     void RemoveGreevilsGreedEffects()
     {
 
+        m_clickerController.m_ability1ClickTime = DateTime.MinValue;
     }
 
     void ChemicalRageEffects()
@@ -262,7 +263,7 @@ public class AlchemistController : MonoBehaviour
 
     void RemoveChemicalRageEffects()
     {
-
+        m_clickerController.m_ability2ClickTime = DateTime.MinValue;
     }
 
     IEnumerator RareIdleCount(float time)

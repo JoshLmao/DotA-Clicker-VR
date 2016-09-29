@@ -254,7 +254,7 @@ public class SvenController : MonoBehaviour
 
     void RemoveWarCryEffects()
     {
-
+        m_clickerController.m_ability1ClickTime = System.DateTime.MinValue;
     }
 
     void GodsStrengthEffects()
@@ -265,6 +265,7 @@ public class SvenController : MonoBehaviour
     void RemoveGodsStrengthEffects()
     {
         m_godsStrengthActiveFade.gameObject.SetActive(true);
+        m_clickerController.m_ability2ClickTime = System.DateTime.MinValue;
 
         //do effects
 

@@ -256,6 +256,7 @@ public class RubickController : MonoBehaviour
     void RemoveTelekinesisEffects()
     {
         m_clickerController.ClickAmount -= (m_telekinesisModifiedValue / 2);
+        m_clickerController.m_ability1ClickTime = System.DateTime.MinValue;
     }
 
     void SpellStealEffects()
@@ -269,7 +270,7 @@ public class RubickController : MonoBehaviour
 
     void RemoveSpellStealEffects()
     {
-
+        m_clickerController.m_ability2ClickTime = System.DateTime.MinValue;
     }
 
     IEnumerator RareIdleCount(float time)

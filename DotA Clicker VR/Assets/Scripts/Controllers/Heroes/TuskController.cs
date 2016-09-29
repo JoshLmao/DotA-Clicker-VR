@@ -304,6 +304,7 @@ public class TuskController : MonoBehaviour
     void RemoveSnowballEffects()
     {
         m_clickerController.ClickAmount -= (m_snowballModifiedValue / 2);
+        m_clickerController.m_ability1ClickTime = System.DateTime.MinValue;
     }
 
     void WalrusPunchEffects()
@@ -319,7 +320,8 @@ public class TuskController : MonoBehaviour
 
     void RemoveWalrusPunchEffects()
     {
-        //Don't need. Keep for consistency sake
+        //Don't need. Keep for consistency sake //Yes, we do need
+        m_clickerController.m_ability2ClickTime = System.DateTime.MinValue;
     }
 
     IEnumerator RareIdleCount(float time)

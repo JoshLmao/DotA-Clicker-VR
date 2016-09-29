@@ -342,7 +342,7 @@ public class PhoenixController : MonoBehaviour
 
     void RemoveSunrayEffects()
     {
-
+        m_clickerController.m_ability1ClickTime = DateTime.MinValue;
     }
 
     void SupernovaEffects()
@@ -366,7 +366,7 @@ public class PhoenixController : MonoBehaviour
 
     void RemoveSupernovaEffects()
     {
-
+        m_clickerController.m_ability2ClickTime = DateTime.MinValue;
     }
 
     IEnumerator RareIdleCount(float time)

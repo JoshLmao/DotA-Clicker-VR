@@ -254,6 +254,7 @@ public class OgreMagiController : MonoBehaviour
     void RemoveFireblastEffects()
     {
         m_clickerController.ClickAmount -= (m_fireblastModifiedValue / 2);
+        m_clickerController.m_ability1ClickTime = DateTime.MinValue;
     }
     int bloodlustOldValue;
 
@@ -271,6 +272,7 @@ public class OgreMagiController : MonoBehaviour
     void RemoveBloodlustEffects()
     {
         m_clickerController.TimeBetweenClicks = new TimeSpan(0, 0, bloodlustOldValue);
+        m_clickerController.m_ability2ClickTime = DateTime.MinValue;
     }
 
     IEnumerator RareIdleCount(float time)

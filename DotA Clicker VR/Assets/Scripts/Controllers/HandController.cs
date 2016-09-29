@@ -93,7 +93,6 @@ public class HandController : MonoBehaviour
 
         if (AimingAtUI)
         {
-
             //Detect for Scrollable UI
             if (m_scrollableMenu != null)
             {
@@ -263,7 +262,8 @@ public class HandController : MonoBehaviour
 
     void OnPointerIn(object sender, PointerEventArgs e)
     {
-        if(e.target.gameObject.layer == 5)
+        //Debug.Log("Aiming at '" + e.target.gameObject.name + "' and has layer '" + e.target.gameObject.layer + "'");
+        if (e.target.gameObject.layer == 5)
         {
             AimingAtUI = true;
         }
@@ -275,7 +275,7 @@ public class HandController : MonoBehaviour
 
     void OnPointerOut(object sender, PointerEventArgs e)
     {
-
+        AimingAtUI = false;
     }
 
     /// <summary>

@@ -139,6 +139,12 @@ public class RadiantClickerController : MonoBehaviour
     Transform m_itemModifierHolder;
     GameObject m_activeItemModifierPrefab;
 
+    //Track Start Times of Coroutines
+    public DateTime m_currentModifierRoutineStarted;
+    public TimeSpan m_currentClickTimePassed;
+    public DateTime m_ability1ClickTime = DateTime.MinValue;
+    public DateTime m_ability2ClickTime = DateTime.MinValue;
+
     void Start ()
     {
         m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
@@ -157,6 +163,8 @@ public class RadiantClickerController : MonoBehaviour
         m_activeModifier = transform.Find("Buttons/StandBack/StandUI/ActiveModifierUI/ActiveModifier").GetComponent<Image>();
         m_activeModifier.color = new Color(255, 255, 255, 0);
         m_itemModifierHolder = transform.Find("ItemModifierStand/ItemHolderTransform").gameObject.transform;
+
+        RadiantSceneController.LoadedSaveFile += OnLoadedSaveFile;
     }
 	
     void AbilityLevelUpStart()
@@ -208,7 +216,8 @@ public class RadiantClickerController : MonoBehaviour
         if(IsClicked)
         {
             CurrentClickerTime = DateTime.Now - m_lastClickedTime;
-            if(CurrentClickerTime >= TimeBetweenClicks)
+            m_currentClickTimePassed = CurrentClickerTime; //For saving, how much time has passed on current click
+            if (CurrentClickerTime >= TimeBetweenClicks)
             {
                 IsClicked = false;
                 CompletedClick();
@@ -278,6 +287,7 @@ public class RadiantClickerController : MonoBehaviour
         OnClickedFinished.Invoke(name);
 
         m_sceneController.ClickCount++; //Add to global click count
+        m_lastClickedTime = DateTime.MinValue;
     }
 
     public void BuyManager(GameObject obj)
@@ -310,6 +320,7 @@ public class RadiantClickerController : MonoBehaviour
                 HandController.RumbleController(index, 2000);
                 Ability1Used();
                 Ability1UseCount++;
+                m_ability1ClickTime = DateTime.Now;
             }
             else if(abilityName == "FrostbiteBtn")
             {
@@ -323,6 +334,7 @@ public class RadiantClickerController : MonoBehaviour
                 HandController.RumbleController(index, 2000);
                 Ability2Used();
                 Ability2UseCount++;
+                m_ability2ClickTime = DateTime.Now;
             }
         }
         else if (abilityName == "TelekinesisBtn" || abilityName == "SpellStealBtn")
@@ -343,6 +355,7 @@ public class RadiantClickerController : MonoBehaviour
                 HandController.RumbleController(index, 2000);
                 Ability1Used();
                 Ability1UseCount++;
+                m_ability1ClickTime = DateTime.Now;
             }
             else if(abilityName == "SpellStealBtn")
             {
@@ -356,6 +369,7 @@ public class RadiantClickerController : MonoBehaviour
                 HandController.RumbleController(index, 2000);
                 Ability2Used();
                 Ability2UseCount++;
+                m_ability2ClickTime = DateTime.Now;
             }
         }
         else if (abilityName == "FireblastBtn" || abilityName == "BloodlustBtn")
@@ -376,6 +390,7 @@ public class RadiantClickerController : MonoBehaviour
                 HandController.RumbleController(index, 2000);
                 Ability1Used();
                 Ability1UseCount++;
+                m_ability1ClickTime = DateTime.Now;
             }
             else if(abilityName == "BloodlustBtn")
             {
@@ -389,6 +404,7 @@ public class RadiantClickerController : MonoBehaviour
                 HandController.RumbleController(index, 2000);
                 Ability2Used();
                 Ability2UseCount++;
+                m_ability2ClickTime = DateTime.Now;
             }
         }
         else if (abilityName == "SnowballBtn" || abilityName == "WalrusPunchBtn")
@@ -409,6 +425,7 @@ public class RadiantClickerController : MonoBehaviour
                 HandController.RumbleController(index, 2000);
                 Ability1Used();
                 Ability1UseCount++;
+                m_ability1ClickTime = DateTime.Now;
             }
             else if(abilityName == "WalrusPunchBtn")
             {
@@ -422,6 +439,7 @@ public class RadiantClickerController : MonoBehaviour
                 HandController.RumbleController(index, 2000);
                 Ability2Used();
                 Ability2UseCount++;
+                m_ability2ClickTime = DateTime.Now;
             }
         }
         else if (abilityName == "SunrayBtn" || abilityName == "SupernovaBtn")
@@ -442,6 +460,7 @@ public class RadiantClickerController : MonoBehaviour
                 HandController.RumbleController(index, 2000);
                 Ability1Used();
                 Ability1UseCount++;
+                m_ability1ClickTime = DateTime.Now;
             }
             else if(abilityName == "SupernovaBtn")
             {
@@ -455,6 +474,7 @@ public class RadiantClickerController : MonoBehaviour
                 HandController.RumbleController(index, 2000);
                 Ability2Used();
                 Ability2UseCount++;
+                m_ability2ClickTime = DateTime.Now;
             }
         }
         else if (abilityName == "WarCryBtn" || abilityName == "GodsStrengthBtn")
@@ -475,6 +495,7 @@ public class RadiantClickerController : MonoBehaviour
                 HandController.RumbleController(index, 2000);
                 Ability1Used();
                 Ability1UseCount++;
+                m_ability1ClickTime = DateTime.Now;
             }
             else if (abilityName == "GodsStrengthBtn")
             {
@@ -488,6 +509,7 @@ public class RadiantClickerController : MonoBehaviour
                 HandController.RumbleController(index, 2000);
                 Ability2Used();
                 Ability2UseCount++;
+                m_ability2ClickTime = DateTime.Now;
             }
         }
         else if (abilityName == "BlinkBtn" || abilityName == "ManaVoid")
@@ -508,6 +530,7 @@ public class RadiantClickerController : MonoBehaviour
                 HandController.RumbleController(index, 2000);
                 Ability1Used();
                 Ability1UseCount++;
+                m_ability1ClickTime = DateTime.Now;
             }
             else if (abilityName == "ManaVoid")
             {
@@ -521,6 +544,7 @@ public class RadiantClickerController : MonoBehaviour
                 HandController.RumbleController(index, 2000);
                 Ability2Used();
                 Ability2UseCount++;
+                m_ability2ClickTime = DateTime.Now;
             }
         }
         else if (abilityName == "GreevilsGreedBtn" || abilityName == "ChemicalRageBtn")
@@ -541,6 +565,7 @@ public class RadiantClickerController : MonoBehaviour
                 HandController.RumbleController(index, 2000);
                 Ability1Used();
                 Ability1UseCount++;
+                m_ability1ClickTime = DateTime.Now;
             }
             else
             {
@@ -554,6 +579,7 @@ public class RadiantClickerController : MonoBehaviour
                 HandController.RumbleController(index, 2000);
                 Ability2Used();
                 Ability2UseCount++;
+                m_ability2ClickTime = DateTime.Now;
             }
         }   
     }
@@ -671,16 +697,13 @@ public class RadiantClickerController : MonoBehaviour
         canPlayNopeSound = true;
     }
 
-    void OnLoadedSaveFile(SaveFileDto saveFile)
-    {
-
-    }
-
     IEnumerator WaitForItemModifier(float activeDuration, string modifier)
     {
+        m_currentModifierRoutineStarted = DateTime.Now;
         yield return new WaitForSeconds(activeDuration);
 
         RemoveModifier(modifier);
+        m_currentModifierRoutineStarted = DateTime.MinValue;
     }
 
     void OnIronBranchModifier(string hero)
@@ -1134,5 +1157,21 @@ public class RadiantClickerController : MonoBehaviour
         //Delete active item
         Destroy(m_activeItemModifierPrefab);
         m_activeItemModifierPrefab = null;
+    }
+
+    void OnLoadedSaveFile(SaveFileDto saveFile)
+    {
+        List<HeroDto> heroes = saveFile.RadiantSide.Heroes;
+        foreach (HeroDto hero in heroes)
+        {
+            if (hero.HeroName == HeroName)
+            {
+                //Apply save to hero
+            }
+            else
+            {
+                continue;
+            }
+        }
     }
 }

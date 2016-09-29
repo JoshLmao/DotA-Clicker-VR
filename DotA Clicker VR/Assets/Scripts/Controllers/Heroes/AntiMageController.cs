@@ -248,7 +248,7 @@ public class AntiMageController : MonoBehaviour
 
     void RemoveBlinkEffects()
     {
-
+        m_clickerController.m_ability1ClickTime = DateTime.MinValue;
     }
 
     void ManaVoidEffects()
@@ -285,7 +285,7 @@ public class AntiMageController : MonoBehaviour
 
     void RemoveManaVoidEffects()
     {
-
+        m_clickerController.m_ability2ClickTime = DateTime.MinValue;
     }
 
     IEnumerator RareIdleCount(float time)
