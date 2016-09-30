@@ -53,13 +53,18 @@ public class RadiantSceneController : MonoBehaviour
     bool m_roshanEventInProgress = false;
     GameObject ActiveRoshan;
     AchievementEvents m_achievementEvents;
+    
+    void Awake()
+    {
+        //Last
+        LoadProgress();
+        CurrentConfigFile = LoadConfig();
+    }
 
     void Start ()
     {
         m_achievementEvents = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
 
-        LoadProgress();
-        CurrentConfigFile = LoadConfig();
         m_goldUI = GameObject.Find("UI/WorldSpaceUI/TotalGoldCanvas/TotalGoldText").GetComponent<Text>();
 
         SceneHeroes = GetClickerHeroesInScene();
@@ -103,7 +108,7 @@ public class RadiantSceneController : MonoBehaviour
         if (LoadedSaveFile != null)
             LoadedSaveFile.Invoke(CurrentSaveFile);
 
-        if(CurrentSaveFile.PlayerName.ToLower() == "420bootywizard")
+        if (CurrentSaveFile.PlayerName.ToLower() == "420bootywizard")
         {
             AchievementEvents events = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
             events.TheManTheMythTheLegend.Invoke();
@@ -145,6 +150,8 @@ public class RadiantSceneController : MonoBehaviour
             
         }
 
+        BuyableItemsController modifierController = GameObject.Find("ItemsListCanvas").GetComponent<BuyableItemsController>();
+
         //Save data
         SaveFileDto saveFile = new SaveFileDto()
         {
@@ -174,6 +181,7 @@ public class RadiantSceneController : MonoBehaviour
                         Ability2RemainingTime = SceneHeroes[3].m_ability2ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[3].m_ability2ClickTime) : 0,
 
                         ModifierActive = SceneHeroes[3].m_currentModifierRoutineStarted == DateTime.MinValue ? false : true,
+                        CurrentModifier = SceneHeroes[3].m_currentModifier,
                         ModifierTimeRemaining = SceneHeroes[3].m_currentModifierRoutineStarted != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[3].m_currentModifierRoutineStarted) : 0,
                     },
                     new HeroDto()
@@ -191,6 +199,7 @@ public class RadiantSceneController : MonoBehaviour
                         Ability2RemainingTime = SceneHeroes[7].m_ability2ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[7].m_ability2ClickTime) : 0,
 
                         ModifierActive = SceneHeroes[7].m_currentModifierRoutineStarted == DateTime.MinValue ? false : true,
+                        CurrentModifier = SceneHeroes[7].m_currentModifier,
                         ModifierTimeRemaining = SceneHeroes[7].m_currentModifierRoutineStarted != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[7].m_currentModifierRoutineStarted) : 0,
                     },
                     new HeroDto()
@@ -208,6 +217,7 @@ public class RadiantSceneController : MonoBehaviour
                         Ability2RemainingTime = SceneHeroes[1].m_ability2ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[1].m_ability2ClickTime) : 0,
 
                         ModifierActive = SceneHeroes[1].m_currentModifierRoutineStarted == DateTime.MinValue ? false : true,
+                        CurrentModifier = SceneHeroes[1].m_currentModifier,
                         ModifierTimeRemaining = SceneHeroes[1].m_currentModifierRoutineStarted != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[1].m_currentModifierRoutineStarted) : 0,
                     },
                     new HeroDto()
@@ -225,6 +235,7 @@ public class RadiantSceneController : MonoBehaviour
                         Ability2RemainingTime = SceneHeroes[2].m_ability2ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[2].m_ability2ClickTime) : 0,
 
                         ModifierActive = SceneHeroes[2].m_currentModifierRoutineStarted == DateTime.MinValue ? false : true,
+                        CurrentModifier = SceneHeroes[2].m_currentModifier,
                         ModifierTimeRemaining = SceneHeroes[2].m_currentModifierRoutineStarted != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[2].m_currentModifierRoutineStarted) : 0,
                     },
                     new HeroDto()
@@ -242,6 +253,7 @@ public class RadiantSceneController : MonoBehaviour
                         Ability2RemainingTime = SceneHeroes[6].m_ability2ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[6].m_ability2ClickTime) : 0,
 
                         ModifierActive = SceneHeroes[6].m_currentModifierRoutineStarted == DateTime.MinValue ? false : true,
+                        CurrentModifier = SceneHeroes[6].m_currentModifier,
                         ModifierTimeRemaining = SceneHeroes[6].m_currentModifierRoutineStarted != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[6].m_currentModifierRoutineStarted) : 0,
                     },
                     new HeroDto()
@@ -259,6 +271,7 @@ public class RadiantSceneController : MonoBehaviour
                         Ability2RemainingTime = SceneHeroes[5].m_ability2ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[5].m_ability2ClickTime) : 0,
 
                         ModifierActive = SceneHeroes[5].m_currentModifierRoutineStarted == DateTime.MinValue ? false : true,
+                        CurrentModifier = SceneHeroes[5].m_currentModifier,
                         ModifierTimeRemaining = SceneHeroes[5].m_currentModifierRoutineStarted != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[5].m_currentModifierRoutineStarted) : 0,
                     },
                     new HeroDto()
@@ -276,6 +289,7 @@ public class RadiantSceneController : MonoBehaviour
                         Ability2RemainingTime = SceneHeroes[4].m_ability2ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[4].m_ability2ClickTime) : 0,
 
                         ModifierActive = SceneHeroes[4].m_currentModifierRoutineStarted == DateTime.MinValue ? false : true,
+                        CurrentModifier = SceneHeroes[4].m_currentModifier,
                         ModifierTimeRemaining = SceneHeroes[4].m_currentModifierRoutineStarted != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[4].m_currentModifierRoutineStarted) : 0,
                     },
                     new HeroDto()
@@ -293,6 +307,7 @@ public class RadiantSceneController : MonoBehaviour
                         Ability2RemainingTime = SceneHeroes[0].m_ability2ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[0].m_ability2ClickTime) : 0,
 
                         ModifierActive = SceneHeroes[0].m_currentModifierRoutineStarted == DateTime.MinValue ? false : true,
+                        CurrentModifier = SceneHeroes[0].m_currentModifier,
                         ModifierTimeRemaining = SceneHeroes[0].m_currentModifierRoutineStarted != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[0].m_currentModifierRoutineStarted) : 0,
                     },
                 },
@@ -311,6 +326,20 @@ public class RadiantSceneController : MonoBehaviour
             {
                 TotalPlayTime = hasSaveFile ? CurrentSaveFile.SessionStats.TotalPlayTime += m_totalPlayTime : m_totalPlayTime,
                 ClickCount = ClickCount,
+
+                IronBranchCount = modifierController.IronBranchCount,
+                ClarityCount = modifierController.ClarityCount,
+                MagicStickCount = modifierController.MagicStickCount,
+                QuellingBladeCount = modifierController.QuellingBladeCount,
+                MangoCount = modifierController.MangoCount,
+                PowerTreadsCount = modifierController.PowerTreadsCount,
+                BottleCount = modifierController.BottleCount,
+                BlinkDaggerCount = modifierController.BlinkDaggerCount,
+                HyperstoneCount = modifierController.HyperstoneCount,
+                BloodstoneCount = modifierController.BloodstoneCount,
+                ReaverCount = modifierController.ReaverCount,
+                DivineRapierCount = modifierController.DivineRapierCount,
+                RecipeCount = modifierController.RecipeCount,
             },
             Achievements = new AchievementsDto()
             {
@@ -518,6 +547,7 @@ public class RadiantSceneController : MonoBehaviour
     public void OnLoadedSave(SaveFileDto saveFile)
     {
         TotalGold = saveFile.RadiantSide.TotalGold;
+        m_canDoRoshanEvent = saveFile.RadiantSide.RoshanEvents;
     }
 
     double CalculateTimeRemaining(DateTime start)

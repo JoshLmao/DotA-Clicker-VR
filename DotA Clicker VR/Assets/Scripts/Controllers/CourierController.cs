@@ -45,13 +45,15 @@ public class CourierController : MonoBehaviour
     RadiantSceneController m_sceneController;
     GameObject m_invalidTwitchAuth;
 
+    MediaPlayerCtrl m_mediaController;
+
     void Start ()
     {
         m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
 
         m_courier = this.gameObject;
         m_stream = transform.Find("TwitchStreamCanvas/StreamTexture").GetComponent<GUITexture>();
-        m_streamAudio = transform.Find("TwitchStreamCanvas/StreamAudioSource").GetComponent<AudioSource>();
+        m_streamAudio = transform.Find("TwitchStreamCanvas/StreamTexture").GetComponent<AudioSource>();
         m_player = GameObject.Find("[CameraRig]").gameObject;
         courierWaypoint = GameObject.Find("CourierWaypoint");
         m_crowAnimator = transform.Find("BabyRoshanModel").GetComponent<Animator>();
@@ -87,6 +89,8 @@ public class CourierController : MonoBehaviour
         {
             m_invalidTwitchAuth.SetActive(true);
         }
+
+        m_mediaController = transform.Find("TwitchStreamCanvas/StreamTexture").GetComponent<MediaPlayerCtrl>();
     }
 
     void Update ()
@@ -113,29 +117,6 @@ public class CourierController : MonoBehaviour
         m_streamURLUI.transform.Find("InputStream").GetComponent<Text>().text = m_keyboardController.Input;
     }
 
-    IEnumerator StreamStartup()
-    {
-        m_wwwData = new WWW(m_streamURL);
-        Debug.Log(m_streamURL);
-        yield return m_wwwData;
-        RawImage renderer = m_stream.GetComponent<RawImage>();
-        renderer.texture = m_wwwData.texture;
-
-        //while (!movieTexture.isReadyToPlay)
-        //{
-        //    Debug.Log("Not ready to play");
-        //    return;
-        //}
-
-        //var gt = m_stream;
-        //gt.texture = movieTexture;
-
-        //m_streamAudio.clip = movieTexture.audioClip;
-
-        //movieTexture.Play();
-        //m_streamAudio.Play();
-    }
-
     void OnTriggerEnter(Collider col)
     {
         if(col.tag == "CourierTrigger")
@@ -160,6 +141,11 @@ public class CourierController : MonoBehaviour
         {
             m_followBtn.GetComponent<Image>().sprite = m_toggleEnabled;
             m_followBtn.GetComponentInChildren<Text>().text = "Unfollow";
+
+            if(LockRotation)
+            {
+                ToggleRotationLock();
+            }
         }
         else
         {
@@ -186,8 +172,17 @@ public class CourierController : MonoBehaviour
 
     public void ToggleStreamAudio()
     {
+        if(m_streamAudio == null)
+            m_streamAudio = transform.Find("TwitchStreamCanvas/StreamTexture").GetComponent<AudioSource>();
+
         AudioMuted = !AudioMuted;
         m_audioMutedBtn.GetComponent<Toggle>().isOn = AudioMuted;
+
+        if (AudioMuted)
+            m_mediaController.SetVolume(0);
+        else
+            m_mediaController.SetVolume(1);
+
     }
 
     public void DisplayKeyboard()

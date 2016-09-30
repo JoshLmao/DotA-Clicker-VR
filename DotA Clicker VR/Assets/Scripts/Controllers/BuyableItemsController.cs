@@ -20,10 +20,13 @@ public class BuyableItemsController : MonoBehaviour
 
     bool isOnMainMenu = false;
     RadiantSceneController m_sceneController;
+        
 
     void Start()
     {
-        if(SceneManager.GetActiveScene().name == "MainMenu")
+        RadiantSceneController.LoadedSaveFile += OnLoadedSaveFile;
+
+        if (SceneManager.GetActiveScene().name == "MainMenu")
         {
             isOnMainMenu = true;
         }
@@ -36,6 +39,7 @@ public class BuyableItemsController : MonoBehaviour
 
         AddDefaultItems();
         RefreshItemsList();
+
     }
 
     void Update()
@@ -274,4 +278,23 @@ public class BuyableItemsController : MonoBehaviour
         obj.transform.position = spawnPoint.position;
     }
 
+    void OnLoadedSaveFile(SaveFileDto saveFile)
+    {
+        StatsDto stats = saveFile.SessionStats;
+
+        IronBranchCount = stats.IronBranchCount;
+        ClarityCount = stats.ClarityCount;
+        MagicStickCount = stats.MagicStickCount;
+        QuellingBladeCount = stats.QuellingBladeCount;
+        MangoCount = stats.MangoCount;
+        PowerTreadsCount = stats.PowerTreadsCount;
+        BottleCount = stats.BottleCount;
+        BlinkDaggerCount = stats.BlinkDaggerCount;
+        HyperstoneCount = stats.HyperstoneCount;
+        BloodstoneCount = stats.BloodstoneCount;
+        ReaverCount = stats.ReaverCount;
+        DivineRapierCount = stats.DivineRapierCount;
+        RecipeCount = stats.RecipeCount;
+        
+    }
 }

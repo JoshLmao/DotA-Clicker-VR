@@ -17,5 +17,6 @@ public class HeroDto
     public double Ability2RemainingTime { get; set; }
 
     public bool ModifierActive { get; set; }
+    public string CurrentModifier { get; set; }
     public double ModifierTimeRemaining { get; set; }
 }
