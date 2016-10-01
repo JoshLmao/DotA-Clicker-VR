@@ -12,6 +12,8 @@ public class RadiantSceneController : MonoBehaviour
     public static event OnLoadedSaveFile LoadedSaveFile;
     public delegate void OnLoadedConfigFile(ConfigDto config);
     public static event OnLoadedConfigFile LoadedConfigFile;
+    public delegate void ReturningToMainMenu();
+    public static event ReturningToMainMenu OnReturningToMainMenu;
 
     public List<RadiantClickerController> SceneHeroes;
     public SaveFileDto CurrentSaveFile;
@@ -53,12 +55,17 @@ public class RadiantSceneController : MonoBehaviour
     bool m_roshanEventInProgress = false;
     GameObject ActiveRoshan;
     AchievementEvents m_achievementEvents;
-    
+    BuyableItemsController modifierController = null;
+
     void Awake()
     {
+        LoadedSaveFile += OnLoadedSave;
+
         //Last
         LoadProgress();
         CurrentConfigFile = LoadConfig();
+
+        modifierController = GameObject.Find("ItemsListCanvas").GetComponent<BuyableItemsController>();
     }
 
     void Start ()
@@ -72,7 +79,6 @@ public class RadiantSceneController : MonoBehaviour
 
         RoshanController.RoshanEventEnded += OnRoshanEventEnded;
         RoshanController.RoshanEventEndedNotKilled += OnRoshanEventEndedNotKilled;
-        LoadedSaveFile += OnLoadedSave;
     }
 
     void Update ()
@@ -107,6 +113,8 @@ public class RadiantSceneController : MonoBehaviour
 
         if (LoadedSaveFile != null)
             LoadedSaveFile.Invoke(CurrentSaveFile);
+
+        OnLoadedSave(CurrentSaveFile);
 
         if (CurrentSaveFile.PlayerName.ToLower() == "420bootywizard")
         {
@@ -149,8 +157,6 @@ public class RadiantSceneController : MonoBehaviour
         {
             
         }
-
-        BuyableItemsController modifierController = GameObject.Find("ItemsListCanvas").GetComponent<BuyableItemsController>();
 
         //Save data
         SaveFileDto saveFile = new SaveFileDto()
@@ -554,5 +560,15 @@ public class RadiantSceneController : MonoBehaviour
     {
         var span = start - DateTime.Now;
         return span.TotalSeconds;
+    }
+
+    public void ReturnToMainMenu()
+    {
+        if (OnReturningToMainMenu != null)
+            OnReturningToMainMenu.Invoke();
+
+        SaveFile();
+
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
     }
 }

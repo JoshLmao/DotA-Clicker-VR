@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using TwitchCSharp.Clients;
-using TwitchCSharp.Models;
 
 public class CourierController : MonoBehaviour
 {
@@ -92,8 +90,6 @@ public class CourierController : MonoBehaviour
         }
 
         m_mediaController = transform.Find("TwitchStreamCanvas/StreamTexture").GetComponent<MediaPlayerCtrl>();
-
-        GetTwitchURL("beyondthesummit");
     }
 
     void Update ()
@@ -238,13 +234,13 @@ public class CourierController : MonoBehaviour
         }
     }
 
-    void GetTwitchURL(string streamName)
-    {
-        string authKey = m_sceneController.CurrentConfigFile.TwitchAuthCode;
+    //void GetTwitchURL(string streamName)
+    //{
+    //    string authKey = m_sceneController.CurrentConfigFile.TwitchAuthCode;
 
-        TwitchAuthenticatedClient client = new TwitchAuthenticatedClient("oauth:93tmro12txrri3b1mobo6mirxz0wg9", streamName);
-        string username = client.GetMyChannel().Name;
-        client = new TwitchNamedClient(username, authKey, streamName);
+    //    TwitchAuthenticatedClient client = new TwitchAuthenticatedClient("oauth:93tmro12txrri3b1mobo6mirxz0wg9", streamName);
+    //    string username = client.GetMyChannel().Name;
+    //    client = new TwitchNamedClient(username, authKey, streamName);
         
-    }
+    //}
 }

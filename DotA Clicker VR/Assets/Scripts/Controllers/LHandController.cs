@@ -16,6 +16,8 @@ public class LHandController : HandController {
 
     SteamVR_Controller.Device m_device;
 
+    GameObject m_settingsHighlight, m_mainMenuHighlight;
+
     void Start ()
     {
         m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
@@ -31,7 +33,10 @@ public class LHandController : HandController {
         m_controller.MenuButtonUnclicked += OnMenuButtonUnclicked;
 
         m_controller.PadClicked += OnPadClicked;
-	}
+
+        m_settingsHighlight = transform.Find("TotalGoldMiniMenu/SettingsFade").gameObject;
+        m_mainMenuHighlight = transform.Find("TotalGoldMiniMenu/MMFade").gameObject;
+    }
 
     void Update ()
     {
@@ -49,6 +54,9 @@ public class LHandController : HandController {
                     m_onSettingsBtn = true;
                     m_onMainMenuBtn = false;
 
+                    m_mainMenuHighlight.SetActive(false);
+                    m_settingsHighlight.SetActive(true);
+
                     //Disable teleporter
 
                     m_canClickMenuButtons = true;
@@ -59,11 +67,23 @@ public class LHandController : HandController {
                     m_onSettingsBtn = false;
                     m_onMainMenuBtn = true;
 
+                    m_mainMenuHighlight.SetActive(true);
+                    m_settingsHighlight.SetActive(false);
+
                     //Disable teleporter
 
                     m_canClickMenuButtons = true;
                 }
+                else
+                {
+                    m_mainMenuHighlight.SetActive(false);
+                    m_settingsHighlight.SetActive(false);
+                }
             }
+        }
+        else
+        {
+            m_canClickMenuButtons = false;
         }
     }
 
@@ -82,14 +102,32 @@ public class LHandController : HandController {
     {
         if(m_canClickMenuButtons)
         {
-            if(m_onSettingsBtn)
+            if(m_onSettingsBtn && !m_onMainMenuBtn)
             {
 
-            }
-            else if(m_onMainMenuBtn)
-            {
+                OnSettingsClicked();
+                m_settingsHighlight.SetActive(false);
 
             }
+            else if(m_onMainMenuBtn && !m_onSettingsBtn)
+            {
+                OnMainMenuClicked();
+                m_mainMenuHighlight.SetActive(false);
+            }
+
+            GoldUI.SetActive(false);
+            m_menuIsOpen = false;
+            m_canClickMenuButtons = false;
         }
+    }
+
+    public void OnMainMenuClicked()
+    {
+        m_sceneController.ReturnToMainMenu();
+    }
+
+    public void OnSettingsClicked()
+    {
+        GameObject.Find("[CameraRig]").gameObject.transform.position = new Vector3(13.72374f, 0.8716383f, -0.8631723f);
     }
 }
