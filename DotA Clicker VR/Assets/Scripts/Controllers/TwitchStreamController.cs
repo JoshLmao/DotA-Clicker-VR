@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using TwitchCSharp.Clients;
 
 public class TwitchStreamController : MonoBehaviour {
 

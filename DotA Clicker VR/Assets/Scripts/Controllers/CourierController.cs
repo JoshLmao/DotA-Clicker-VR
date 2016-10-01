@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using TwitchCSharp.Clients;
+using TwitchCSharp.Models;
 
 public class CourierController : MonoBehaviour
 {
@@ -11,7 +13,7 @@ public class CourierController : MonoBehaviour
     WWW m_wwwData;
 
     static string STREAM_BASE = "https://player.twitch.tv/?channel=";
-    string m_twitchChannel = "wagamamatv";
+    public string TwitchChannel = "monstercat";
     string m_streamURL;
 
     public bool FollowPlayer = false;
@@ -72,8 +74,7 @@ public class CourierController : MonoBehaviour
         m_keyboard = transform.Find("Keyboard").gameObject;
         m_streamURLUI = transform.Find("TwitchStreamCanvas/URL").gameObject;
 
-        m_twitchChat.channelName = "";
-        m_twitchChat.StartIRC();
+        m_twitchChat.channelName = TwitchChannel;
 
         m_keyboard.SetActive(false);
         m_streamURLUI.SetActive(false);
@@ -91,6 +92,8 @@ public class CourierController : MonoBehaviour
         }
 
         m_mediaController = transform.Find("TwitchStreamCanvas/StreamTexture").GetComponent<MediaPlayerCtrl>();
+
+        GetTwitchURL("beyondthesummit");
     }
 
     void Update ()
@@ -139,7 +142,7 @@ public class CourierController : MonoBehaviour
 
         if(FollowPlayer)
         {
-            m_followBtn.GetComponent<Image>().sprite = m_toggleEnabled;
+            m_followBtn.GetComponent<UnityEngine.UI.Image>().sprite = m_toggleEnabled;
             m_followBtn.GetComponentInChildren<Text>().text = "Unfollow";
 
             if(LockRotation)
@@ -149,7 +152,7 @@ public class CourierController : MonoBehaviour
         }
         else
         {
-            m_followBtn.GetComponent<Image>().sprite = m_toggleDisabled;
+            m_followBtn.GetComponent<UnityEngine.UI.Image>().sprite = m_toggleDisabled;
             m_followBtn.GetComponentInChildren<Text>().text = "Follow";
         }
     }
@@ -160,12 +163,12 @@ public class CourierController : MonoBehaviour
 
         if(LockRotation)
         {
-            m_lockRotationBtn.GetComponent<Image>().sprite = m_toggleEnabled;
+            m_lockRotationBtn.GetComponent<UnityEngine.UI.Image>().sprite = m_toggleEnabled;
             m_lockRotationBtn.GetComponentInChildren<Text>().text = "Unlock Rotation";
         }
         else
         {
-            m_lockRotationBtn.GetComponent<Image>().sprite = m_toggleDisabled;
+            m_lockRotationBtn.GetComponent<UnityEngine.UI.Image>().sprite = m_toggleDisabled;
             m_lockRotationBtn.GetComponentInChildren<Text>().text = "Lock Rotation";
         }
     }
@@ -187,7 +190,7 @@ public class CourierController : MonoBehaviour
 
     public void DisplayKeyboard()
     {
-        m_displayKeyboardBtn.GetComponent<Image>().sprite = m_toggleEnabled;
+        m_displayKeyboardBtn.GetComponent<UnityEngine.UI.Image>().sprite = m_toggleEnabled;
 
         m_keyboard.SetActive(true);
         m_streamURLUI.SetActive(true);
@@ -198,7 +201,7 @@ public class CourierController : MonoBehaviour
     public void KeyboardEnter()
     {
         m_twitchChat.stopThreads = true;
-        m_displayKeyboardBtn.GetComponent<Image>().sprite = m_toggleDisabled;
+        m_displayKeyboardBtn.GetComponent<UnityEngine.UI.Image>().sprite = m_toggleDisabled;
 
         m_twitchChat.channelName = m_keyboardController.Input;
         m_twitchChat.stopThreads = false;
@@ -213,14 +216,19 @@ public class CourierController : MonoBehaviour
 
     public void RetryOAuth()
     {
+        m_twitchChat.gameObject.SetActive(false); //restart irc
+
         if (m_sceneController.CurrentConfigFile != null)
         {
+            m_twitchChat.gameObject.SetActive(true);
+
             m_twitchChat.stopThreads = true;
             m_twitchChat.ClearMessageList();
             m_sceneController.LoadConfig();
 
             m_twitchChat.oauth = m_sceneController.CurrentConfigFile.TwitchAuthCode;
             m_twitchChat.nickName = m_sceneController.CurrentConfigFile.TwitchUsername;
+            m_twitchChat.channelName = "beyondthesummit";
             m_twitchChat.stopThreads = false;
             m_twitchChat.StartIRC();
         }
@@ -228,5 +236,15 @@ public class CourierController : MonoBehaviour
         {
             Debug.Log("Config File is null");
         }
+    }
+
+    void GetTwitchURL(string streamName)
+    {
+        string authKey = m_sceneController.CurrentConfigFile.TwitchAuthCode;
+
+        TwitchAuthenticatedClient client = new TwitchAuthenticatedClient("oauth:93tmro12txrri3b1mobo6mirxz0wg9", streamName);
+        string username = client.GetMyChannel().Name;
+        client = new TwitchNamedClient(username, authKey, streamName);
+        
     }
 }

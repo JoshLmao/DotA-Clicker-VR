@@ -21,7 +21,7 @@ public class OptionsController : MonoBehaviour {
     Toggle m_audioEnabled;
     Toggle m_musicEnabled;
 
-	void Start ()
+    void Awake()
     {
         m_audioEnabled = transform.Find("AudioOptions/AudioEnabledToggle").GetComponent<Toggle>();
         m_musicEnabled = transform.Find("AudioOptions/AmbientAudioEnabled").GetComponent<Toggle>();
@@ -34,6 +34,11 @@ public class OptionsController : MonoBehaviour {
         SuperSampleSlider = transform.Find("VideoOptions/SSCanvas/SuperSampleSlider").GetComponent<Slider>();
         m_ssText = transform.Find("VideoOptions/SSCanvas/SSValue").GetComponent<Text>();
 
+        RadiantSceneController.LoadedSaveFile += OnLoadedSaveFile;
+    }
+
+	void Start ()
+    {
         SuperSampleSlider.onValueChanged.AddListener(SuperSampleChanged);
 
         m_audioEnabled.onValueChanged.AddListener(AudioToggle);
@@ -89,7 +94,7 @@ public class OptionsController : MonoBehaviour {
 
     void SuperSampleChanged(float value)
     {
-        //VRSettings.renderScale = SuperSampleSlider.value;
+        VRSettings.renderScale = SuperSampleSlider.value;
         m_ssText.text = SuperSampleSlider.value.ToString(); //Math.Round(SuperSampleSlider.value, 2).ToString()
     }
 
@@ -101,5 +106,19 @@ public class OptionsController : MonoBehaviour {
     public void MinusSuperSampleValue()
     {
         SuperSampleSlider.value -= 0.1f;
+    }
+
+    public void OnLoadedSaveFile(SaveFileDto saveFile)
+    {
+        PreferencesDto prefs = saveFile.Preferences;
+
+        MasterVolSlider.value = prefs.MasterVolume;
+        AmbientVolSlider.value = prefs.AmbientVolume;
+        HeroVolSlider.value = prefs.HeroVolume;
+
+        m_audioEnabled.isOn = prefs.MusicEnabled;
+        m_audioEnabled.isOn = prefs.AllAudioEnabled;
+
+        SuperSampleSlider.value = prefs.SuperSampleScale;
     }
 }

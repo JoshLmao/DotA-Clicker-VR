@@ -172,6 +172,25 @@ public class TuskController : MonoBehaviour
         StartCoroutine(SnowballStartWait());
     }
 
+    public void ActivateSnowball(double remainingTime)
+    {
+        if (SnowballActive) return;
+        SnowballActive = true;
+
+        SnowballEffects((float)remainingTime);
+
+        //Do animation and voice line
+        m_tuskAnimator.SetTrigger("useSnowball");
+        //if (!m_audioSource.isPlaying)
+        //    RadiantClickerController.PlayRandomClip(m_audioSource, SnowballResponses);
+
+        //if (!m_abilitySource.isPlaying)
+        //    m_abilitySource.PlayOneShot(SnowballAbilitySound);
+
+        StartCoroutine(SnowballStartWait());
+    }
+
+
     public void ActivateWalrusPunch()
     {
         if (WalrusPunchActive) return;
@@ -186,6 +205,22 @@ public class TuskController : MonoBehaviour
 
         if (!m_abilitySource.isPlaying)
             m_abilitySource.PlayOneShot(WalrusPunchAbilitySound);
+    }
+
+    public void ActivateWalrusPunch(double remainingTime)
+    {
+        if (WalrusPunchActive) return;
+        WalrusPunchActive = true;
+
+        WalrusPunchEffects((float)remainingTime);
+
+        //Do animation and voice line
+        m_tuskAnimator.SetTrigger("useWalrusPunch");
+        //if (!m_audioSource.isPlaying)
+        //    RadiantClickerController.PlayRandomClip(m_audioSource, WalrusPunchResponses);
+
+        //if (!m_abilitySource.isPlaying)
+        //    m_abilitySource.PlayOneShot(WalrusPunchAbilitySound);
     }
 
     IEnumerator AbilityCooldown(float time, string ability)
@@ -301,6 +336,17 @@ public class TuskController : MonoBehaviour
         StartCoroutine(AbilityCooldown(SnowballActiveDuration, "SnowballActiveFinish"));
     }
 
+    void SnowballEffects(float remainingTime)
+    {
+        m_snowballActiveFade.gameObject.SetActive(true);
+
+        //do effects
+        m_snowballModifiedValue = m_clickerController.ClickAmount * 2;
+        m_clickerController.ClickAmount = m_snowballModifiedValue;
+
+        StartCoroutine(AbilityCooldown(remainingTime, "SnowballActiveFinish"));
+    }
+
     void RemoveSnowballEffects()
     {
         m_clickerController.ClickAmount -= (m_snowballModifiedValue / 2);
@@ -316,6 +362,17 @@ public class TuskController : MonoBehaviour
         m_sceneController.TotalGold += m_clickerController.ClickAmount;
 
         StartCoroutine(AbilityCooldown(WalrusPunchActiveDuration, "WalrusPunchActiveFinish"));
+    }
+
+    void WalrusPunchEffects(float remainingTime)
+    {
+        m_walrusPunchActiveFade.gameObject.SetActive(true);
+
+        //do effects
+        var m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
+        m_sceneController.TotalGold += m_clickerController.ClickAmount;
+
+        StartCoroutine(AbilityCooldown(remainingTime, "WalrusPunchActiveFinish"));
     }
 
     void RemoveWalrusPunchEffects()

@@ -159,6 +159,24 @@ public class SvenController : MonoBehaviour
         //StartCoroutine(AbilityCooldown(WarCryCooldown, "WarCry"));
     }
 
+    public void ActivateWarCry(double remainingTime)
+    {
+        if (WarCryActive) return;
+        WarCryActive = true;
+
+        WarCryEffects((float)remainingTime);
+
+        //Do animation and voice line
+        m_svenAnimator.SetTrigger("useWarCry");
+        if (!m_audioSource.isPlaying)
+            RadiantClickerController.PlayRandomClip(m_audioSource, WarCryResponses);
+
+        if (!m_abilitySource.isPlaying)
+            m_abilitySource.PlayOneShot(WarCryAbilitySound);
+
+        //StartCoroutine(AbilityCooldown(WarCryCooldown, "WarCry"));
+    }
+
     public void ActivateGodsStrength()
     {
         if (GodsStrengthActive) return;
@@ -173,8 +191,22 @@ public class SvenController : MonoBehaviour
 
         if (!m_abilitySource.isPlaying)
             m_abilitySource.PlayOneShot(GodsStrengthAbilitySound);
+    }
 
-        //StartCoroutine(AbilityCooldown(GodsStrengthCooldown, "GodsStrength"));
+    public void ActivateGodsStrength(double remainingTime)
+    {
+        if (GodsStrengthActive) return;
+        GodsStrengthActive = true;
+
+        GodsStrengthEffects((float)remainingTime);
+
+        //Do animation and voice line
+        m_svenAnimator.SetTrigger("useGodsStrength");
+        if (!m_audioSource.isPlaying)
+            RadiantClickerController.PlayRandomClip(m_audioSource, GodsStrengthResponses);
+
+        if (!m_abilitySource.isPlaying)
+            m_abilitySource.PlayOneShot(GodsStrengthAbilitySound);
     }
 
     IEnumerator AbilityCooldown(float time, string ability)
@@ -252,6 +284,15 @@ public class SvenController : MonoBehaviour
         StartCoroutine(AbilityCooldown(WarCryActiveDuration, "WarCryActiveFinish"));
     }
 
+    void WarCryEffects(float remainingTime)
+    {
+        m_warCryActiveFade.gameObject.SetActive(true);
+
+        //do effects
+
+        StartCoroutine(AbilityCooldown(remainingTime, "WarCryActiveFinish"));
+    }
+
     void RemoveWarCryEffects()
     {
         m_clickerController.m_ability1ClickTime = System.DateTime.MinValue;
@@ -259,7 +300,12 @@ public class SvenController : MonoBehaviour
 
     void GodsStrengthEffects()
     {
+        StartCoroutine(AbilityCooldown(GodsStrengthActiveDuration, "GodsStrengthActiveFinish"));
+    }
 
+    void GodsStrengthEffects(float remainingTime)
+    {
+        StartCoroutine(AbilityCooldown(remainingTime, "GodsStrengthActiveFinish"));
     }
 
     void RemoveGodsStrengthEffects()
@@ -270,7 +316,6 @@ public class SvenController : MonoBehaviour
         //do effects
 
         StartCoroutine(AbilityCooldown(GodsStrengthActiveDuration, "GodsStrengthActiveFinish"));
-
     }
 
     IEnumerator RareIdleCount(float time)

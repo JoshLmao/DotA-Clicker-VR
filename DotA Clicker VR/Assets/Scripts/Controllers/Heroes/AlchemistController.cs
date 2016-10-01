@@ -149,6 +149,18 @@ public class AlchemistController : MonoBehaviour
         RadiantClickerController.PlayRandomClip(m_audioSource, GreevilsGreedResponses);
     }
 
+    public void ActivateGreevilsGreed(double remainingTime)
+    {
+        if (GreevilsGreedActive) return;
+        GreevilsGreedActive = true;
+
+        GreevilsGreedEffects((float)remainingTime);
+
+        //Do animation and voice line
+        m_alcAnimator.SetTrigger("useGreevilsGreed");
+        RadiantClickerController.PlayRandomClip(m_audioSource, GreevilsGreedResponses);
+    }
+
     public void ActivateChemicalRage()
     {
         if (ChemicalRageActive) return;
@@ -159,6 +171,19 @@ public class AlchemistController : MonoBehaviour
         //Do animation and voice line
         m_alcAnimator.SetBool("useChemicalRage", true);
         RadiantClickerController.PlayRandomClip(m_audioSource, ChemicalRageResponses);
+    }
+
+
+    public void ActivateChemicalRage(double remainingTime)
+    {
+        if (ChemicalRageActive) return;
+        ChemicalRageActive = true;
+
+        ChemicalRageEffects((float)remainingTime);
+
+        //Do animation and voice line
+        m_alcAnimator.SetBool("useChemicalRage", true);
+        //RadiantClickerController.PlayRandomClip(m_audioSource, ChemicalRageResponses);
     }
 
     IEnumerator AbilityCooldown(float time, string ability)
@@ -238,6 +263,17 @@ public class AlchemistController : MonoBehaviour
         StartCoroutine(AbilityCooldown(GreevilsGreedActiveDuration, "GreevilsGreedActiveFinish"));
     }
 
+    void GreevilsGreedEffects(float remainingTime)
+    {
+        m_greevilsGreedActiveFade.gameObject.SetActive(true);
+
+        //do effects
+        GreevilGreedAttackReduce();
+        InvokeRepeating("GreevilsGreedAttackReduce", remainingTime, 1.07f);
+
+        StartCoroutine(AbilityCooldown(remainingTime, "GreevilsGreedActiveFinish"));
+    }
+
     void GreevilGreedAttackReduce()
     {
         m_clickerController.CurrentClickerTime -= new TimeSpan(0, 0, m_clickerController.CurrentClickerTime.Seconds - 20);
@@ -259,6 +295,18 @@ public class AlchemistController : MonoBehaviour
         m_clickerController.CurrentClickerTime = new TimeSpan(0, 0, seconds);
 
         StartCoroutine(AbilityCooldown(ChemicalRageActiveDuration, "ChemicalRageActiveFinish"));
+    }
+
+    void ChemicalRageEffects(float remainingTime)
+    {
+        m_chemicalRageActiveFade.gameObject.SetActive(true);
+
+        //do effects
+        int quarter = m_clickerController.CurrentClickerTime.Seconds / 4;
+        int seconds = (quarter * 4) - (quarter * 3);
+        m_clickerController.CurrentClickerTime = new TimeSpan(0, 0, seconds);
+
+        StartCoroutine(AbilityCooldown(remainingTime, "ChemicalRageActiveFinish"));
     }
 
     void RemoveChemicalRageEffects()

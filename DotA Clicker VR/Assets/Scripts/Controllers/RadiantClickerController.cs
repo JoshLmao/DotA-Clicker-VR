@@ -1286,7 +1286,7 @@ public class RadiantClickerController : MonoBehaviour
                     return;
                 }
 
-                cm.ActivateCrystalNova();
+                cm.ActivateCrystalNova(secondsRemaining);
                 Ability1Used();
                 Ability1UseCount++;
                 m_ability1ClickTime = DateTime.Now;
@@ -1299,7 +1299,7 @@ public class RadiantClickerController : MonoBehaviour
                     return;
                 }
 
-                cm.ActivateFrostbite();
+                cm.ActivateFrostbite(secondsRemaining);
                 //HandController.RumbleController(index, 2000);
                 Ability2Used();
                 Ability2UseCount++;
@@ -1320,7 +1320,7 @@ public class RadiantClickerController : MonoBehaviour
                     return;
                 }
 
-                rubick.ActivateTelekinesis();
+                rubick.ActivateTelekinesis(secondsRemaining);
                 Ability1Used();
                 Ability1UseCount++;
                 m_ability1ClickTime = DateTime.Now;
@@ -1333,7 +1333,7 @@ public class RadiantClickerController : MonoBehaviour
                     return;
                 }
 
-                rubick.ActivateSpellSteal();
+                rubick.ActivateSpellSteal(secondsRemaining);
                 Ability2Used();
                 Ability2UseCount++;
                 m_ability2ClickTime = DateTime.Now;
@@ -1353,7 +1353,7 @@ public class RadiantClickerController : MonoBehaviour
                     return;
                 }
 
-                ogreMagi.ActivateFireblast();
+                ogreMagi.ActivateFireblast(secondsRemaining);
                 Ability1Used();
                 Ability1UseCount++;
                 m_ability1ClickTime = DateTime.Now;
@@ -1366,7 +1366,7 @@ public class RadiantClickerController : MonoBehaviour
                     return;
                 }
 
-                ogreMagi.ActivateBloodlust();
+                ogreMagi.ActivateBloodlust(secondsRemaining);
                 Ability2Used();
                 Ability2UseCount++;
                 m_ability2ClickTime = DateTime.Now;
@@ -1386,7 +1386,7 @@ public class RadiantClickerController : MonoBehaviour
                     return;
                 }
 
-                tusk.ActivateSnowball();
+                tusk.ActivateSnowball(secondsRemaining);
                 Ability1Used();
                 Ability1UseCount++;
                 m_ability1ClickTime = DateTime.Now;
@@ -1399,7 +1399,7 @@ public class RadiantClickerController : MonoBehaviour
                     return;
                 }
 
-                tusk.ActivateWalrusPunch();
+                tusk.ActivateWalrusPunch(secondsRemaining);
                 Ability2Used();
                 Ability2UseCount++;
                 m_ability2ClickTime = DateTime.Now;
@@ -1419,7 +1419,7 @@ public class RadiantClickerController : MonoBehaviour
                     return;
                 }
 
-                phoenix.ActivateSunray();
+                phoenix.ActivateSunray(secondsRemaining);
                 Ability1Used();
                 Ability1UseCount++;
                 m_ability1ClickTime = DateTime.Now;
@@ -1432,7 +1432,7 @@ public class RadiantClickerController : MonoBehaviour
                     return;
                 }
 
-                phoenix.ActivateSupernova();
+                phoenix.ActivateSupernova(secondsRemaining);
                 Ability2Used();
                 Ability2UseCount++;
                 m_ability2ClickTime = DateTime.Now;
@@ -1452,7 +1452,7 @@ public class RadiantClickerController : MonoBehaviour
                     return;
                 }
 
-                sven.ActivateWarCry();
+                sven.ActivateWarCry(secondsRemaining);
                 Ability1Used();
                 Ability1UseCount++;
                 m_ability1ClickTime = DateTime.Now;
@@ -1465,7 +1465,7 @@ public class RadiantClickerController : MonoBehaviour
                     return;
                 }
 
-                sven.ActivateGodsStrength();
+                sven.ActivateGodsStrength(secondsRemaining);
                 Ability2Used();
                 Ability2UseCount++;
                 m_ability2ClickTime = DateTime.Now;
@@ -1485,7 +1485,7 @@ public class RadiantClickerController : MonoBehaviour
                     return;
                 }
 
-                antiMage.ActivateBlink();
+                antiMage.ActivateBlink(secondsRemaining);
                 Ability1Used();
                 Ability1UseCount++;
                 m_ability1ClickTime = DateTime.Now;
@@ -1498,7 +1498,7 @@ public class RadiantClickerController : MonoBehaviour
                     return;
                 }
 
-                antiMage.ActivateManaVoid();
+                antiMage.ActivateManaVoid(secondsRemaining);
                 Ability2Used();
                 Ability2UseCount++;
                 m_ability2ClickTime = DateTime.Now;
@@ -1518,7 +1518,7 @@ public class RadiantClickerController : MonoBehaviour
                     return;
                 }
 
-                alchemist.ActivateGreevilsGreed();
+                alchemist.ActivateGreevilsGreed(secondsRemaining);
                 Ability1Used();
                 Ability1UseCount++;
                 m_ability1ClickTime = DateTime.Now;
@@ -1531,7 +1531,7 @@ public class RadiantClickerController : MonoBehaviour
                     return;
                 }
 
-                alchemist.ActivateChemicalRage();
+                alchemist.ActivateChemicalRage(secondsRemaining);
                 Ability2Used();
                 Ability2UseCount++;
                 m_ability2ClickTime = DateTime.Now;

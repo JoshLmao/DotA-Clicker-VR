@@ -176,6 +176,22 @@ public class PhoenixController : MonoBehaviour
             m_abilitySource.PlayOneShot(SunrayAbilitySound);
     }
 
+    public void ActivateSunray(double remainingTime)
+    {
+        if (SunrayActive) return;
+        SunrayActive = true;
+
+        SunrayEffects((float)remainingTime);
+
+        //Do animation and voice line
+        m_phoenixAnimator.SetTrigger("useSunray");
+        //if (!m_audioSource.isPlaying)
+        //    RadiantClickerController.PlayRandomClip(m_audioSource, SunrayResponses);
+
+        //if (!m_abilitySource.isPlaying)
+        //    m_abilitySource.PlayOneShot(SunrayAbilitySound);
+    }
+
     public void ActivateSupernova()
     {
         if (SupernovaActive) return;
@@ -186,6 +202,22 @@ public class PhoenixController : MonoBehaviour
         //Do animation and voice line
         m_phoenixAnimator.SetTrigger("useSupernova");
         if(!m_audioSource.isPlaying)
+            RadiantClickerController.PlayRandomClip(m_audioSource, SupernovaResponses);
+
+        //Start Supernova Ability Wait
+        StartCoroutine(SupernovaStartWait());
+    }
+
+    public void ActivateSupernova(double remainingTime)
+    {
+        if (SupernovaActive) return;
+        SupernovaActive = true;
+
+        SupernovaEffects((float)remainingTime);
+
+        //Do animation and voice line
+        m_phoenixAnimator.SetTrigger("useSupernova");
+        if (!m_audioSource.isPlaying)
             RadiantClickerController.PlayRandomClip(m_audioSource, SupernovaResponses);
 
         //Start Supernova Ability Wait
@@ -340,6 +372,26 @@ public class PhoenixController : MonoBehaviour
         StartCoroutine(AbilityCooldown(SunrayActiveDuration, "SunrayActiveFinish"));
     }
 
+    void SunrayEffects(float remainingTime)
+    {
+        m_sunrayActiveFade.gameObject.SetActive(true);
+
+        //do effect
+        var sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
+        foreach (RadiantClickerController clicker in sceneController.SceneHeroes)
+        {
+            if ((clicker.TimeBetweenClicks.Seconds - 60) < 0)
+            {
+                clicker.TimeBetweenClicks -= new TimeSpan(0, 0, clicker.TimeBetweenClicks.Seconds - clicker.TimeBetweenClicks.Seconds);
+                continue;
+            }
+
+            clicker.TimeBetweenClicks = new TimeSpan(0, 0, clicker.TimeBetweenClicks.Seconds - 60);
+        }
+
+        StartCoroutine(AbilityCooldown(remainingTime, "SunrayActiveFinish"));
+    }
+
     void RemoveSunrayEffects()
     {
         m_clickerController.m_ability1ClickTime = DateTime.MinValue;
@@ -353,6 +405,16 @@ public class PhoenixController : MonoBehaviour
         InvokeRepeating("SupernovaRepeating", 6, 1);
 
         StartCoroutine(AbilityCooldown(SupernovaActiveDuration, "SupernovaActiveFinish"));
+    }
+
+    void SupernovaEffects(float remainingTime)
+    {
+        m_sunrayActiveFade.gameObject.SetActive(true);
+
+        //do effect
+        InvokeRepeating("SupernovaRepeating", 6, 1);
+
+        StartCoroutine(AbilityCooldown(remainingTime, "SupernovaActiveFinish"));
     }
 
     void SupernovaRepeating()

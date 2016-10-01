@@ -153,6 +153,22 @@ public class AntiMageController : MonoBehaviour
             m_abilitySource.PlayOneShot(BlinkAbilitySound);
     }
 
+    public void ActivateBlink(double remainingTime)
+    {
+        if (BlinkActive) return;
+        BlinkActive = true;
+
+        BlinkEffects((float)remainingTime);
+
+        //Do animation and voice line
+        m_antiMageAnimator.SetTrigger("useBlink");
+        if (!m_audioSource.isPlaying)
+            RadiantClickerController.PlayRandomClip(m_audioSource, BlinkResponses);
+
+        if (!m_abilitySource.isPlaying)
+            m_abilitySource.PlayOneShot(BlinkAbilitySound);
+    }
+
     public void ActivateManaVoid()
     {
         if (ManaVoidActive) return;
@@ -167,6 +183,22 @@ public class AntiMageController : MonoBehaviour
 
         if (!m_abilitySource.isPlaying)
             m_abilitySource.PlayOneShot(ManaVoidAbilitySound);
+    }
+
+    public void ActivateManaVoid(double remainingTime)
+    {
+        if (ManaVoidActive) return;
+        ManaVoidActive = true;
+
+        ManaVoidEffects((float)remainingTime);
+
+        //Do animation and voice line
+        m_antiMageAnimator.SetTrigger("useManaVoid");
+        //if (!m_audioSource.isPlaying)
+        //    RadiantClickerController.PlayRandomClip(m_audioSource, ManaVoidResponses);
+
+        //if (!m_abilitySource.isPlaying)
+        //    m_abilitySource.PlayOneShot(ManaVoidAbilitySound);
     }
 
     IEnumerator AbilityCooldown(float time, string ability)
@@ -246,12 +278,55 @@ public class AntiMageController : MonoBehaviour
         StartCoroutine(AbilityCooldown(BlinkActiveDuration, "BlinkActiveFinish"));
     }
 
+    void BlinkEffects(float remainingTime)
+    {
+        m_blinkActiveFade.gameObject.SetActive(true);
+
+        //do effects
+        var m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
+        m_sceneController.TotalGold += m_clickerController.ClickAmount;
+
+        StartCoroutine(AbilityCooldown(remainingTime, "BlinkActiveFinish"));
+    }
+
     void RemoveBlinkEffects()
     {
         m_clickerController.m_ability1ClickTime = DateTime.MinValue;
     }
 
     void ManaVoidEffects()
+    {
+        m_manaVoidActiveFade.gameObject.SetActive(true);
+
+        var durationLeft = m_clickerController.CurrentClickerTime.Seconds;
+        RadiantSceneController scene = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
+        RadiantClickerController sven = scene.SceneHeroes[5];
+        RadiantClickerController alchemist = scene.SceneHeroes[0];
+        //Left of Anti Magi is Sven
+        if (sven.CurrentClickerTime.Seconds - durationLeft < 0)
+        {
+            scene.TotalGold += sven.ClickAmount;
+            sven.CurrentClickerTime = new TimeSpan(0, 0, sven.TimeBetweenClicks.Seconds - durationLeft);
+        }
+        else
+        {
+            sven.CurrentClickerTime = new TimeSpan(0, 0, sven.CurrentClickerTime.Seconds - durationLeft);
+        }
+        //Right of Anti Mage is Alchemist
+        if (alchemist.CurrentClickerTime.Seconds - durationLeft < 0)
+        {   
+            scene.TotalGold += sven.ClickAmount;
+            alchemist.CurrentClickerTime = new TimeSpan(0, 0, alchemist.TimeBetweenClicks.Seconds - durationLeft);
+        }
+        else
+        {
+            alchemist.CurrentClickerTime = new TimeSpan(0, 0, alchemist.CurrentClickerTime.Seconds - durationLeft);
+        }
+
+        StartCoroutine(AbilityCooldown(ManaVoidActiveDuration, "ManaVoidActiveFinish"));
+    }
+
+    void ManaVoidEffects(float remainingTime)
     {
         m_manaVoidActiveFade.gameObject.SetActive(true);
 
@@ -280,7 +355,7 @@ public class AntiMageController : MonoBehaviour
             alchemist.CurrentClickerTime = new TimeSpan(0, 0, alchemist.CurrentClickerTime.Seconds - durationLeft);
         }
 
-        StartCoroutine(AbilityCooldown(ManaVoidActiveDuration, "ManaVoidActiveFinish"));
+        StartCoroutine(AbilityCooldown(remainingTime, "ManaVoidActiveFinish"));
     }
 
     void RemoveManaVoidEffects()

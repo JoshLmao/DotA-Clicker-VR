@@ -161,6 +161,21 @@ public class CMController : MonoBehaviour
             m_abilitySource.PlayOneShot(CrystalNovaAbilitySound);
     }
 
+    public void ActivateCrystalNova(double time)
+    {
+        if (CrystalNovaActive) return;
+        CrystalNovaActive = true;
+
+        m_cmAnimator.SetTrigger("useCrystalNova");
+        CrystalNovaEffects((float)time);
+
+        //if (!m_audioSource.isPlaying)
+        //    RadiantClickerController.PlayRandomClip(m_audioSource, CrystalNovaResponses);
+
+        //if (!m_abilitySource.isPlaying)
+        //    m_abilitySource.PlayOneShot(CrystalNovaAbilitySound);
+    }
+
     public void ActivateFrostbite()
     {
         if (FrostbiteActive) return;
@@ -174,6 +189,24 @@ public class CMController : MonoBehaviour
 
         if (!m_abilitySource.isPlaying)
             m_abilitySource.PlayOneShot(FrostbiteAbilitySound);
+    }
+
+    /// <summary>
+    /// Activate from Loaded Save
+    /// </summary>
+    public void ActivateFrostbite(double time)
+    {
+        if (FrostbiteActive) return;
+        FrostbiteActive = true;
+
+        m_cmAnimator.SetTrigger("useFrostbite");
+        FrostbiteEffects((float)time);
+
+        //if (!m_audioSource.isPlaying)
+        //    RadiantClickerController.PlayRandomClip(m_audioSource, FrostbiteResponses);
+
+        //if (!m_abilitySource.isPlaying)
+        //    m_abilitySource.PlayOneShot(FrostbiteAbilitySound);
     }
 
     IEnumerator AbilityCooldown(float time, string ability)
@@ -253,6 +286,17 @@ public class CMController : MonoBehaviour
         StartCoroutine(AbilityCooldown(CrystalNovaActiveDuration, "CrystalNovaActiveFinish"));
     }
 
+
+    void CrystalNovaEffects(float remainingTime)
+    {
+        m_crystalNovaActiveFade.gameObject.SetActive(true);
+
+        m_crystalNovaModifiedValue = m_clickerController.ClickAmount * 2;
+        m_clickerController.ClickAmount = m_crystalNovaModifiedValue;
+
+        StartCoroutine(AbilityCooldown(remainingTime, "CrystalNovaActiveFinish"));
+    }
+
     void RemoveCrystalNovaEffects()
     {
         m_clickerController.ClickAmount -= (m_crystalNovaModifiedValue / 2);
@@ -267,6 +311,20 @@ public class CMController : MonoBehaviour
         m_clickerController.ClickAmount = m_frostbiteModifiedValue;
 
         StartCoroutine(AbilityCooldown(FrostbiteActiveDuration, "FrostbiteActiveFinish"));
+    }
+
+    /// <summary>
+    /// Loading from save file
+    /// </summary>
+    /// <param name="secondsRemaining"></param>
+    void FrostbiteEffects(float secondsRemaining)
+    {
+        m_frostbiteActiveFade.gameObject.SetActive(true);
+
+        m_frostbiteModifiedValue = m_clickerController.ClickAmount * 4;
+        m_clickerController.ClickAmount = m_frostbiteModifiedValue;
+
+        StartCoroutine(AbilityCooldown(secondsRemaining, "FrostbiteActiveFinish"));
     }
 
     void RemoveFrostbiteEffects()
