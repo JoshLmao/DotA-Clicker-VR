@@ -83,8 +83,6 @@ public class RadiantSceneController : MonoBehaviour
 
     void Update ()
     {
-        m_goldUI.text = TotalGold.ToString();
-
         if (Input.GetKeyDown(KeyCode.P))
         {
             DoRoshanEvent();
@@ -92,6 +90,8 @@ public class RadiantSceneController : MonoBehaviour
 
         if (m_canDoRoshanEvent && !m_roshanWaitingToSpawn)
             StartRoshanCountdown();
+
+        m_goldUI.text = TotalGold.ToString();
     }
 
     public void LoadProgress()
@@ -499,6 +499,7 @@ public class RadiantSceneController : MonoBehaviour
 
     IEnumerator TriggerRoshanEvent(float time)
     {
+        GameObject.Find("waitingOnRoshanTimer").GetComponent<Text>().text = time.ToString();
         yield return new WaitForSeconds(time);
 
         DoRoshanEvent(); //Do the event

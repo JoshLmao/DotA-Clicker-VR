@@ -18,7 +18,7 @@ public class RoshanController : MonoBehaviour {
     /// <summary>
     /// Amount needed for the player to earn to kill roshan the first time. Multiply this by event times count
     /// </summary>
-    public float m_roshanStartHealth;
+    public float m_roshanStartHealth = 8000;
     /// <summary>
     /// Bool to see if Roshan has been killed
     /// </summary>
@@ -67,6 +67,8 @@ public class RoshanController : MonoBehaviour {
         //Health multiplied by eventCount divided by 1.6. Don't want to double health after every event
         if (EventCount > 0)
             m_roshanStartHealth *= (EventCount / 1.6f);
+
+        m_playerGoldOnStart = m_sceneController.TotalGold;
 
         //Because Prefab doesn't save these
         waypoints[0] = GameObject.Find("Misc/RoshanWaypoints/1").gameObject.transform;
