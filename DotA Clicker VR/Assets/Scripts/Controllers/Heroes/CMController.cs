@@ -112,7 +112,7 @@ public class CMController : MonoBehaviour
         }
     }
 
-    void BuyCrystalNovaUpgrade()
+    void BuyCrystalNovaUpgrade(int level)
     {
         CrystalNovaUpgrade = true;
         Debug.Log("Bought Crystal Nova Upgrade");
@@ -121,11 +121,11 @@ public class CMController : MonoBehaviour
         m_crystalNovaCooldown.fillAmount = 0;
 
         //Make hero have lvl 1 of ability
-        m_clickerController.Ability1Level = 1;
+        m_clickerController.Ability1Level = level;
         m_clickerController.ResetLevelIcons("1");
     }
 
-    void BuyFrostbiteUpgrade()
+    void BuyFrostbiteUpgrade(int level)
     {
         FrostbiteUpgrade = true;
         Debug.Log("Bought Frostbite Upgrade");
@@ -134,7 +134,7 @@ public class CMController : MonoBehaviour
         m_frostbiteCooldown.fillAmount = 0;
 
         //Make hero have lvl 1 of ability
-        m_clickerController.Ability2Level = 1;
+        m_clickerController.Ability2Level = level;
         m_clickerController.ResetLevelIcons("2");
     }
 

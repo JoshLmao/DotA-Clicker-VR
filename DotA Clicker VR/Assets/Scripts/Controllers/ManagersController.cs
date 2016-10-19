@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class ManagersController : MonoBehaviour {
 
@@ -32,6 +33,9 @@ public class ManagersController : MonoBehaviour {
     bool isOnMainMenu = false;
     RadiantSceneController m_sceneController;
 
+    //Has manager been bought
+    bool m_CM, m_rubick, m_ogreMagi, m_tusk, m_phoenix, m_sven, m_antiMage, m_alchemist;
+
     void Start ()
     {
         if (SceneManager.GetActiveScene().name == "MainMenu")
@@ -46,63 +50,134 @@ public class ManagersController : MonoBehaviour {
         AddManagers();
 
         RefreshManagersList();
+        RadiantSceneController.LoadedSaveFile += OnLoadedSaveFile;
     }
-	
-	void Update ()
+
+    private void OnLoadedSaveFile(SaveFileDto saveFile)
+    {
+        if (Managers.Count <= 0) return;
+
+        foreach(HeroDto hero in saveFile.RadiantSide.Heroes)
+        {
+            if(hero.HasManager == true)
+            {
+                if (hero.HeroName == "Crystal Maiden")
+                {
+                    m_CM = true;
+                }
+                else if(hero.HeroName == "Rubick")
+                {
+                    m_rubick = true;
+                }
+                else if(hero.HeroName == "Ogre Magi")
+                {
+                    m_ogreMagi = true;
+                }
+                else if(hero.HeroName == "Tusk")
+                {
+                    m_tusk = true;
+                }
+                else if(hero.HeroName == "Phoenix")
+                {
+                    m_phoenix = true;
+                }
+                else if(hero.HeroName == "Sven")
+                {
+                    m_phoenix = true;
+                }
+                else if(hero.HeroName == "Anti Mage")
+                {
+                    m_antiMage = true;
+                }
+                else if(hero.HeroName == "Alchemist")
+                {
+                    m_alchemist = true;
+                }
+            }
+        }
+
+        RefreshManagersList();
+    }
+
+    void Update ()
     {
 	
 	}
 
     void AddManagers()
     {
-        Managers.Add(new ManagerDto()
+        if(!m_CM)
         {
-            Name = "Io",
-            Image = Resources.Load<Sprite>("Images/UI/ManagerIcons/Io"),
-            Cost = 0,
-        });
-        Managers.Add(new ManagerDto()
+            Managers.Add(new ManagerDto()
+            {
+                Name = "Crystal Maiden",
+                Image = Resources.Load<Sprite>("Images/UI/ManagerIcons/CM"),
+                Cost = 5000,
+            });
+        }
+        if(!m_rubick)
         {
-            Name = "Rubick",
-            Image = Resources.Load<Sprite>("Images/UI/ManagerIcons/Rubick"),
-            Cost = 0,
-        });
-        Managers.Add(new ManagerDto()
+            Managers.Add(new ManagerDto()
+            {
+                Name = "Rubick",
+                Image = Resources.Load<Sprite>("Images/UI/ManagerIcons/Rubick"),
+                Cost = 9000,
+            });
+        }
+        if(!m_ogreMagi)
         {
-            Name = "Ogre Magi",
-            Image = Resources.Load<Sprite>("Images/UI/ManagerIcons/OgreMagi"),
-            Cost = 0,
-        });
-        Managers.Add(new ManagerDto()
+            Managers.Add(new ManagerDto()
+            {
+                Name = "Ogre Magi",
+                Image = Resources.Load<Sprite>("Images/UI/ManagerIcons/OgreMagi"),
+                Cost = 14000,
+            });
+        }
+        if(!m_tusk)
         {
-            Name = "Tusk",
-            Image = Resources.Load<Sprite>("Images/UI/ManagerIcons/Tusk"),
-            Cost = 0,
-        });
-        Managers.Add(new ManagerDto()
+            Managers.Add(new ManagerDto()
+            {
+                Name = "Tusk",
+                Image = Resources.Load<Sprite>("Images/UI/ManagerIcons/Tusk"),
+                Cost = 20000,
+            });
+        }
+        if(!m_phoenix)
         {
-            Name = "Phoenix",
-            Image = Resources.Load<Sprite>("Images/UI/ManagerIcons/Phoenix"),
-            Cost = 0,
-        });
-        Managers.Add(new ManagerDto()
+            Managers.Add(new ManagerDto()
+            {
+                Name = "Phoenix",
+                Image = Resources.Load<Sprite>("Images/UI/ManagerIcons/Phoenix"),
+                Cost = 35000,
+            });
+        }
+        if(!m_sven)
         {
-            Name = "Sven",
-            Image = Resources.Load<Sprite>("Images/UI/ManagerIcons/Sven"),
-            Cost = 0,
-        });
-        Managers.Add(new ManagerDto()
+            Managers.Add(new ManagerDto()
+            {
+                Name = "Sven",
+                Image = Resources.Load<Sprite>("Images/UI/ManagerIcons/Sven"),
+                Cost = 50000,
+            });
+        }
+        if(!m_antiMage)
         {
-            Name = "Anti Mage",
-            Image = Resources.Load<Sprite>("Images/UI/ManagerIcons/AntiMage"),
-            Cost = 0,
-        });
-        Managers.Add(new ManagerDto()
+            Managers.Add(new ManagerDto()
+            {
+                Name = "Anti Mage",
+                Image = Resources.Load<Sprite>("Images/UI/ManagerIcons/AntiMage"),
+                Cost = 100000,
+            });
+        }
+        if(!m_alchemist)
         {
-            Name = "Alchemist",
-            Image = Resources.Load<Sprite>("Images/UI/ManagerIcons/Alchemist"),
-            Cost = 0,
-        });
+            Managers.Add(new ManagerDto()
+            {
+                Name = "Alchemist",
+                Image = Resources.Load<Sprite>("Images/UI/ManagerIcons/Alchemist"),
+                Cost = 500000,
+            });
+        }
     }
 
     void RefreshManagersList()
@@ -147,41 +222,49 @@ public class ManagersController : MonoBehaviour {
         {
             Debug.Log("Clicked Io Manager");
             BuyIoManager(); //Invoke Event
+            m_CM = true;
         }
         else if (manager.Name == "Rubick")
         {
             Debug.Log("Clicked Rubick Manager");
-            BuyRubickManager(); 
+            BuyRubickManager();
+            m_rubick = true;
         }
         else if (manager.Name == "Ogre Magi")
         {
             Debug.Log("Clicked Ogre Magi Manager");
-            BuyOgreMagiManager(); 
+            BuyOgreMagiManager();
+            m_ogreMagi = true;
         }
         else if (manager.Name == "Tusk")
         {
             Debug.Log("Clicked Tusk Manager");
-            BuyTuskManager(); 
+            BuyTuskManager();
+            m_tusk = true;
         }
         else if (manager.Name == "Phoenix")
         {
             Debug.Log("Clicked Phoenix Manager");
-            BuyPhoenixManager(); 
+            BuyPhoenixManager();
+            m_phoenix = true;
         }
         else if (manager.Name == "Sven")
         {
             Debug.Log("Clicked Sven Manager");
-            BuySvenManager(); 
+            BuySvenManager();
+            m_sven = true;
         }
         else if (manager.Name == "Anti Mage")
         {
             Debug.Log("Clicked Anti Mage Manager");
-            BuyAntiMageManager(); 
+            BuyAntiMageManager();
+            m_antiMage = true;
         }
         else if (manager.Name == "Alchemist")
         {
             Debug.Log("Clicked Alchemist Manager");
-            BuyAlchemistManager(); 
+            BuyAlchemistManager();
+            m_alchemist = true;
         }
 
         this.GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("Sounds/UI/buy"));

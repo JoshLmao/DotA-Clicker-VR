@@ -72,7 +72,7 @@ public class RadiantSceneController : MonoBehaviour
     {
         m_achievementEvents = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
 
-        m_goldUI = GameObject.Find("UI/WorldSpaceUI/TotalGoldCanvas/TotalGoldText").GetComponent<Text>();
+        m_goldUI = GameObject.Find("UI/WorldSpaceUI/TotalGoldCanvas/AllGold/TotalGoldText").GetComponent<Text>();
 
         SceneHeroes = GetClickerHeroesInScene();
         m_options = GameObject.Find("OptionsCanvas").GetComponent<OptionsController>();
@@ -189,6 +189,8 @@ public class RadiantSceneController : MonoBehaviour
                         ModifierActive = SceneHeroes[3].m_currentModifierRoutineStarted == DateTime.MinValue ? false : true,
                         CurrentModifier = SceneHeroes[3].m_currentModifier,
                         ModifierTimeRemaining = SceneHeroes[3].m_currentModifierRoutineStarted != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[3].m_currentModifierRoutineStarted) : 0,
+
+                        HasManager = SceneHeroes[3].HasManager,
                     },
                     new HeroDto()
                     {
@@ -207,6 +209,8 @@ public class RadiantSceneController : MonoBehaviour
                         ModifierActive = SceneHeroes[7].m_currentModifierRoutineStarted == DateTime.MinValue ? false : true,
                         CurrentModifier = SceneHeroes[7].m_currentModifier,
                         ModifierTimeRemaining = SceneHeroes[7].m_currentModifierRoutineStarted != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[7].m_currentModifierRoutineStarted) : 0,
+
+                        HasManager = SceneHeroes[7].HasManager,
                     },
                     new HeroDto()
                     {
@@ -225,6 +229,8 @@ public class RadiantSceneController : MonoBehaviour
                         ModifierActive = SceneHeroes[1].m_currentModifierRoutineStarted == DateTime.MinValue ? false : true,
                         CurrentModifier = SceneHeroes[1].m_currentModifier,
                         ModifierTimeRemaining = SceneHeroes[1].m_currentModifierRoutineStarted != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[1].m_currentModifierRoutineStarted) : 0,
+
+                        HasManager = SceneHeroes[1].HasManager,
                     },
                     new HeroDto()
                     {
@@ -243,6 +249,8 @@ public class RadiantSceneController : MonoBehaviour
                         ModifierActive = SceneHeroes[2].m_currentModifierRoutineStarted == DateTime.MinValue ? false : true,
                         CurrentModifier = SceneHeroes[2].m_currentModifier,
                         ModifierTimeRemaining = SceneHeroes[2].m_currentModifierRoutineStarted != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[2].m_currentModifierRoutineStarted) : 0,
+
+                        HasManager = SceneHeroes[2].HasManager,
                     },
                     new HeroDto()
                     {
@@ -261,6 +269,8 @@ public class RadiantSceneController : MonoBehaviour
                         ModifierActive = SceneHeroes[6].m_currentModifierRoutineStarted == DateTime.MinValue ? false : true,
                         CurrentModifier = SceneHeroes[6].m_currentModifier,
                         ModifierTimeRemaining = SceneHeroes[6].m_currentModifierRoutineStarted != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[6].m_currentModifierRoutineStarted) : 0,
+
+                        HasManager = SceneHeroes[6].HasManager,
                     },
                     new HeroDto()
                     {
@@ -279,6 +289,8 @@ public class RadiantSceneController : MonoBehaviour
                         ModifierActive = SceneHeroes[5].m_currentModifierRoutineStarted == DateTime.MinValue ? false : true,
                         CurrentModifier = SceneHeroes[5].m_currentModifier,
                         ModifierTimeRemaining = SceneHeroes[5].m_currentModifierRoutineStarted != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[5].m_currentModifierRoutineStarted) : 0,
+
+                        HasManager = SceneHeroes[5].HasManager,
                     },
                     new HeroDto()
                     {
@@ -297,6 +309,8 @@ public class RadiantSceneController : MonoBehaviour
                         ModifierActive = SceneHeroes[4].m_currentModifierRoutineStarted == DateTime.MinValue ? false : true,
                         CurrentModifier = SceneHeroes[4].m_currentModifier,
                         ModifierTimeRemaining = SceneHeroes[4].m_currentModifierRoutineStarted != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[4].m_currentModifierRoutineStarted) : 0,
+
+                        HasManager = SceneHeroes[4].HasManager,
                     },
                     new HeroDto()
                     {
@@ -315,6 +329,8 @@ public class RadiantSceneController : MonoBehaviour
                         ModifierActive = SceneHeroes[0].m_currentModifierRoutineStarted == DateTime.MinValue ? false : true,
                         CurrentModifier = SceneHeroes[0].m_currentModifier,
                         ModifierTimeRemaining = SceneHeroes[0].m_currentModifierRoutineStarted != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[0].m_currentModifierRoutineStarted) : 0,
+
+                        HasManager = SceneHeroes[0].HasManager,
                     },
                 },
                 RoshanEvents = m_canDoRoshanEvent,

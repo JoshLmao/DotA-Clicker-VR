@@ -122,7 +122,7 @@ public class TuskController : MonoBehaviour
         }
     }
 
-    void BuySnowballUpgrade()
+    void BuySnowballUpgrade(int level)
     {
         SnowballUpgrade = true;
         Debug.Log("Bought Snowball Upgrade");
@@ -130,11 +130,11 @@ public class TuskController : MonoBehaviour
         //Give white color to ability
         m_snowballCooldown.fillAmount = 0;
 
-        m_clickerController.Ability1Level = 1;
+        m_clickerController.Ability1Level = level;
         m_clickerController.ResetLevelIcons("1");
     }
 
-    void BuyWalrusPunchUpgrade()
+    void BuyWalrusPunchUpgrade(int level)
     {
         WalrusPunchUpgrade = true;
         Debug.Log("Bought WalrusPunch Upgrade");
@@ -142,7 +142,7 @@ public class TuskController : MonoBehaviour
         //Give white color to ability
         m_walrusPunchCooldown.fillAmount = 0;
 
-        m_clickerController.Ability2Level = 1;
+        m_clickerController.Ability2Level = level;
         m_clickerController.ResetLevelIcons("2");
     }
 

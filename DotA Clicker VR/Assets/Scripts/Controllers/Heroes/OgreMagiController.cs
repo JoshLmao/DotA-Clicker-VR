@@ -110,7 +110,7 @@ public class OgreMagiController : MonoBehaviour
         }
     }
 
-    void BuyFireblastUpgrade()
+    void BuyFireblastUpgrade(int level)
     {
         FireblastUpgrade = true;
         Debug.Log("Bought Fireblast Upgrade");
@@ -118,11 +118,11 @@ public class OgreMagiController : MonoBehaviour
         //Give white color to abiity
         m_fireblastCooldown.fillAmount = 0;
 
-        m_clickerController.Ability1Level = 1;
+        m_clickerController.Ability1Level = level;
         m_clickerController.ResetLevelIcons("1");
     }
 
-    void BuyBloodlustUpgrade()
+    void BuyBloodlustUpgrade(int level)
     {
         BloodlustUpgrade = true;
         Debug.Log("Bought Bloodlust Upgrade");
@@ -130,7 +130,7 @@ public class OgreMagiController : MonoBehaviour
         //Give white color to abiity
         m_bloodlustCooldown.fillAmount = 0;
 
-        m_clickerController.Ability2Level = 1;
+        m_clickerController.Ability2Level = level;
         m_clickerController.ResetLevelIcons("2");
     }
 

@@ -19,4 +19,6 @@ public class HeroDto
     public bool ModifierActive { get; set; }
     public string CurrentModifier { get; set; }
     public double ModifierTimeRemaining { get; set; }
+
+    public bool HasManager { get; set; }
 }

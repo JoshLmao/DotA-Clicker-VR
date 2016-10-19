@@ -230,6 +230,11 @@ public class RadiantClickerController : MonoBehaviour
             }
             UpdateCountdownTimer();
         }
+        else
+        {
+            //For loading a save file in
+            m_currentClickTimePassed = TimeSpan.MinValue;
+        }
 
         if(HasManager)
         {

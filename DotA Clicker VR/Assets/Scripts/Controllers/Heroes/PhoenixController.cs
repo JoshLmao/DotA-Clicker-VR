@@ -128,7 +128,7 @@ public class PhoenixController : MonoBehaviour
         }
     }
 
-    void BuySunrayUpgrade()
+    void BuySunrayUpgrade(int level)
     {
         SunrayUpgrade = true;
         Debug.Log("Bought Sunray Upgrade");
@@ -136,11 +136,11 @@ public class PhoenixController : MonoBehaviour
         //Give white color to ability
         m_sunrayCooldown.fillAmount = 0;
 
-        m_clickerController.Ability1Level = 1;
+        m_clickerController.Ability1Level = level;
         m_clickerController.ResetLevelIcons("1");
     }
 
-    void BuySupernovaUpgrade()
+    void BuySupernovaUpgrade(int level)
     {
         SupernovaUpgrade = true;
         Debug.Log("Bought Supernova Upgrade");
@@ -148,7 +148,7 @@ public class PhoenixController : MonoBehaviour
         //Give white color to ability
         m_supernovaCooldown.fillAmount = 0;
 
-        m_clickerController.Ability2Level = 1;
+        m_clickerController.Ability2Level = level;
         m_clickerController.ResetLevelIcons("2");
     }
 

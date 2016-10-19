@@ -105,7 +105,7 @@ public class AlchemistController : MonoBehaviour
         }
     }
 
-    void BuyGreevilsGreedUpgrade()
+    void BuyGreevilsGreedUpgrade(int level)
     {
         GreevilsGreedUpgrade = true;
         Debug.Log("Bought GreevilsGreed Upgrade");
@@ -113,11 +113,11 @@ public class AlchemistController : MonoBehaviour
         //Give white color to ability
         m_greevilsGreedCooldown.fillAmount = 0;
 
-        m_clickerController.Ability1Level = 1;
+        m_clickerController.Ability1Level = level;
         m_clickerController.ResetLevelIcons("1");
     }
 
-    void BuyChemicalRageUpgrade()
+    void BuyChemicalRageUpgrade(int level)
     {
         ChemicalRageUpgrade = true;
         Debug.Log("Bought ChemicalRage Upgrade");

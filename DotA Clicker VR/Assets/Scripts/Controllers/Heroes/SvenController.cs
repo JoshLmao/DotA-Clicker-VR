@@ -109,7 +109,7 @@ public class SvenController : MonoBehaviour
         }
     }
 
-    void BuyWarCryUpgrade()
+    void BuyWarCryUpgrade(int level)
     {
         WarCryUpgrade = true;
         Debug.Log("Bought WarCry Upgrade");
@@ -117,11 +117,11 @@ public class SvenController : MonoBehaviour
         //Give white color to ability
         m_warCryCooldown.fillAmount = 0;
 
-        m_clickerController.Ability1Level = 1;
+        m_clickerController.Ability1Level = level;
         m_clickerController.ResetLevelIcons("1");
     }
 
-    void BuyGodsStrengthUpgrade()
+    void BuyGodsStrengthUpgrade(int level)
     {
         GodsStrengthUpgrade = true;
         Debug.Log("Bought GodsStrength Upgrade");
@@ -129,7 +129,7 @@ public class SvenController : MonoBehaviour
         //Give white color to ability
         m_godsStrengthCooldown.fillAmount = 0;
 
-        m_clickerController.Ability2Level = 1;
+        m_clickerController.Ability2Level = level;
         m_clickerController.ResetLevelIcons("2");
     }
 

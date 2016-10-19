@@ -113,7 +113,7 @@ public class RubickController : MonoBehaviour
         }
     }
 
-    void BuyTelekinesisUpgrade()
+    void BuyTelekinesisUpgrade(int level)
     {
         TelekinesisUpgrade = true;
         Debug.Log("Bought Telekinesis Upgrade");
@@ -121,11 +121,11 @@ public class RubickController : MonoBehaviour
         //Give white color to abiity
         m_telekinesisCooldown.fillAmount = 0;
 
-        m_clickerController.Ability1Level = 1;
+        m_clickerController.Ability1Level = level;
         m_clickerController.ResetLevelIcons("1");
     }
 
-    void BuySpellStealUpgrade()
+    void BuySpellStealUpgrade(int level)
     {
         SpellStealUpgrade = true;
         Debug.Log("Bought Spell Steal Upgrade");
@@ -133,7 +133,7 @@ public class RubickController : MonoBehaviour
         //Give white color to abiity
         m_spellStealCooldown.fillAmount = 0;
 
-        m_clickerController.Ability2Level = 1;
+        m_clickerController.Ability2Level = level;
         m_clickerController.ResetLevelIcons("2");
     }
 

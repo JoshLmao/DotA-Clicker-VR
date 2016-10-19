@@ -8,22 +8,22 @@ public class UpgradesController : MonoBehaviour
 {
     public List<UpgradeDto> Upgrades { get; set; }
 
-    public delegate void OnBuyCrystalNovaUpgrade();
-    public delegate void OnBuyFrostbiteUpgrade();
-    public delegate void OnBuyTelekinesisUpgrade();
-    public delegate void OnBuySpellStealUpgrade();
-    public delegate void OnBuyFireblastUpgrade();
-    public delegate void OnBuyBloodlustUpgrade();
-    public delegate void OnBuySnowballUpgrade();
-    public delegate void OnBuyWalrusPunchUpgrade();
-    public delegate void OnBuySunrayUpgrade();
-    public delegate void OnBuySupernovaUpgrade();
-    public delegate void OnBuyWarCryUpgrade();
-    public delegate void OnBuyGodStrengthUpgrade();
-    public delegate void OnBuyBlinkUpgrade();
-    public delegate void OnBuyManaVoidUpgrade();
-    public delegate void OnBuyGreevilsGreedUpgrade();
-    public delegate void OnBuyChemicalRageUpgrade();
+    public delegate void OnBuyCrystalNovaUpgrade(int level);
+    public delegate void OnBuyFrostbiteUpgrade(int level);
+    public delegate void OnBuyTelekinesisUpgrade(int level);
+    public delegate void OnBuySpellStealUpgrade(int level);
+    public delegate void OnBuyFireblastUpgrade(int level);
+    public delegate void OnBuyBloodlustUpgrade(int level);
+    public delegate void OnBuySnowballUpgrade(int level);
+    public delegate void OnBuyWalrusPunchUpgrade(int level);
+    public delegate void OnBuySunrayUpgrade(int level);
+    public delegate void OnBuySupernovaUpgrade(int level);
+    public delegate void OnBuyWarCryUpgrade(int level);
+    public delegate void OnBuyGodStrengthUpgrade(int level);
+    public delegate void OnBuyBlinkUpgrade(int level);
+    public delegate void OnBuyManaVoidUpgrade(int level);
+    public delegate void OnBuyGreevilsGreedUpgrade(int level);
+    public delegate void OnBuyChemicalRageUpgrade(int level);
 
     public static event OnBuyCrystalNovaUpgrade BuyCrystalNovaUpgrade;
     public static event OnBuyFrostbiteUpgrade BuyFrostbiteUpgrade;
@@ -48,7 +48,9 @@ public class UpgradesController : MonoBehaviour
     bool isOnMainMenu = false;
     RadiantSceneController m_sceneController;
 
-	void Start ()
+    bool m_cmAbil1, m_cmAbil2, m_rubickAbil1, m_rubickAbil2, m_ogreAbil1, m_ogreAbil2, m_tuskAbil1, m_tuskAbil2, m_phoenixAbil1, m_phoenixAbil2, m_svenAbil1, m_svenAbil2, m_antiAbil1, m_antiAbil2, m_alcAbil1, m_alcAbil2;
+
+    void Start ()
     {
         if (SceneManager.GetActiveScene().name == "MainMenu")
         {
@@ -74,135 +76,182 @@ public class UpgradesController : MonoBehaviour
 
     void AddDefaultUpgrades()
     {
-        Upgrades.Add(new UpgradeDto()
+        if(!m_cmAbil1)
         {
-            Name = "Crystal Nova",
-            Description = "Overcharges Io to double his output for 30 seconds. Cooldown: 45 seconds",
-            HeroUpgrade = "Crystal Maiden",
-            Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/CM_CrystalNova"),
-            Cost = 0,
-        });
-        Upgrades.Add(new UpgradeDto()
+            Upgrades.Add(new UpgradeDto()
+            {
+                Name = "Crystal Nova",
+                Description = "Overcharges Io to double his output for 30 seconds. Cooldown: 45 seconds",
+                HeroUpgrade = "Crystal Maiden",
+                Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/CM_CrystalNova"),
+                Cost = 0,
+            });
+        }
+        if(!m_cmAbil2)
         {
-            Name = "Frostbite",
-            Description = "Quadruples Io's click amount for 20 seconds. Cooldown: 1.5 minutes",
-            HeroUpgrade = "Crystal Maiden",
-            Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/CM_Frostbite"),
-            Cost = 0,
-        });
-        Upgrades.Add(new UpgradeDto()
+            Upgrades.Add(new UpgradeDto()
+            {
+                Name = "Frostbite",
+                Description = "Quadruples Io's click amount for 20 seconds. Cooldown: 1.5 minutes",
+                HeroUpgrade = "Crystal Maiden",
+                Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/CM_Frostbite"),
+                Cost = 0,
+            });
+        }
+        if(!m_rubickAbil1)
         {
-            Name = "Telekinesis",
-            Description = "Rubick lifts his click amount by 2 for 30 seconds. Cooldown: 1 minute",
-            HeroUpgrade = "Rubick",
-            Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Rubick_Telekinesis"),
-            Cost = 0,
-        });
-        Upgrades.Add(new UpgradeDto()
+            Upgrades.Add(new UpgradeDto()
+            {
+                Name = "Telekinesis",
+                Description = "Rubick lifts his click amount by 2 for 30 seconds. Cooldown: 1 minute",
+                HeroUpgrade = "Rubick",
+                Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Rubick_Telekinesis"),
+                Cost = 0,
+            });
+        }
+        if(!m_rubickAbil2)
         {
-            Name = "Spell Steal",
-            Description = "Rubick steals another heroes click amount for one click. Cooldown: 3 minutes",
-            HeroUpgrade = "Rubick",
-            Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Rubick_SpellSteal"),
-            Cost = 0,
-        });
-        Upgrades.Add(new UpgradeDto()
+            Upgrades.Add(new UpgradeDto()
+            {
+                Name = "Spell Steal",
+                Description = "Rubick steals another heroes click amount for one click. Cooldown: 3 minutes",
+                HeroUpgrade = "Rubick",
+                Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Rubick_SpellSteal"),
+                Cost = 0,
+            });
+        }
+        if(!m_ogreAbil1)
         {
-            Name = "Fireblast",
-            Description = "The Ogre Magi blasts a wave of fire giving 3x his click amount for 45 seconds. Cooldown: 5 minutes",
-            HeroUpgrade = "Ogre Magi",
-            Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/OgreMagi_Fireblast"),
-            Cost = 0,
-        });
-        Upgrades.Add(new UpgradeDto()
+            Upgrades.Add(new UpgradeDto()
+            {
+                Name = "Fireblast",
+                Description = "The Ogre Magi blasts a wave of fire giving 3x his click amount for 45 seconds. Cooldown: 5 minutes",
+                HeroUpgrade = "Ogre Magi",
+                Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/OgreMagi_Fireblast"),
+                Cost = 0,
+            });
+        }
+        if(!m_ogreAbil2)
         {
-            Name = "Bloodlust",
-            Description = "Incites a frenzy in the Magi, decreasing his click duration by 30 seconds. Cooldown: 3.5 minutes",
-            HeroUpgrade = "Ogre Magi",
-            Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/OgreMagi_Bloodlust"),
-            Cost = 0,
-        });
-        Upgrades.Add(new UpgradeDto()
+            Upgrades.Add(new UpgradeDto()
+            {
+                Name = "Bloodlust",
+                Description = "Incites a frenzy in the Magi, decreasing his click duration by 30 seconds. Cooldown: 3.5 minutes",
+                HeroUpgrade = "Ogre Magi",
+                Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/OgreMagi_Bloodlust"),
+                Cost = 0,
+            });
+        }
+        if(!m_tuskAbil1)
         {
-            Name = "Snowball",
-            Description = "Tusk snowballs his click amount by 2. Cooldown: 4 minutes minutes",
-            HeroUpgrade = "Tusk",
-            Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Tusk_Snowball"),
-            Cost = 0,
-        });
-        Upgrades.Add(new UpgradeDto()
+            Upgrades.Add(new UpgradeDto()
+            {
+                Name = "Snowball",
+                Description = "Tusk snowballs his click amount by 2. Cooldown: 4 minutes minutes",
+                HeroUpgrade = "Tusk",
+                Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Tusk_Snowball"),
+                Cost = 0,
+            });
+        }
+        if(!m_tuskAbil2)
         {
-            Name = "Walrus Punch",
-            Description = "Tusk connects with his mighty fist and gives you a bonus click. Cooldown: 7 minutes",
-            HeroUpgrade = "Tusk",
-            Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Tusk_WalrusPunch"),
-            Cost = 0,
-        });
-        Upgrades.Add(new UpgradeDto()
+            Upgrades.Add(new UpgradeDto()
+            {
+                Name = "Walrus Punch",
+                Description = "Tusk connects with his mighty fist and gives you a bonus click. Cooldown: 7 minutes",
+                HeroUpgrade = "Tusk",
+                Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Tusk_WalrusPunch"),
+                Cost = 0,
+            });
+        }
+        if(!m_phoenixAbil1)
         {
-            Name = "Sunray",
-            Description = "A beam of light powerful enough to decrease all cooldowns by a minute. Cooldown: 7 minutes",
-            HeroUpgrade = "Phoenix",
-            Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Phoenix_SunRay"),
-            Cost = 0,
-        });
-        Upgrades.Add(new UpgradeDto()
+            Upgrades.Add(new UpgradeDto()
+            {
+                Name = "Sunray",
+                Description = "A beam of light powerful enough to decrease all cooldowns by a minute. Cooldown: 7 minutes",
+                HeroUpgrade = "Phoenix",
+                Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Phoenix_SunRay"),
+                Cost = 0,
+            });
+        }
+        if(!m_phoenixAbil2)
         {
-            Name = "Supernova",
-            Description = "Completes a click every second of Supernova's duration. Cooldown: 10 minutes",
-            HeroUpgrade = "Phoenix",
-            Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Phoenix_Supernova"),
-            Cost = 0,
-        });
-        Upgrades.Add(new UpgradeDto()
+            Upgrades.Add(new UpgradeDto()
+            {
+                Name = "Supernova",
+                Description = "Completes a click every second of Supernova's duration. Cooldown: 10 minutes",
+                HeroUpgrade = "Phoenix",
+                Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Phoenix_Supernova"),
+                Cost = 0,
+            });
+        }
+        if(!m_svenAbil1)
         {
-            Name = "War Cry",
-            Description = "Decreases each clickers duration by 1/4. Cooldown: 7 minutes",
-            HeroUpgrade = "Sven",
-            Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Sven_WarCry"),
-            Cost = 0,
-        });
-        Upgrades.Add(new UpgradeDto()
+            Upgrades.Add(new UpgradeDto()
+            {
+                Name = "War Cry",
+                Description = "Decreases each clickers duration by 1/4. Cooldown: 7 minutes",
+                HeroUpgrade = "Sven",
+                Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Sven_WarCry"),
+                Cost = 0,
+            });
+        }
+        if(!m_svenAbil2)
         {
-            Name = "God's Strength",
-            Description = "Sven channels his rogue strength, increasing his teammates click amount by 2 for 30 seconds. Cooldown: 15 minutes",
-            HeroUpgrade = "Sven",
-            Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Sven_GodsStrength"),
-            Cost = 0,
-        });
-        Upgrades.Add(new UpgradeDto()
+            Upgrades.Add(new UpgradeDto()
+            {
+                Name = "God's Strength",
+                Description = "Sven channels his rogue strength, increasing his teammates click amount by 2 for 30 seconds. Cooldown: 15 minutes",
+                HeroUpgrade = "Sven",
+                Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Sven_GodsStrength"),
+                Cost = 0,
+            });
+        }
+        if(!m_antiAbil1)
         {
-            Name = "Blink",
-            Description = "In a blink, Anti Mage gives you a click for free. Cooldown: 2 minutes",
-            HeroUpgrade = "Anti Mage",
-            Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/AntiMage_Blink"),
-            Cost = 0,
-        });
-        Upgrades.Add(new UpgradeDto()
+            Upgrades.Add(new UpgradeDto()
+            {
+                Name = "Blink",
+                Description = "In a blink, Anti Mage gives you a click for free. Cooldown: 2 minutes",
+                HeroUpgrade = "Anti Mage",
+                Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/AntiMage_Blink"),
+                Cost = 0,
+            });
+        }
+        if(!m_antiAbil2)
         {
-            Name = "Mana Void",
-            Description = "For each second missing from AM's current click duration, the surrounding heroes get that duration taken off their current time. Cooldown: 10 minutes",
-            HeroUpgrade = "Anti Mage",
-            Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/AntiMage_ManaVoid"),
-            Cost = 0,
-        });
-        Upgrades.Add(new UpgradeDto()
+            Upgrades.Add(new UpgradeDto()
+            {
+                Name = "Mana Void",
+                Description = "For each second missing from AM's current click duration, the surrounding heroes get that duration taken off their current time. Cooldown: 10 minutes",
+                HeroUpgrade = "Anti Mage",
+                Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/AntiMage_ManaVoid"),
+                Cost = 0,
+            });
+        }
+        if(!m_alcAbil1)
         {
-            Name = "Greevil's Greed",
-            Description = "For every attack, the Alchemist reduces his click duration by 20 seconds, lasts 1 minute. Cooldown: 20 minutes",
-            HeroUpgrade = "Alchemist",
-            Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Alchemist_GreevilsGreed"),
-            Cost = 0,
-        });
-        Upgrades.Add(new UpgradeDto()
+            Upgrades.Add(new UpgradeDto()
+            {
+                Name = "Greevil's Greed",
+                Description = "For every attack, the Alchemist reduces his click duration by 20 seconds, lasts 1 minute. Cooldown: 20 minutes",
+                HeroUpgrade = "Alchemist",
+                Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Alchemist_GreevilsGreed"),
+                Cost = 0,
+            });
+        }
+        if(!m_alcAbil2)
         {
-            Name = "Chemical Rage",
-            Description = "The Alchemist causes his Ogre to enter a chemically induced rage reducing his current click by 3/4. Cooldown: 30 minutes",
-            HeroUpgrade = "Alchemist",
-            Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Alchemist_ChemicalRage"),
-            Cost = 0,
-        });
-
+            Upgrades.Add(new UpgradeDto()
+            {
+                Name = "Chemical Rage",
+                Description = "The Alchemist causes his Ogre to enter a chemically induced rage reducing his current click by 3/4. Cooldown: 30 minutes",
+                HeroUpgrade = "Alchemist",
+                Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Alchemist_ChemicalRage"),
+                Cost = 0,
+            });
+        }
     }
 
     void RefreshUpgradesList()
@@ -250,7 +299,8 @@ public class UpgradesController : MonoBehaviour
         if (upgrade.Name == "Crystal Nova")
         {
             Debug.Log("Clicked Crystal Nova");
-            BuyCrystalNovaUpgrade(); //Invoke Event
+            BuyCrystalNovaUpgrade(1); //Invoke Event
+            m_cmAbil1 = true;
 
             bool canFindAbility = Upgrades.Exists(x => x.Name == "Crystal Nova");
             if (!canFindAbility && !gotBothAbilityAchievement)
@@ -263,7 +313,8 @@ public class UpgradesController : MonoBehaviour
         else if(upgrade.Name == "Frostbite")
         {
             Debug.Log("Clicked Frostbite");
-            BuyFrostbiteUpgrade();
+            BuyFrostbiteUpgrade(1);
+            m_cmAbil2 = true;
 
             if (!Upgrades.Exists(x => x.Name == "Frostbite") && !gotBothAbilityAchievement)
             {
@@ -275,7 +326,8 @@ public class UpgradesController : MonoBehaviour
         else if (upgrade.Name == "Telekinesis")
         {
             Debug.Log("Clicked Telekinesis");
-            BuyTelekinesisUpgrade();
+            BuyTelekinesisUpgrade(1);
+            m_rubickAbil1 = true;
 
             if (!Upgrades.Exists(x => x.Name == "Spell Steal") && !gotBothAbilityAchievement)
             {
@@ -287,7 +339,8 @@ public class UpgradesController : MonoBehaviour
         else if (upgrade.Name == "Spell Steal")
         {
             Debug.Log("Clicked Spell Steal");
-            BuySpellStealUpgrade();
+            BuySpellStealUpgrade(1);
+            m_rubickAbil2 = true;
 
             if (!Upgrades.Exists(x => x.Name == "Telekinesis") && !gotBothAbilityAchievement)
             {
@@ -299,7 +352,8 @@ public class UpgradesController : MonoBehaviour
         else if (upgrade.Name == "Fireblast")
         {
             Debug.Log("Clicked Fireblast");
-            BuyFireblastUpgrade();
+            BuyFireblastUpgrade(1);
+            m_ogreAbil1 = true;
 
             if (!Upgrades.Exists(x => x.Name == "Bloodlust") && !gotBothAbilityAchievement)
             {
@@ -311,7 +365,8 @@ public class UpgradesController : MonoBehaviour
         else if (upgrade.Name == "Bloodlust")
         {
             Debug.Log("Clicked Bloodlust");
-            BuyBloodlustUpgrade();
+            BuyBloodlustUpgrade(1);
+            m_ogreAbil2 = true;
 
             if (!Upgrades.Exists(x => x.Name == "Fireblast") && !gotBothAbilityAchievement)
             {
@@ -323,7 +378,8 @@ public class UpgradesController : MonoBehaviour
         else if (upgrade.Name == "Snowball")
         {
             Debug.Log("Clicked Snowball");
-            BuySnowballUpgrade();
+            BuySnowballUpgrade(1);
+            m_tuskAbil1 = true;
 
             if (!Upgrades.Exists(x => x.Name == "Walrus Punch") && !gotBothAbilityAchievement)
             {
@@ -335,7 +391,8 @@ public class UpgradesController : MonoBehaviour
         else if (upgrade.Name == "Walrus Punch")
         {
             Debug.Log("Clicked Walrus Punch");
-            BuyWalrusPunchUpgrade();
+            BuyWalrusPunchUpgrade(1);
+            m_tuskAbil2 = true;
 
             if (!Upgrades.Exists(x => x.Name == "Snowball") && !gotBothAbilityAchievement)
             {
@@ -347,7 +404,8 @@ public class UpgradesController : MonoBehaviour
         else if (upgrade.Name == "Sunray")
         {
             Debug.Log("Clicked Sunray");
-            BuySunrayUpgrade();
+            BuySunrayUpgrade(1);
+            m_phoenixAbil1 = true;
 
             GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().EnableRoshanEvents();
 
@@ -361,7 +419,8 @@ public class UpgradesController : MonoBehaviour
         else if (upgrade.Name == "Supernova")
         {
             Debug.Log("Clicked Supernova");
-            BuySupernovaUpgrade();
+            BuySupernovaUpgrade(1);
+            m_phoenixAbil2 = true;
 
             GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().EnableRoshanEvents();
 
@@ -375,7 +434,8 @@ public class UpgradesController : MonoBehaviour
         else if (upgrade.Name == "War Cry")
         {
             Debug.Log("Clicked War Cry");
-            BuyWarCryUpgrade();
+            BuyWarCryUpgrade(1);
+            m_svenAbil1 = true;
 
             GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().EnableRoshanEvents();
 
@@ -389,7 +449,8 @@ public class UpgradesController : MonoBehaviour
         else if (upgrade.Name == "God's Strength")
         {
             Debug.Log("Clicked God's Strength");
-            BuyGodsStrengthUpgrade();
+            BuyGodsStrengthUpgrade(1);
+            m_svenAbil2 = true;
 
             GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().EnableRoshanEvents();
 
@@ -403,7 +464,8 @@ public class UpgradesController : MonoBehaviour
         else if (upgrade.Name == "Blink")
         {
             Debug.Log("Clicked Blink");
-            BuyBlinkUpgrade();
+            BuyBlinkUpgrade(1);
+            m_antiAbil1 = true;
 
             GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().EnableRoshanEvents();
 
@@ -417,7 +479,8 @@ public class UpgradesController : MonoBehaviour
         else if (upgrade.Name == "Mana Void")
         {
             Debug.Log("Clicked Mana Void");
-            BuyManaVoidUpgrade();
+            BuyManaVoidUpgrade(1);
+            m_antiAbil2 = true;
 
             GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().EnableRoshanEvents();
 
@@ -431,7 +494,8 @@ public class UpgradesController : MonoBehaviour
         else if (upgrade.Name == "Greevil's Greed")
         {
             Debug.Log("Clicked Greevil's Greed");
-            BuyGreevilsGreedUpgrade();
+            BuyGreevilsGreedUpgrade(1);
+            m_alcAbil1 = true;
 
             GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().EnableRoshanEvents();
 
@@ -445,7 +509,8 @@ public class UpgradesController : MonoBehaviour
         else if (upgrade.Name == "Chemical Rage")
         {
             Debug.Log("Clicked Chemical Rage");
-            BuyChemicalRageUpgrade();
+            BuyChemicalRageUpgrade(1);
+            m_alcAbil2 = true;
 
             GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().EnableRoshanEvents();
 
@@ -477,6 +542,95 @@ public class UpgradesController : MonoBehaviour
 
     void OnLoadedSaveFile(SaveFileDto saveFile)
     {
+        foreach(HeroDto hero in saveFile.RadiantSide.Heroes)
+        {
+            if(hero.Ability1Level > 0)
+            {
+                if (hero.HeroName == "Crystal Maiden")
+                {
+                    m_cmAbil1 = true;
+                    BuyCrystalNovaUpgrade(hero.Ability1Level);
+                }
+                else if (hero.HeroName == "Rubick")
+                {
+                    m_rubickAbil1 = true;
+                    BuyTelekinesisUpgrade(hero.Ability1Level);
+                }
+                else if (hero.HeroName == "Ogre Magi")
+                {
+                    m_ogreAbil1 = true;
+                    BuyFireblastUpgrade(hero.Ability1Level);
+                }
+                else if (hero.HeroName == "Tusk")
+                {
+                    m_tuskAbil1 = true;
+                    BuySnowballUpgrade(hero.Ability1Level);  
+                }
+                else if (hero.HeroName == "Phoenix")
+                {
+                    m_phoenixAbil1 = true;
+                    BuySunrayUpgrade(hero.Ability1Level);
+                }
+                else if (hero.HeroName == "Sven")
+                {
+                    m_svenAbil1 = true;
+                    BuyWarCryUpgrade(hero.Ability1Level);
+                }
+                else if (hero.HeroName == "Anti Mage")
+                {
+                    m_antiAbil1 = true;
+                    BuyBlinkUpgrade(hero.Ability1Level);
+                }
+                else if (hero.HeroName == "Alchemist")
+                {
+                    m_alcAbil1 = true;
+                    BuyGreevilsGreedUpgrade(hero.Ability1Level); 
+                }
+            }
 
+            if (hero.Ability2Level > 0)
+            {
+                if (hero.HeroName == "Crystal Maiden")
+                {
+                    m_cmAbil2 = true;
+                    BuyFrostbiteUpgrade(hero.Ability2Level);
+                }
+                else if (hero.HeroName == "Rubick")
+                {
+                    m_rubickAbil2 = true;
+                    BuySpellStealUpgrade(hero.Ability2Level);
+                }
+                else if (hero.HeroName == "Ogre Magi")
+                {
+                    m_ogreAbil2 = true;
+                    BuyBloodlustUpgrade(hero.Ability2Level);
+                }
+                else if (hero.HeroName == "Tusk")
+                {
+                    m_tuskAbil2 = true;
+                    BuyWalrusPunchUpgrade(hero.Ability2Level);
+                }
+                else if (hero.HeroName == "Phoenix")
+                {
+                    m_phoenixAbil2 = true;
+                    BuySupernovaUpgrade(hero.Ability2Level);
+                }
+                else if (hero.HeroName == "Sven")
+                {
+                    m_svenAbil2 = true;
+                    BuyGodsStrengthUpgrade(hero.Ability2Level);
+                }
+                else if (hero.HeroName == "Anti Mage")
+                {
+                    m_antiAbil2 = true;
+                    BuyManaVoidUpgrade(hero.Ability2Level);
+                }
+                else if (hero.HeroName == "Alchemist")
+                {
+                    m_alcAbil2 = true;
+                    BuyChemicalRageUpgrade(hero.Ability2Level);
+                }
+            }
+        }
     }
 }

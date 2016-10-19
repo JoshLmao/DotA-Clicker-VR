@@ -105,7 +105,7 @@ public class AntiMageController : MonoBehaviour
         }
     }
 
-    void BuyBlinkUpgrade()
+    void BuyBlinkUpgrade(int level)
     {
         BlinkUpgrade = true;
         Debug.Log("Bought Blink Upgrade");
@@ -113,11 +113,11 @@ public class AntiMageController : MonoBehaviour
         //Give white color to ability
         m_blinkCooldown.fillAmount = 0;
 
-        m_clickerController.Ability1Level = 1;
+        m_clickerController.Ability1Level = level;
         m_clickerController.ResetLevelIcons("1");
     }
 
-    void BuyManaVoidUpgrade()
+    void BuyManaVoidUpgrade(int level)
     {
         ManaVoidUpgrade = true;
         Debug.Log("Bought ManaVoid Upgrade");
@@ -125,7 +125,7 @@ public class AntiMageController : MonoBehaviour
         //Give white color to ability
         m_manaVoidCooldown.fillAmount = 0;
 
-        m_clickerController.Ability2Level = 1;
+        m_clickerController.Ability2Level = level;
         m_clickerController.ResetLevelIcons("2");
     }
 
