@@ -52,12 +52,19 @@ public class CMController : MonoBehaviour
     int m_crystalNovaModifiedValue;
     int m_frostbiteModifiedValue;
 
-    void Start()
+    void Awake()
     {
         m_clickerController = GetComponent<RadiantClickerController>();
         m_clickerController.OnClickedButton += ClickedButton;
         m_clickerController.OnClickedFinished += ClickedFinished;
 
+        UpgradesController.BuyCrystalNovaUpgrade += BuyCrystalNovaUpgrade;
+        UpgradesController.BuyFrostbiteUpgrade += BuyFrostbiteUpgrade;
+        ManagersController.BuyCMManager += BuyCMManager;
+    }
+
+    void Start()
+    {
         CrystalMaiden = transform.Find("CrystalMaiden").gameObject;
         m_cmAnimator = CrystalMaiden.GetComponent<Animator>();
         m_audioSource = CrystalMaiden.GetComponent<AudioSource>();
@@ -76,10 +83,6 @@ public class CMController : MonoBehaviour
         m_frostbiteActiveFade = transform.Find("Buttons/StandBack/UpgradesCanvas/FrostbiteBack/ActiveFade").GetComponent<Image>();
         m_crystalNovaActiveFade.gameObject.SetActive(false);
         m_frostbiteActiveFade.gameObject.SetActive(false);
-
-        UpgradesController.BuyCrystalNovaUpgrade += BuyCrystalNovaUpgrade;
-        UpgradesController.BuyFrostbiteUpgrade += BuyFrostbiteUpgrade;
-        ManagersController.BuyIoManager += BuyIoManager;
 
         int pick = UnityEngine.Random.Range(60, 300);
         StartCoroutine(RareIdleCount(pick));
@@ -138,9 +141,9 @@ public class CMController : MonoBehaviour
         m_clickerController.ResetLevelIcons("2");
     }
 
-    void BuyIoManager()
+    void BuyCMManager()
     {
-        Debug.Log("Bought Io Manager");
+        Debug.Log("Bought CM Manager");
         CMManager = true;
         RadiantClickerController clicker = this.GetComponent<RadiantClickerController>();
         clicker.HasManager = CMManager;
@@ -341,4 +344,5 @@ public class CMController : MonoBehaviour
         StartCoroutine(RareIdleCount(pick));
     }
 
+    
 }

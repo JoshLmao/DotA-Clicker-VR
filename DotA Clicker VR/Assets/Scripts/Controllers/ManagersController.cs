@@ -9,7 +9,7 @@ public class ManagersController : MonoBehaviour {
 
     public List<ManagerDto> Managers { get; set; }
 
-    public delegate void OnBuyIoManager();
+    public delegate void OnBuyCMManager();
     public delegate void OnBuyRubickManager();
     public delegate void OnBuyOgreMagiManager();
     public delegate void OnBuyTuskManager();
@@ -18,7 +18,7 @@ public class ManagersController : MonoBehaviour {
     public delegate void OnBuyAntiMageManager();
     public delegate void OnBuyAlchemistManager();
 
-    public static event OnBuyIoManager BuyIoManager;
+    public static event OnBuyCMManager BuyCMManager;
     public static event OnBuyRubickManager BuyRubickManager;
     public static event OnBuyOgreMagiManager BuyOgreMagiManager;
     public static event OnBuyTuskManager BuyTuskManager;
@@ -36,6 +36,11 @@ public class ManagersController : MonoBehaviour {
     //Has manager been bought
     bool m_CM, m_rubick, m_ogreMagi, m_tusk, m_phoenix, m_sven, m_antiMage, m_alchemist;
 
+    void Awake()
+    {
+        RadiantSceneController.LoadedSaveFile += OnLoadedSaveFile;
+    }
+
     void Start ()
     {
         if (SceneManager.GetActiveScene().name == "MainMenu")
@@ -50,12 +55,11 @@ public class ManagersController : MonoBehaviour {
         AddManagers();
 
         RefreshManagersList();
-        RadiantSceneController.LoadedSaveFile += OnLoadedSaveFile;
     }
 
     private void OnLoadedSaveFile(SaveFileDto saveFile)
     {
-        if (Managers.Count <= 0) return;
+        //if (Managers.Count <= 0) return;
 
         foreach(HeroDto hero in saveFile.RadiantSide.Heroes)
         {
@@ -64,6 +68,9 @@ public class ManagersController : MonoBehaviour {
                 if (hero.HeroName == "Crystal Maiden")
                 {
                     m_CM = true;
+
+                    if(BuyCMManager != null)
+                        BuyCMManager.Invoke();
                 }
                 else if(hero.HeroName == "Rubick")
                 {
@@ -221,7 +228,7 @@ public class ManagersController : MonoBehaviour {
         if (manager.Name == "Io")
         {
             Debug.Log("Clicked Io Manager");
-            BuyIoManager(); //Invoke Event
+            BuyCMManager(); //Invoke Event
             m_CM = true;
         }
         else if (manager.Name == "Rubick")

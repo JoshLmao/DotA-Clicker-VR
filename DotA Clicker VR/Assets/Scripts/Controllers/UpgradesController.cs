@@ -50,6 +50,11 @@ public class UpgradesController : MonoBehaviour
 
     bool m_cmAbil1, m_cmAbil2, m_rubickAbil1, m_rubickAbil2, m_ogreAbil1, m_ogreAbil2, m_tuskAbil1, m_tuskAbil2, m_phoenixAbil1, m_phoenixAbil2, m_svenAbil1, m_svenAbil2, m_antiAbil1, m_antiAbil2, m_alcAbil1, m_alcAbil2;
 
+    void Awake()
+    {
+        RadiantSceneController.LoadedSaveFile += OnLoadedSaveFile;
+    }
+
     void Start ()
     {
         if (SceneManager.GetActiveScene().name == "MainMenu")
@@ -65,8 +70,6 @@ public class UpgradesController : MonoBehaviour
         AddDefaultUpgrades();
 
         RefreshUpgradesList();
-
-        RadiantSceneController.LoadedSaveFile += OnLoadedSaveFile;
 	}
 	
 	void Update ()

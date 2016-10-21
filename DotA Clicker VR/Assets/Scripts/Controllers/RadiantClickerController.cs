@@ -1172,6 +1172,21 @@ public class RadiantClickerController : MonoBehaviour
         m_activeItemModifierPrefab = null;
     }
 
+    //Activate the UI
+    void ActivateAbility1(string hero)
+    {
+        if(hero == "Crystal Maiden")
+        {
+
+        }
+    }
+
+    //Activate the UI
+    void ActivateAbility2(string hero)
+    {
+
+    }
+
     void OnLoadedSaveFile(SaveFileDto saveFile)
     {
         List<HeroDto> heroes = saveFile.RadiantSide.Heroes;
@@ -1181,13 +1196,21 @@ public class RadiantClickerController : MonoBehaviour
             {
                 //Apply save to hero
                 ClickerMultiplier = hero.ClickersBought;
+
                 Ability1Level = hero.Ability1Level;
                 Ability1UseCount = hero.Ability1UseCount;
+                //Add to Ability Slider count and update value
+                m_abil1UseCount = (int)hero.Ability1UseCount;
+                m_abil1Slider.value = m_abil1UseCount;
 
                 Ability2Level = hero.Ability2Level;
                 Ability2UseCount = hero.Ability2UseCount;
 
-                if(hero.Ability1RemainingTime != 0)
+                //Add to Ability Slider count and update value
+                m_abil2UseCount = (int)hero.Ability2UseCount;
+                m_abil2Slider.value = m_abil2UseCount;
+
+                if (hero.Ability1RemainingTime != 0)
                 {
                     if (HeroName == "Crystal Maiden")
                     {
@@ -1222,7 +1245,7 @@ public class RadiantClickerController : MonoBehaviour
                         ActivateAbility("GreevilsGreedBtn", hero.Ability1RemainingTime);
                     }
                 }
-                else if(hero.Ability2Level != 0)
+                else if(hero.Ability2RemainingTime != 0)
                 {
                     if(HeroName == "Crystal Maiden")
                     {

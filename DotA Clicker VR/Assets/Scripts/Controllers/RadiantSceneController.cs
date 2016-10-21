@@ -59,26 +59,26 @@ public class RadiantSceneController : MonoBehaviour
 
     void Awake()
     {
+        RoshanController.RoshanEventEnded += OnRoshanEventEnded;
+        RoshanController.RoshanEventEndedNotKilled += OnRoshanEventEndedNotKilled;
+
         LoadedSaveFile += OnLoadedSave;
 
-        //Last
-        LoadProgress();
         CurrentConfigFile = LoadConfig();
 
         modifierController = GameObject.Find("ItemsListCanvas").GetComponent<BuyableItemsController>();
+
+        m_options = GameObject.Find("OptionsCanvas").GetComponent<OptionsController>();
+        m_achievementEvents = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
+
+        m_goldUI = GameObject.Find("UI/WorldSpaceUI/TotalGoldCanvas/AllGold/TotalGoldText").GetComponent<Text>();
     }
 
     void Start ()
     {
-        m_achievementEvents = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
-
-        m_goldUI = GameObject.Find("UI/WorldSpaceUI/TotalGoldCanvas/AllGold/TotalGoldText").GetComponent<Text>();
-
         SceneHeroes = GetClickerHeroesInScene();
-        m_options = GameObject.Find("OptionsCanvas").GetComponent<OptionsController>();
 
-        RoshanController.RoshanEventEnded += OnRoshanEventEnded;
-        RoshanController.RoshanEventEndedNotKilled += OnRoshanEventEndedNotKilled;
+        LoadProgress();
     }
 
     void Update ()
@@ -140,6 +140,12 @@ public class RadiantSceneController : MonoBehaviour
         SaveFile();
     }
 
+    double CorrectTimeRemaining(int heroIndex)
+    {
+        double timeRemaining = (TimeSpan.FromSeconds(SceneHeroes[heroIndex].SecondsToCompleteClick) - SceneHeroes[heroIndex].CurrentClickerTime).TotalSeconds;
+        return timeRemaining != SceneHeroes[heroIndex].SecondsToCompleteClick ? timeRemaining : 0;
+    }
+
     public void SaveFile()
     {
         //Check if folders & file exists
@@ -153,10 +159,10 @@ public class RadiantSceneController : MonoBehaviour
             hasSaveFile = true;
 
         //Calculate TimeSpans for ModiferTimeRemaining
-        foreach(RadiantClickerController clicker in SceneHeroes)
-        {
+        //foreach(RadiantClickerController clicker in SceneHeroes)
+        //{
             
-        }
+        //}
 
         //Save data
         SaveFileDto saveFile = new SaveFileDto()
@@ -165,174 +171,9 @@ public class RadiantSceneController : MonoBehaviour
             RadiantSide = new RadiantSideDto()
             {
                 TotalGold = TotalGold,
-                /*
-                 * Hero Order in List:
-                 * 0 = Alchemist, 1 = Ogre, 2 = Tusk, 3 = Io, 4 = AntiMagi, 5 = Sven, 6 = Phoenix, 7 = Rubick
-                 */
 
-                Heroes = new List<HeroDto>()
-                {
-                    new HeroDto()
-                    {
-                        HeroName = "Crystal Maiden",
-                        ClickersBought = SceneHeroes[3].ClickerMultiplier,
-                        ClickerTimeRemaining = SceneHeroes[3].m_currentClickTimePassed.TotalSeconds,
 
-                        Ability1Level = SceneHeroes[3].Ability1Level,
-                        Ability1UseCount = SceneHeroes[3].Ability1UseCount,
-                        Ability1RemainingTime = SceneHeroes[3].m_ability1ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[3].m_ability1ClickTime) : 0,
 
-                        Ability2Level = SceneHeroes[3].Ability2Level,
-                        Ability2UseCount = SceneHeroes[3].Ability2UseCount,
-                        Ability2RemainingTime = SceneHeroes[3].m_ability2ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[3].m_ability2ClickTime) : 0,
-
-                        ModifierActive = SceneHeroes[3].m_currentModifierRoutineStarted == DateTime.MinValue ? false : true,
-                        CurrentModifier = SceneHeroes[3].m_currentModifier,
-                        ModifierTimeRemaining = SceneHeroes[3].m_currentModifierRoutineStarted != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[3].m_currentModifierRoutineStarted) : 0,
-
-                        HasManager = SceneHeroes[3].HasManager,
-                    },
-                    new HeroDto()
-                    {
-                        HeroName = "Rubick",
-                        ClickersBought = SceneHeroes[7].ClickerMultiplier,
-                        ClickerTimeRemaining = SceneHeroes[7].m_currentClickTimePassed.TotalSeconds,
-
-                        Ability1Level = SceneHeroes[7].Ability1Level,
-                        Ability1UseCount = SceneHeroes[7].Ability1UseCount,
-                        Ability1RemainingTime = SceneHeroes[7].m_ability1ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[7].m_ability1ClickTime) : 0,
-
-                        Ability2Level = SceneHeroes[7].Ability2Level,
-                        Ability2UseCount = SceneHeroes[7].Ability2UseCount,
-                        Ability2RemainingTime = SceneHeroes[7].m_ability2ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[7].m_ability2ClickTime) : 0,
-
-                        ModifierActive = SceneHeroes[7].m_currentModifierRoutineStarted == DateTime.MinValue ? false : true,
-                        CurrentModifier = SceneHeroes[7].m_currentModifier,
-                        ModifierTimeRemaining = SceneHeroes[7].m_currentModifierRoutineStarted != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[7].m_currentModifierRoutineStarted) : 0,
-
-                        HasManager = SceneHeroes[7].HasManager,
-                    },
-                    new HeroDto()
-                    {
-                        HeroName = "Ogre Magi",
-                        ClickersBought = SceneHeroes[1].ClickerMultiplier,
-                        ClickerTimeRemaining = SceneHeroes[1].m_currentClickTimePassed.TotalSeconds,
-
-                        Ability1Level = SceneHeroes[1].Ability1Level,
-                        Ability1UseCount = SceneHeroes[1].Ability1UseCount,
-                        Ability1RemainingTime = SceneHeroes[1].m_ability1ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[1].m_ability1ClickTime) : 0,
-
-                        Ability2Level = SceneHeroes[1].Ability2Level,
-                        Ability2UseCount = SceneHeroes[1].Ability2UseCount,
-                        Ability2RemainingTime = SceneHeroes[1].m_ability2ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[1].m_ability2ClickTime) : 0,
-
-                        ModifierActive = SceneHeroes[1].m_currentModifierRoutineStarted == DateTime.MinValue ? false : true,
-                        CurrentModifier = SceneHeroes[1].m_currentModifier,
-                        ModifierTimeRemaining = SceneHeroes[1].m_currentModifierRoutineStarted != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[1].m_currentModifierRoutineStarted) : 0,
-
-                        HasManager = SceneHeroes[1].HasManager,
-                    },
-                    new HeroDto()
-                    {
-                        HeroName = "Tusk",
-                        ClickersBought = SceneHeroes[2].ClickerMultiplier,
-                        ClickerTimeRemaining = SceneHeroes[2].m_currentClickTimePassed.TotalSeconds,
-
-                        Ability1Level = SceneHeroes[2].Ability1Level,
-                        Ability1UseCount = SceneHeroes[2].Ability1UseCount,
-                        Ability1RemainingTime = SceneHeroes[2].m_ability1ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[2].m_ability1ClickTime) : 0,
-
-                        Ability2Level = SceneHeroes[2].Ability2Level,
-                        Ability2UseCount = SceneHeroes[2].Ability2UseCount,
-                        Ability2RemainingTime = SceneHeroes[2].m_ability2ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[2].m_ability2ClickTime) : 0,
-
-                        ModifierActive = SceneHeroes[2].m_currentModifierRoutineStarted == DateTime.MinValue ? false : true,
-                        CurrentModifier = SceneHeroes[2].m_currentModifier,
-                        ModifierTimeRemaining = SceneHeroes[2].m_currentModifierRoutineStarted != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[2].m_currentModifierRoutineStarted) : 0,
-
-                        HasManager = SceneHeroes[2].HasManager,
-                    },
-                    new HeroDto()
-                    {
-                        HeroName = "Phoenix",
-                        ClickersBought = SceneHeroes[6].ClickerMultiplier,
-                        ClickerTimeRemaining = SceneHeroes[6].m_currentClickTimePassed.TotalSeconds,
-
-                        Ability1Level = SceneHeroes[6].Ability1Level,
-                        Ability1UseCount = SceneHeroes[6].Ability1UseCount,
-                        Ability1RemainingTime = SceneHeroes[6].m_ability1ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[6].m_ability1ClickTime) : 0,
-
-                        Ability2Level = SceneHeroes[6].Ability2Level,
-                        Ability2UseCount = SceneHeroes[6].Ability2UseCount,
-                        Ability2RemainingTime = SceneHeroes[6].m_ability2ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[6].m_ability2ClickTime) : 0,
-
-                        ModifierActive = SceneHeroes[6].m_currentModifierRoutineStarted == DateTime.MinValue ? false : true,
-                        CurrentModifier = SceneHeroes[6].m_currentModifier,
-                        ModifierTimeRemaining = SceneHeroes[6].m_currentModifierRoutineStarted != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[6].m_currentModifierRoutineStarted) : 0,
-
-                        HasManager = SceneHeroes[6].HasManager,
-                    },
-                    new HeroDto()
-                    {
-                        HeroName = "Sven",
-                        ClickersBought = SceneHeroes[5].ClickerMultiplier,
-                        ClickerTimeRemaining = SceneHeroes[5].m_currentClickTimePassed.TotalSeconds,
-
-                        Ability1Level = SceneHeroes[5].Ability1Level,
-                        Ability1UseCount = SceneHeroes[5].Ability1UseCount,
-                        Ability1RemainingTime = SceneHeroes[5].m_ability1ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[5].m_ability1ClickTime) : 0,
-
-                        Ability2Level = SceneHeroes[5].Ability2Level,
-                        Ability2UseCount = SceneHeroes[5].Ability2UseCount,
-                        Ability2RemainingTime = SceneHeroes[5].m_ability2ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[5].m_ability2ClickTime) : 0,
-
-                        ModifierActive = SceneHeroes[5].m_currentModifierRoutineStarted == DateTime.MinValue ? false : true,
-                        CurrentModifier = SceneHeroes[5].m_currentModifier,
-                        ModifierTimeRemaining = SceneHeroes[5].m_currentModifierRoutineStarted != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[5].m_currentModifierRoutineStarted) : 0,
-
-                        HasManager = SceneHeroes[5].HasManager,
-                    },
-                    new HeroDto()
-                    {
-                        HeroName = "AntiMage",
-                        ClickersBought = SceneHeroes[4].ClickerMultiplier,
-                        ClickerTimeRemaining = SceneHeroes[4].m_currentClickTimePassed.TotalSeconds,
-
-                        Ability1Level = SceneHeroes[4].Ability1Level,
-                        Ability1UseCount = SceneHeroes[4].Ability1UseCount,
-                        Ability1RemainingTime = SceneHeroes[4].m_ability1ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[4].m_ability1ClickTime) : 0,
-
-                        Ability2Level = SceneHeroes[4].Ability2Level,
-                        Ability2UseCount = SceneHeroes[4].Ability2UseCount,
-                        Ability2RemainingTime = SceneHeroes[4].m_ability2ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[4].m_ability2ClickTime) : 0,
-
-                        ModifierActive = SceneHeroes[4].m_currentModifierRoutineStarted == DateTime.MinValue ? false : true,
-                        CurrentModifier = SceneHeroes[4].m_currentModifier,
-                        ModifierTimeRemaining = SceneHeroes[4].m_currentModifierRoutineStarted != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[4].m_currentModifierRoutineStarted) : 0,
-
-                        HasManager = SceneHeroes[4].HasManager,
-                    },
-                    new HeroDto()
-                    {
-                        HeroName = "Alchemist",
-                        ClickersBought = SceneHeroes[0].ClickerMultiplier,
-                        ClickerTimeRemaining = SceneHeroes[0].m_currentClickTimePassed.TotalSeconds,
-
-                        Ability1Level = SceneHeroes[0].Ability1Level,
-                        Ability1UseCount = SceneHeroes[0].Ability1UseCount,
-                        Ability1RemainingTime = SceneHeroes[0].m_ability1ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[0].m_ability1ClickTime) : 0,
-
-                        Ability2Level = SceneHeroes[0].Ability2Level,
-                        Ability2UseCount = SceneHeroes[0].Ability2UseCount,
-                        Ability2RemainingTime = SceneHeroes[0].m_ability2ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[0].m_ability2ClickTime) : 0,
-
-                        ModifierActive = SceneHeroes[0].m_currentModifierRoutineStarted == DateTime.MinValue ? false : true,
-                        CurrentModifier = SceneHeroes[0].m_currentModifier,
-                        ModifierTimeRemaining = SceneHeroes[0].m_currentModifierRoutineStarted != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[0].m_currentModifierRoutineStarted) : 0,
-
-                        HasManager = SceneHeroes[0].HasManager,
-                    },
-                },
                 RoshanEvents = m_canDoRoshanEvent,
             },
             Preferences = new PreferencesDto()
@@ -398,6 +239,175 @@ public class RadiantSceneController : MonoBehaviour
                 TheManTheMythTheLegend = m_achievementEvents.ManMythLegendStatus,
                 DongsOutForBulldog = m_achievementEvents.DongsOutStatus,
             }
+        };
+
+        /*
+         * Hero Order in List:
+         * 0 = Alchemist, 1 = Ogre, 2 = Tusk, 3 = Io, 4 = AntiMagi, 5 = Sven, 6 = Phoenix, 7 = Rubick
+         */
+
+        saveFile.RadiantSide.Heroes = new List<HeroDto>()
+        {
+            new HeroDto()
+            {
+                HeroName = "Crystal Maiden",
+                ClickersBought = SceneHeroes[3].ClickerMultiplier,
+                ClickerTimeRemaining = CorrectTimeRemaining(3),
+
+                Ability1Level = SceneHeroes[3].Ability1Level,
+                Ability1UseCount = SceneHeroes[3].Ability1UseCount,
+                Ability1RemainingTime = SceneHeroes[3].m_ability1ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[3].m_ability1ClickTime) : 0,
+
+                Ability2Level = SceneHeroes[3].Ability2Level,
+                Ability2UseCount = SceneHeroes[3].Ability2UseCount,
+                Ability2RemainingTime = SceneHeroes[3].m_ability2ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[3].m_ability2ClickTime) : 0,
+
+                ModifierActive = SceneHeroes[3].m_currentModifierRoutineStarted == DateTime.MinValue ? false : true,
+                CurrentModifier = SceneHeroes[3].m_currentModifier,
+                ModifierTimeRemaining = SceneHeroes[3].m_currentModifierRoutineStarted != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[3].m_currentModifierRoutineStarted) : 0,
+
+                HasManager = SceneHeroes[3].HasManager,
+            },
+            new HeroDto()
+            {
+                HeroName = "Rubick",
+                ClickersBought = SceneHeroes[7].ClickerMultiplier,
+                ClickerTimeRemaining = CorrectTimeRemaining(7),
+
+                Ability1Level = SceneHeroes[7].Ability1Level,
+                Ability1UseCount = SceneHeroes[7].Ability1UseCount,
+                Ability1RemainingTime = SceneHeroes[7].m_ability1ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[7].m_ability1ClickTime) : 0,
+
+                Ability2Level = SceneHeroes[7].Ability2Level,
+                Ability2UseCount = SceneHeroes[7].Ability2UseCount,
+                Ability2RemainingTime = SceneHeroes[7].m_ability2ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[7].m_ability2ClickTime) : 0,
+
+                ModifierActive = SceneHeroes[7].m_currentModifierRoutineStarted == DateTime.MinValue ? false : true,
+                CurrentModifier = SceneHeroes[7].m_currentModifier,
+                ModifierTimeRemaining = SceneHeroes[7].m_currentModifierRoutineStarted != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[7].m_currentModifierRoutineStarted) : 0,
+
+                HasManager = SceneHeroes[7].HasManager,
+            },
+            new HeroDto()
+            {
+                HeroName = "Ogre Magi",
+                ClickersBought = SceneHeroes[1].ClickerMultiplier,
+                ClickerTimeRemaining = CorrectTimeRemaining(1),
+
+                Ability1Level = SceneHeroes[1].Ability1Level,
+                Ability1UseCount = SceneHeroes[1].Ability1UseCount,
+                Ability1RemainingTime = SceneHeroes[1].m_ability1ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[1].m_ability1ClickTime) : 0,
+
+                Ability2Level = SceneHeroes[1].Ability2Level,
+                Ability2UseCount = SceneHeroes[1].Ability2UseCount,
+                Ability2RemainingTime = SceneHeroes[1].m_ability2ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[1].m_ability2ClickTime) : 0,
+
+                ModifierActive = SceneHeroes[1].m_currentModifierRoutineStarted == DateTime.MinValue ? false : true,
+                CurrentModifier = SceneHeroes[1].m_currentModifier,
+                ModifierTimeRemaining = SceneHeroes[1].m_currentModifierRoutineStarted != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[1].m_currentModifierRoutineStarted) : 0,
+
+                HasManager = SceneHeroes[1].HasManager,
+            },
+            new HeroDto()
+            {
+                HeroName = "Tusk",
+                ClickersBought = SceneHeroes[2].ClickerMultiplier,
+                ClickerTimeRemaining = CorrectTimeRemaining(2),
+
+                Ability1Level = SceneHeroes[2].Ability1Level,
+                Ability1UseCount = SceneHeroes[2].Ability1UseCount,
+                Ability1RemainingTime = SceneHeroes[2].m_ability1ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[2].m_ability1ClickTime) : 0,
+
+                Ability2Level = SceneHeroes[2].Ability2Level,
+                Ability2UseCount = SceneHeroes[2].Ability2UseCount,
+                Ability2RemainingTime = SceneHeroes[2].m_ability2ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[2].m_ability2ClickTime) : 0,
+
+                ModifierActive = SceneHeroes[2].m_currentModifierRoutineStarted == DateTime.MinValue ? false : true,
+                CurrentModifier = SceneHeroes[2].m_currentModifier,
+                ModifierTimeRemaining = SceneHeroes[2].m_currentModifierRoutineStarted != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[2].m_currentModifierRoutineStarted) : 0,
+
+                HasManager = SceneHeroes[2].HasManager,
+            },
+            new HeroDto()
+            {
+                HeroName = "Phoenix",
+                ClickersBought = SceneHeroes[6].ClickerMultiplier,
+                ClickerTimeRemaining = CorrectTimeRemaining(6),
+
+                Ability1Level = SceneHeroes[6].Ability1Level,
+                Ability1UseCount = SceneHeroes[6].Ability1UseCount,
+                Ability1RemainingTime = SceneHeroes[6].m_ability1ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[6].m_ability1ClickTime) : 0,
+
+                Ability2Level = SceneHeroes[6].Ability2Level,
+                Ability2UseCount = SceneHeroes[6].Ability2UseCount,
+                Ability2RemainingTime = SceneHeroes[6].m_ability2ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[6].m_ability2ClickTime) : 0,
+
+                ModifierActive = SceneHeroes[6].m_currentModifierRoutineStarted == DateTime.MinValue ? false : true,
+                CurrentModifier = SceneHeroes[6].m_currentModifier,
+                ModifierTimeRemaining = SceneHeroes[6].m_currentModifierRoutineStarted != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[6].m_currentModifierRoutineStarted) : 0,
+
+                HasManager = SceneHeroes[6].HasManager,
+            },
+            new HeroDto()
+            {
+                HeroName = "Sven",
+                ClickersBought = SceneHeroes[5].ClickerMultiplier,
+                ClickerTimeRemaining = CorrectTimeRemaining(5),
+
+                Ability1Level = SceneHeroes[5].Ability1Level,
+                Ability1UseCount = SceneHeroes[5].Ability1UseCount,
+                Ability1RemainingTime = SceneHeroes[5].m_ability1ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[5].m_ability1ClickTime) : 0,
+
+                Ability2Level = SceneHeroes[5].Ability2Level,
+                Ability2UseCount = SceneHeroes[5].Ability2UseCount,
+                Ability2RemainingTime = SceneHeroes[5].m_ability2ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[5].m_ability2ClickTime) : 0,
+
+                ModifierActive = SceneHeroes[5].m_currentModifierRoutineStarted == DateTime.MinValue ? false : true,
+                CurrentModifier = SceneHeroes[5].m_currentModifier,
+                ModifierTimeRemaining = SceneHeroes[5].m_currentModifierRoutineStarted != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[5].m_currentModifierRoutineStarted) : 0,
+
+                HasManager = SceneHeroes[5].HasManager,
+            },
+            new HeroDto()
+            {
+                HeroName = "AntiMage",
+                ClickersBought = SceneHeroes[4].ClickerMultiplier,
+                ClickerTimeRemaining = CorrectTimeRemaining(4),
+
+                Ability1Level = SceneHeroes[4].Ability1Level,
+                Ability1UseCount = SceneHeroes[4].Ability1UseCount,
+                Ability1RemainingTime = SceneHeroes[4].m_ability1ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[4].m_ability1ClickTime) : 0,
+
+                Ability2Level = SceneHeroes[4].Ability2Level,
+                Ability2UseCount = SceneHeroes[4].Ability2UseCount,
+                Ability2RemainingTime = SceneHeroes[4].m_ability2ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[4].m_ability2ClickTime) : 0,
+
+                ModifierActive = SceneHeroes[4].m_currentModifierRoutineStarted == DateTime.MinValue ? false : true,
+                CurrentModifier = SceneHeroes[4].m_currentModifier,
+                ModifierTimeRemaining = SceneHeroes[4].m_currentModifierRoutineStarted != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[4].m_currentModifierRoutineStarted) : 0,
+
+                HasManager = SceneHeroes[4].HasManager,
+            },
+            new HeroDto()
+            {
+                HeroName = "Alchemist",
+                ClickersBought = SceneHeroes[0].ClickerMultiplier,
+                ClickerTimeRemaining = CorrectTimeRemaining(0),
+
+                Ability1Level = SceneHeroes[0].Ability1Level,
+                Ability1UseCount = SceneHeroes[0].Ability1UseCount,
+                Ability1RemainingTime = SceneHeroes[0].m_ability1ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[0].m_ability1ClickTime) : 0,
+
+                Ability2Level = SceneHeroes[0].Ability2Level,
+                Ability2UseCount = SceneHeroes[0].Ability2UseCount,
+                Ability2RemainingTime = SceneHeroes[0].m_ability2ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[0].m_ability2ClickTime) : 0,
+
+                ModifierActive = SceneHeroes[0].m_currentModifierRoutineStarted == DateTime.MinValue ? false : true,
+                CurrentModifier = SceneHeroes[0].m_currentModifier,
+                ModifierTimeRemaining = SceneHeroes[0].m_currentModifierRoutineStarted != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[0].m_currentModifierRoutineStarted) : 0,
+
+                HasManager = SceneHeroes[0].HasManager,
+            },
         };
 
         try
