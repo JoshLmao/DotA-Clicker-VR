@@ -108,7 +108,7 @@ public class RadiantSceneController : MonoBehaviour
         }
         catch(Exception e)
         {
-            Debug.Log("Exception - Can't load save file");
+            Debug.LogError("Can't load save file - " + e.ToString());
         }
 
         if (LoadedSaveFile != null)

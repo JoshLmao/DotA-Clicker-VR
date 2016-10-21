@@ -150,10 +150,8 @@ public class RadiantClickerController : MonoBehaviour
     {
         RadiantSceneController.LoadedSaveFile += OnLoadedSaveFile;
 
-    }
+        AbilityLevelUpStart();
 
-    void Start ()
-    {
         m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
         m_heroNameText = transform.FindChild("Buttons/StandBack/StandUI/ClickerNameText").GetComponent<Text>();
         m_timeRemainingText = transform.FindChild("Buttons/StandBack/StandUI/ProgressSlider/TimeRemaining").GetComponent<Text>();
@@ -162,21 +160,25 @@ public class RadiantClickerController : MonoBehaviour
         m_upgradeCostText = transform.Find("Buttons/UpgradeCostBack/UpgradeCostCanvas/Cost/UpCostText").GetComponent<Text>(); ;
         m_progressBar = transform.Find("Buttons/StandBack/StandUI/ProgressSlider").GetComponent<Slider>();
         MagicImmuneSound = Resources.Load<AudioClip>("Sounds/UI/magic_immune");
-        AbilityLevelUpStart();
-
-        TimeBetweenClicks = new TimeSpan(0, 0, 0, SecondsToCompleteClick);
-        //m_clickAmount = ClickAmount;
 
         m_activeModifier = transform.Find("Buttons/StandBack/StandUI/ActiveModifierUI/ActiveModifier").GetComponent<Image>();
         m_activeModifier.color = new Color(255, 255, 255, 0);
         m_itemModifierHolder = transform.Find("ItemModifierStand/ItemHolderTransform").gameObject.transform;
 
     }
+
+    void Start ()
+    {
+        TimeBetweenClicks = new TimeSpan(0, 0, 0, SecondsToCompleteClick);
+        //m_clickAmount = ClickAmount;
+    }
 	
     void AbilityLevelUpStart()
     {
         m_abil1Slider = transform.Find("Buttons/StandBack/UpgradesCanvas/Abil1Progress").GetComponent<Slider>();
         m_abil2Slider = transform.Find("Buttons/StandBack/UpgradesCanvas/Abil2Progress").GetComponent<Slider>();
+        if (m_abil1Slider == null)
+            return;
 
         Transform abil1Transform = transform.Find("Buttons/StandBack/UpgradesCanvas/Abil1Levels");
         Transform abil2Transform = transform.Find("Buttons/StandBack/UpgradesCanvas/Abil2Levels");
@@ -197,8 +199,6 @@ public class RadiantClickerController : MonoBehaviour
 
         m_abil2Slider.maxValue = Ability2LvlUpCount;
         m_abil2Slider.value = 0;
-
-        RadiantSceneController.LoadedSaveFile += OnLoadedSaveFile;
 
         HandController.IronBranchModifierAdded += OnIronBranchModifier;
         HandController.ClarityModifierAdded += OnClarityModifier;
@@ -719,14 +719,14 @@ public class RadiantClickerController : MonoBehaviour
         m_currentModifier = string.Empty;
     }
 
-    void OnIronBranchModifier(string hero)
+    void OnIronBranchModifier(string hero, int duration)
     {
         if(!CheckIfModifierActive() || name != hero)
         {
             return;
         }
 
-        StartCoroutine(WaitForItemModifier(30, "ironBranch"));
+        StartCoroutine(WaitForItemModifier(duration, "ironBranch"));
 
         m_ironBranchModify = ClickAmount * ItemModifierMultiplier;
         ClickAmount = m_ironBranchModify;
@@ -745,7 +745,7 @@ public class RadiantClickerController : MonoBehaviour
         }
     }
 
-    void OnClarityModifier(string hero)
+    void OnClarityModifier(string hero, int duration)
     {
         //If a modifier is active or the clicker GameObject name isnt the same as the hero string
         //The hero string is the parent name of the Item Prefab, which is the clicker itself.
@@ -754,7 +754,7 @@ public class RadiantClickerController : MonoBehaviour
             return;
         }
 
-        StartCoroutine(WaitForItemModifier(30, "clarity"));
+        StartCoroutine(WaitForItemModifier(duration, "clarity"));
 
         m_clarityModify = ClickAmount * (ItemModifierMultiplier * (int)1.5);
         ClickAmount = m_clarityModify;
@@ -773,14 +773,14 @@ public class RadiantClickerController : MonoBehaviour
         }
     }
 
-    void OnMagicStickModifier(string hero)
+    void OnMagicStickModifier(string hero, int duration)
     {
         if (!CheckIfModifierActive() || name != hero)
         {
             return;
         }
 
-        StartCoroutine(WaitForItemModifier(30, "magicStick"));
+        StartCoroutine(WaitForItemModifier(duration, "magicStick"));
 
         m_magicStickModify = ClickAmount * (ItemModifierMultiplier * (int)2);
         ClickAmount = m_magicStickModify;
@@ -799,14 +799,14 @@ public class RadiantClickerController : MonoBehaviour
         }
     }
 
-    void OnQuellingBladeModifier(string hero)
+    void OnQuellingBladeModifier(string hero, int duration)
     {
         if (!CheckIfModifierActive() || name != hero)
         {
             return;
         }
 
-        StartCoroutine(WaitForItemModifier(30, "quellingBlade"));
+        StartCoroutine(WaitForItemModifier(duration, "quellingBlade"));
 
         m_quellingBladeModify = ClickAmount * (ItemModifierMultiplier * (int)2.5);
         ClickAmount = m_quellingBladeModify;
@@ -825,14 +825,14 @@ public class RadiantClickerController : MonoBehaviour
         }
     }
 
-    void OnMangoModifier(string hero)
+    void OnMangoModifier(string hero, int duration)
     {
         if (!CheckIfModifierActive() || name != hero)
         {
             return;
         }
 
-        StartCoroutine(WaitForItemModifier(30, "mango"));
+        StartCoroutine(WaitForItemModifier(duration, "mango"));
 
         m_mangoModify = ClickAmount * (ItemModifierMultiplier * (int)3);
         ClickAmount = m_mangoModify;
@@ -851,14 +851,14 @@ public class RadiantClickerController : MonoBehaviour
         }
     }
 
-    void OnPowerTreadsModifier(string hero)
+    void OnPowerTreadsModifier(string hero, int duration)
     {
         if (!CheckIfModifierActive() || name != hero)
         {
             return;
         }
 
-        StartCoroutine(WaitForItemModifier(30, "powerTreads"));
+        StartCoroutine(WaitForItemModifier(duration, "powerTreads"));
 
         m_powerTreadsModify = ClickAmount * (ItemModifierMultiplier * (int)3.5);
         ClickAmount = m_powerTreadsModify;
@@ -877,14 +877,14 @@ public class RadiantClickerController : MonoBehaviour
         }
     }
 
-    void OnBottleModifier(string hero)
+    void OnBottleModifier(string hero, int duration)
     {
         if (!CheckIfModifierActive() || name != hero)
         {
             return;
         }
 
-        StartCoroutine(WaitForItemModifier(30, "bottle"));
+        StartCoroutine(WaitForItemModifier(duration, "bottle"));
 
         m_bottleModify = ClickAmount * (ItemModifierMultiplier * (int)4);
         ClickAmount = m_bottleModify;
@@ -903,14 +903,14 @@ public class RadiantClickerController : MonoBehaviour
         }
     }
 
-    void OnBlinkDaggerModifier(string hero)
+    void OnBlinkDaggerModifier(string hero, int duration)
     {
         if (!CheckIfModifierActive() || name != hero)
         {
             return;
         }
 
-        StartCoroutine(WaitForItemModifier(30, "blinkDagger"));
+        StartCoroutine(WaitForItemModifier(duration, "blinkDagger"));
 
         m_blinkDaggerModify = ClickAmount * (ItemModifierMultiplier * (int)4.5);
         ClickAmount = m_blinkDaggerModify;
@@ -929,14 +929,14 @@ public class RadiantClickerController : MonoBehaviour
         }
     }
 
-    void OnHyperstoneModifier(string hero)
+    void OnHyperstoneModifier(string hero, int duration)
     {
         if (!CheckIfModifierActive() || name != hero)
         {
             return;
         }
 
-        StartCoroutine(WaitForItemModifier(30, "hyperstone"));
+        StartCoroutine(WaitForItemModifier(duration, "hyperstone"));
 
         m_hyperstoneModify = ClickAmount * (ItemModifierMultiplier * (int)5);
         ClickAmount = m_hyperstoneModify;
@@ -955,14 +955,14 @@ public class RadiantClickerController : MonoBehaviour
         }
     }
 
-    void OnBloodstoneModifier(string hero)
+    void OnBloodstoneModifier(string hero, int duration)
     {
         if (!CheckIfModifierActive() || name != hero)
         {
             return;
         }
 
-        StartCoroutine(WaitForItemModifier(30, "bloodstone"));
+        StartCoroutine(WaitForItemModifier(duration, "bloodstone"));
 
         m_bloodstoneModify = ClickAmount * (ItemModifierMultiplier * (int)5.5);
         ClickAmount = m_bloodstoneModify;
@@ -981,14 +981,14 @@ public class RadiantClickerController : MonoBehaviour
         }
     }
 
-    void OnReaverModifier(string hero)
+    void OnReaverModifier(string hero, int duration)
     {
         if (!CheckIfModifierActive() || name != hero)
         {
             return;
         }
 
-        StartCoroutine(WaitForItemModifier(30, "reaver"));
+        StartCoroutine(WaitForItemModifier(duration, "reaver"));
 
         m_reaverModify = ClickAmount * (ItemModifierMultiplier * (int)6);
         ClickAmount = m_reaverModify;
@@ -1007,14 +1007,14 @@ public class RadiantClickerController : MonoBehaviour
         }
     }
 
-    void OnDivineRapierModifier(string hero)
+    void OnDivineRapierModifier(string hero, int duration)
     {
         if (!CheckIfModifierActive() || name != hero)
         {
             return;
         }
 
-        StartCoroutine(WaitForItemModifier(30, "divineRapier"));
+        StartCoroutine(WaitForItemModifier(duration, "divineRapier"));
 
         m_divineRapierModify = ClickAmount * (ItemModifierMultiplier * (int)6.5);
         ClickAmount = m_divineRapierModify;
@@ -1033,14 +1033,14 @@ public class RadiantClickerController : MonoBehaviour
         }
     }
 
-    void OnRecipeModifier(string hero)
+    void OnRecipeModifier(string hero, int duration)
     {
         if (!CheckIfModifierActive() || name != hero)
         {
             return;
         }
 
-        StartCoroutine(WaitForItemModifier(30, "recipe"));
+        StartCoroutine(WaitForItemModifier(duration, "recipe"));
 
         m_recipeModify = ClickAmount * (ItemModifierMultiplier * (int)10);
         ClickAmount = m_recipeModify;
@@ -1172,21 +1172,6 @@ public class RadiantClickerController : MonoBehaviour
         m_activeItemModifierPrefab = null;
     }
 
-    //Activate the UI
-    void ActivateAbility1(string hero)
-    {
-        if(hero == "Crystal Maiden")
-        {
-
-        }
-    }
-
-    //Activate the UI
-    void ActivateAbility2(string hero)
-    {
-
-    }
-
     void OnLoadedSaveFile(SaveFileDto saveFile)
     {
         List<HeroDto> heroes = saveFile.RadiantSide.Heroes;
@@ -1214,76 +1199,98 @@ public class RadiantClickerController : MonoBehaviour
                 {
                     if (HeroName == "Crystal Maiden")
                     {
-                        ActivateAbility("CrystalNovaBtn", hero.Ability1RemainingTime);
+                        if (hero.Ability1RemainingTime != 0)
+                        {
+                            ActivateAbility("CrystalNovaBtn", hero.Ability1RemainingTime);
+                        }
+                        if (hero.Ability2RemainingTime != 0)
+                        {
+                            ActivateAbility("FrostbiteBtn", hero.Ability2RemainingTime);
+                        }
                     }
                     else if (HeroName == "Rubick")
                     {
-                        ActivateAbility("TelekinesisBtn", hero.Ability1RemainingTime);
+                        if (hero.Ability1RemainingTime != 0)
+                        {
+                            ActivateAbility("TelekinesisBtn", hero.Ability1RemainingTime);
+                        }
+                        if (hero.Ability2RemainingTime != 0)
+                        {
+                            ActivateAbility("SpellStealBtn", hero.Ability2RemainingTime);
+                        }
+
                     }
                     else if (HeroName == "Ogre Magi")
                     {
-                        ActivateAbility("FireblastBtn", hero.Ability1RemainingTime);
+                        if (hero.Ability1RemainingTime != 0)
+                        {
+                            ActivateAbility("FireblastBtn", hero.Ability1RemainingTime);
+                        }
+                        if (hero.Ability2RemainingTime != 0)
+                        {
+                            ActivateAbility("BloodlustBtn", hero.Ability2RemainingTime);
+                        }
                     }
                     else if (HeroName == "Tusk")
                     {
-                        ActivateAbility("SnowballBtn", hero.Ability1RemainingTime);
+                        if (hero.Ability1RemainingTime != 0)
+                        {
+                            ActivateAbility("SnowballBtn", hero.Ability1RemainingTime);
+                        }
+                        if (hero.Ability2RemainingTime != 0)
+                        {
+                            ActivateAbility("WalrusPunchBtn", hero.Ability2RemainingTime);
+                        }
                     }
                     else if (HeroName == "Phoenix")
                     {
-                        ActivateAbility("SunrayBtn", hero.Ability1RemainingTime);
+                        if (hero.Ability1RemainingTime != 0)
+                        {
+                            ActivateAbility("SunrayBtn", hero.Ability1RemainingTime);
+                        }
+                        if (hero.Ability2RemainingTime != 0)
+                        {
+                            ActivateAbility("SupernovaBtn", hero.Ability2RemainingTime);
+                        }
                     }
                     else if (HeroName == "Sven")
                     {
-                        ActivateAbility("WarCryBtn", hero.Ability1RemainingTime);
+                        if (hero.Ability1RemainingTime != 0)
+                        {
+                            ActivateAbility("WarCryBtn", hero.Ability1RemainingTime);
+                        }
+                        if (hero.Ability2RemainingTime != 0)
+                        {
+                            ActivateAbility("GodsStrengthBtn", hero.Ability2RemainingTime);
+                        }
                     }
                     else if (HeroName == "Anti Mage")
                     {
-                        ActivateAbility("BlinkBtn", hero.Ability1RemainingTime);
+                        if (hero.Ability1RemainingTime != 0)
+                        {
+                            ActivateAbility("BlinkBtn", hero.Ability1RemainingTime);
+                        }
+                        if (hero.Ability2RemainingTime != 0)
+                        {
+                            ActivateAbility("ManaVoidBtn", hero.Ability2RemainingTime);
+                        }
                     }
                     else if (HeroName == "Alchemist")
                     {
-                        ActivateAbility("GreevilsGreedBtn", hero.Ability1RemainingTime);
-                    }
-                }
-                else if(hero.Ability2RemainingTime != 0)
-                {
-                    if(HeroName == "Crystal Maiden")
-                    {
-                        ActivateAbility("FrostbiteBtn", hero.Ability2RemainingTime);
-                    }
-                    else if(HeroName == "Rubick")
-                    {
-                        ActivateAbility("SpellStealBtn", hero.Ability2RemainingTime);
-                    }
-                    else if (HeroName == "Ogre Magi")
-                    {
-                        ActivateAbility("BloodlustBtn", hero.Ability2RemainingTime);
-                    }
-                    else if (HeroName == "Tusk")
-                    {
-                        ActivateAbility("WalrusPunchBtn", hero.Ability2RemainingTime);
-                    }
-                    else if (HeroName == "Phoenix")
-                    {
-                        ActivateAbility("SupernovaBtn", hero.Ability2RemainingTime);
-                    }
-                    else if (HeroName == "Sven")
-                    {
-                        ActivateAbility("GodsStrengthBtn", hero.Ability2RemainingTime);
-                    }
-                    else if (HeroName == "Anti Mage")
-                    {
-                        ActivateAbility("ManaVoidBtn", hero.Ability2RemainingTime);
-                    }
-                    else if (HeroName == "Alchemist")
-                    {
-                        ActivateAbility("ChemicalRageBtn", hero.Ability2RemainingTime);
+                        if (hero.Ability1RemainingTime != 0)
+                        {
+                            ActivateAbility("GreevilsGreedBtn", hero.Ability1RemainingTime);
+                        }
+                        if (hero.Ability2RemainingTime != 0)
+                        {
+                            ActivateAbility("ChemicalRageBtn", hero.Ability2RemainingTime);
+                        }
                     }
                 }
 
-                if(hero.ModifierTimeRemaining != 0 && hero.CurrentModifier != string.Empty)
+                if (hero.ModifierTimeRemaining != 0 && hero.CurrentModifier != string.Empty)
                 {
-                    ActivateModifier(hero.CurrentModifier);
+                    ActivateModifier(hero.CurrentModifier, (int)hero.ModifierTimeRemaining);
                 }
             }
             else
@@ -1567,59 +1574,59 @@ public class RadiantClickerController : MonoBehaviour
         }
     }
 
-    void ActivateModifier(string modifier)
+    void ActivateModifier(string modifier, int duration)
     {
         if(modifier == "ironBranch")
         {
-            OnIronBranchModifier(modifier);
+            OnIronBranchModifier(modifier, duration);
         }   
         else if(modifier == "clarity")
         {
-            OnClarityModifier(modifier);
+            OnClarityModifier(modifier, duration);
         }
         else if(modifier == "magicStick")
         {
-            OnMagicStickModifier(modifier);
+            OnMagicStickModifier(modifier, duration);
         }
         else if(modifier == "quellingBlade")
         {
-            OnQuellingBladeModifier(modifier);
+            OnQuellingBladeModifier(modifier, duration);
         }
         else if(modifier == "mango")
         {
-            OnMangoModifier(modifier);
+            OnMangoModifier(modifier, duration);
         }
         else if(modifier == "powerTreads")
         {
-            OnPowerTreadsModifier(modifier);
+            OnPowerTreadsModifier(modifier, duration);
         }
         else if(modifier == "bottle")
         {
-            OnBottleModifier(modifier);
+            OnBottleModifier(modifier, duration);
         }
         else if(modifier == "blinkDagger")
         {
-            OnBlinkDaggerModifier(modifier);
+            OnBlinkDaggerModifier(modifier, duration);
         }
         else if(modifier == "hyperstone")
         {
-            OnHyperstoneModifier(modifier);
+            OnHyperstoneModifier(modifier, duration);
         }
         else if(modifier == "bloodstone")
         {
-            OnBloodstoneModifier(modifier);
+            OnBloodstoneModifier(modifier, duration);
         }
         else if(modifier == "reaver")
         {
-            OnReaverModifier(modifier);
+            OnReaverModifier(modifier, duration);
         }
         else if(modifier == "divineRapier")
         {
-            OnDivineRapierModifier(modifier);
+            OnDivineRapierModifier(modifier, duration);
         }
         else if(modifier == "recipe")
         {
-            OnRecipeModifier(modifier);
+            OnRecipeModifier(modifier, duration);
         }
     }
 }

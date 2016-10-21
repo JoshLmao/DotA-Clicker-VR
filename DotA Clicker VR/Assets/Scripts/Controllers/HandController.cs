@@ -7,31 +7,31 @@ using UnityEngine.UI;
 /// </summary>
 public class HandController : MonoBehaviour
 {
-    public delegate void OnIronBranchModifier(string hero);
+    public delegate void OnIronBranchModifier(string hero, int duration);
     public static event OnIronBranchModifier IronBranchModifierAdded;
-    public delegate void OnClarityModifier(string hero);
+    public delegate void OnClarityModifier(string hero, int duration);
     public static event OnClarityModifier ClarityModifierAdded;
-    public delegate void OnMagicStickModifier(string hero);
+    public delegate void OnMagicStickModifier(string hero, int duration);
     public static event OnMagicStickModifier MagicStickModifierAdded;
-    public delegate void OnQuellingBladeModifier(string hero);
+    public delegate void OnQuellingBladeModifier(string hero, int duration);
     public static event OnQuellingBladeModifier QuellingBladeModifierAdded;
-    public delegate void OnMangoModifier(string hero);
+    public delegate void OnMangoModifier(string hero, int duration);
     public static event OnMangoModifier MangoModifierAdded;
-    public delegate void OnPowerTreadsModifier(string hero);
+    public delegate void OnPowerTreadsModifier(string hero, int duration);
     public static event OnPowerTreadsModifier PowerTreadsModifierAdded;
-    public delegate void OnBottleModifier(string hero);
+    public delegate void OnBottleModifier(string hero, int duration);
     public static event OnBottleModifier BottleModifierAdded;
-    public delegate void OnBlinkDaggerModifier(string hero);
+    public delegate void OnBlinkDaggerModifier(string hero, int duration);
     public static event OnBlinkDaggerModifier BlinkDaggerModifierAdded;
-    public delegate void OnHyperstoneModifier(string hero);
+    public delegate void OnHyperstoneModifier(string hero, int duration);
     public static event OnHyperstoneModifier HyperstoneModifierAdded;
-    public delegate void OnBloodstoneModifier(string hero);
+    public delegate void OnBloodstoneModifier(string hero, int duration);
     public static event OnBloodstoneModifier BloodstoneModifierAdded;
-    public delegate void OnReaverModifier(string hero);
+    public delegate void OnReaverModifier(string hero, int duration);
     public static event OnReaverModifier ReaverModifierAdded;
-    public delegate void OnDivineRapierModifier(string hero);
+    public delegate void OnDivineRapierModifier(string hero, int duration);
     public static event OnDivineRapierModifier DivineRapierModifierAdded;
-    public delegate void OnRecipeModifier(string hero);
+    public delegate void OnRecipeModifier(string hero, int duration);
     public static event OnRecipeModifier RecipeModifierAdded;
 
     public GameObject CurrentObject { get; set; }
@@ -179,67 +179,67 @@ public class HandController : MonoBehaviour
             if (CurrentObject.name.Contains("iron_branchPrefab"))
             {
                 if (IronBranchModifierAdded != null)
-                    IronBranchModifierAdded.Invoke(hero);
+                    IronBranchModifierAdded.Invoke(hero, 30); //Main place to set Item Modifier Duration
             }
             else if (CurrentObject.name.Contains("clarityPrefab"))
             {
                 if (ClarityModifierAdded != null)
-                    ClarityModifierAdded.Invoke(hero);
+                    ClarityModifierAdded.Invoke(hero, 30);
             }
             else if (CurrentObject.name.Contains("magic_stickPrefab"))
             {
                 if (MagicStickModifierAdded != null)
-                    MagicStickModifierAdded.Invoke(hero);
+                    MagicStickModifierAdded.Invoke(hero, 30);
             }
             else if (CurrentObject.name.Contains("quelling_bladePrefab"))
             {
                 if (QuellingBladeModifierAdded != null)
-                    QuellingBladeModifierAdded.Invoke(hero);
+                    QuellingBladeModifierAdded.Invoke(hero, 30);
             }
             else if (CurrentObject.name.Contains("mangoPrefab"))
             {
                 if (MangoModifierAdded != null)
-                    MangoModifierAdded.Invoke(hero);
+                    MangoModifierAdded.Invoke(hero, 30);
             }
             else if (CurrentObject.name.Contains("power_treadsPrefab"))
             {
                 if (PowerTreadsModifierAdded != null)
-                    PowerTreadsModifierAdded.Invoke(hero);
+                    PowerTreadsModifierAdded.Invoke(hero, 30);
             }
             else if (CurrentObject.name.Contains("bottlePrefab"))
             {
                 if (BottleModifierAdded != null)
-                    BottleModifierAdded.Invoke(hero);
+                    BottleModifierAdded.Invoke(hero, 30);
             }
             else if (CurrentObject.name.Contains("blink_daggerPrefab"))
             {
                 if (BlinkDaggerModifierAdded != null)
-                    BlinkDaggerModifierAdded.Invoke(hero);
+                    BlinkDaggerModifierAdded.Invoke(hero, 30);
             }
             else if (CurrentObject.name.Contains("hyperstonePrefab"))
             {
                 if (HyperstoneModifierAdded != null)
-                    HyperstoneModifierAdded.Invoke(hero);
+                    HyperstoneModifierAdded.Invoke(hero, 30);
             }
             else if (CurrentObject.name.Contains("bloodstonePrefab"))
             {
                 if (BloodstoneModifierAdded != null)
-                    BloodstoneModifierAdded.Invoke(hero);
+                    BloodstoneModifierAdded.Invoke(hero, 30);
             }
             else if (CurrentObject.name.Contains("reaverPrefab"))
             {
                 if (ReaverModifierAdded != null)
-                    ReaverModifierAdded.Invoke(hero);
+                    ReaverModifierAdded.Invoke(hero, 30);
             }
             else if (CurrentObject.name.Contains("divine_rapierPrefab"))
             {
                 if (DivineRapierModifierAdded != null)
-                    DivineRapierModifierAdded.Invoke(hero);
+                    DivineRapierModifierAdded.Invoke(hero, 30);
             }
             else if (CurrentObject.name.Contains("recipePrefab"))
             {
                 if (RecipeModifierAdded != null)
-                    RecipeModifierAdded.Invoke(hero);
+                    RecipeModifierAdded.Invoke(hero, 30);
             }
             GameObject.Destroy(CurrentObject);
         }

@@ -38,6 +38,7 @@ public class ManagersController : MonoBehaviour {
 
     void Awake()
     {
+        Managers = new List<ManagerDto>();
         RadiantSceneController.LoadedSaveFile += OnLoadedSaveFile;
     }
 
@@ -51,7 +52,6 @@ public class ManagersController : MonoBehaviour {
         {
             m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
         }
-        Managers = new List<ManagerDto>();
         AddManagers();
 
         RefreshManagersList();
@@ -113,6 +113,8 @@ public class ManagersController : MonoBehaviour {
 
     void AddManagers()
     {
+        if (Managers.Count > 0) return;
+
         if(!m_CM)
         {
             Managers.Add(new ManagerDto()
@@ -195,6 +197,9 @@ public class ManagersController : MonoBehaviour {
         children.ForEach(child => Destroy(child));
 
         int addY = -30; //Hack to get positioning of List UI
+        if (Managers.Count == 0)
+            AddManagers();
+
         foreach (ManagerDto manager in Managers)
         {
             GameObject newManager = GameObject.Instantiate(ManagerPrefab);
