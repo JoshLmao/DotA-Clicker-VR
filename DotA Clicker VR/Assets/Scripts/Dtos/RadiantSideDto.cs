@@ -6,7 +6,7 @@ using System.Collections.Generic;
 [Serializable]
 public class RadiantSideDto
 {
-    public int TotalGold { get; set; }
+    public long TotalGold { get; set; }
     /*Clickers*/
     //public HeroDto CrystalMaiden { get; set; }
     //public HeroDto Rubick { get; set; }

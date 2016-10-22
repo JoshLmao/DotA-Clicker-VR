@@ -146,6 +146,9 @@ public class RadiantClickerController : MonoBehaviour
     public DateTime m_ability1ClickTime = DateTime.MinValue;
     public DateTime m_ability2ClickTime = DateTime.MinValue;
 
+    bool m_modifierCountdownActive = false;
+    Text m_modifierCountdownText = null;
+
     void Awake()
     {
         RadiantSceneController.LoadedSaveFile += OnLoadedSaveFile;
@@ -165,6 +168,8 @@ public class RadiantClickerController : MonoBehaviour
         m_activeModifier.color = new Color(255, 255, 255, 0);
         m_itemModifierHolder = transform.Find("ItemModifierStand/ItemHolderTransform").gameObject.transform;
 
+        m_modifierCountdownText = transform.Find("ItemModifierStand/ModifierTimeCanvas/ModifierTimeRemaining").GetComponent<Text>();
+        m_modifierCountdownText.gameObject.SetActive(false);
     }
 
     void Start ()
@@ -177,8 +182,6 @@ public class RadiantClickerController : MonoBehaviour
     {
         m_abil1Slider = transform.Find("Buttons/StandBack/UpgradesCanvas/Abil1Progress").GetComponent<Slider>();
         m_abil2Slider = transform.Find("Buttons/StandBack/UpgradesCanvas/Abil2Progress").GetComponent<Slider>();
-        if (m_abil1Slider == null)
-            return;
 
         Transform abil1Transform = transform.Find("Buttons/StandBack/UpgradesCanvas/Abil1Levels");
         Transform abil2Transform = transform.Find("Buttons/StandBack/UpgradesCanvas/Abil2Levels");
@@ -243,7 +246,14 @@ public class RadiantClickerController : MonoBehaviour
                 OnClickButtonPressed();
             }
         }
-	}
+
+        //if (m_modifierCountdownActive)
+        //{
+        //    var timeRemaining = m_currentModifierRoutineStarted - DateTime.Now;
+        //    m_modifierCountdownText.text = timeRemaining.Seconds.ToString();
+        //    Console.WriteLine("timeRemaining = " + timeRemaining);
+        //}
+    }
 
     public void UpdateCountdownTimer()
     {
@@ -708,15 +718,33 @@ public class RadiantClickerController : MonoBehaviour
         canPlayNopeSound = true;
     }
 
-    IEnumerator WaitForItemModifier(float activeDuration, string modifier)
+    IEnumerator WaitForItemModifier(float totalActiveDuration, string modifier)
     {
         m_currentModifierRoutineStarted = DateTime.Now;
         m_currentModifier = modifier;
-        yield return new WaitForSeconds(activeDuration);
+
+        m_modifierCountdownActive = true;
+        m_modifierCountdownText.gameObject.SetActive(true);
+
+
+        yield return StartCoroutine(Yield(totalActiveDuration)); //WaitForSeconds(totalActiveDuration)
+
+        m_modifierCountdownActive = false;
+        m_modifierCountdownText.gameObject.SetActive(false);
 
         RemoveModifier(modifier);
         m_currentModifierRoutineStarted = DateTime.MinValue;
         m_currentModifier = string.Empty;
+    }
+
+    IEnumerator Yield(float duration)
+    {
+        for(int i = 0; i < duration; i++)
+        {
+            m_modifierCountdownText.text = (duration - i).ToString();
+            yield return new WaitForSeconds(1);
+            //var timeRemaining = m_currentModifierRoutineStarted - DateTime.Now;
+        }
     }
 
     void OnIronBranchModifier(string hero, int duration)

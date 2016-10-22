@@ -18,7 +18,7 @@ public class RadiantSceneController : MonoBehaviour
     public List<RadiantClickerController> SceneHeroes;
     public SaveFileDto CurrentSaveFile;
     public ConfigDto CurrentConfigFile;
-    public int TotalGold = 3000;
+    public long TotalGold = 3000;
     public GameObject[] RoshanPrefab;
     public GameObject AegisPrefab;
     public GameObject CheesePrefab;
@@ -171,8 +171,6 @@ public class RadiantSceneController : MonoBehaviour
             RadiantSide = new RadiantSideDto()
             {
                 TotalGold = TotalGold,
-
-
 
                 RoshanEvents = m_canDoRoshanEvent,
             },
