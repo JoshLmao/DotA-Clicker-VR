@@ -169,6 +169,10 @@ public class HandController : MonoBehaviour
             Debug.Log("Killed 'Killable' tagged obj");
             col.gameObject.GetComponent<Animator>().SetTrigger("isKilled");
         }
+        else if(col.tag == "VRTKInteractTag")
+        {
+            this.GetComponent<SphereCollider>().isTrigger = true;
+        }
     }
 
     void OnTriggerStay(Collider col)
@@ -248,6 +252,11 @@ public class HandController : MonoBehaviour
     void OnTriggerExit(Collider col)
     {
         CurrentObject = null;
+
+        if (col.tag == "VRTKInteractTag")
+        {
+            this.GetComponent<SphereCollider>().isTrigger = false;
+        }
     }
 
     void OnTriggerClicked(object sender, ClickedEventArgs e)

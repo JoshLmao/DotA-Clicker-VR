@@ -61,6 +61,12 @@ public class ButtonManager : MonoBehaviour
                 return;
             }
 
+            if(!m_clickerController.CanBeClicked)
+            {
+                //if clicker hasnt been bought, show red button and then go back
+                //StartCoroutine(DenyClickStage1());
+            }
+
             m_clickerController.OnClickButtonPressed();
             m_animator.SetBool("isClicked", true);
             StartCoroutine(PlayButtonPushAnimation(0.3f));

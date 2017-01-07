@@ -12,7 +12,8 @@ public class AmbientSoundManager : MonoBehaviour {
         AmbientAudioSource = GameObject.Find("SceneEnvironment/AmbientAudio").GetComponent<AudioSource>();
 
         //Repeats ambient music, comment out whilst developing
-        InvokeRepeating("PlayAmbientSound", 1, 1f);
+        if(GameObject.Find("AmbientAudioEnabled").GetComponent<Toggle>().isOn)
+            InvokeRepeating("PlayAmbientSound", 1, 1f);
     }
 
     void PlayAmbientSound()

@@ -58,7 +58,7 @@ public class LHandController : HandController {
                     m_settingsHighlight.SetActive(true);
 
                     //Disable teleporter
-                    GameObject.Find("Camera (eye)").GetComponent<TeleportVive>().enabled = false;
+                    //GameObject.Find("Camera (eye)").GetComponent<TeleportVive>().enabled = false;
 
                     m_canClickMenuButtons = true;
                     
@@ -72,7 +72,7 @@ public class LHandController : HandController {
                     m_settingsHighlight.SetActive(false);
 
                     //Disable teleporter
-                    GameObject.Find("Camera (eye)").GetComponent<TeleportVive>().enabled = false;
+                    //GameObject.Find("Camera (eye)").GetComponent<TeleportVive>().enabled = false;
 
                     m_canClickMenuButtons = true;
                 }
@@ -80,14 +80,14 @@ public class LHandController : HandController {
                 {
                     m_mainMenuHighlight.SetActive(false);
                     m_settingsHighlight.SetActive(false);
-                    GameObject.Find("Camera (eye)").GetComponent<TeleportVive>().enabled = true;
+                    //GameObject.Find("Camera (eye)").GetComponent<TeleportVive>().enabled = true;
                 }
             }
             else
             {
                 m_mainMenuHighlight.SetActive(false);
                 m_settingsHighlight.SetActive(false);
-                GameObject.Find("Camera (eye)").GetComponent<TeleportVive>().enabled = true;
+                //GameObject.Find("Camera (eye)").GetComponent<TeleportVive>().enabled = true;
             }
         }
         else
@@ -116,14 +116,14 @@ public class LHandController : HandController {
 
                 OnSettingsClicked();
                 m_settingsHighlight.SetActive(false);
-                GameObject.Find("Camera (eye)").GetComponent<TeleportVive>().enabled = true;
+                //GameObject.Find("Camera (eye)").GetComponent<TeleportVive>().enabled = true;
 
             }
             else if(m_onMainMenuBtn && !m_onSettingsBtn)
             {
                 OnMainMenuClicked();
                 m_mainMenuHighlight.SetActive(false);
-                GameObject.Find("Camera (eye)").GetComponent<TeleportVive>().enabled = true;
+                //GameObject.Find("Camera (eye)").GetComponent<TeleportVive>().enabled = true;
             }
 
             GoldUI.SetActive(false);

@@ -20,12 +20,14 @@ public class OptionsController : MonoBehaviour {
     AmbientSoundManager m_ambientSound;
     Toggle m_audioEnabled;
     Toggle m_musicEnabled;
+    Toggle m_adaptiveQuality;
 
     void Awake()
     {
         m_audioEnabled = transform.Find("AudioOptions/AudioEnabledToggle").GetComponent<Toggle>();
         m_musicEnabled = transform.Find("AudioOptions/AmbientAudioEnabled").GetComponent<Toggle>();
         m_ambientSound = GameObject.Find("RadiantSceneController").GetComponent<AmbientSoundManager>();
+        m_adaptiveQuality = transform.Find("VideoOptions/AdaptiveQualityToggle").GetComponent<Toggle>();
 
         MasterVolSlider = transform.Find("AudioOptions/MasterVolumeC/MasterVolSlider").GetComponent<Slider>();
         AmbientVolSlider = transform.Find("AudioOptions/AmbientVolC/AmbientMusicVolSlider").GetComponent<Slider>();
@@ -45,6 +47,8 @@ public class OptionsController : MonoBehaviour {
         m_musicEnabled.onValueChanged.AddListener(AmbientMusicToggle);
 
         SuperSampleChanged(0);
+        SetAdaptiveQualityStatus(false);
+        m_adaptiveQuality.isOn = false;
 
         m_ambientSound.AmbientAudioSource.volume = AmbientVolSlider.value;
     }
@@ -120,5 +124,26 @@ public class OptionsController : MonoBehaviour {
         m_audioEnabled.isOn = prefs.AllAudioEnabled;
 
         SuperSampleSlider.value = prefs.SuperSampleScale;
+    }
+
+    public void ToggleAdaptiveQuality(bool status)
+    {
+        SetAdaptiveQualityStatus(status);
+    }
+
+    void SetAdaptiveQualityStatus(bool status)
+    {
+        var adaptive = GameObject.Find("Camera (eye)").GetComponent<VRTK.VRTK_AdaptiveQuality>();
+
+        if (status)
+        {
+            adaptive.enabled = true;
+            SuperSampleSlider.onValueChanged.RemoveAllListeners();
+        }
+        else
+        {
+            SuperSampleSlider.onValueChanged.AddListener(SuperSampleChanged);
+            adaptive.enabled = false;
+        }
     }
 }
