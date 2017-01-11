@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using VRTK;
+using System;
 
 /// <summary>
 /// Controller for both Vive Controllers
@@ -34,10 +36,10 @@ public class HandController : MonoBehaviour
     public delegate void OnRecipeModifier(string hero, int duration);
     public static event OnRecipeModifier RecipeModifierAdded;
 
-    public GameObject CurrentObject { get; set; }
-    public Transform PriorTranform { get; set; }
-    public bool IsHoldingObj { get; set; }
-    public Transform CurrentAimTranform { get; set; }
+    public GameObject CurrentObject = null;
+    public Transform PriorTranform = null;
+    public bool IsHoldingObj = false;
+    public Transform CurrentAimTranform = null;
 
     protected SteamVR_TrackedController m_controller { get; set; }
     SteamVR_LaserPointer m_laserPointer { get; set; }
@@ -71,10 +73,14 @@ public class HandController : MonoBehaviour
         trackedObj = GetComponent<SteamVR_TrackedObject>();
     }
 
-    void Start ()
+    public virtual void Start()
     {
         m_controller = this.GetComponent<SteamVR_TrackedController>();
         m_laserPointer = GetComponent<SteamVR_LaserPointer>();
+
+        var events = this.GetComponentInChildren<VRTK_InteractGrab>();
+        events.ControllerGrabInteractableObject += OnGrabObject;
+        events.ControllerUngrabInteractableObject += OnUngrabObject;
 
         m_controller.TriggerClicked += OnTriggerClicked;
         m_controller.TriggerUnclicked += OnTriggerUnclicked;
@@ -84,6 +90,16 @@ public class HandController : MonoBehaviour
             m_laserPointer.PointerIn += OnPointerIn;
             m_laserPointer.PointerOut += OnPointerOut;
         }
+    }
+
+    private void OnUngrabObject(object sender, ObjectInteractEventArgs e)
+    {
+        CurrentObject = null;
+    }
+
+    private void OnGrabObject(object sender, ObjectInteractEventArgs e)
+    {
+        CurrentObject = e.target;
     }
 
     void Update()
@@ -101,63 +117,15 @@ public class HandController : MonoBehaviour
         }
     }
 
-    //Physics based stuffs
-    void FixedUpdate()
-    {
-        //Hijacked from SteamVR_TestThrow
-        var device = SteamVR_Controller.Input((int)trackedObj.index);
-        if (joint == null && device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger) && CurrentObject != null)
-        {
-            this.GetComponent<SphereCollider>().enabled = false;
-            var go = CurrentObject;
-            go.transform.position = attachPoint.transform.position;
-
-            joint = go.AddComponent<FixedJoint>();
-            joint.connectedBody = attachPoint;
-        }
-        else if (joint != null && device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
-        {
-            var go = joint.gameObject;
-            var rigidbody = go.GetComponent<Rigidbody>();
-            Object.DestroyImmediate(joint);
-            joint = null;
-            Object.Destroy(go, 15.0f);
-
-            // We should probably apply the offset between trackedObj.transform.position
-            // and device.transform.pos to insert into the physics sim at the correct
-            // location, however, we would then want to predict ahead the visual representation
-            // by the same amount we are predicting our render poses.
-
-            var origin = trackedObj.origin ? trackedObj.origin : trackedObj.transform.parent;
-            if (origin != null)
-            {
-                rigidbody.velocity = origin.TransformVector(device.velocity);
-                rigidbody.angularVelocity = origin.TransformVector(device.angularVelocity);
-            }
-            else
-            {
-                rigidbody.velocity = device.velocity;
-                rigidbody.angularVelocity = device.angularVelocity;
-            }
-
-            rigidbody.maxAngularVelocity = rigidbody.angularVelocity.magnitude;
-            CurrentObject = null;
-        }
-
-        if (joint != null && CurrentObject != null && device.GetPressDown(SteamVR_Controller.ButtonMask.Trigger) &&  device.GetPressDown(SteamVR_Controller.ButtonMask.Grip))
-        {
-            Debug.Log("Can use holding item");
-        }
-
-        this.GetComponent<SphereCollider>().enabled = true;
-    }
-
     void OnTriggerEnter(Collider col)
     {
-        if(col.tag == "Interactable")
+        if (col.tag == "Interactable")
         {
             CurrentObject = col.gameObject;
             m_canPickupObj = true;
+
+            this.GetComponent<SphereCollider>().isTrigger = true;
+            col.gameObject.GetComponent<CapsuleCollider>().enabled = false;
         }
         else if(col.tag == "Ability")
         {
@@ -256,6 +224,11 @@ public class HandController : MonoBehaviour
         if (col.tag == "VRTKInteractTag")
         {
             this.GetComponent<SphereCollider>().isTrigger = false;
+        }
+        else if(col.tag == "Interactable")
+        {
+            this.GetComponent<SphereCollider>().isTrigger = false;
+            col.gameObject.GetComponent<CapsuleCollider>().enabled = true;
         }
     }
 

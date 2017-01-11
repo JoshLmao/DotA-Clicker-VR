@@ -47,6 +47,7 @@ namespace VRTK
         {
             foreach (var playerObject in obj.GetComponentsInParent<VRTK_PlayerObject>(true))
             {
+                playerObject.tag = "ViveController";
                 if (ofType == ObjectTypes.Null || ofType == playerObject.objectType)
                 {
                     return true;

@@ -14,6 +14,8 @@ public class ButtonManager : MonoBehaviour
     RadiantClickerController m_clickerController;
     public Animator m_animator;
 
+    bool m_buyUpgradeCooldown = false;
+
 	void Start ()
     {
         m_buttonName = this.gameObject.name;
@@ -30,14 +32,13 @@ public class ButtonManager : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        SteamVR_TrackedController controller = col.GetComponent<SteamVR_TrackedController>();
-
         //Buy a multiplier clicker
-        if (col.tag == "ViveController" && m_buttonName == "StandBack")
+        if ((col.tag == "ViveController" || col.gameObject.layer == 2)/*Ignore raycasat layer used by VRTK*/ && m_buttonName == "BuyButton")
         {
-            if (m_animator.GetCurrentAnimatorStateInfo(0).IsName("BuyButtonPush") 
+            if (!m_animator.GetCurrentAnimatorStateInfo(0).IsName("BuyButtonIdle")
                 || m_sceneController.TotalGold + m_clickerController.UpgradeCost < m_clickerController.UpgradeCost
-                || m_sceneController.TotalGold - m_clickerController.UpgradeCost < 0)
+                || m_sceneController.TotalGold - m_clickerController.UpgradeCost < 0
+                || m_buyUpgradeCooldown)
             {
                 Debug.Log("Cant upgrade clicker '" + m_clickerController.HeroName + "'");
                 return;
@@ -48,13 +49,13 @@ public class ButtonManager : MonoBehaviour
 
             //Invoke event
             m_clickerController.OnBuyClickerButtonPressed();
-            m_animator.SetBool("isClicked", true);
-            StartCoroutine(PlayButtonPushAnimation(0.5f));
+            m_animator.SetTrigger("isClicked");
+            StartCoroutine(PlayButtonPushAnimation(1f));
 
-            HandController.RumbleController(controller.controllerIndex, 2000);
+            m_buyUpgradeCooldown = true;
         }
         //Hero clicker button
-        else if(col.tag == "ViveController" && m_buttonName == "ClickButtonBack")
+        else if((col.tag == "ViveController" || col.gameObject.layer == 2)/*Ignore raycasat layer used by VRTK*/ && m_buttonName == "ClickButtonBack")
         {
             if (m_animator.GetCurrentAnimatorStateInfo(0).IsName("ClickButtonPush") || m_clickerController.IsClicked || m_clickerController.ClickerMultiplier == 0) //if (is in animation) || (IsClick is progress)
             {
@@ -68,17 +69,15 @@ public class ButtonManager : MonoBehaviour
             }
 
             m_clickerController.OnClickButtonPressed();
-            m_animator.SetBool("isClicked", true);
+            m_animator.SetTrigger("isClicked");
             StartCoroutine(PlayButtonPushAnimation(0.3f));
-
-            HandController.RumbleController(controller.controllerIndex, 2000);
         }
     }
 
     IEnumerator PlayButtonPushAnimation(float time)
     {
         yield return new WaitForSeconds(time);
-        m_animator.SetBool("isClicked", false);
+        m_buyUpgradeCooldown = false;
     }
 
     //IEnumerator CantPushButtonError()

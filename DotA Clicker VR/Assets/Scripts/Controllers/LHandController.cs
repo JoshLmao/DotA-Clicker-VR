@@ -18,8 +18,10 @@ public class LHandController : HandController {
 
     GameObject m_settingsHighlight, m_mainMenuHighlight;
 
-    void Start ()
+    public override void Start()
     {
+        base.Start();
+
         m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
 
         if (m_controller == null)
