@@ -322,7 +322,6 @@ public class TuskController : MonoBehaviour
         TuskSnowball.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
 
         m_tuskAnimator.SetTrigger("finishSnowball");
-
     }
 
     void SnowballEffects()
@@ -359,7 +358,7 @@ public class TuskController : MonoBehaviour
 
         //do effects
         var m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
-        m_sceneController.TotalGold += m_clickerController.ClickAmount;
+        m_sceneController.AddToTotal(m_clickerController.ClickAmount);
 
         StartCoroutine(AbilityCooldown(WalrusPunchActiveDuration, "WalrusPunchActiveFinish"));
     }
@@ -370,7 +369,7 @@ public class TuskController : MonoBehaviour
 
         //do effects
         var m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
-        m_sceneController.TotalGold += m_clickerController.ClickAmount;
+        m_sceneController.AddToTotal(m_clickerController.ClickAmount);
 
         StartCoroutine(AbilityCooldown(remainingTime, "WalrusPunchActiveFinish"));
     }

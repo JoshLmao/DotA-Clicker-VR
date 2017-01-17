@@ -36,8 +36,8 @@ public class ButtonManager : MonoBehaviour
         if ((col.tag == "ViveController" || col.gameObject.layer == 2)/*Ignore raycasat layer used by VRTK*/ && m_buttonName == "BuyButton")
         {
             if (!m_animator.GetCurrentAnimatorStateInfo(0).IsName("BuyButtonIdle")
-                || m_sceneController.TotalGold + m_clickerController.UpgradeCost < m_clickerController.UpgradeCost
-                || m_sceneController.TotalGold - m_clickerController.UpgradeCost < 0
+                || m_sceneController.TotalGold + (decimal)m_clickerController.UpgradeCost < (decimal)m_clickerController.UpgradeCost
+                || m_sceneController.TotalGold - (decimal)m_clickerController.UpgradeCost < 0
                 || m_buyUpgradeCooldown)
             {
                 Debug.Log("Cant upgrade clicker '" + m_clickerController.HeroName + "'");
@@ -45,7 +45,7 @@ public class ButtonManager : MonoBehaviour
             }
 
             m_clickerController.ClickerMultiplier += 1;
-            m_sceneController.TotalGold -= (int)m_clickerController.UpgradeCost;
+            m_sceneController.RemoveFromTotal((decimal)m_clickerController.UpgradeCost);
 
             //Invoke event
             m_clickerController.OnBuyClickerButtonPressed();

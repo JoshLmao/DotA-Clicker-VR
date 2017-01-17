@@ -7,6 +7,7 @@ public class KeyboardController : MonoBehaviour {
 
     public delegate void OnEnterPressed();
     public static event OnEnterPressed EnterPressed;
+
     bool m_canType = true;
 
 	void Start ()
@@ -230,5 +231,9 @@ public class KeyboardController : MonoBehaviour {
     {
         if (m_canType)
             Input += "_";
+    }
+    public void Clear()
+    {
+        Input = string.Empty;
     }
 }

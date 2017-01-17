@@ -304,7 +304,7 @@ public class RadiantClickerController : MonoBehaviour
     void CompletedClick()
     {
         //On Clicker timer complete
-        m_sceneController.TotalGold += ClickAmount; //Add gold
+        m_sceneController.AddToTotal(ClickAmount);
         OnClickedFinished.Invoke(name);
 
         m_sceneController.ClickCount++; //Add to global click count

@@ -419,8 +419,7 @@ public class PhoenixController : MonoBehaviour
 
     void SupernovaRepeating()
     {
-        var sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().TotalGold;
-        sceneController += m_clickerController.ClickAmount;
+        GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().AddToTotal(m_clickerController.ClickAmount);
 
         if (!m_abilitySource.isPlaying)
             m_abilitySource.PlayOneShot(GoldEarnedSound);

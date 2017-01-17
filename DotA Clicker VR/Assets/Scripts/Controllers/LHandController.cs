@@ -115,11 +115,9 @@ public class LHandController : HandController {
         {
             if(m_onSettingsBtn && !m_onMainMenuBtn)
             {
-
                 OnSettingsClicked();
                 m_settingsHighlight.SetActive(false);
                 //GameObject.Find("Camera (eye)").GetComponent<TeleportVive>().enabled = true;
-
             }
             else if(m_onMainMenuBtn && !m_onSettingsBtn)
             {

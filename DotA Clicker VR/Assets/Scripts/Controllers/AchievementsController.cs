@@ -38,7 +38,7 @@ public class AchievementsController : MonoBehaviour
         {
             Name = "Click once",
             Description = "Wow. Such a hard achievement to get",
-            Image = Resources.Load<Sprite>("Images/UI/ItemsIcons/Iron_Branch_icon"),
+            Image = Resources.Load<Sprite>("Images/Achievements/Click1"),
             IsUnlocked = m_achievementEvents.ClickOnceStatus,
             IsSecretAchievement = false,
         });
@@ -46,28 +46,28 @@ public class AchievementsController : MonoBehaviour
         {
             Name = "Click 500 times",
             Description = "Oh, so you're serious about this clicking thing?",
-            Image = Resources.Load<Sprite>("Images/UI/ItemsIcons/Iron_Branch_icon"),
+            Image = Resources.Load<Sprite>("Images/Achievements/Click2"),
             IsUnlocked = m_achievementEvents.ClickFiveHundredStatus,
             IsSecretAchievement = false,
         }); Achievements.Add(new AchievementDto()
         {
             Name = "Click 1,000 times",
             Description = "Alright, ok. ",
-            Image = Resources.Load<Sprite>("Images/UI/ItemsIcons/Iron_Branch_icon"),
+            Image = Resources.Load<Sprite>("Images/Achievements/Click3"),
             IsUnlocked = m_achievementEvents.ClickThousandStatus,
             IsSecretAchievement = false,
         }); Achievements.Add(new AchievementDto()
         {
             Name = "Click 15,000 times",
             Description = "Now that right there is some dedication.",
-            Image = Resources.Load<Sprite>("Images/UI/ItemsIcons/Iron_Branch_icon"),
+            Image = Resources.Load<Sprite>("Images/Achievements/Click4"),
             IsUnlocked = m_achievementEvents.ClickFifteenThousandStatus,
             IsSecretAchievement = false,
         }); Achievements.Add(new AchievementDto()
         {
             Name = "Click 50,000 times",
             Description = "I'm speechless",
-            Image = Resources.Load<Sprite>("Images/UI/ItemsIcons/Iron_Branch_icon"),
+            Image = Resources.Load<Sprite>("Images/Achievements/Click5"),
             IsUnlocked = m_achievementEvents.ClickFiftyThousandStatus,
             IsSecretAchievement = false,
         });
@@ -75,7 +75,7 @@ public class AchievementsController : MonoBehaviour
         {
             Name = "Earn 625 gold",
             Description = "",
-            Image = Resources.Load<Sprite>("Images/UI/ItemsIcons/Iron_Branch_icon"),
+            Image = Resources.Load<Sprite>("Images/Achievements/Gold1"),
             IsUnlocked = m_achievementEvents.Earn625GoldStatus,
             IsSecretAchievement = false,
         });
@@ -83,7 +83,7 @@ public class AchievementsController : MonoBehaviour
         {
             Name = "Earn 6200 gold",
             Description = "",
-            Image = Resources.Load<Sprite>("Images/UI/ItemsIcons/Iron_Branch_icon"),
+            Image = Resources.Load<Sprite>("Images/Achievements/Gold2"),
             IsUnlocked = m_achievementEvents.Earn6200GoldStatus,
             IsSecretAchievement = false,
         });
@@ -91,7 +91,7 @@ public class AchievementsController : MonoBehaviour
         {
             Name = "Earn 15,000 gold",
             Description = "",
-            Image = Resources.Load<Sprite>("Images/UI/ItemsIcons/Iron_Branch_icon"),
+            Image = Resources.Load<Sprite>("Images/Achievements/Gold3"),
             IsUnlocked = m_achievementEvents.Earn15000GoldStatus,
             IsSecretAchievement = false,
         });
@@ -99,7 +99,7 @@ public class AchievementsController : MonoBehaviour
         {
             Name = "Earn 100,000 gold",
             Description = "",
-            Image = Resources.Load<Sprite>("Images/UI/ItemsIcons/Iron_Branch_icon"),
+            Image = Resources.Load<Sprite>("Images/Achievements/Gold4"),
             IsUnlocked = m_achievementEvents.Earn100000GoldStatus,
             IsSecretAchievement = false,
         });
@@ -107,7 +107,7 @@ public class AchievementsController : MonoBehaviour
         {
             Name = "Earn 1,000,000 gold",
             Description = "",
-            Image = Resources.Load<Sprite>("Images/UI/ItemsIcons/Iron_Branch_icon"),
+            Image = Resources.Load<Sprite>("Images/Achievements/Gold5"),
             IsUnlocked = m_achievementEvents.EarnMillionGoldStatus,
             IsSecretAchievement = false,
         });
@@ -219,14 +219,6 @@ public class AchievementsController : MonoBehaviour
             Description = "Name yourself 420BootyWizard",
             Image = Resources.Load<Sprite>("Images/UI/ItemsIcons/Iron_Branch_icon"),
             IsUnlocked = m_achievementEvents.ManMythLegendStatus,
-            IsSecretAchievement = true,
-        });
-        Achievements.Add(new AchievementDto()
-        {
-            Name = "Dongs Out For Bulldog",
-            Description = "Visit AdmiralBulldog's Twitch stream",
-            Image = Resources.Load<Sprite>("Images/UI/ItemsIcons/Iron_Branch_icon"),
-            IsUnlocked = m_achievementEvents.DongsOutStatus,
             IsSecretAchievement = true,
         });
     }

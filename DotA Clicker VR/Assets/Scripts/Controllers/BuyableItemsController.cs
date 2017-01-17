@@ -280,8 +280,7 @@ public class BuyableItemsController : MonoBehaviour
 
     void OnLoadedSaveFile(SaveFileDto saveFile)
     {
-        StatsDto stats = saveFile.SessionStats;
-
+        ItemStatsDto stats = saveFile.SessionStats.ItemStats;
         IronBranchCount = stats.IronBranchCount;
         ClarityCount = stats.ClarityCount;
         MagicStickCount = stats.MagicStickCount;
@@ -295,6 +294,5 @@ public class BuyableItemsController : MonoBehaviour
         ReaverCount = stats.ReaverCount;
         DivineRapierCount = stats.DivineRapierCount;
         RecipeCount = stats.RecipeCount;
-        
     }
 }

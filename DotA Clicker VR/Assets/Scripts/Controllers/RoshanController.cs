@@ -68,7 +68,7 @@ public class RoshanController : MonoBehaviour {
         if (EventCount > 0)
             m_roshanStartHealth *= (EventCount / 1.6f);
 
-        m_playerGoldOnStart = m_sceneController.TotalGold;
+        //m_playerGoldOnStart = m_sceneController.TotalGold;
 
         //Because Prefab doesn't save these
         waypoints[0] = GameObject.Find("Misc/RoshanWaypoints/1").gameObject.transform;
@@ -80,7 +80,7 @@ public class RoshanController : MonoBehaviour {
 
 	void Update()
     {
-        m_playerCurrentGold = m_sceneController.TotalGold;
+        //m_playerCurrentGold = m_sceneController.TotalGold;
 
         if(!hasReachedPoint && currentWayPoint < waypoints.Length)
         {

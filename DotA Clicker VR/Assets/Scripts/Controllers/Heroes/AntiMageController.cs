@@ -273,7 +273,7 @@ public class AntiMageController : MonoBehaviour
 
         //do effects
         var m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
-        m_sceneController.TotalGold += m_clickerController.ClickAmount;
+        m_sceneController.AddToTotal(m_clickerController.ClickAmount);
 
         StartCoroutine(AbilityCooldown(BlinkActiveDuration, "BlinkActiveFinish"));
     }
@@ -284,7 +284,7 @@ public class AntiMageController : MonoBehaviour
 
         //do effects
         var m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
-        m_sceneController.TotalGold += m_clickerController.ClickAmount;
+        m_sceneController.AddToTotal(m_clickerController.ClickAmount);
 
         StartCoroutine(AbilityCooldown(remainingTime, "BlinkActiveFinish"));
     }
@@ -300,27 +300,27 @@ public class AntiMageController : MonoBehaviour
 
         var durationLeft = m_clickerController.CurrentClickerTime.Seconds;
         RadiantSceneController scene = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
-        RadiantClickerController sven = scene.SceneHeroes[5];
-        RadiantClickerController alchemist = scene.SceneHeroes[0];
+        RadiantClickerController antiMage = scene.SceneHeroes[4];
+
         //Left of Anti Magi is Sven
-        if (sven.CurrentClickerTime.Seconds - durationLeft < 0)
+        if (antiMage.CurrentClickerTime.Seconds - durationLeft < 0)
         {
-            scene.TotalGold += sven.ClickAmount;
-            sven.CurrentClickerTime = new TimeSpan(0, 0, sven.TimeBetweenClicks.Seconds - durationLeft);
+            scene.AddToTotal(antiMage.ClickAmount);
+            antiMage.CurrentClickerTime = new TimeSpan(0, 0, antiMage.TimeBetweenClicks.Seconds - durationLeft);
         }
         else
         {
-            sven.CurrentClickerTime = new TimeSpan(0, 0, sven.CurrentClickerTime.Seconds - durationLeft);
+            antiMage.CurrentClickerTime = new TimeSpan(0, 0, antiMage.CurrentClickerTime.Seconds - durationLeft);
         }
         //Right of Anti Mage is Alchemist
-        if (alchemist.CurrentClickerTime.Seconds - durationLeft < 0)
+        if (antiMage.CurrentClickerTime.Seconds - durationLeft < 0)
         {   
-            scene.TotalGold += sven.ClickAmount;
-            alchemist.CurrentClickerTime = new TimeSpan(0, 0, alchemist.TimeBetweenClicks.Seconds - durationLeft);
+            scene.AddToTotal(antiMage.ClickAmount);
+            antiMage.CurrentClickerTime = new TimeSpan(0, 0, antiMage.TimeBetweenClicks.Seconds - durationLeft);
         }
         else
         {
-            alchemist.CurrentClickerTime = new TimeSpan(0, 0, alchemist.CurrentClickerTime.Seconds - durationLeft);
+            antiMage.CurrentClickerTime = new TimeSpan(0, 0, antiMage.CurrentClickerTime.Seconds - durationLeft);
         }
 
         StartCoroutine(AbilityCooldown(ManaVoidActiveDuration, "ManaVoidActiveFinish"));
@@ -332,27 +332,27 @@ public class AntiMageController : MonoBehaviour
 
         var durationLeft = m_clickerController.CurrentClickerTime.Seconds;
         RadiantSceneController scene = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
-        RadiantClickerController sven = scene.SceneHeroes[5];
-        RadiantClickerController alchemist = scene.SceneHeroes[0];
+        RadiantClickerController antiMage = scene.SceneHeroes[4];
+
         //Left of Anti Magi is Sven
-        if (sven.CurrentClickerTime.Seconds - durationLeft < 0)
+        if (antiMage.CurrentClickerTime.Seconds - durationLeft < 0)
         {
-            scene.TotalGold += sven.ClickAmount;
-            sven.CurrentClickerTime = new TimeSpan(0, 0, sven.TimeBetweenClicks.Seconds - durationLeft);
+            scene.AddToTotal(antiMage.ClickAmount);
+            antiMage.CurrentClickerTime = new TimeSpan(0, 0, antiMage.TimeBetweenClicks.Seconds - durationLeft);
         }
         else
         {
-            sven.CurrentClickerTime = new TimeSpan(0, 0, sven.CurrentClickerTime.Seconds - durationLeft);
+            antiMage.CurrentClickerTime = new TimeSpan(0, 0, antiMage.CurrentClickerTime.Seconds - durationLeft);
         }
         //Right of Anti Mage is Alchemist
-        if (alchemist.CurrentClickerTime.Seconds - durationLeft < 0)
+        if (antiMage.CurrentClickerTime.Seconds - durationLeft < 0)
         {
-            scene.TotalGold += sven.ClickAmount;
-            alchemist.CurrentClickerTime = new TimeSpan(0, 0, alchemist.TimeBetweenClicks.Seconds - durationLeft);
+            scene.AddToTotal(antiMage.ClickAmount);
+            antiMage.CurrentClickerTime = new TimeSpan(0, 0, antiMage.TimeBetweenClicks.Seconds - durationLeft);
         }
         else
         {
-            alchemist.CurrentClickerTime = new TimeSpan(0, 0, alchemist.CurrentClickerTime.Seconds - durationLeft);
+            antiMage.CurrentClickerTime = new TimeSpan(0, 0, antiMage.CurrentClickerTime.Seconds - durationLeft);
         }
 
         StartCoroutine(AbilityCooldown(remainingTime, "ManaVoidActiveFinish"));
