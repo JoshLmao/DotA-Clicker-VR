@@ -64,8 +64,6 @@ public class MMOptionsController : MonoBehaviour
                 AllAudioEnabled = m_audioEnabled.isOn,
                 SuperSampleScale = SuperSampleSlider.value,
             };
-            m_currentConfig.TwitchAuthCode = "";
-            m_currentConfig.TwitchUsername = "";
         }
         else
         {
