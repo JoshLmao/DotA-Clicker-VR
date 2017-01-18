@@ -11,10 +11,15 @@ public class MainMenuController : MonoBehaviour {
     public GameObject Roshan;
     int menusPage = 0;
 
+    [SerializeField]
+    GameObject MainMenuCanvas;
+    [SerializeField]
+    GameObject OptionsCanvas;
+
 	void Start ()
     {
         DefaultHowToPlayMenu();
-
+        OnShowToMainMenu();
     }
 	
 	void Update ()
@@ -97,5 +102,16 @@ public class MainMenuController : MonoBehaviour {
             Roshan.SetActive(true);
         else
             Roshan.SetActive(false);
+    }
+
+    public void OnShowToMainMenu()
+    {
+        MainMenuCanvas.SetActive(true);
+        OptionsCanvas.SetActive(false);
+    }
+    public void OnShowOptionsMenu()
+    {
+        MainMenuCanvas.SetActive(false);
+        OptionsCanvas.SetActive(true);
     }
 }

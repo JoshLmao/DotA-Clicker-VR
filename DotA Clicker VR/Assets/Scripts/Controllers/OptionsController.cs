@@ -4,43 +4,31 @@ using UnityEngine.UI;
 using UnityEngine.VR;
 using System;
 
-public class OptionsController : MonoBehaviour {
-
+public class OptionsController : MMOptionsController
+{
     public bool IsMusicEnabled { get { return m_audioEnabled.isOn; } }
     public bool AllAudioDisabled { get { return m_audioEnabled.isOn; } }
     public float SuperSampleValue { get { return SuperSampleSlider.value; } }
 
     public AudioSource[] HeroesAudioSource;
-    public Slider MasterVolSlider;
-    public Slider AmbientVolSlider;
-    public Slider HeroVolSlider;
-    public Slider SuperSampleSlider;
 
-    Text m_ssText;
     AmbientSoundManager m_ambientSound;
-    Toggle m_audioEnabled;
-    Toggle m_musicEnabled;
-    Toggle m_adaptiveQuality;
+    OptionsController m_options;
 
-    void Awake()
+    protected override void Awake()
     {
-        m_audioEnabled = transform.Find("AudioOptions/AudioEnabledToggle").GetComponent<Toggle>();
-        m_musicEnabled = transform.Find("AudioOptions/AmbientAudioEnabled").GetComponent<Toggle>();
+        base.Awake();
+
         m_ambientSound = GameObject.Find("RadiantSceneController").GetComponent<AmbientSoundManager>();
-        m_adaptiveQuality = transform.Find("VideoOptions/AdaptiveQualityToggle").GetComponent<Toggle>();
+        m_options = GameObject.Find("OptionsCanvas").GetComponent<OptionsController>();
 
-        MasterVolSlider = transform.Find("AudioOptions/MasterVolumeC/MasterVolSlider").GetComponent<Slider>();
-        AmbientVolSlider = transform.Find("AudioOptions/AmbientVolC/AmbientMusicVolSlider").GetComponent<Slider>();
-        HeroVolSlider = transform.Find("AudioOptions/HeroSoundsVolC/HeroesVolSlider").GetComponent<Slider>();
-
-        SuperSampleSlider = transform.Find("VideoOptions/SSCanvas/SuperSampleSlider").GetComponent<Slider>();
-        m_ssText = transform.Find("VideoOptions/SSCanvas/SSValue").GetComponent<Text>();
-
-        RadiantSceneController.LoadedSaveFile += OnLoadedSaveFile;
+        RadiantSceneController.LoadedConfigFile += OnLoadedConfig;
     }
 
-	void Start ()
+    protected override void Start()
     {
+        base.Start();
+
         SuperSampleSlider.onValueChanged.AddListener(SuperSampleChanged);
 
         m_audioEnabled.onValueChanged.AddListener(AudioToggle);
@@ -112,9 +100,9 @@ public class OptionsController : MonoBehaviour {
         SuperSampleSlider.value -= 0.1f;
     }
 
-    public void OnLoadedSaveFile(SaveFileDto saveFile)
+    private void OnLoadedConfig(ConfigDto config)
     {
-        PreferencesDto prefs = saveFile.Preferences;
+        PreferencesDto prefs = config.Preferences;
 
         MasterVolSlider.value = prefs.MasterVolume;
         AmbientVolSlider.value = prefs.AmbientVolume;

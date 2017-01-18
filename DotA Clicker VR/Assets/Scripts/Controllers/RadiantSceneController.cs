@@ -35,9 +35,9 @@ public class RadiantSceneController : MonoBehaviour
     public const string TRILLION_FORMAT = "{0} trillion";
     public const string QUADRILLION_FORMAT = "{0} quadrillion";
 
-    readonly string FILE_PATHS = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\My Games\\DotAClickerVR\\";
-    readonly string SAVE_FILE = "SaveFile.json";
-    readonly string CONFIG_FILE = "ConfigFile.json";
+    public readonly static string FILE_PATHS = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\My Games\\DotAClickerVR\\";
+    public readonly static string SAVE_FILE = "SaveFile.json";
+    public readonly static string CONFIG_FILE = "ConfigFile.json";
 
     public float ClickCount;
     public string CurrentPlayerName = string.Empty;
@@ -69,7 +69,6 @@ public class RadiantSceneController : MonoBehaviour
 
         LoadedSaveFile += OnLoadedSave;
 
-        CurrentConfigFile = LoadConfig();
 
         modifierController = GameObject.Find("ItemsListCanvas").GetComponent<BuyableItemsController>();
 
@@ -86,7 +85,9 @@ public class RadiantSceneController : MonoBehaviour
     {
         SceneHeroes = GetClickerHeroesInScene();
 
+        //Load save & config after Awake
         LoadProgress();
+        CurrentConfigFile = LoadConfig();
     }
 
     void Update ()
@@ -188,15 +189,6 @@ public class RadiantSceneController : MonoBehaviour
                 TotalGold = TotalGold,
 
                 RoshanEvents = m_canDoRoshanEvent,
-            },
-            Preferences = new PreferencesDto()
-            {
-                MasterVolume = m_options.MasterVolSlider.value,
-                AmbientVolume = m_options.AmbientVolSlider.value,
-                HeroVolume = m_options.HeroVolSlider.value,
-                MusicEnabled = m_options.IsMusicEnabled,
-                AllAudioEnabled = m_options.AllAudioDisabled,
-                SuperSampleScale = m_options.SuperSampleValue,
             },
             SessionStats = new StatsDto()
             {
@@ -308,6 +300,7 @@ public class RadiantSceneController : MonoBehaviour
     public void OnDestroy()
     {
         SaveFile();
+        SaveConfig();
     }
 
     void DoRoshanEvent()
@@ -426,9 +419,25 @@ public class RadiantSceneController : MonoBehaviour
                 TwitchUsername = "DotAClickerVR",
                 TwitchAuthCode = "oauth:93tmro12txrri3b1mobo6mirxz0wg9",
             };
+            if(m_options != null)
+            {
+                config.Preferences = new PreferencesDto()
+                {
+                    MasterVolume = m_options.MasterVolSlider.value,
+                    AmbientVolume = m_options.AmbientVolSlider.value,
+                    HeroVolume = m_options.HeroVolSlider.value,
+                    MusicEnabled = m_options.IsMusicEnabled,
+                    AllAudioEnabled = m_options.AllAudioDisabled,
+                    SuperSampleScale = m_options.SuperSampleValue,
+                };
+            }
 
             string json = JsonConvert.SerializeObject(config, Formatting.Indented);
             File.WriteAllText(CONFIG_LOCATION, json);
+
+            if (LoadedConfigFile != null)
+                LoadedConfigFile.Invoke(config);
+
             return config;
         }
         else
@@ -445,10 +454,26 @@ public class RadiantSceneController : MonoBehaviour
                 return null;
             }
 
-            if(LoadedConfigFile != null)
+
+            if (LoadedConfigFile != null)
                 LoadedConfigFile.Invoke(config);
 
             return config;
+        }
+    }
+
+    public void SaveConfig()
+    {
+        CheckSaveFileFolders();
+
+        try
+        {
+            var json = JsonConvert.SerializeObject(CurrentConfigFile, Formatting.Indented);
+            File.WriteAllText(CONFIG_LOCATION, json);
+        }
+        catch (Exception e)
+        {
+            Debug.Log("Can't save config file - " + e.Message);
         }
     }
 
