@@ -267,7 +267,9 @@ public class CMController : MonoBehaviour
         if(name == "CMBuyStand")
         {
             m_cmAnimator.SetBool("isAttacking", true);
-            RadiantClickerController.PlayRandomClip(m_audioSource, AttackingResponses);
+
+            if(!m_clickerController.HasManager)
+                RadiantClickerController.PlayRandomClip(m_audioSource, AttackingResponses);
         }
     }
 

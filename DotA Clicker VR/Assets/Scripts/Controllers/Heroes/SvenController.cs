@@ -263,7 +263,9 @@ public class SvenController : MonoBehaviour
         if(name == "SvenBuyStand")
         {
             m_svenAnimator.SetBool("isAttacking", true);
-            RadiantClickerController.PlayRandomClip(m_audioSource, AttackingResponses);
+
+            if (!m_clickerController.HasManager)
+                RadiantClickerController.PlayRandomClip(m_audioSource, AttackingResponses);
         }
     }
 

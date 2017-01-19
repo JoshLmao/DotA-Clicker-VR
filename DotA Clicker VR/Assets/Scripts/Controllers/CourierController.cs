@@ -21,6 +21,7 @@ public class CourierController : MonoBehaviour
     public float damping = 6.0f;
 
     public bool AudioMuted = false;
+    public bool ValidAuthKey = false;
 
     GameObject courierWaypoint;
     GameObject m_player;
@@ -47,8 +48,10 @@ public class CourierController : MonoBehaviour
 
     MediaPlayerCtrl m_mediaController;
 
-    void Start ()
+    void Awake()
     {
+        KeyboardController.EnterPressed += KeyboardEnter;
+
         m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
 
         m_courier = this.gameObject;
@@ -63,38 +66,53 @@ public class CourierController : MonoBehaviour
         m_twitchChat = transform.Find("TwitchStreamCanvas/TwitchChat").GetComponent<TwitchIRC>();
         m_displayKeyboardBtn = transform.Find("TwitchStreamCanvas/ChangeStreamBtn").gameObject;
 
-        m_invalidTwitchAuth = transform.Find("TwitchStreamCanvas/TwitchChat/ChatScrollable/InvalidAuthKey").gameObject;
-        m_invalidTwitchAuth.SetActive(false);
+        m_invalidTwitchAuth = transform.Find("TwitchStreamCanvas/InvalidAuthKey").gameObject;
 
         m_keyboardController = transform.Find("Keyboard").GetComponent<KeyboardController>();
-        KeyboardController.EnterPressed += KeyboardEnter;
-
         m_keyboard = transform.Find("Keyboard").gameObject;
         m_streamURLUI = transform.Find("TwitchStreamCanvas/URL").gameObject;
 
         m_twitchChat.channelName = TwitchChannel;
+        m_mediaController = transform.Find("TwitchStreamCanvas/StreamTexture").GetComponent<MediaPlayerCtrl>();
 
         m_keyboard.SetActive(false);
         m_streamURLUI.SetActive(false);
+    }
 
+    void Start ()
+    {
         if(m_sceneController.CurrentConfigFile != null)
         {
             m_twitchChat.oauth = m_sceneController.CurrentConfigFile.TwitchAuthCode;
             m_twitchChat.nickName = m_sceneController.CurrentConfigFile.TwitchUsername;
 
-            m_twitchChat.StartIRC();
+            ValidAuthKey = m_twitchChat.StartIRC();
+        }
+        else
+        {
+            SetValidCredentialsUI(ValidAuthKey);
+        }
+    }
+
+    void SetValidCredentialsUI(bool valid)
+    {
+        if (valid)
+        {
+            m_invalidTwitchAuth.SetActive(false);
+            m_mediaController.gameObject.SetActive(true);
         }
         else
         {
             m_invalidTwitchAuth.SetActive(true);
+            m_mediaController.gameObject.SetActive(false);
         }
-
-        m_mediaController = transform.Find("TwitchStreamCanvas/StreamTexture").GetComponent<MediaPlayerCtrl>();
     }
 
     void Update ()
     {
-        if(!isByPlayer && FollowPlayer)
+        SetValidCredentialsUI(ValidAuthKey);
+
+        if (!isByPlayer && FollowPlayer)
         {
             m_playerTransform = GameObject.Find("[CameraRig]").transform;
             waypointPos = new Vector3(courierWaypoint.transform.position.x, m_playerTransform.position.y, courierWaypoint.transform.position.z);
@@ -243,4 +261,9 @@ public class CourierController : MonoBehaviour
     //    client = new TwitchNamedClient(username, authKey, streamName);
         
     //}
+
+    public void OpenAuthURL()
+    {
+        Application.OpenURL("https://twitchapps.com/tmi/");
+    }
 }

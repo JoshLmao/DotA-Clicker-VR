@@ -24,7 +24,7 @@ public class TwitchIRC : MonoBehaviour
     RadiantSceneController m_sceneController;
     Text m_currentChannelText;
 
-    public void StartIRC()
+    public bool StartIRC()
     {
         m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
         RadiantSceneController.LoadedConfigFile += LoadedConfigFile;
@@ -35,7 +35,7 @@ public class TwitchIRC : MonoBehaviour
         if (!sock.Connected)
         {
             Debug.Log("Failed to connect!");
-            return;
+            return false;
         }
         var networkStream = sock.GetStream();
         var input = new System.IO.StreamReader(networkStream);
@@ -61,8 +61,9 @@ public class TwitchIRC : MonoBehaviour
         else
         {
             Debug.Log("No oauth key or Nickname");
-            return;
+            return false;
         }
+        return true;
     }
 
     private void IRCInputProcedure(System.IO.TextReader input, System.Net.Sockets.NetworkStream networkStream)

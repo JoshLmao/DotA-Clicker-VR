@@ -151,67 +151,67 @@ public class HandController : MonoBehaviour
             if (CurrentObject.name.Contains("iron_branchPrefab"))
             {
                 if (IronBranchModifierAdded != null)
-                    IronBranchModifierAdded.Invoke(hero, 30); //Main place to set Item Modifier Duration
+                    IronBranchModifierAdded.Invoke(hero, Constants.ModifierIronBranchDuration); //Main place to set Item Modifier Duration
             }
             else if (CurrentObject.name.Contains("clarityPrefab"))
             {
                 if (ClarityModifierAdded != null)
-                    ClarityModifierAdded.Invoke(hero, 30);
+                    ClarityModifierAdded.Invoke(hero, Constants.ModifierClarityDuration);
             }
             else if (CurrentObject.name.Contains("magic_stickPrefab"))
             {
                 if (MagicStickModifierAdded != null)
-                    MagicStickModifierAdded.Invoke(hero, 30);
+                    MagicStickModifierAdded.Invoke(hero, Constants.ModifierMagicStickDuration);
             }
             else if (CurrentObject.name.Contains("quelling_bladePrefab"))
             {
                 if (QuellingBladeModifierAdded != null)
-                    QuellingBladeModifierAdded.Invoke(hero, 30);
+                    QuellingBladeModifierAdded.Invoke(hero, Constants.ModifierQuellingBladeDuration);
             }
             else if (CurrentObject.name.Contains("mangoPrefab"))
             {
                 if (MangoModifierAdded != null)
-                    MangoModifierAdded.Invoke(hero, 30);
+                    MangoModifierAdded.Invoke(hero, Constants.ModifierMangoDuration);
             }
             else if (CurrentObject.name.Contains("power_treadsPrefab"))
             {
                 if (PowerTreadsModifierAdded != null)
-                    PowerTreadsModifierAdded.Invoke(hero, 30);
+                    PowerTreadsModifierAdded.Invoke(hero, Constants.ModifierPowerTreadsDuration);
             }
             else if (CurrentObject.name.Contains("bottlePrefab"))
             {
                 if (BottleModifierAdded != null)
-                    BottleModifierAdded.Invoke(hero, 30);
+                    BottleModifierAdded.Invoke(hero, Constants.ModifierBottleDuration);
             }
             else if (CurrentObject.name.Contains("blink_daggerPrefab"))
             {
                 if (BlinkDaggerModifierAdded != null)
-                    BlinkDaggerModifierAdded.Invoke(hero, 30);
+                    BlinkDaggerModifierAdded.Invoke(hero, Constants.ModifierBlinkDaggerDuration);
             }
             else if (CurrentObject.name.Contains("hyperstonePrefab"))
             {
                 if (HyperstoneModifierAdded != null)
-                    HyperstoneModifierAdded.Invoke(hero, 30);
+                    HyperstoneModifierAdded.Invoke(hero, Constants.ModifierHyperstoneDuration);
             }
             else if (CurrentObject.name.Contains("bloodstonePrefab"))
             {
                 if (BloodstoneModifierAdded != null)
-                    BloodstoneModifierAdded.Invoke(hero, 30);
+                    BloodstoneModifierAdded.Invoke(hero, Constants.ModifierBloodstoneDuration);
             }
             else if (CurrentObject.name.Contains("reaverPrefab"))
             {
                 if (ReaverModifierAdded != null)
-                    ReaverModifierAdded.Invoke(hero, 30);
+                    ReaverModifierAdded.Invoke(hero, Constants.ModifierReaverDuration);
             }
             else if (CurrentObject.name.Contains("divine_rapierPrefab"))
             {
                 if (DivineRapierModifierAdded != null)
-                    DivineRapierModifierAdded.Invoke(hero, 30);
+                    DivineRapierModifierAdded.Invoke(hero, Constants.ModifierDivineRapierDuration);
             }
             else if (CurrentObject.name.Contains("recipePrefab"))
             {
                 if (RecipeModifierAdded != null)
-                    RecipeModifierAdded.Invoke(hero, 30);
+                    RecipeModifierAdded.Invoke(hero, Constants.ModifierRecipeDuration);
             }
             GameObject.Destroy(CurrentObject);
         }

@@ -279,7 +279,9 @@ public class PhoenixController : MonoBehaviour
         if (name == "PhoenixBuyStand")
         {
             m_phoenixAnimator.SetBool("isAttacking", true);
-            RadiantClickerController.PlayRandomClip(m_audioSource, AttackingResponses);
+
+            if (!m_clickerController.HasManager)
+                RadiantClickerController.PlayRandomClip(m_audioSource, AttackingResponses);
         }
     }
 

@@ -259,7 +259,9 @@ public class OgreMagiController : MonoBehaviour
         if (name == "OgreMagiBuyStand")
         {
             m_ogreMagiAnimator.SetBool("isAttacking", true);
-            RadiantClickerController.PlayRandomClip(m_audioSource, AttackingResponses);
+
+            if (!m_clickerController.HasManager)
+                RadiantClickerController.PlayRandomClip(m_audioSource, AttackingResponses);
         }
     }
 

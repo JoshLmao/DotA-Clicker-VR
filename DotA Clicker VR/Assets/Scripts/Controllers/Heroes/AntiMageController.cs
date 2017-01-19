@@ -255,7 +255,9 @@ public class AntiMageController : MonoBehaviour
         if (name == "AntiMageBuyStand")
         {
             m_antiMageAnimator.SetBool("isAttacking", false);
-            RadiantClickerController.PlayRandomClip(m_audioSource, AttackingResponses);
+
+            if (!m_clickerController.HasManager)
+                RadiantClickerController.PlayRandomClip(m_audioSource, AttackingResponses);
         }
     }
 

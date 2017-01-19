@@ -263,15 +263,15 @@ public class RadiantSceneController : MonoBehaviour
 
                 Ability1Level = SceneHeroes[i].Ability1Level,
                 Ability1UseCount = SceneHeroes[i].Ability1UseCount,
-                Ability1RemainingTime = SceneHeroes[i].m_ability1ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[i].m_ability1ClickTime) : 0,
+                Ability1RemainingTime = SceneHeroes[i].m_ability1ClickTime != DateTime.MinValue ? (DateTime.Now - SceneHeroes[i].m_ability1ClickTime).TotalSeconds : 0,
 
                 Ability2Level = SceneHeroes[i].Ability2Level,
                 Ability2UseCount = SceneHeroes[i].Ability2UseCount,
-                Ability2RemainingTime = SceneHeroes[i].m_ability2ClickTime != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[i].m_ability2ClickTime) : 0,
+                Ability2RemainingTime = SceneHeroes[i].m_ability2ClickTime != DateTime.MinValue ? (DateTime.Now - SceneHeroes[i].m_ability2ClickTime).TotalSeconds : 0,
 
                 ModifierActive = SceneHeroes[i].m_currentModifierRoutineStarted == DateTime.MinValue ? false : true,
                 CurrentModifier = SceneHeroes[i].m_currentModifier,
-                ModifierTimeRemaining = SceneHeroes[i].m_currentModifierRoutineStarted != DateTime.MinValue ? CalculateTimeRemaining(SceneHeroes[i].m_currentModifierRoutineStarted) : 0,
+                ModifierTimeRemaining = SceneHeroes[i].m_currentModifierRoutineStarted != DateTime.MinValue ? CalculateModifierTimeRemaining(SceneHeroes[i].m_currentModifierRoutineStarted, SceneHeroes[i].m_currentModifierTotalTime) : 0,
 
                 HasManager = SceneHeroes[i].HasManager,
             });
@@ -285,6 +285,17 @@ public class RadiantSceneController : MonoBehaviour
         catch (Exception e)
         {
             Debug.Log("Exception occured: - Can't save file");
+        }
+    }
+
+    private double CalculateModifierTimeRemaining(DateTime timeStartedOn, double totalTime)
+    {
+        if (totalTime == -1)
+            return 0;
+        else
+        {
+            var start = DateTime.Now - timeStartedOn;
+            return totalTime - start.TotalSeconds;
         }
     }
 
@@ -481,12 +492,6 @@ public class RadiantSceneController : MonoBehaviour
     {
         TotalGold = saveFile.RadiantSide.TotalGold;
         m_canDoRoshanEvent = saveFile.RadiantSide.RoshanEvents;
-    }
-
-    double CalculateTimeRemaining(DateTime start)
-    {
-        var span = start - DateTime.Now;
-        return span.TotalSeconds;
     }
 
     public void ReturnToMainMenu()

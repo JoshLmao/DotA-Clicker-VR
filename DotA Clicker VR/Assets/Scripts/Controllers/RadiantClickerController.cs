@@ -141,6 +141,7 @@ public class RadiantClickerController : MonoBehaviour
 
     //Track Start Times of Coroutines
     public DateTime m_currentModifierRoutineStarted;
+    public int m_currentModifierTotalTime = -1;
     public string m_currentModifier = string.Empty;
     public TimeSpan m_currentClickTimePassed;
     public DateTime m_ability1ClickTime = DateTime.MinValue;
@@ -297,6 +298,13 @@ public class RadiantClickerController : MonoBehaviour
     {
         //On Clicker first pressed
         m_lastClickedTime = DateTime.Now;
+        IsClicked = true;
+        OnClickedButton.Invoke(name);
+    }
+
+    void OnClickWithTimeRemaining(double secondsRemaining)
+    {
+        m_lastClickedTime = DateTime.Now - TimeSpan.FromSeconds(SecondsToCompleteClick - secondsRemaining);
         IsClicked = true;
         OnClickedButton.Invoke(name);
     }
@@ -726,7 +734,6 @@ public class RadiantClickerController : MonoBehaviour
         m_modifierCountdownActive = true;
         m_modifierCountdownText.gameObject.SetActive(true);
 
-
         yield return StartCoroutine(Yield(totalActiveDuration)); //WaitForSeconds(totalActiveDuration)
 
         m_modifierCountdownActive = false;
@@ -758,6 +765,7 @@ public class RadiantClickerController : MonoBehaviour
 
         m_ironBranchModify = ClickAmount * ItemModifierMultiplier;
         ClickAmount = m_ironBranchModify;
+        m_currentModifierTotalTime = Constants.ModifierIronBranchDuration;
 
         m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/iron_BranchModifier");
         m_activeModifier.color = new Color(255, 255, 255, 1);
@@ -786,6 +794,7 @@ public class RadiantClickerController : MonoBehaviour
 
         m_clarityModify = ClickAmount * (ItemModifierMultiplier * (int)1.5);
         ClickAmount = m_clarityModify;
+        m_currentModifierTotalTime = Constants.ModifierClarityDuration;
 
         m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/clarityModifier");
         m_activeModifier.color = new Color(255, 255, 255, 1);
@@ -812,6 +821,7 @@ public class RadiantClickerController : MonoBehaviour
 
         m_magicStickModify = ClickAmount * (ItemModifierMultiplier * (int)2);
         ClickAmount = m_magicStickModify;
+        m_currentModifierTotalTime = Constants.ModifierMagicStickDuration;
 
         m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/magic_StickModifier");
         m_activeModifier.color = new Color(255, 255, 255, 1);
@@ -838,6 +848,7 @@ public class RadiantClickerController : MonoBehaviour
 
         m_quellingBladeModify = ClickAmount * (ItemModifierMultiplier * (int)2.5);
         ClickAmount = m_quellingBladeModify;
+        m_currentModifierTotalTime = Constants.ModifierQuellingBladeDuration;
 
         m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/quelling_BladeModifier");
         m_activeModifier.color = new Color(255, 255, 255, 1);
@@ -864,6 +875,7 @@ public class RadiantClickerController : MonoBehaviour
 
         m_mangoModify = ClickAmount * (ItemModifierMultiplier * (int)3);
         ClickAmount = m_mangoModify;
+        m_currentModifierTotalTime = Constants.ModifierMangoDuration;
 
         m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/mangoModifier");
         m_activeModifier.color = new Color(255, 255, 255, 1);
@@ -890,6 +902,7 @@ public class RadiantClickerController : MonoBehaviour
 
         m_powerTreadsModify = ClickAmount * (ItemModifierMultiplier * (int)3.5);
         ClickAmount = m_powerTreadsModify;
+        m_currentModifierTotalTime = Constants.ModifierPowerTreadsDuration;
 
         m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/power_TreadsModifier");
         m_activeModifier.color = new Color(255, 255, 255, 1);
@@ -916,6 +929,7 @@ public class RadiantClickerController : MonoBehaviour
 
         m_bottleModify = ClickAmount * (ItemModifierMultiplier * (int)4);
         ClickAmount = m_bottleModify;
+        m_currentModifierTotalTime = Constants.ModifierBottleDuration;
 
         m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/bottleModifier");
         m_activeModifier.color = new Color(255, 255, 255, 1);
@@ -942,6 +956,7 @@ public class RadiantClickerController : MonoBehaviour
 
         m_blinkDaggerModify = ClickAmount * (ItemModifierMultiplier * (int)4.5);
         ClickAmount = m_blinkDaggerModify;
+        m_currentModifierTotalTime = Constants.ModifierBlinkDaggerDuration;
 
         m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/blink_DaggerModifier");
         m_activeModifier.color = new Color(255, 255, 255, 1);
@@ -968,6 +983,7 @@ public class RadiantClickerController : MonoBehaviour
 
         m_hyperstoneModify = ClickAmount * (ItemModifierMultiplier * (int)5);
         ClickAmount = m_hyperstoneModify;
+        m_currentModifierTotalTime = Constants.ModifierHyperstoneDuration;
 
         m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/hyperstoneModifier");
         m_activeModifier.color = new Color(255, 255, 255, 1);
@@ -994,6 +1010,7 @@ public class RadiantClickerController : MonoBehaviour
 
         m_bloodstoneModify = ClickAmount * (ItemModifierMultiplier * (int)5.5);
         ClickAmount = m_bloodstoneModify;
+        m_currentModifierTotalTime = Constants.ModifierBloodstoneDuration;
 
         m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/bloodstoneModifier");
         m_activeModifier.color = new Color(255, 255, 255, 1);
@@ -1020,6 +1037,7 @@ public class RadiantClickerController : MonoBehaviour
 
         m_reaverModify = ClickAmount * (ItemModifierMultiplier * (int)6);
         ClickAmount = m_reaverModify;
+        m_currentModifierTotalTime = Constants.ModifierReaverDuration;
 
         m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/reaverModifier");
         m_activeModifier.color = new Color(255, 255, 255, 1);
@@ -1046,6 +1064,7 @@ public class RadiantClickerController : MonoBehaviour
 
         m_divineRapierModify = ClickAmount * (ItemModifierMultiplier * (int)6.5);
         ClickAmount = m_divineRapierModify;
+        m_currentModifierTotalTime = Constants.ModifierDivineRapierDuration;
 
         m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/divine_RapierModifier");
         m_activeModifier.color = new Color(255, 255, 255, 1);
@@ -1072,6 +1091,7 @@ public class RadiantClickerController : MonoBehaviour
 
         m_recipeModify = ClickAmount * (ItemModifierMultiplier * (int)10);
         ClickAmount = m_recipeModify;
+        m_currentModifierTotalTime = Constants.ModifierRecipeDuration;
 
         m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/recipeModifier");
         m_activeModifier.color = new Color(255, 255, 255, 1);
@@ -1198,6 +1218,8 @@ public class RadiantClickerController : MonoBehaviour
         //Delete active item
         Destroy(m_activeItemModifierPrefab);
         m_activeItemModifierPrefab = null;
+
+        m_currentModifierTotalTime = -1;
     }
 
     void OnLoadedSaveFile(SaveFileDto saveFile)
@@ -1222,6 +1244,11 @@ public class RadiantClickerController : MonoBehaviour
                 //Add to Ability Slider count and update value
                 m_abil2UseCount = (int)hero.Ability2UseCount;
                 m_abil2Slider.value = m_abil2UseCount;
+
+                if(hero.ClickerTimeRemaining != 0)
+                {
+                    OnClickWithTimeRemaining(hero.ClickerTimeRemaining);
+                }
 
                 if (hero.Ability1RemainingTime != 0)
                 {

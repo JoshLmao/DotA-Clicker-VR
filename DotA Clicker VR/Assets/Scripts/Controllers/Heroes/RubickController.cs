@@ -263,7 +263,9 @@ public class RubickController : MonoBehaviour
         if(name == "RubickBuyStand")
         {
             m_rubickAnimator.SetBool("isAttacking", true);
-            RadiantClickerController.PlayRandomClip(m_audioSource, AttackingResponses);
+
+            if (!m_clickerController.HasManager)
+                RadiantClickerController.PlayRandomClip(m_audioSource, AttackingResponses);
         }
     }
 

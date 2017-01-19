@@ -277,7 +277,9 @@ public class TuskController : MonoBehaviour
         if (name == "TuskBuyStand")
         {
             m_tuskAnimator.SetBool("isAttacking", true);
-            RadiantClickerController.PlayRandomClip(m_audioSource, AttackingResponses);
+
+            if (!m_clickerController.HasManager)
+                RadiantClickerController.PlayRandomClip(m_audioSource, AttackingResponses);
         }
     }
 

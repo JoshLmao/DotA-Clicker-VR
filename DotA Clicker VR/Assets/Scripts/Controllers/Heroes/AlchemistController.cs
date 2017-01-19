@@ -241,6 +241,9 @@ public class AlchemistController : MonoBehaviour
         if(name == "AlchemistBuyStand")
         {
             m_alcAnimator.SetBool("isAttacking", true);
+
+            if (!m_clickerController.HasManager)
+                RadiantClickerController.PlayRandomClip(m_audioSource, AttackingResponses);
         }
     }
 
