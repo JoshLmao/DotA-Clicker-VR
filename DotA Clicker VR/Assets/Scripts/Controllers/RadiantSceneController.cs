@@ -62,13 +62,14 @@ public class RadiantSceneController : MonoBehaviour
     AchievementEvents m_achievementEvents;
     BuyableItemsController modifierController = null;
 
+    GlobalDataController m_globalData;
+
     void Awake()
     {
         RoshanController.RoshanEventEnded += OnRoshanEventEnded;
         RoshanController.RoshanEventEndedNotKilled += OnRoshanEventEndedNotKilled;
 
         LoadedSaveFile += OnLoadedSave;
-
 
         modifierController = GameObject.Find("ItemsListCanvas").GetComponent<BuyableItemsController>();
 
@@ -79,6 +80,16 @@ public class RadiantSceneController : MonoBehaviour
 
         if(OnSceneStarted != null)
             OnSceneStarted.Invoke();
+
+        try
+        {
+            //Mioght not exists when in editor
+            m_globalData = GameObject.Find("GlobalDataController").GetComponent<GlobalDataController>();
+        }
+        catch(Exception e)
+        {
+
+        }
     }
 
     void Start ()
@@ -88,6 +99,15 @@ public class RadiantSceneController : MonoBehaviour
         //Load save & config after Awake
         LoadProgress();
         CurrentConfigFile = LoadConfig();
+
+        if (m_globalData != null)
+        {
+            //Will be null in editor since globals are setup in MainMenu
+            if(CurrentSaveFile.PlayerName == "")
+            {
+                
+            }
+        }
     }
 
     void Update ()
@@ -446,7 +466,7 @@ public class RadiantSceneController : MonoBehaviour
             string json = JsonConvert.SerializeObject(config, Formatting.Indented);
             File.WriteAllText(CONFIG_LOCATION, json);
 
-            if (LoadedConfigFile != null)
+            if (LoadedConfigFile != null && config != null)
                 LoadedConfigFile.Invoke(config);
 
             return config;

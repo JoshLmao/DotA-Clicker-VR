@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System;
+using System.Linq;
 
 public class OgreMagiController : MonoBehaviour
 {
@@ -53,7 +54,7 @@ public class OgreMagiController : MonoBehaviour
     int m_fireblastModifiedValue;
     int m_bloodlustModifiedValue;
 
-    void Start()
+    void Awake()
     {
         m_clickerController = GetComponent<RadiantClickerController>();
         m_clickerController.OnClickedButton += ClickedButton;
@@ -81,6 +82,18 @@ public class OgreMagiController : MonoBehaviour
         UpgradesController.BuyFireblastUpgrade += BuyFireblastUpgrade;
         UpgradesController.BuyBloodlustUpgrade += BuyBloodlustUpgrade;
         ManagersController.BuyOgreMagiManager += BuyOgreMagiManager;
+        RadiantSceneController.LoadedSaveFile += OnLoadedSaveFile;
+    }
+
+    void Start()
+    {
+
+    }
+
+    void OnLoadedSaveFile(SaveFileDto saveFile)
+    {
+        FireblastUpgrade = saveFile.RadiantSide.Heroes.FirstOrDefault(x => x.HeroName == "Ogre Magi").Ability1Level > 0;
+        BloodlustUpgrade = saveFile.RadiantSide.Heroes.FirstOrDefault(x => x.HeroName == "Ogre Magi").Ability2Level > 0;
     }
 
     void Update()

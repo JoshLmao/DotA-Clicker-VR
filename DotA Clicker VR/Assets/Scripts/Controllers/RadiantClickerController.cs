@@ -334,12 +334,10 @@ public class RadiantClickerController : MonoBehaviour
         if(abilityName == "CrystalNovaBtn" || abilityName == "FrostbiteBtn")
         {
             CMController cm = GetComponentInParent<CMController>();
-            if (!cm.CrystalNovaUpgrade || !cm.FrostbiteUpgrade)
-                return;
 
             if (abilityName == "CrystalNovaBtn")
             {
-                if (cm.CrystalNovaActive)
+                if (cm.CrystalNovaActive || !cm.CrystalNovaUpgrade)
                 {
                     CantUseAbility();
                     return;
@@ -353,7 +351,7 @@ public class RadiantClickerController : MonoBehaviour
             }
             else if(abilityName == "FrostbiteBtn")
             {
-                if (cm.FrostbiteActive)
+                if (cm.FrostbiteActive || !cm.FrostbiteUpgrade)
                 {
                     CantUseAbility();
                     return;
@@ -369,12 +367,10 @@ public class RadiantClickerController : MonoBehaviour
         else if (abilityName == "TelekinesisBtn" || abilityName == "SpellStealBtn")
         {
             RubickController rubick = GetComponentInParent<RubickController>();
-            if (!rubick.TelekinesisUpgrade || !rubick.SpellStealUpgrade)
-                return;
 
             if (abilityName == "TelekinesisBtn")
             {
-                if (rubick.TelekinesisActive)
+                if (rubick.TelekinesisActive || !rubick.TelekinesisUpgrade)
                 {
                     CantUseAbility();
                     return;
@@ -388,7 +384,7 @@ public class RadiantClickerController : MonoBehaviour
             }
             else if(abilityName == "SpellStealBtn")
             {
-                if (rubick.SpellStealActive)
+                if (rubick.SpellStealActive || !rubick.SpellStealUpgrade)
                 {
                     CantUseAbility();
                     return;
@@ -404,12 +400,10 @@ public class RadiantClickerController : MonoBehaviour
         else if (abilityName == "FireblastBtn" || abilityName == "BloodlustBtn")
         {
             OgreMagiController ogreMagi = GetComponentInParent<OgreMagiController>();
-            if (!ogreMagi.FireblastUpgrade || !ogreMagi.BloodlustUpgrade)
-                return;
 
-            if (abilityName == "FireblastBtn")
+            if (abilityName == "FireblastBtn" || !ogreMagi.FireblastUpgrade)
             {
-                if (ogreMagi.FireblastActive)
+                if (ogreMagi.FireblastActive || ogreMagi.FireblastUpgrade)
                 {
                     CantUseAbility();
                     return;
@@ -423,7 +417,7 @@ public class RadiantClickerController : MonoBehaviour
             }
             else if(abilityName == "BloodlustBtn")
             {
-                if (ogreMagi.BloodlustActive)
+                if (ogreMagi.BloodlustActive || !ogreMagi.BloodlustUpgrade)
                 {
                     CantUseAbility();
                     return;
@@ -439,12 +433,10 @@ public class RadiantClickerController : MonoBehaviour
         else if (abilityName == "SnowballBtn" || abilityName == "WalrusPunchBtn")
         {
             TuskController tusk = GetComponentInParent<TuskController>();
-            if (!tusk.SnowballUpgrade || !tusk.WalrusPunchUpgrade)
-                return;
 
             if (abilityName == "SnowballBtn")
             {
-                if (tusk.SnowballActive)
+                if (tusk.SnowballActive || !tusk.SnowballUpgrade)
                 {
                     CantUseAbility();
                     return;
@@ -458,7 +450,7 @@ public class RadiantClickerController : MonoBehaviour
             }
             else if(abilityName == "WalrusPunchBtn")
             {
-                if (tusk.WalrusPunchActive)
+                if (tusk.WalrusPunchActive || !tusk.WalrusPunchUpgrade)
                 {
                     CantUseAbility();
                     return;
@@ -474,12 +466,10 @@ public class RadiantClickerController : MonoBehaviour
         else if (abilityName == "SunrayBtn" || abilityName == "SupernovaBtn")
         {
             PhoenixController phoenix = GetComponentInParent<PhoenixController>();
-            if (!phoenix.SunrayUpgrade || !phoenix.SupernovaUpgrade)
-                return;
 
             if (abilityName == "SunrayBtn")
             {
-                if (phoenix.SunrayActive)
+                if (phoenix.SunrayActive || !phoenix.SunrayUpgrade)
                 {
                     CantUseAbility();
                     return;
@@ -493,7 +483,7 @@ public class RadiantClickerController : MonoBehaviour
             }
             else if(abilityName == "SupernovaBtn")
             {
-                if (phoenix.SupernovaActive)
+                if (phoenix.SupernovaActive || !phoenix.SupernovaUpgrade)
                 {
                     CantUseAbility();
                     return;
@@ -509,12 +499,10 @@ public class RadiantClickerController : MonoBehaviour
         else if (abilityName == "WarCryBtn" || abilityName == "GodsStrengthBtn")
         {
             SvenController sven = GetComponentInParent<SvenController>();
-            if (!sven.WarCryUpgrade || !sven.GodsStrengthUpgrade)
-                return;
 
             if (abilityName == "WarCryBtn")
             {
-                if (sven.WarCryActive)
+                if (sven.WarCryActive || !sven.WarCryUpgrade)
                 {
                     CantUseAbility();
                     return;
@@ -528,7 +516,7 @@ public class RadiantClickerController : MonoBehaviour
             }
             else if (abilityName == "GodsStrengthBtn")
             {
-                if (sven.GodsStrengthActive)
+                if (sven.GodsStrengthActive || !sven.GodsStrengthUpgrade)
                 {
                     CantUseAbility();
                     return;
@@ -544,12 +532,10 @@ public class RadiantClickerController : MonoBehaviour
         else if (abilityName == "BlinkBtn" || abilityName == "ManaVoidBtn")
         {
             AntiMageController antiMage = GetComponentInParent<AntiMageController>();
-            if (!antiMage.BlinkUpgrade || !antiMage.ManaVoidUpgrade)
-                return;
 
             if (abilityName == "BlinkBtn")
             {
-                if (antiMage.BlinkActive)
+                if (antiMage.BlinkActive || !antiMage.BlinkUpgrade)
                 {
                     CantUseAbility();
                     return;
@@ -563,7 +549,7 @@ public class RadiantClickerController : MonoBehaviour
             }
             else if (abilityName == "ManaVoid")
             {
-                if (antiMage.ManaVoidActive)
+                if (antiMage.ManaVoidActive || !antiMage.ManaVoidUpgrade)
                 {
                     CantUseAbility();
                     return;
@@ -579,12 +565,10 @@ public class RadiantClickerController : MonoBehaviour
         else if (abilityName == "GreevilsGreedBtn" || abilityName == "ChemicalRageBtn")
         {
             AlchemistController alchemist = GetComponentInParent<AlchemistController>();
-            if (!alchemist.GreevilsGreedUpgrade || !alchemist.ChemicalRageUpgrade)
-                return;
 
             if (abilityName == "GreevilsGreedBtn")
             {
-                if (alchemist.GreevilsGreedActive)
+                if (alchemist.GreevilsGreedActive || !alchemist.GreevilsGreedUpgrade)
                 {
                     CantUseAbility();
                     return;
@@ -598,7 +582,7 @@ public class RadiantClickerController : MonoBehaviour
             }
             else
             {
-                if (alchemist.ChemicalRageActive)
+                if (alchemist.ChemicalRageActive || !alchemist.ChemicalRageUpgrade)
                 {
                     CantUseAbility();
                     return;
@@ -965,7 +949,6 @@ public class RadiantClickerController : MonoBehaviour
         if (m_activeItemModifierPrefab == null)
         {
             m_activeItemModifierPrefab = Instantiate(m_sceneController.ItemModifierDisplayPrefabs[7]);
-            //Make changes to rigidbody & position and parent it
             m_activeItemModifierPrefab.transform.parent = m_itemModifierHolder.transform;
             m_activeItemModifierPrefab.transform.position = Vector3.zero;
             m_activeItemModifierPrefab.transform.rotation = Quaternion.identity;
@@ -992,7 +975,6 @@ public class RadiantClickerController : MonoBehaviour
         if (m_activeItemModifierPrefab == null)
         {
             m_activeItemModifierPrefab = Instantiate(m_sceneController.ItemModifierDisplayPrefabs[8]);
-            //Make changes to rigidbody & position and parent it
             m_activeItemModifierPrefab.transform.parent = m_itemModifierHolder.transform;
             m_activeItemModifierPrefab.transform.position = Vector3.zero;
             m_activeItemModifierPrefab.transform.rotation = Quaternion.identity;
@@ -1019,7 +1001,6 @@ public class RadiantClickerController : MonoBehaviour
         if (m_activeItemModifierPrefab == null)
         {
             m_activeItemModifierPrefab = Instantiate(m_sceneController.ItemModifierDisplayPrefabs[9]);
-            //Make changes to rigidbody & position and parent it
             m_activeItemModifierPrefab.transform.parent = m_itemModifierHolder.transform;
             m_activeItemModifierPrefab.transform.position = Vector3.zero;
             m_activeItemModifierPrefab.transform.rotation = Quaternion.identity;
@@ -1046,7 +1027,6 @@ public class RadiantClickerController : MonoBehaviour
         if (m_activeItemModifierPrefab == null)
         {
             m_activeItemModifierPrefab = Instantiate(m_sceneController.ItemModifierDisplayPrefabs[10]);
-            //Make changes to rigidbody & position and parent it
             m_activeItemModifierPrefab.transform.parent = m_itemModifierHolder.transform;
             m_activeItemModifierPrefab.transform.position = Vector3.zero;
             m_activeItemModifierPrefab.transform.rotation = Quaternion.identity;
@@ -1073,7 +1053,6 @@ public class RadiantClickerController : MonoBehaviour
         if (m_activeItemModifierPrefab == null)
         {
             m_activeItemModifierPrefab = Instantiate(m_sceneController.ItemModifierDisplayPrefabs[11]);
-            //Make changes to rigidbody & position and parent it
             m_activeItemModifierPrefab.transform.parent = m_itemModifierHolder.transform;
             m_activeItemModifierPrefab.transform.position = Vector3.zero;
             m_activeItemModifierPrefab.transform.rotation = Quaternion.identity;
@@ -1100,7 +1079,6 @@ public class RadiantClickerController : MonoBehaviour
         if (m_activeItemModifierPrefab == null)
         {
             m_activeItemModifierPrefab = Instantiate(m_sceneController.ItemModifierDisplayPrefabs[12]);
-            //Make changes to rigidbody & position and parent it
             m_activeItemModifierPrefab.transform.parent = m_itemModifierHolder.transform;
             m_activeItemModifierPrefab.transform.position = Vector3.zero;
             m_activeItemModifierPrefab.transform.rotation = Quaternion.identity;

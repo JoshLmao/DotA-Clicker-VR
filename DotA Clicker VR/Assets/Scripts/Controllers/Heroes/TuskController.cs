@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Linq;
 
 public class TuskController : MonoBehaviour
 {
@@ -57,7 +58,7 @@ public class TuskController : MonoBehaviour
     int m_snowballModifiedValue;
     int m_walrusPunchModifiedValue;
 
-    void Start()
+    void Awake()
     {
         m_clickerController = GetComponent<RadiantClickerController>();
         m_clickerController.OnClickedButton += ClickedButton;
@@ -88,6 +89,18 @@ public class TuskController : MonoBehaviour
         UpgradesController.BuySnowballUpgrade += BuySnowballUpgrade;
         UpgradesController.BuyWalrusPunchUpgrade += BuyWalrusPunchUpgrade;
         ManagersController.BuyTuskManager += BuyTuskManager;
+        RadiantSceneController.LoadedSaveFile += OnLoadedSaveFile;
+    }
+
+    void Start()
+    {
+
+    }
+
+    void OnLoadedSaveFile(SaveFileDto saveFile)
+    {
+        SnowballUpgrade = saveFile.RadiantSide.Heroes.FirstOrDefault(x => x.HeroName == "Tusk").Ability1Level > 0;
+        WalrusPunchUpgrade = saveFile.RadiantSide.Heroes.FirstOrDefault(x => x.HeroName == "Tusk").Ability2Level > 0;
     }
 
     void Update()

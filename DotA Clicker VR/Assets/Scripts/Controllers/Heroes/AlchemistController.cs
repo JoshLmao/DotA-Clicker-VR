@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System;
+using System.Linq;
 
 public class AlchemistController : MonoBehaviour
 {
@@ -48,7 +49,7 @@ public class AlchemistController : MonoBehaviour
     Text m_greevilsGreedCooldownTxt, m_chemicalRageCooldownTxt;
     Image m_greevilsGreedActiveFade, m_chemicalRageActiveFade;
 
-    void Start()
+    void Awake()
     {
         m_clickerController = GetComponent<RadiantClickerController>();
         m_clickerController.OnClickedButton += ClickedButton;
@@ -76,6 +77,18 @@ public class AlchemistController : MonoBehaviour
         UpgradesController.BuyGreevilsGreedUpgrade += BuyGreevilsGreedUpgrade;
         UpgradesController.BuyChemicalRageUpgrade += BuyChemicalRageUpgrade;
         ManagersController.BuyAlchemistManager += BuyAlchemistManager;
+        RadiantSceneController.LoadedSaveFile += OnLoadedSaveFile;
+    }
+
+    void Start()
+    {
+
+    }
+
+    void OnLoadedSaveFile(SaveFileDto saveFile)
+    {
+        GreevilsGreedUpgrade = saveFile.RadiantSide.Heroes.FirstOrDefault(x => x.HeroName == "Alchemist").Ability1Level > 0;
+        ChemicalRageUpgrade = saveFile.RadiantSide.Heroes.FirstOrDefault(x => x.HeroName == "Alchemist").Ability2Level > 0;
     }
 
     void Update()

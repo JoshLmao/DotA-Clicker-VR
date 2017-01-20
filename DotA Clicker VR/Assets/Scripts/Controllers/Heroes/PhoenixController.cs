@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System;
+using System.Linq;
 
 public class PhoenixController : MonoBehaviour
 {
@@ -60,7 +61,7 @@ public class PhoenixController : MonoBehaviour
     //Ability Effects
     public AudioClip GoldEarnedSound;
 
-    void Start()
+    void Awake()
     {
         m_clickerController = GetComponent<RadiantClickerController>();
         m_clickerController.OnClickedButton += ClickedButton;
@@ -90,9 +91,19 @@ public class PhoenixController : MonoBehaviour
         UpgradesController.BuySunrayUpgrade += BuySunrayUpgrade;
         UpgradesController.BuySupernovaUpgrade += BuySupernovaUpgrade;
         ManagersController.BuyPhoenixManager += BuyPhoenixManager;
+        RadiantSceneController.LoadedSaveFile += OnLoadedSaveFile;
+    }
 
+    void Start()
+    {
         int pick = UnityEngine.Random.Range(60, 300);
         StartCoroutine(RareIdleCount(pick));
+    }
+
+    void OnLoadedSaveFile(SaveFileDto saveFile)
+    {
+        SunrayUpgrade = saveFile.RadiantSide.Heroes.FirstOrDefault(x => x.HeroName == "Phoenix").Ability1Level > 0;
+        SupernovaUpgrade = saveFile.RadiantSide.Heroes.FirstOrDefault(x => x.HeroName == "Phoenix").Ability2Level > 0;
     }
 
     void Update()

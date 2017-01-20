@@ -213,8 +213,8 @@ public class ManagersController : MonoBehaviour {
             icon.sprite = manager.Image;
             Text upgradeName = newManager.transform.Find("ManagerName").GetComponent<Text>();
             upgradeName.text = manager.Name + " Manager";
-            Text upgradeCost = newManager.transform.Find("BuyButton/CostCanvas/GoldCost").GetComponent<Text>();
-            upgradeCost.text = manager.Cost + " gold";
+            Text upgradeCost = newManager.transform.Find("BuyButton/GoldCost").GetComponent<Text>();
+            upgradeCost.text = manager.Cost.ToString();
             Button button = newManager.transform.Find("BuyButton").GetComponent<Button>();
             ManagerDto clickedManager = manager; //Fix for AddListener adding current manager to each button click
             button.onClick.AddListener(delegate { AddManager(clickedManager); });

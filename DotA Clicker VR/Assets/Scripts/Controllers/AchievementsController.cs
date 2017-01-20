@@ -30,9 +30,6 @@ public class AchievementsController : MonoBehaviour
 
     void AddDefaultItems()
     {
-        if (m_sceneController.CurrentSaveFile == null)
-            Debug.Log("Current save file is null");
-
         //Add in any order ince they get sorted by name later
         Achievements.Add(new AchievementDto()
         {

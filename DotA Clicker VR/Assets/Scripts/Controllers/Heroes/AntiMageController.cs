@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System;
+using System.Linq;
 
 public class AntiMageController : MonoBehaviour
 {
@@ -48,7 +49,7 @@ public class AntiMageController : MonoBehaviour
     Text m_blinkCooldownTxt, m_manaVoidCooldownTxt;
     Image m_blinkActiveFade, m_manaVoidActiveFade;
 
-    void Start()
+    void Awake()
     {
         m_clickerController = GetComponent<RadiantClickerController>();
         m_clickerController.OnClickedButton += ClickedButton;
@@ -76,6 +77,18 @@ public class AntiMageController : MonoBehaviour
         UpgradesController.BuyBlinkUpgrade += BuyBlinkUpgrade;
         UpgradesController.BuyManaVoidUpgrade += BuyManaVoidUpgrade;
         ManagersController.BuyAntiMageManager += BuyAntiMageManager;
+        RadiantSceneController.LoadedSaveFile += OnLoadedSaveFile;
+    }
+
+    void OnLoadedSaveFile(SaveFileDto saveFile)
+    {
+        BlinkUpgrade = saveFile.RadiantSide.Heroes.FirstOrDefault(x => x.HeroName == "Anti Mage").Ability1Level > 0;
+        ManaVoidUpgrade = saveFile.RadiantSide.Heroes.FirstOrDefault(x => x.HeroName == "Anti Mage").Ability2Level > 0;
+    }
+
+    void Start()
+    {
+
     }
 
     void Update()

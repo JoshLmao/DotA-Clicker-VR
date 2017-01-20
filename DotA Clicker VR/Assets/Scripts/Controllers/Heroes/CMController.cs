@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System;
+using System.Linq;
 
 public class CMController : MonoBehaviour
 {
@@ -58,13 +59,6 @@ public class CMController : MonoBehaviour
         m_clickerController.OnClickedButton += ClickedButton;
         m_clickerController.OnClickedFinished += ClickedFinished;
 
-        UpgradesController.BuyCrystalNovaUpgrade += BuyCrystalNovaUpgrade;
-        UpgradesController.BuyFrostbiteUpgrade += BuyFrostbiteUpgrade;
-        ManagersController.BuyCMManager += BuyCMManager;
-    }
-
-    void Start()
-    {
         CrystalMaiden = transform.Find("CrystalMaiden").gameObject;
         m_cmAnimator = CrystalMaiden.GetComponent<Animator>();
         m_audioSource = CrystalMaiden.GetComponent<AudioSource>();
@@ -84,6 +78,20 @@ public class CMController : MonoBehaviour
         m_crystalNovaActiveFade.gameObject.SetActive(false);
         m_frostbiteActiveFade.gameObject.SetActive(false);
 
+        UpgradesController.BuyCrystalNovaUpgrade += BuyCrystalNovaUpgrade;
+        UpgradesController.BuyFrostbiteUpgrade += BuyFrostbiteUpgrade;
+        ManagersController.BuyCMManager += BuyCMManager;
+        RadiantSceneController.LoadedSaveFile += OnLoadedSaveFile;
+    }
+
+    void OnLoadedSaveFile(SaveFileDto saveFile)
+    {
+        CrystalNovaUpgrade = saveFile.RadiantSide.Heroes.FirstOrDefault(x => x.HeroName == "Crystal Maiden").Ability1Level > 0;
+        FrostbiteUpgrade = saveFile.RadiantSide.Heroes.FirstOrDefault(x => x.HeroName == "Crystal Maiden").Ability2Level > 0;
+    }
+
+    void Start()
+    {
         int pick = UnityEngine.Random.Range(60, 300);
         StartCoroutine(RareIdleCount(pick));
     }

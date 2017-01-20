@@ -18,31 +18,35 @@ public class LHandController : HandController {
 
     GameObject m_settingsHighlight, m_mainMenuHighlight;
 
-    public override void Start()
+    public override void Awake()
     {
-        base.Start();
+        base.Awake();
 
         m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
+        m_goldCountText = transform.Find("TotalGoldMiniMenu/TotalGold/TotalGoldText").GetComponent<Text>();
+        GoldUI = transform.Find("TotalGoldMiniMenu").gameObject;
+        m_settingsHighlight = transform.Find("TotalGoldMiniMenu/SettingsFade").gameObject;
+        m_mainMenuHighlight = transform.Find("TotalGoldMiniMenu/MMFade").gameObject;
 
         if (m_controller == null)
             m_controller = this.GetComponent<SteamVR_TrackedController>();
 
-        m_goldCountText = transform.Find("TotalGoldMiniMenu/TotalGold/TotalGoldText").GetComponent<Text>();
-        GoldUI = transform.Find("TotalGoldMiniMenu").gameObject;
-        GoldUI.SetActive(false);
-
         m_controller.MenuButtonClicked += OnMenuButtonClicked;
         m_controller.MenuButtonUnclicked += OnMenuButtonUnclicked;
-
         m_controller.PadClicked += OnPadClicked;
+    }
 
-        m_settingsHighlight = transform.Find("TotalGoldMiniMenu/SettingsFade").gameObject;
-        m_mainMenuHighlight = transform.Find("TotalGoldMiniMenu/MMFade").gameObject;
+    public override void Start()
+    {
+        base.Start();
+
+        GoldUI.SetActive(false);
     }
 
     void Update ()
     {
-        m_goldCountText.text = m_sceneController.TotalGold.ToString();
+        if(m_sceneController != null)
+            m_goldCountText.text = m_sceneController.TotalGold.ToString();
 
         if(m_menuIsOpen)
         {

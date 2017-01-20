@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System;
+using System.Linq;
 
 public class SvenController : MonoBehaviour
 {
@@ -49,7 +50,7 @@ public class SvenController : MonoBehaviour
     Image m_warCryActiveFade, m_godsStrengthActiveFade;
     int m_warCryCountModifier;
 
-    void Start()
+    void Awake()
     {
         m_clickerController = GetComponent<RadiantClickerController>();
         m_clickerController.OnClickedButton += ClickedButton;
@@ -77,7 +78,17 @@ public class SvenController : MonoBehaviour
         UpgradesController.BuyWarCryUpgrade += BuyWarCryUpgrade;
         UpgradesController.BuyGodsStrengthUpgrade += BuyGodsStrengthUpgrade;
         ManagersController.BuySvenManager += BuySvenManager;
+        RadiantSceneController.LoadedSaveFile += OnLoadedSaveFile;
+    }
 
+    void OnLoadedSaveFile(SaveFileDto saveFile)
+    {
+        WarCryUpgrade = saveFile.RadiantSide.Heroes.FirstOrDefault(x => x.HeroName == "Sven").Ability1Level > 0;
+        GodsStrengthUpgrade = saveFile.RadiantSide.Heroes.FirstOrDefault(x => x.HeroName == "Sven").Ability2Level > 0;
+    }
+
+    void Start()
+    {
         int pick = UnityEngine.Random.Range(60, 300);
         StartCoroutine(RareIdleCount(pick));
     }

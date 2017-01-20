@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System.Linq;
 
 public class RubickController : MonoBehaviour
 {
@@ -51,7 +52,7 @@ public class RubickController : MonoBehaviour
     //Effects
     int m_telekinesisModifiedValue;
 
-    void Start()
+    void Awake()
     {
         m_clickerController = GetComponent<RadiantClickerController>();
         m_clickerController.OnClickedButton += ClickedButton;
@@ -79,6 +80,18 @@ public class RubickController : MonoBehaviour
         UpgradesController.BuyTelekinesisUpgrade += BuyTelekinesisUpgrade;
         UpgradesController.BuySpellStealUpgrade += BuySpellStealUpgrade;
         ManagersController.BuyRubickManager += BuyRubickManager;
+        RadiantSceneController.LoadedSaveFile += OnLoadedSaveFile;
+    }
+
+    void Start()
+    {
+
+    }
+
+    void OnLoadedSaveFile(SaveFileDto saveFile)
+    {
+        TelekinesisUpgrade = saveFile.RadiantSide.Heroes.FirstOrDefault(x => x.HeroName == "Rubick").Ability1Level > 0;
+        SpellStealUpgrade = saveFile.RadiantSide.Heroes.FirstOrDefault(x => x.HeroName == "Rubick").Ability2Level > 0;
     }
 
     void Update()

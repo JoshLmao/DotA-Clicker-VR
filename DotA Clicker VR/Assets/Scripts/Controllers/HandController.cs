@@ -68,7 +68,9 @@ public class HandController : MonoBehaviour
 
     GameObject LeftHandCanvas;
 
-    void Awake()
+    bool m_gotVRTKInteract = false;
+
+    public virtual void Awake()
     {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
     }
@@ -77,10 +79,6 @@ public class HandController : MonoBehaviour
     {
         m_controller = this.GetComponent<SteamVR_TrackedController>();
         m_laserPointer = GetComponent<SteamVR_LaserPointer>();
-
-        var events = this.GetComponentInChildren<VRTK_InteractGrab>();
-        events.ControllerGrabInteractableObject += OnGrabObject;
-        events.ControllerUngrabInteractableObject += OnUngrabObject;
 
         m_controller.TriggerClicked += OnTriggerClicked;
         m_controller.TriggerUnclicked += OnTriggerUnclicked;
@@ -113,6 +111,23 @@ public class HandController : MonoBehaviour
             if (m_scrollableMenu != null)
             {
                 ScrollableMenuMethod();
+            }
+        }
+
+        if(!m_gotVRTKInteract)
+        {
+            //Workaround for VRTK scripts not being moved on Start
+            try
+            {
+                var events = this.GetComponentInChildren<VRTK_InteractGrab>();
+                events.ControllerGrabInteractableObject += OnGrabObject;
+                events.ControllerUngrabInteractableObject += OnUngrabObject;
+
+                m_gotVRTKInteract = true;
+            }
+            catch (Exception e)
+            {
+
             }
         }
     }

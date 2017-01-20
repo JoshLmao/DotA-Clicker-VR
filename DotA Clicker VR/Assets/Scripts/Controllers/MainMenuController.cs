@@ -2,8 +2,8 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class MainMenuController : MonoBehaviour {
-
+public class MainMenuController : MonoBehaviour
+{
     public GameObject[] HowToPlayMenus;
     public GameObject Rubick;
     public GameObject SideShop;
@@ -16,16 +16,16 @@ public class MainMenuController : MonoBehaviour {
     [SerializeField]
     GameObject OptionsCanvas;
 
-	void Start ()
+    void Start()
     {
         DefaultHowToPlayMenu();
         OnShowToMainMenu();
     }
-	
-	void Update ()
+
+    void Update()
     {
-	
-	}
+
+    }
 
     public void OnQuitGame()
     {

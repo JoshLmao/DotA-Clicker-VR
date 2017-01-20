@@ -102,7 +102,11 @@ public class OptionsController : MMOptionsController
 
     private void OnLoadedConfig(ConfigDto config)
     {
-        PreferencesDto prefs = config.Preferences;
+        PreferencesDto prefs = null;
+        if (config.Preferences != null)
+            prefs = config.Preferences;
+        else
+            return;
 
         MasterVolSlider.value = prefs.MasterVolume;
         AmbientVolSlider.value = prefs.AmbientVolume;

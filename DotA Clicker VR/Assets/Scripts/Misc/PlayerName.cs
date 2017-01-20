@@ -13,9 +13,11 @@ public class PlayerName : MonoBehaviour {
     [SerializeField]
     Text m_playername;
 
+    GlobalDataController m_globalData;
+
     void Awake()
     {
-
+        m_globalData = GameObject.Find("GlobalDataController").GetComponent<GlobalDataController>();
     }
 
 	void Start ()
@@ -26,5 +28,6 @@ public class PlayerName : MonoBehaviour {
 	void Update ()
     {
         m_playername.text = m_keyboard.Input;
+        m_globalData.SetPlayerName(m_keyboard.Input);
     }
 }
