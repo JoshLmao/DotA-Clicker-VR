@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using UnityEngine.EventSystems;
 
 /// <summary>
 /// Simple script meant to control the clickable buttons behavior (animation)
@@ -35,42 +36,12 @@ public class ButtonManager : MonoBehaviour
         //Buy a multiplier clicker
         if ((col.tag == "ViveController" || col.gameObject.layer == 2)/*Ignore raycasat layer used by VRTK*/ && m_buttonName == "BuyButton")
         {
-            if (!m_animator.GetCurrentAnimatorStateInfo(0).IsName("BuyButtonIdle")
-                || m_sceneController.TotalGold + (decimal)m_clickerController.UpgradeCost < (decimal)m_clickerController.UpgradeCost
-                || m_sceneController.TotalGold - (decimal)m_clickerController.UpgradeCost < 0
-                || m_buyUpgradeCooldown)
-            {
-                Debug.Log("Cant upgrade clicker '" + m_clickerController.HeroName + "'");
-                return;
-            }
-
-            m_clickerController.ClickerMultiplier += 1;
-            m_sceneController.RemoveFromTotal((decimal)m_clickerController.UpgradeCost);
-
-            //Invoke event
-            m_clickerController.OnBuyClickerButtonPressed();
-            m_animator.SetTrigger("isClicked");
-            StartCoroutine(PlayButtonPushAnimation(1f));
-
-            m_buyUpgradeCooldown = true;
+            OnBuyMultiplier();
         }
         //Hero clicker button
         else if((col.tag == "ViveController" || col.gameObject.layer == 2)/*Ignore raycasat layer used by VRTK*/ && m_buttonName == "ClickButtonBack")
         {
-            if (m_animator.GetCurrentAnimatorStateInfo(0).IsName("ClickButtonPush") || m_clickerController.IsClicked || m_clickerController.ClickerMultiplier == 0) //if (is in animation) || (IsClick is progress)
-            {
-                return;
-            }
-
-            if(!m_clickerController.CanBeClicked)
-            {
-                //if clicker hasnt been bought, show red button and then go back
-                //StartCoroutine(DenyClickStage1());
-            }
-
-            m_clickerController.OnClickButtonPressed();
-            m_animator.SetTrigger("isClicked");
-            StartCoroutine(PlayButtonPushAnimation(0.3f));
+            OnClickButton();
         }
     }
 
@@ -86,4 +57,43 @@ public class ButtonManager : MonoBehaviour
     //    yield return new WaitForSeconds(0.3f);
     //    m_buttonMaterial.SetColor("_Color", new Color(64, 64, 64));
     //}
+
+    public void OnBuyMultiplier()
+    {
+        if (!m_animator.GetCurrentAnimatorStateInfo(0).IsName("BuyButtonIdle")
+                || m_sceneController.TotalGold + (decimal)m_clickerController.UpgradeCost < (decimal)m_clickerController.UpgradeCost
+                || m_sceneController.TotalGold - (decimal)m_clickerController.UpgradeCost < 0
+                || m_buyUpgradeCooldown)
+        {
+            Debug.Log("Cant upgrade clicker '" + m_clickerController.HeroName + "'");
+            return;
+        }
+
+        m_clickerController.ClickerMultiplier += 1;
+        m_sceneController.RemoveFromTotal((decimal)m_clickerController.UpgradeCost);
+
+        //Invoke event
+        m_clickerController.OnBuyClickerButtonPressed();
+        m_animator.SetTrigger("isClicked");
+        StartCoroutine(PlayButtonPushAnimation(1f));
+
+        m_buyUpgradeCooldown = true;
+    }
+
+    public void OnClickButton()
+    {
+        if (m_animator.GetCurrentAnimatorStateInfo(0).IsName("ClickButtonPush") || m_clickerController.IsClicked || m_clickerController.ClickerMultiplier == 0) //if (is in animation) || (IsClick is progress)
+        {
+            return;
+        }
+
+        if (!m_clickerController.CanBeClicked)
+        {
+            //if clicker hasnt been bought, show red button and then go back
+            //StartCoroutine(DenyClickStage1());
+        }
+        m_clickerController.OnClickButtonPressed();
+        m_animator.SetTrigger("isClicked");
+        StartCoroutine(PlayButtonPushAnimation(0.3f));
+    }
 }

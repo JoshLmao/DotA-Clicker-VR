@@ -6,6 +6,7 @@ using System.IO;
 using System;
 using Newtonsoft.Json;
 using System.Linq;
+using UnityEngine.VR;
 
 public class RadiantSceneController : MonoBehaviour
 {
@@ -28,6 +29,9 @@ public class RadiantSceneController : MonoBehaviour
     public GameObject CheesePrefab;
 
     public GameObject[] ItemModifierDisplayPrefabs;
+
+    public GameObject[] VRPlayerItems;
+    public GameObject[] NonVRPlayerItems;
 
     public const string THOUSAND_FORMAT = "{0}, {1}, {2}";
     public const string MILLION_FORMAT = "{0} million";
@@ -66,6 +70,9 @@ public class RadiantSceneController : MonoBehaviour
 
     void Awake()
     {
+        VRSettings.enabled = SteamVR.enabled ? SteamVR.active : false;
+        SetPlayerMode(VRSettings.enabled);
+
         RoshanController.RoshanEventEnded += OnRoshanEventEnded;
         RoshanController.RoshanEventEndedNotKilled += OnRoshanEventEndedNotKilled;
 
@@ -539,6 +546,52 @@ public class RadiantSceneController : MonoBehaviour
         if(checkBelowZero > 0)
         {
             TotalGold -= amount;
+        }
+    }
+
+    public void SetPlayerMode(bool isVR)
+    {
+        Debug.Log("VRMode is " + VRSettings.enabled);
+
+        if (isVR)
+        {
+            foreach (GameObject obj in VRPlayerItems)
+            {
+                foreach(Transform child in obj.transform)
+                {
+                    child.gameObject.SetActive(true);
+                }
+                obj.SetActive(true);
+            }
+
+            foreach (GameObject obj in NonVRPlayerItems)
+            {
+                foreach (Transform child in obj.transform)
+                {
+                    child.gameObject.SetActive(false);
+                }
+                obj.SetActive(false);
+            }
+        }
+        else
+        {
+            foreach (GameObject obj in VRPlayerItems)
+            {
+                foreach (Transform child in obj.transform)
+                {
+                    child.gameObject.SetActive(false);
+                }
+                obj.SetActive(false);
+            }
+
+            foreach (GameObject obj in NonVRPlayerItems)
+            {
+                foreach (Transform child in obj.transform)
+                {
+                    child.gameObject.SetActive(true);
+                }
+                obj.SetActive(true);
+            }
         }
     }
 }

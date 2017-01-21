@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.VR;
 using System;
+using UnityStandardAssets.ImageEffects;
 
 public class OptionsController : MMOptionsController
 {
@@ -15,12 +16,19 @@ public class OptionsController : MMOptionsController
     AmbientSoundManager m_ambientSound;
     OptionsController m_options;
 
+    float m_currentFieldOfView = 60;
+    Slider m_fieldOfViewSlider;
+    Camera m_fpsCamera;
+
     protected override void Awake()
     {
         base.Awake();
 
         m_ambientSound = GameObject.Find("RadiantSceneController").GetComponent<AmbientSoundManager>();
         m_options = GameObject.Find("OptionsCanvas").GetComponent<OptionsController>();
+
+        m_fieldOfViewSlider = GameObject.Find("FoVCanvas").transform.Find("Slider").GetComponent<Slider>();
+        m_fpsCamera = GameObject.Find("FirstPersonCharacterCamera").GetComponent<Camera>();
 
         RadiantSceneController.LoadedConfigFile += OnLoadedConfig;
     }
@@ -30,6 +38,10 @@ public class OptionsController : MMOptionsController
         base.Start();
 
         SuperSampleSlider.onValueChanged.AddListener(SuperSampleChanged);
+
+        if(m_fieldOfViewSlider != null)
+            m_fieldOfViewSlider.onValueChanged.AddListener(FoVChanged);
+        FoVChanged(m_currentFieldOfView);
 
         m_audioEnabled.onValueChanged.AddListener(AudioToggle);
         m_musicEnabled.onValueChanged.AddListener(AmbientMusicToggle);
@@ -125,7 +137,12 @@ public class OptionsController : MMOptionsController
 
     void SetAdaptiveQualityStatus(bool status)
     {
-        var adaptive = GameObject.Find("Camera (eye)").GetComponent<VRTK.VRTK_AdaptiveQuality>();
+        var objAdaptive = GameObject.Find("Camera (eye)");
+        VRTK.VRTK_AdaptiveQuality adaptive = null;
+        if (objAdaptive != null)
+            adaptive = objAdaptive.GetComponent<VRTK.VRTK_AdaptiveQuality>();
+        else
+            return;
 
         if (status)
         {
@@ -137,5 +154,53 @@ public class OptionsController : MMOptionsController
             SuperSampleSlider.onValueChanged.AddListener(SuperSampleChanged);
             adaptive.enabled = false;
         }
+    }
+
+    public void ToggleSSAO(bool status)
+    {
+        if (VRSettings.enabled) return;
+
+        GameObject.Find("FirstPersonCharacterCamera").GetComponent<ScreenSpaceAmbientOcclusion>().enabled = status;
+    }
+
+    public void ToggleAntialiasing(bool status)
+    {
+        if (VRSettings.enabled) return;
+
+        GameObject.Find("FirstPersonCharacterCamera").GetComponent<Antialiasing>().enabled = status;
+    }
+
+    public void ToggleGlobalFog(bool status)
+    {
+        if (VRSettings.enabled) return;
+
+        GameObject.Find("FirstPersonCharacterCamera").GetComponent<GlobalFog>().enabled = status;
+    }
+
+    public void AddToFoV()
+    {
+        if(m_currentFieldOfView + 5 < 120)
+            m_currentFieldOfView += 5;
+
+        FoVChanged(m_currentFieldOfView);
+    }
+
+    public void MinusToFoV()
+    {
+        if(m_currentFieldOfView - 5 > 45)
+            m_currentFieldOfView -= 5;
+
+        FoVChanged(m_currentFieldOfView);
+    }
+
+    void FoVChanged(float value)
+    {
+        if(m_fpsCamera != null)
+        {
+            m_fpsCamera.fieldOfView = m_currentFieldOfView;
+        }
+
+        m_fieldOfViewSlider.value = m_currentFieldOfView;
+        m_fieldOfViewSlider.gameObject.transform.parent.transform.Find("Value").GetComponent<Text>().text = value.ToString();
     }
 }

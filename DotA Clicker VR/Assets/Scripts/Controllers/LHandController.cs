@@ -46,7 +46,7 @@ public class LHandController : HandController {
     void Update ()
     {
         if(m_sceneController != null)
-            m_goldCountText.text = m_sceneController.TotalGold.ToString();
+            m_goldCountText.text = m_sceneController.TotalGold.ToString("0");
 
         if(m_menuIsOpen)
         {

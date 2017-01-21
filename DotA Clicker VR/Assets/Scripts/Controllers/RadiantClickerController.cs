@@ -204,6 +204,7 @@ public class RadiantClickerController : MonoBehaviour
         m_abil2Slider.maxValue = Ability2LvlUpCount;
         m_abil2Slider.value = 0;
 
+        //I hate myself for this
         HandController.IronBranchModifierAdded += OnIronBranchModifier;
         HandController.ClarityModifierAdded += OnClarityModifier;
         HandController.MagicStickModifierAdded += OnMagicStickModifier;
@@ -217,6 +218,19 @@ public class RadiantClickerController : MonoBehaviour
         HandController.ReaverModifierAdded += OnReaverModifier;
         HandController.DivineRapierModifierAdded += OnDivineRapierModifier;
         HandController.RecipeModifierAdded += OnRecipeModifier;
+        PickedUpItemController.IronBranchModifierAdded += OnIronBranchModifier;
+        PickedUpItemController.ClarityModifierAdded += OnClarityModifier;
+        PickedUpItemController.MagicStickModifierAdded += OnMagicStickModifier;
+        PickedUpItemController.QuellingBladeModifierAdded += OnQuellingBladeModifier;
+        PickedUpItemController.MangoModifierAdded += OnMangoModifier;
+        PickedUpItemController.PowerTreadsModifierAdded += OnPowerTreadsModifier;
+        PickedUpItemController.BottleModifierAdded += OnBottleModifier;
+        PickedUpItemController.BlinkDaggerModifierAdded += OnBlinkDaggerModifier;
+        PickedUpItemController.HyperstoneModifierAdded += OnHyperstoneModifier;
+        PickedUpItemController.BloodstoneModifierAdded += OnBloodstoneModifier;
+        PickedUpItemController.ReaverModifierAdded += OnReaverModifier;
+        PickedUpItemController.DivineRapierModifierAdded += OnDivineRapierModifier;
+        PickedUpItemController.RecipeModifierAdded += OnRecipeModifier;
     }
 
     void Update ()
@@ -328,10 +342,10 @@ public class RadiantClickerController : MonoBehaviour
         }
     }
 
-    public void ActivateAbility(string abilityName, uint index)
+    public bool ActivateAbility(string abilityName)
     {
         //Very bad of you, but too lazy
-        if(abilityName == "CrystalNovaBtn" || abilityName == "FrostbiteBtn")
+        if (abilityName == "CrystalNovaBtn" || abilityName == "FrostbiteBtn")
         {
             CMController cm = GetComponentInParent<CMController>();
 
@@ -340,25 +354,25 @@ public class RadiantClickerController : MonoBehaviour
                 if (cm.CrystalNovaActive || !cm.CrystalNovaUpgrade)
                 {
                     CantUseAbility();
-                    return;
+                    return false;
                 }
 
                 cm.ActivateCrystalNova();
-                HandController.RumbleController(index, 2000);
+
                 Ability1Used();
                 Ability1UseCount++;
                 m_ability1ClickTime = DateTime.Now;
             }
-            else if(abilityName == "FrostbiteBtn")
+            else if (abilityName == "FrostbiteBtn")
             {
                 if (cm.FrostbiteActive || !cm.FrostbiteUpgrade)
                 {
                     CantUseAbility();
-                    return;
+                    return false;
                 }
 
                 cm.ActivateFrostbite();
-                HandController.RumbleController(index, 2000);
+
                 Ability2Used();
                 Ability2UseCount++;
                 m_ability2ClickTime = DateTime.Now;
@@ -373,25 +387,25 @@ public class RadiantClickerController : MonoBehaviour
                 if (rubick.TelekinesisActive || !rubick.TelekinesisUpgrade)
                 {
                     CantUseAbility();
-                    return;
+                    return false;
                 }
 
                 rubick.ActivateTelekinesis();
-                HandController.RumbleController(index, 2000);
+
                 Ability1Used();
                 Ability1UseCount++;
                 m_ability1ClickTime = DateTime.Now;
             }
-            else if(abilityName == "SpellStealBtn")
+            else if (abilityName == "SpellStealBtn")
             {
                 if (rubick.SpellStealActive || !rubick.SpellStealUpgrade)
                 {
                     CantUseAbility();
-                    return;
+                    return false;
                 }
 
                 rubick.ActivateSpellSteal();
-                HandController.RumbleController(index, 2000);
+
                 Ability2Used();
                 Ability2UseCount++;
                 m_ability2ClickTime = DateTime.Now;
@@ -406,25 +420,25 @@ public class RadiantClickerController : MonoBehaviour
                 if (ogreMagi.FireblastActive || ogreMagi.FireblastUpgrade)
                 {
                     CantUseAbility();
-                    return;
+                    return false;
                 }
 
                 ogreMagi.ActivateFireblast();
-                HandController.RumbleController(index, 2000);
+
                 Ability1Used();
                 Ability1UseCount++;
                 m_ability1ClickTime = DateTime.Now;
             }
-            else if(abilityName == "BloodlustBtn")
+            else if (abilityName == "BloodlustBtn")
             {
                 if (ogreMagi.BloodlustActive || !ogreMagi.BloodlustUpgrade)
                 {
                     CantUseAbility();
-                    return;
+                    return false;
                 }
 
                 ogreMagi.ActivateBloodlust();
-                HandController.RumbleController(index, 2000);
+
                 Ability2Used();
                 Ability2UseCount++;
                 m_ability2ClickTime = DateTime.Now;
@@ -439,25 +453,25 @@ public class RadiantClickerController : MonoBehaviour
                 if (tusk.SnowballActive || !tusk.SnowballUpgrade)
                 {
                     CantUseAbility();
-                    return;
+                    return false;
                 }
 
                 tusk.ActivateSnowball();
-                HandController.RumbleController(index, 2000);
+
                 Ability1Used();
                 Ability1UseCount++;
                 m_ability1ClickTime = DateTime.Now;
             }
-            else if(abilityName == "WalrusPunchBtn")
+            else if (abilityName == "WalrusPunchBtn")
             {
                 if (tusk.WalrusPunchActive || !tusk.WalrusPunchUpgrade)
                 {
                     CantUseAbility();
-                    return;
+                    return false;
                 }
 
                 tusk.ActivateWalrusPunch();
-                HandController.RumbleController(index, 2000);
+
                 Ability2Used();
                 Ability2UseCount++;
                 m_ability2ClickTime = DateTime.Now;
@@ -472,25 +486,25 @@ public class RadiantClickerController : MonoBehaviour
                 if (phoenix.SunrayActive || !phoenix.SunrayUpgrade)
                 {
                     CantUseAbility();
-                    return;
+                    return false;
                 }
 
                 phoenix.ActivateSunray();
-                HandController.RumbleController(index, 2000);
+
                 Ability1Used();
                 Ability1UseCount++;
                 m_ability1ClickTime = DateTime.Now;
             }
-            else if(abilityName == "SupernovaBtn")
+            else if (abilityName == "SupernovaBtn")
             {
                 if (phoenix.SupernovaActive || !phoenix.SupernovaUpgrade)
                 {
                     CantUseAbility();
-                    return;
+                    return false;
                 }
 
                 phoenix.ActivateSupernova();
-                HandController.RumbleController(index, 2000);
+
                 Ability2Used();
                 Ability2UseCount++;
                 m_ability2ClickTime = DateTime.Now;
@@ -505,11 +519,11 @@ public class RadiantClickerController : MonoBehaviour
                 if (sven.WarCryActive || !sven.WarCryUpgrade)
                 {
                     CantUseAbility();
-                    return;
+                    return false;
                 }
 
                 sven.ActivateWarCry();
-                HandController.RumbleController(index, 2000);
+
                 Ability1Used();
                 Ability1UseCount++;
                 m_ability1ClickTime = DateTime.Now;
@@ -519,11 +533,11 @@ public class RadiantClickerController : MonoBehaviour
                 if (sven.GodsStrengthActive || !sven.GodsStrengthUpgrade)
                 {
                     CantUseAbility();
-                    return;
+                    return false;
                 }
 
                 sven.ActivateGodsStrength();
-                HandController.RumbleController(index, 2000);
+
                 Ability2Used();
                 Ability2UseCount++;
                 m_ability2ClickTime = DateTime.Now;
@@ -538,11 +552,11 @@ public class RadiantClickerController : MonoBehaviour
                 if (antiMage.BlinkActive || !antiMage.BlinkUpgrade)
                 {
                     CantUseAbility();
-                    return;
+                    return false;
                 }
 
                 antiMage.ActivateBlink();
-                HandController.RumbleController(index, 2000);
+
                 Ability1Used();
                 Ability1UseCount++;
                 m_ability1ClickTime = DateTime.Now;
@@ -552,11 +566,11 @@ public class RadiantClickerController : MonoBehaviour
                 if (antiMage.ManaVoidActive || !antiMage.ManaVoidUpgrade)
                 {
                     CantUseAbility();
-                    return;
+                    return false;
                 }
 
                 antiMage.ActivateManaVoid();
-                HandController.RumbleController(index, 2000);
+
                 Ability2Used();
                 Ability2UseCount++;
                 m_ability2ClickTime = DateTime.Now;
@@ -571,11 +585,11 @@ public class RadiantClickerController : MonoBehaviour
                 if (alchemist.GreevilsGreedActive || !alchemist.GreevilsGreedUpgrade)
                 {
                     CantUseAbility();
-                    return;
+                    return false;
                 }
 
                 alchemist.ActivateGreevilsGreed();
-                HandController.RumbleController(index, 2000);
+
                 Ability1Used();
                 Ability1UseCount++;
                 m_ability1ClickTime = DateTime.Now;
@@ -585,16 +599,24 @@ public class RadiantClickerController : MonoBehaviour
                 if (alchemist.ChemicalRageActive || !alchemist.ChemicalRageUpgrade)
                 {
                     CantUseAbility();
-                    return;
+                    return false;
                 }
 
                 alchemist.ActivateChemicalRage();
-                HandController.RumbleController(index, 2000);
+
                 Ability2Used();
                 Ability2UseCount++;
                 m_ability2ClickTime = DateTime.Now;
             }
-        }   
+        }
+        return true;
+    }
+
+    public void ActivateAbility(string abilityName, uint index)
+    {
+        var success = ActivateAbility(abilityName);
+        if(success)
+            HandController.RumbleController(index, 2000);
     }
 
     public static void PlayRandomClip(AudioSource audioSource, AudioClip[] clips)
