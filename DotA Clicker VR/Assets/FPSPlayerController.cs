@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class FPSPlayerController : MonoBehaviour {
 
@@ -10,6 +11,7 @@ public class FPSPlayerController : MonoBehaviour {
     [SerializeField]
     Transform m_pickUpPosition;
 
+    FirstPersonController m_unityFPSCont;
     RadiantSceneController m_sceneController;
     Camera m_camera;
 
@@ -19,6 +21,8 @@ public class FPSPlayerController : MonoBehaviour {
     {
         m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
         m_camera = GetComponent<Camera>();
+
+        m_unityFPSCont = GameObject.Find("FPSController").GetComponent<FirstPersonController>();
     }
 
 	void Start ()
@@ -31,11 +35,13 @@ public class FPSPlayerController : MonoBehaviour {
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
             OnLeftClickUp();
+            m_unityFPSCont.m_MouseLook.m_cursorIsLocked = false;
         }
 
         if (Input.GetButton("Fire1"))
         {
             OnLeftClickDown();
+            m_unityFPSCont.m_MouseLook.m_cursorIsLocked = true;
         }
     }
 
@@ -81,7 +87,6 @@ public class FPSPlayerController : MonoBehaviour {
         {
             m_isHolding = false;
         }
-
     }
 
     void OnLeftClickDown()

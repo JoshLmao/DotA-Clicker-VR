@@ -7,6 +7,8 @@ using System;
 using Newtonsoft.Json;
 using System.Linq;
 using UnityEngine.VR;
+using VRTK;
+using UnityEngine.EventSystems;
 
 public class RadiantSceneController : MonoBehaviour
 {
@@ -68,6 +70,11 @@ public class RadiantSceneController : MonoBehaviour
 
     GlobalDataController m_globalData;
 
+    [SerializeField]
+    GameObject m_vrInputModule;
+
+    [SerializeField]
+    GameObject m_inputModule;
     void Awake()
     {
         VRSettings.enabled = SteamVR.enabled ? SteamVR.active : false;
@@ -97,6 +104,8 @@ public class RadiantSceneController : MonoBehaviour
         {
 
         }
+
+
     }
 
     void Start ()
@@ -128,6 +137,17 @@ public class RadiantSceneController : MonoBehaviour
             StartRoshanCountdown();
 
         m_goldUI.text = TotalGold.ToString();
+
+        //if we're not in VR
+        //if(!VRSettings.enabled)
+        //{
+        //    if (m_inputModule.GetComponent<VRTK_EventSystemVRInput>())
+        //        m_inputModule.GetComponent<VRTK_EventSystemVRInput>().enabled = false;
+        //    if (!m_inputModule.GetComponent<EventSystem>().enabled)
+        //        m_inputModule.GetComponent<EventSystem>().enabled = true;
+        //    if (!m_inputModule.GetComponent<StandaloneInputModule>().enabled)
+        //        m_inputModule.GetComponent<StandaloneInputModule>().enabled = true;
+        //}
     }
 
     public void LoadProgress()
@@ -572,6 +592,9 @@ public class RadiantSceneController : MonoBehaviour
                 }
                 obj.SetActive(false);
             }
+
+            m_vrInputModule.SetActive(true);
+            m_inputModule.SetActive(false);
         }
         else
         {
@@ -592,6 +615,29 @@ public class RadiantSceneController : MonoBehaviour
                 }
                 obj.SetActive(true);
             }
+
+            m_vrInputModule.SetActive(false);
+            m_inputModule.SetActive(true);
+        }
+        SetUISystemActive(isVR);
+
+    }
+
+    void SetUISystemActive(bool vrEnabled)
+    {
+        //Disable UIPointers & UICanvas which set eventsystem to work with VR
+        GameObject.Find("LeftController").GetComponent<VRTK_UIPointer>().enabled = vrEnabled;
+        GameObject.Find("RightController").GetComponent<VRTK_UIPointer>().enabled = vrEnabled;
+        var allPointers = GameObject.FindObjectsOfType<VRTK_UIPointer>();
+        for (int i = 0; i < allPointers.Length; i++)
+        {
+            allPointers[i].GetComponent<VRTK_UIPointer>().enabled = vrEnabled;
+        }
+
+        var allVRCanvas = FindObjectsOfType<VRTK_UICanvas>();
+        for (int i = 0; i < allVRCanvas.Length; i++)
+        {
+            allVRCanvas[i].GetComponent<VRTK_UICanvas>().enabled = vrEnabled;
         }
     }
 }
