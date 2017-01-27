@@ -140,4 +140,13 @@ public class PickedUpItemController : MonoBehaviour
     {
 
     }
+
+    public void OnDropObject()
+    {
+        if (CurrentObject != null)
+        {
+            CurrentObject.GetComponent<Rigidbody>().useGravity = true;
+            CurrentObject = null;
+        }
+    }
 }

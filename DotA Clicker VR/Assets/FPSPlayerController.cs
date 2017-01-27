@@ -14,6 +14,7 @@ public class FPSPlayerController : MonoBehaviour {
     FirstPersonController m_unityFPSCont;
     RadiantSceneController m_sceneController;
     Camera m_camera;
+    PickedUpItemController m_pickUpController;
 
     bool m_isHolding;
 
@@ -23,9 +24,11 @@ public class FPSPlayerController : MonoBehaviour {
         m_camera = GetComponent<Camera>();
 
         m_unityFPSCont = GameObject.Find("FPSController").GetComponent<FirstPersonController>();
+        m_pickUpController = transform.Find("PickUpPosition").GetComponent<PickedUpItemController>();
+
     }
 
-	void Start ()
+    void Start ()
     {
 		
 	}
@@ -35,7 +38,10 @@ public class FPSPlayerController : MonoBehaviour {
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
             OnLeftClickUp();
-            m_unityFPSCont.m_MouseLook.m_cursorIsLocked = false;
+
+            m_pickUpController.OnDropObject();
+
+            m_unityFPSCont.m_MouseLook.m_cursorIsLocked = true;
         }
 
         if (Input.GetButton("Fire1"))
@@ -49,14 +55,11 @@ public class FPSPlayerController : MonoBehaviour {
     {
         var forward = transform.TransformDirection(Vector3.forward);
         RaycastHit hit;
-        //Debug.DrawRay(transform.position, forward, Color.green);
 
         if (Physics.Raycast(transform.position, forward, out hit, 2))
         {
             if (hit.collider.tag == "Player")
                 Physics.IgnoreCollision(hit.collider, m_collider.GetComponent<Collider>());
-
-            Debug.Log("hit " + hit.collider.gameObject.name);
 
             var name = hit.collider.gameObject.name;
             //On click to click on clicker
@@ -97,11 +100,10 @@ public class FPSPlayerController : MonoBehaviour {
 
         if (Physics.Raycast(transform.position, forward, out hit, 2))
         {
-            if(hit.collider.tag == "Interactable")
+            if(hit.collider.tag == "Interactable" || hit.collider.tag == "VRTKInteractTag")
             {
                 m_isHolding = true;
-                var currentItemController = transform.Find("PickUpPosition").GetComponent<PickedUpItemController>();
-                currentItemController.CurrentObject = hit.collider.gameObject;
+                m_pickUpController.CurrentObject = hit.collider.gameObject;
             }
         }
     }

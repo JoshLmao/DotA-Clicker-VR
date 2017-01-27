@@ -80,15 +80,16 @@ public class AntiMageController : MonoBehaviour
         RadiantSceneController.LoadedSaveFile += OnLoadedSaveFile;
     }
 
+    void Start()
+    {
+        int pick = UnityEngine.Random.Range(60, 300);
+        StartCoroutine(RareIdleCount(pick));
+    }
+
     void OnLoadedSaveFile(SaveFileDto saveFile)
     {
         BlinkUpgrade = saveFile.RadiantSide.Heroes.FirstOrDefault(x => x.HeroName == "Anti Mage").Ability1Level > 0;
         ManaVoidUpgrade = saveFile.RadiantSide.Heroes.FirstOrDefault(x => x.HeroName == "Anti Mage").Ability2Level > 0;
-    }
-
-    void Start()
-    {
-
     }
 
     void Update()
@@ -152,21 +153,10 @@ public class AntiMageController : MonoBehaviour
 
     public void ActivateBlink()
     {
-        if (BlinkActive) return;
-        BlinkActive = true;
-
-        BlinkEffects();
-
-        //Do animation and voice line
-        m_antiMageAnimator.SetTrigger("useBlink");
-        if(!m_audioSource.isPlaying)
-            RadiantClickerController.PlayRandomClip(m_audioSource, BlinkResponses);
-
-        if (!m_abilitySource.isPlaying)
-            m_abilitySource.PlayOneShot(BlinkAbilitySound);
+        ActivateBlink(BlinkActiveDuration, true);
     }
 
-    public void ActivateBlink(double remainingTime)
+    public void ActivateBlink(double remainingTime, bool doSound)
     {
         if (BlinkActive) return;
         BlinkActive = true;
@@ -175,30 +165,23 @@ public class AntiMageController : MonoBehaviour
 
         //Do animation and voice line
         m_antiMageAnimator.SetTrigger("useBlink");
-        if (!m_audioSource.isPlaying)
-            RadiantClickerController.PlayRandomClip(m_audioSource, BlinkResponses);
 
-        if (!m_abilitySource.isPlaying)
-            m_abilitySource.PlayOneShot(BlinkAbilitySound);
+        if(doSound)
+        {
+            if (!m_audioSource.isPlaying)
+                RadiantClickerController.PlayRandomClip(m_audioSource, BlinkResponses);
+
+            if (!m_abilitySource.isPlaying)
+                m_abilitySource.PlayOneShot(BlinkAbilitySound);
+        }
     }
 
     public void ActivateManaVoid()
     {
-        if (ManaVoidActive) return;
-        ManaVoidActive = true;
-
-        ManaVoidEffects();
-
-        //Do animation and voice line
-        m_antiMageAnimator.SetTrigger("useManaVoid");
-        if(!m_audioSource.isPlaying)
-            RadiantClickerController.PlayRandomClip(m_audioSource, ManaVoidResponses);
-
-        if (!m_abilitySource.isPlaying)
-            m_abilitySource.PlayOneShot(ManaVoidAbilitySound);
+        ActivateManaVoid(ManaVoidActiveDuration, true);
     }
 
-    public void ActivateManaVoid(double remainingTime)
+    public void ActivateManaVoid(double remainingTime, bool doSound)
     {
         if (ManaVoidActive) return;
         ManaVoidActive = true;
@@ -207,11 +190,15 @@ public class AntiMageController : MonoBehaviour
 
         //Do animation and voice line
         m_antiMageAnimator.SetTrigger("useManaVoid");
-        //if (!m_audioSource.isPlaying)
-        //    RadiantClickerController.PlayRandomClip(m_audioSource, ManaVoidResponses);
 
-        //if (!m_abilitySource.isPlaying)
-        //    m_abilitySource.PlayOneShot(ManaVoidAbilitySound);
+        if(doSound)
+        {
+            if (!m_audioSource.isPlaying)
+                RadiantClickerController.PlayRandomClip(m_audioSource, ManaVoidResponses);
+
+            if (!m_abilitySource.isPlaying)
+                m_abilitySource.PlayOneShot(ManaVoidAbilitySound);
+        }
     }
 
     IEnumerator AbilityCooldown(float time, string ability)
@@ -282,24 +269,14 @@ public class AntiMageController : MonoBehaviour
         }
     }
 
-    void BlinkEffects()
-    {
-        m_blinkActiveFade.gameObject.SetActive(true);
-
-        //do effects
-        var m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
-        m_sceneController.AddToTotal(m_clickerController.ClickAmount);
-
-        StartCoroutine(AbilityCooldown(BlinkActiveDuration, "BlinkActiveFinish"));
-    }
-
     void BlinkEffects(float remainingTime)
     {
         m_blinkActiveFade.gameObject.SetActive(true);
 
         //do effects
         var m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
-        m_sceneController.AddToTotal(m_clickerController.ClickAmount);
+        //m_sceneController.AddToTotal(m_clickerController.ClickAmount, m_clickerController.ItemModifierMultiplier);
+        m_clickerController.SetAbilityModifierAmount(Constants.BlinkMultiplier);
 
         StartCoroutine(AbilityCooldown(remainingTime, "BlinkActiveFinish"));
     }
@@ -307,38 +284,7 @@ public class AntiMageController : MonoBehaviour
     void RemoveBlinkEffects()
     {
         m_clickerController.m_ability1ClickTime = DateTime.MinValue;
-    }
-
-    void ManaVoidEffects()
-    {
-        m_manaVoidActiveFade.gameObject.SetActive(true);
-
-        var durationLeft = m_clickerController.CurrentClickerTime.Seconds;
-        RadiantSceneController scene = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
-        RadiantClickerController antiMage = scene.SceneHeroes[4];
-
-        //Left of Anti Magi is Sven
-        if (antiMage.CurrentClickerTime.Seconds - durationLeft < 0)
-        {
-            scene.AddToTotal(antiMage.ClickAmount);
-            antiMage.CurrentClickerTime = new TimeSpan(0, 0, antiMage.TimeBetweenClicks.Seconds - durationLeft);
-        }
-        else
-        {
-            antiMage.CurrentClickerTime = new TimeSpan(0, 0, antiMage.CurrentClickerTime.Seconds - durationLeft);
-        }
-        //Right of Anti Mage is Alchemist
-        if (antiMage.CurrentClickerTime.Seconds - durationLeft < 0)
-        {   
-            scene.AddToTotal(antiMage.ClickAmount);
-            antiMage.CurrentClickerTime = new TimeSpan(0, 0, antiMage.TimeBetweenClicks.Seconds - durationLeft);
-        }
-        else
-        {
-            antiMage.CurrentClickerTime = new TimeSpan(0, 0, antiMage.CurrentClickerTime.Seconds - durationLeft);
-        }
-
-        StartCoroutine(AbilityCooldown(ManaVoidActiveDuration, "ManaVoidActiveFinish"));
+        m_clickerController.RemoveAbilityModifierAmount(Constants.BlinkMultiplier);
     }
 
     void ManaVoidEffects(float remainingTime)
@@ -352,7 +298,7 @@ public class AntiMageController : MonoBehaviour
         //Left of Anti Magi is Sven
         if (antiMage.CurrentClickerTime.Seconds - durationLeft < 0)
         {
-            scene.AddToTotal(antiMage.ClickAmount);
+            scene.AddToTotal(antiMage.ClickAmount, m_clickerController.ItemModifierMultiplier);
             antiMage.CurrentClickerTime = new TimeSpan(0, 0, antiMage.TimeBetweenClicks.Seconds - durationLeft);
         }
         else
@@ -362,7 +308,7 @@ public class AntiMageController : MonoBehaviour
         //Right of Anti Mage is Alchemist
         if (antiMage.CurrentClickerTime.Seconds - durationLeft < 0)
         {
-            scene.AddToTotal(antiMage.ClickAmount);
+            scene.AddToTotal(antiMage.ClickAmount, m_clickerController.ItemModifierMultiplier);
             antiMage.CurrentClickerTime = new TimeSpan(0, 0, antiMage.TimeBetweenClicks.Seconds - durationLeft);
         }
         else

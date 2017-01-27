@@ -202,6 +202,10 @@ public class TwitchIRC : MonoBehaviour
 
     void LoadedConfigFile(ConfigDto config)
     {
+        if(config == null)
+        {
+            return;
+        }
         oauth = config.TwitchAuthCode;
         nickName = config.TwitchUsername;
         StartIRC();

@@ -37,18 +37,22 @@ public class OptionsController : MMOptionsController
     {
         base.Start();
 
-        SuperSampleSlider.onValueChanged.AddListener(SuperSampleChanged);
+        if(SuperSampleSlider != null)
+            SuperSampleSlider.onValueChanged.AddListener(SuperSampleChanged);
 
         if(m_fieldOfViewSlider != null)
             m_fieldOfViewSlider.onValueChanged.AddListener(FoVChanged);
         FoVChanged(m_currentFieldOfView);
 
-        m_audioEnabled.onValueChanged.AddListener(AudioToggle);
-        m_musicEnabled.onValueChanged.AddListener(AmbientMusicToggle);
+        if(m_audioEnabled != null)
+            m_audioEnabled.onValueChanged.AddListener(AudioToggle);
+        if(m_musicEnabled != null)
+            m_musicEnabled.onValueChanged.AddListener(AmbientMusicToggle);
 
         SuperSampleChanged(0);
         SetAdaptiveQualityStatus(false);
-        m_adaptiveQuality.isOn = false;
+        if(m_adaptiveQuality != null)
+            m_adaptiveQuality.isOn = false;
 
         m_ambientSound.AmbientAudioSource.volume = AmbientVolSlider.value;
     }
@@ -98,8 +102,11 @@ public class OptionsController : MMOptionsController
 
     void SuperSampleChanged(float value)
     {
-        VRSettings.renderScale = SuperSampleSlider.value;
-        m_ssText.text = SuperSampleSlider.value.ToString(); //Math.Round(SuperSampleSlider.value, 2).ToString()
+        if(VRSettings.enabled)
+        {
+            VRSettings.renderScale = SuperSampleSlider.value;
+            m_ssText.text = SuperSampleSlider.value.ToString(); //Math.Round(SuperSampleSlider.value, 2).ToString()
+        }
     }
 
     public void AddSuperSampleValue()
@@ -115,7 +122,7 @@ public class OptionsController : MMOptionsController
     private void OnLoadedConfig(ConfigDto config)
     {
         PreferencesDto prefs = null;
-        if (config.Preferences != null)
+        if (config != null && config.Preferences != null)
             prefs = config.Preferences;
         else
             return;
@@ -127,7 +134,8 @@ public class OptionsController : MMOptionsController
         m_audioEnabled.isOn = prefs.MusicEnabled;
         m_audioEnabled.isOn = prefs.AllAudioEnabled;
 
-        SuperSampleSlider.value = prefs.SuperSampleScale;
+        if(SuperSampleSlider != null)
+            SuperSampleSlider.value = prefs.SuperSampleScale;
     }
 
     public void ToggleAdaptiveQuality(bool status)

@@ -173,21 +173,10 @@ public class PhoenixController : MonoBehaviour
 
     public void ActivateSunray()
     {
-        if (SunrayActive) return;
-        SunrayActive = true;
-
-        SunrayEffects();
-
-        //Do animation and voice line
-        m_phoenixAnimator.SetTrigger("useSunray");
-        if(!m_audioSource.isPlaying)
-            RadiantClickerController.PlayRandomClip(m_audioSource, SunrayResponses);
-
-        if (!m_abilitySource.isPlaying)
-            m_abilitySource.PlayOneShot(SunrayAbilitySound);
+        ActivateSunray(SunrayActiveDuration, true);
     }
 
-    public void ActivateSunray(double remainingTime)
+    public void ActivateSunray(double remainingTime, bool doSound)
     {
         if (SunrayActive) return;
         SunrayActive = true;
@@ -196,30 +185,23 @@ public class PhoenixController : MonoBehaviour
 
         //Do animation and voice line
         m_phoenixAnimator.SetTrigger("useSunray");
-        //if (!m_audioSource.isPlaying)
-        //    RadiantClickerController.PlayRandomClip(m_audioSource, SunrayResponses);
 
-        //if (!m_abilitySource.isPlaying)
-        //    m_abilitySource.PlayOneShot(SunrayAbilitySound);
+        if(doSound)
+        {
+            if (!m_audioSource.isPlaying)
+                RadiantClickerController.PlayRandomClip(m_audioSource, SunrayResponses);
+
+            if (!m_abilitySource.isPlaying)
+                m_abilitySource.PlayOneShot(SunrayAbilitySound);
+        }
     }
 
     public void ActivateSupernova()
     {
-        if (SupernovaActive) return;
-        SupernovaActive = true;
-
-        SupernovaEffects();
-
-        //Do animation and voice line
-        m_phoenixAnimator.SetTrigger("useSupernova");
-        if(!m_audioSource.isPlaying)
-            RadiantClickerController.PlayRandomClip(m_audioSource, SupernovaResponses);
-
-        //Start Supernova Ability Wait
-        StartCoroutine(SupernovaStartWait());
+        ActivateSupernova(SupernovaActiveDuration, true);
     }
 
-    public void ActivateSupernova(double remainingTime)
+    public void ActivateSupernova(double remainingTime, bool doSound)
     {
         if (SupernovaActive) return;
         SupernovaActive = true;
@@ -228,8 +210,12 @@ public class PhoenixController : MonoBehaviour
 
         //Do animation and voice line
         m_phoenixAnimator.SetTrigger("useSupernova");
-        if (!m_audioSource.isPlaying)
-            RadiantClickerController.PlayRandomClip(m_audioSource, SupernovaResponses);
+
+        if(doSound)
+        {
+            if (!m_audioSource.isPlaying)
+                RadiantClickerController.PlayRandomClip(m_audioSource, SupernovaResponses);
+        }
 
         //Start Supernova Ability Wait
         StartCoroutine(SupernovaStartWait());
@@ -365,26 +351,6 @@ public class PhoenixController : MonoBehaviour
         m_audioSource.clip = null;
     }
 
-    void SunrayEffects()
-    {
-        m_sunrayActiveFade.gameObject.SetActive(true);
-
-        //do effect
-        var sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
-        foreach(RadiantClickerController clicker in sceneController.SceneHeroes)
-        {
-            if ((clicker.TimeBetweenClicks.Seconds - 60) < 0)
-            {
-                clicker.TimeBetweenClicks -= new TimeSpan(0, 0, clicker.TimeBetweenClicks.Seconds - clicker.TimeBetweenClicks.Seconds);
-                continue;
-            }
-
-            clicker.TimeBetweenClicks = new TimeSpan(0, 0, clicker.TimeBetweenClicks.Seconds - 60);
-        }
-
-        StartCoroutine(AbilityCooldown(SunrayActiveDuration, "SunrayActiveFinish"));
-    }
-
     void SunrayEffects(float remainingTime)
     {
         m_sunrayActiveFade.gameObject.SetActive(true);
@@ -410,16 +376,6 @@ public class PhoenixController : MonoBehaviour
         m_clickerController.m_ability1ClickTime = DateTime.MinValue;
     }
 
-    void SupernovaEffects()
-    {
-        m_sunrayActiveFade.gameObject.SetActive(true);
-
-        //do effect
-        InvokeRepeating("SupernovaRepeating", 6, 1);
-
-        StartCoroutine(AbilityCooldown(SupernovaActiveDuration, "SupernovaActiveFinish"));
-    }
-
     void SupernovaEffects(float remainingTime)
     {
         m_sunrayActiveFade.gameObject.SetActive(true);
@@ -432,7 +388,7 @@ public class PhoenixController : MonoBehaviour
 
     void SupernovaRepeating()
     {
-        GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().AddToTotal(m_clickerController.ClickAmount);
+        GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().AddToTotal(m_clickerController.ClickAmount, m_clickerController.ItemModifierMultiplier);
 
         if (!m_abilitySource.isPlaying)
             m_abilitySource.PlayOneShot(GoldEarnedSound);

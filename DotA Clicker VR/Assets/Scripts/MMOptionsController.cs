@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.VR;
 
 public class MMOptionsController : MonoBehaviour
 {
@@ -23,14 +24,17 @@ public class MMOptionsController : MonoBehaviour
     {
         m_audioEnabled = transform.Find("AudioOptions/AudioEnabledToggle").GetComponent<Toggle>();
         m_musicEnabled = transform.Find("AudioOptions/AmbientAudioEnabled").GetComponent<Toggle>();
-        m_adaptiveQuality = transform.Find("VideoOptions/AdaptiveQualityToggle").GetComponent<Toggle>();
 
         MasterVolSlider = transform.Find("AudioOptions/MasterVolumeC/MasterVolSlider").GetComponent<Slider>();
         AmbientVolSlider = transform.Find("AudioOptions/AmbientVolC/AmbientMusicVolSlider").GetComponent<Slider>();
         HeroVolSlider = transform.Find("AudioOptions/HeroSoundsVolC/HeroesVolSlider").GetComponent<Slider>();
 
-        SuperSampleSlider = transform.Find("VideoOptions/SSCanvas/SuperSampleSlider").GetComponent<Slider>();
-        m_ssText = transform.Find("VideoOptions/SSCanvas/SSValue").GetComponent<Text>();
+        if (VRSettings.enabled)
+        {
+            m_adaptiveQuality = transform.Find("VideoOptions/AdaptiveQualityToggle").GetComponent<Toggle>();
+            SuperSampleSlider = transform.Find("VideoOptions/SSCanvas/SuperSampleSlider").GetComponent<Slider>();
+            m_ssText = transform.Find("VideoOptions/SSCanvas/SSValue").GetComponent<Text>();
+        }
     }
 
     protected virtual void Start()
@@ -55,15 +59,12 @@ public class MMOptionsController : MonoBehaviour
         string json = File.ReadAllText(configLoc);
         if (json.Length == 0)
         {
-            m_currentConfig.Preferences = new PreferencesDto()
-            {
-                MasterVolume = MasterVolSlider.value,
-                AmbientVolume = AmbientVolSlider.value,
-                HeroVolume = HeroVolSlider.value,
-                MusicEnabled = m_audioEnabled.isOn,
-                AllAudioEnabled = m_audioEnabled.isOn,
-                SuperSampleScale = SuperSampleSlider.value,
-            };
+            m_currentConfig.Preferences = new PreferencesDto();
+            m_currentConfig.Preferences.MasterVolume = MasterVolSlider != null ? MasterVolSlider.value : 0.5f;
+            m_currentConfig.Preferences.AmbientVolume = AmbientVolSlider != null ? AmbientVolSlider.value : 0.5f;
+            m_currentConfig.Preferences.HeroVolume = HeroVolSlider != null ? HeroVolSlider.value : 0.5f;
+            m_currentConfig.Preferences.MusicEnabled = m_audioEnabled != null ? m_audioEnabled.isOn : true;
+            m_currentConfig.Preferences.AllAudioEnabled = m_audioEnabled != null ? m_audioEnabled.isOn : true;
         }
         else
         {
@@ -73,6 +74,7 @@ public class MMOptionsController : MonoBehaviour
         string toJson = JsonConvert.SerializeObject(m_currentConfig, Formatting.Indented);
         File.WriteAllText(configLoc, toJson);
     }
+
 
     protected void SaveCurrentValuesToConfig()
     {
@@ -104,7 +106,8 @@ public class MMOptionsController : MonoBehaviour
         HeroVolSlider.value = m_currentConfig.Preferences.HeroVolume;
         m_audioEnabled.isOn = m_currentConfig.Preferences.MusicEnabled;
         m_audioEnabled.isOn = m_currentConfig.Preferences.AllAudioEnabled;
-        SuperSampleSlider.value = m_currentConfig.Preferences.SuperSampleScale;
+        if (SuperSampleSlider != null)
+            SuperSampleSlider.value = m_currentConfig.Preferences.SuperSampleScale;
     }
 
     protected void ValidateLocations()

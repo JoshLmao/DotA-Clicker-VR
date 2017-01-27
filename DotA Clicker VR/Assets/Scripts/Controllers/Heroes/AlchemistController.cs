@@ -82,7 +82,8 @@ public class AlchemistController : MonoBehaviour
 
     void Start()
     {
-
+        int pick = UnityEngine.Random.Range(60, 300);
+        StartCoroutine(RareIdleCount(pick));
     }
 
     void OnLoadedSaveFile(SaveFileDto saveFile)
@@ -152,17 +153,10 @@ public class AlchemistController : MonoBehaviour
 
     public void ActivateGreevilsGreed()
     {
-        if (GreevilsGreedActive) return;
-        GreevilsGreedActive = true;
-
-        GreevilsGreedEffects();
-
-        //Do animation and voice line
-        m_alcAnimator.SetTrigger("useGreevilsGreed");
-        RadiantClickerController.PlayRandomClip(m_audioSource, GreevilsGreedResponses);
+        ActivateGreevilsGreed(GreevilsGreedActiveDuration, true);
     }
 
-    public void ActivateGreevilsGreed(double remainingTime)
+    public void ActivateGreevilsGreed(double remainingTime, bool doSound)
     {
         if (GreevilsGreedActive) return;
         GreevilsGreedActive = true;
@@ -171,23 +165,18 @@ public class AlchemistController : MonoBehaviour
 
         //Do animation and voice line
         m_alcAnimator.SetTrigger("useGreevilsGreed");
-        RadiantClickerController.PlayRandomClip(m_audioSource, GreevilsGreedResponses);
+        if (doSound)
+        {
+            RadiantClickerController.PlayRandomClip(m_audioSource, GreevilsGreedResponses);
+        }
     }
 
     public void ActivateChemicalRage()
     {
-        if (ChemicalRageActive) return;
-        ChemicalRageActive = true;
-
-        ChemicalRageEffects();
-
-        //Do animation and voice line
-        m_alcAnimator.SetBool("useChemicalRage", true);
-        RadiantClickerController.PlayRandomClip(m_audioSource, ChemicalRageResponses);
+        ActivateChemicalRage(ChemicalRageActiveDuration, true);
     }
 
-
-    public void ActivateChemicalRage(double remainingTime)
+    public void ActivateChemicalRage(double remainingTime, bool doSound)
     {
         if (ChemicalRageActive) return;
         ChemicalRageActive = true;
@@ -196,7 +185,11 @@ public class AlchemistController : MonoBehaviour
 
         //Do animation and voice line
         m_alcAnimator.SetBool("useChemicalRage", true);
-        //RadiantClickerController.PlayRandomClip(m_audioSource, ChemicalRageResponses);
+
+        if(doSound)
+        {
+            RadiantClickerController.PlayRandomClip(m_audioSource, ChemicalRageResponses);
+        }
     }
 
     IEnumerator AbilityCooldown(float time, string ability)
@@ -268,17 +261,6 @@ public class AlchemistController : MonoBehaviour
         }
     }
 
-    void GreevilsGreedEffects()
-    {
-        m_greevilsGreedActiveFade.gameObject.SetActive(true);
-
-        //do effects
-        GreevilGreedAttackReduce();
-        InvokeRepeating("GreevilsGreedAttackReduce", GreevilsGreedActiveDuration, 1.07f);
-
-        StartCoroutine(AbilityCooldown(GreevilsGreedActiveDuration, "GreevilsGreedActiveFinish"));
-    }
-
     void GreevilsGreedEffects(float remainingTime)
     {
         m_greevilsGreedActiveFade.gameObject.SetActive(true);
@@ -293,24 +275,13 @@ public class AlchemistController : MonoBehaviour
     void GreevilGreedAttackReduce()
     {
         m_clickerController.CurrentClickerTime -= new TimeSpan(0, 0, m_clickerController.CurrentClickerTime.Seconds - 20);
+        m_clickerController.SetAbilityModifierAmount(Constants.GreevilsGreedMultiplier);
     }
 
     void RemoveGreevilsGreedEffects()
     {
-
+        m_clickerController.RemoveAbilityModifierAmount(Constants.GreevilsGreedMultiplier);
         m_clickerController.m_ability1ClickTime = DateTime.MinValue;
-    }
-
-    void ChemicalRageEffects()
-    {
-        m_chemicalRageActiveFade.gameObject.SetActive(true);
-
-        //do effects
-        int quarter = m_clickerController.CurrentClickerTime.Seconds / 4;
-        int seconds = (quarter * 4) - (quarter * 3);
-        m_clickerController.CurrentClickerTime = new TimeSpan(0, 0, seconds);
-
-        StartCoroutine(AbilityCooldown(ChemicalRageActiveDuration, "ChemicalRageActiveFinish"));
     }
 
     void ChemicalRageEffects(float remainingTime)

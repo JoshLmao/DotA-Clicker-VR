@@ -20,7 +20,9 @@ public class BuyableItemsController : MonoBehaviour
 
     bool isOnMainMenu = false;
     RadiantSceneController m_sceneController;
-        
+
+    [SerializeField]
+    GameObject m_allBoughtPrefab;
 
     void Start()
     {
@@ -178,11 +180,17 @@ public class BuyableItemsController : MonoBehaviour
             upgradeName.text = item.Name;
             Text description = newUpgrade.transform.Find("ItemDesc").GetComponent<Text>();
             description.text = item.Description;
-            Text upgradeCost = newUpgrade.transform.Find("BuyButton/CostCanvas/GoldCost").GetComponent<Text>();
+            Text upgradeCost = newUpgrade.transform.Find("BuyItemButton/CostCanvas/GoldCost").GetComponent<Text>();
             upgradeCost.text = item.Cost + " gold";
-            Button button = newUpgrade.transform.Find("BuyButton").GetComponent<Button>();
+            Button button = newUpgrade.transform.Find("BuyItemButton").GetComponent<Button>();
             ItemDto clickedItem = item; //Fix for AddListener adding current upgrade to each button click
             button.onClick.AddListener(delegate { BuyItem(clickedItem); });
+        }
+
+        if (Items.Count < 1)
+        {
+            var canvas = Instantiate(m_allBoughtPrefab);
+            canvas.transform.SetParent(this.transform, false);
         }
     }
 

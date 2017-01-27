@@ -17,6 +17,25 @@ public class ButtonManager : MonoBehaviour
 
     bool m_buyUpgradeCooldown = false;
 
+    Material m_buttonMaterial;
+
+    void Awake()
+    {
+        if (this.gameObject.name == "ClickButtonBack")
+        {
+            var obj = transform.Find("ClickButton");
+            m_buttonMaterial = new Material(obj.GetComponent<Renderer>().material);
+            obj.GetComponent<Renderer>().material = m_buttonMaterial;
+        }
+        else
+        {
+            m_buttonMaterial = new Material(this.GetComponent<Renderer>().material);
+            gameObject.GetComponent<Renderer>().material = m_buttonMaterial;
+        }
+
+        m_buttonMaterial.name = "test";
+    }
+
 	void Start ()
     {
         m_buttonName = this.gameObject.name;
@@ -51,12 +70,18 @@ public class ButtonManager : MonoBehaviour
         m_buyUpgradeCooldown = false;
     }
 
-    //IEnumerator CantPushButtonError()
-    //{
-    //    m_buttonMaterial.SetColor("_Color", new Color(255, 0, 0));
-    //    yield return new WaitForSeconds(0.3f);
-    //    m_buttonMaterial.SetColor("_Color", new Color(64, 64, 64));
-    //}
+    IEnumerator CantPushButtonError()
+    {
+        this.GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("Sounds/UI/magic_immune"));
+        m_buttonMaterial.SetColor("_Color", ConvertColor(130f, 58f, 58f, 255f));
+        yield return new WaitForSeconds(0.3f);
+        m_buttonMaterial.SetColor("_Color", ConvertColor(64f, 64f, 64f, 255f));
+    }
+
+    Color ConvertColor(float r, float g, float b, float a)
+    {
+        return new Color(r / 255, g / 255, b / 255, a / 255);
+    }
 
     public void OnBuyMultiplier()
     {
@@ -65,7 +90,7 @@ public class ButtonManager : MonoBehaviour
                 || m_sceneController.TotalGold - (decimal)m_clickerController.UpgradeCost < 0
                 || m_buyUpgradeCooldown)
         {
-            Debug.Log("Cant upgrade clicker '" + m_clickerController.HeroName + "'");
+            StartCoroutine(CantPushButtonError());
             return;
         }
 
@@ -84,6 +109,7 @@ public class ButtonManager : MonoBehaviour
     {
         if (m_animator.GetCurrentAnimatorStateInfo(0).IsName("ClickButtonPush") || m_clickerController.IsClicked || m_clickerController.ClickerMultiplier == 0) //if (is in animation) || (IsClick is progress)
         {
+            StartCoroutine(CantPushButtonError());
             return;
         }
 

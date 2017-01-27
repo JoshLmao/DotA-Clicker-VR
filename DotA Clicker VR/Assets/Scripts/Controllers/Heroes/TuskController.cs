@@ -94,7 +94,8 @@ public class TuskController : MonoBehaviour
 
     void Start()
     {
-
+        int pick = UnityEngine.Random.Range(60, 300);
+        StartCoroutine(RareIdleCount(pick));
     }
 
     void OnLoadedSaveFile(SaveFileDto saveFile)
@@ -169,23 +170,10 @@ public class TuskController : MonoBehaviour
 
     public void ActivateSnowball()
     {
-        if (SnowballActive) return;
-        SnowballActive = true;
-
-        SnowballEffects();
-
-        //Do animation and voice line
-        m_tuskAnimator.SetTrigger("useSnowball");
-        if (!m_audioSource.isPlaying)
-            RadiantClickerController.PlayRandomClip(m_audioSource, SnowballResponses);
-
-        if (!m_abilitySource.isPlaying)
-            m_abilitySource.PlayOneShot(SnowballAbilitySound);
-
-        StartCoroutine(SnowballStartWait());
+        ActivateSnowball(SnowballActiveDuration, true);
     }
 
-    public void ActivateSnowball(double remainingTime)
+    public void ActivateSnowball(double remainingTime, bool doSound)
     {
         if (SnowballActive) return;
         SnowballActive = true;
@@ -194,11 +182,15 @@ public class TuskController : MonoBehaviour
 
         //Do animation and voice line
         m_tuskAnimator.SetTrigger("useSnowball");
-        //if (!m_audioSource.isPlaying)
-        //    RadiantClickerController.PlayRandomClip(m_audioSource, SnowballResponses);
 
-        //if (!m_abilitySource.isPlaying)
-        //    m_abilitySource.PlayOneShot(SnowballAbilitySound);
+        if(doSound)
+        {
+            if (!m_audioSource.isPlaying)
+                RadiantClickerController.PlayRandomClip(m_audioSource, SnowballResponses);
+
+            if (!m_abilitySource.isPlaying)
+                m_abilitySource.PlayOneShot(SnowballAbilitySound);
+        }
 
         StartCoroutine(SnowballStartWait());
     }
@@ -206,21 +198,10 @@ public class TuskController : MonoBehaviour
 
     public void ActivateWalrusPunch()
     {
-        if (WalrusPunchActive) return;
-        WalrusPunchActive = true;
-
-        WalrusPunchEffects();
-
-        //Do animation and voice line
-        m_tuskAnimator.SetTrigger("useWalrusPunch");
-        if (!m_audioSource.isPlaying)
-            RadiantClickerController.PlayRandomClip(m_audioSource, WalrusPunchResponses);
-
-        if (!m_abilitySource.isPlaying)
-            m_abilitySource.PlayOneShot(WalrusPunchAbilitySound);
+        ActivateWalrusPunch(WalrusPunchActiveDuration, true);
     }
 
-    public void ActivateWalrusPunch(double remainingTime)
+    public void ActivateWalrusPunch(double remainingTime, bool doSound)
     {
         if (WalrusPunchActive) return;
         WalrusPunchActive = true;
@@ -229,11 +210,15 @@ public class TuskController : MonoBehaviour
 
         //Do animation and voice line
         m_tuskAnimator.SetTrigger("useWalrusPunch");
-        //if (!m_audioSource.isPlaying)
-        //    RadiantClickerController.PlayRandomClip(m_audioSource, WalrusPunchResponses);
 
-        //if (!m_abilitySource.isPlaying)
-        //    m_abilitySource.PlayOneShot(WalrusPunchAbilitySound);
+        if(doSound)
+        {
+            if (!m_audioSource.isPlaying)
+                RadiantClickerController.PlayRandomClip(m_audioSource, WalrusPunchResponses);
+
+            if (!m_abilitySource.isPlaying)
+                m_abilitySource.PlayOneShot(WalrusPunchAbilitySound);
+        }
     }
 
     IEnumerator AbilityCooldown(float time, string ability)
@@ -339,43 +324,21 @@ public class TuskController : MonoBehaviour
         m_tuskAnimator.SetTrigger("finishSnowball");
     }
 
-    void SnowballEffects()
-    {
-        m_snowballActiveFade.gameObject.SetActive(true);
-
-        //do effects
-        m_snowballModifiedValue = m_clickerController.ClickAmount * 2;
-        m_clickerController.ClickAmount = m_snowballModifiedValue;
-
-        StartCoroutine(AbilityCooldown(SnowballActiveDuration, "SnowballActiveFinish"));
-    }
-
     void SnowballEffects(float remainingTime)
     {
         m_snowballActiveFade.gameObject.SetActive(true);
 
         //do effects
-        m_snowballModifiedValue = m_clickerController.ClickAmount * 2;
-        m_clickerController.ClickAmount = m_snowballModifiedValue;
+        //m_snowballModifiedValue = m_clickerController.ClickAmount * 2;
+        //m_clickerController.ClickAmount = m_snowballModifiedValue;
+        m_clickerController.SetAbilityModifierAmount(Constants.SnowballMultiplier);
 
         StartCoroutine(AbilityCooldown(remainingTime, "SnowballActiveFinish"));
     }
 
     void RemoveSnowballEffects()
     {
-        m_clickerController.ClickAmount -= (m_snowballModifiedValue / 2);
-        m_clickerController.m_ability1ClickTime = System.DateTime.MinValue;
-    }
-
-    void WalrusPunchEffects()
-    {
-        m_walrusPunchActiveFade.gameObject.SetActive(true);
-
-        //do effects
-        var m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
-        m_sceneController.AddToTotal(m_clickerController.ClickAmount);
-
-        StartCoroutine(AbilityCooldown(WalrusPunchActiveDuration, "WalrusPunchActiveFinish"));
+        m_clickerController.RemoveAbilityModifierAmount(Constants.SnowballMultiplier);
     }
 
     void WalrusPunchEffects(float remainingTime)
@@ -383,8 +346,9 @@ public class TuskController : MonoBehaviour
         m_walrusPunchActiveFade.gameObject.SetActive(true);
 
         //do effects
-        var m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
-        m_sceneController.AddToTotal(m_clickerController.ClickAmount);
+        //var m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
+        //m_sceneController.AddToTotal(m_clickerController.ClickAmount, m_clickerController.ItemModifierMultiplier);
+        m_clickerController.SetAbilityModifierAmount(Constants.WalrusPunchMultiplier);
 
         StartCoroutine(AbilityCooldown(remainingTime, "WalrusPunchActiveFinish"));
     }

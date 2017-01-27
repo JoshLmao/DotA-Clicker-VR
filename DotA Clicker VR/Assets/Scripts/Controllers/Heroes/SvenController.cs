@@ -81,16 +81,16 @@ public class SvenController : MonoBehaviour
         RadiantSceneController.LoadedSaveFile += OnLoadedSaveFile;
     }
 
-    void OnLoadedSaveFile(SaveFileDto saveFile)
-    {
-        WarCryUpgrade = saveFile.RadiantSide.Heroes.FirstOrDefault(x => x.HeroName == "Sven").Ability1Level > 0;
-        GodsStrengthUpgrade = saveFile.RadiantSide.Heroes.FirstOrDefault(x => x.HeroName == "Sven").Ability2Level > 0;
-    }
-
     void Start()
     {
         int pick = UnityEngine.Random.Range(60, 300);
         StartCoroutine(RareIdleCount(pick));
+    }
+
+    void OnLoadedSaveFile(SaveFileDto saveFile)
+    {
+        WarCryUpgrade = saveFile.RadiantSide.Heroes.FirstOrDefault(x => x.HeroName == "Sven").Ability1Level > 0;
+        GodsStrengthUpgrade = saveFile.RadiantSide.Heroes.FirstOrDefault(x => x.HeroName == "Sven").Ability2Level > 0;
     }
 
     void Update()
@@ -154,23 +154,10 @@ public class SvenController : MonoBehaviour
 
     public void ActivateWarCry()
     {
-        if (WarCryActive) return;
-        WarCryActive = true;
-
-        WarCryEffects();
-
-        //Do animation and voice line
-        m_svenAnimator.SetTrigger("useWarCry");
-        if(!m_audioSource.isPlaying)
-            RadiantClickerController.PlayRandomClip(m_audioSource, WarCryResponses);
-
-        if (!m_abilitySource.isPlaying)
-            m_abilitySource.PlayOneShot(WarCryAbilitySound);
-
-        //StartCoroutine(AbilityCooldown(WarCryCooldown, "WarCry"));
+        ActivateWarCry(WarCryActiveDuration, true);
     }
 
-    public void ActivateWarCry(double remainingTime)
+    public void ActivateWarCry(double remainingTime, bool doSound)
     {
         if (WarCryActive) return;
         WarCryActive = true;
@@ -179,32 +166,25 @@ public class SvenController : MonoBehaviour
 
         //Do animation and voice line
         m_svenAnimator.SetTrigger("useWarCry");
-        if (!m_audioSource.isPlaying)
-            RadiantClickerController.PlayRandomClip(m_audioSource, WarCryResponses);
 
-        if (!m_abilitySource.isPlaying)
-            m_abilitySource.PlayOneShot(WarCryAbilitySound);
+        if(doSound)
+        {
+            if (!m_audioSource.isPlaying)
+                RadiantClickerController.PlayRandomClip(m_audioSource, WarCryResponses);
+
+            if (!m_abilitySource.isPlaying)
+                m_abilitySource.PlayOneShot(WarCryAbilitySound);
+        }
 
         //StartCoroutine(AbilityCooldown(WarCryCooldown, "WarCry"));
     }
 
     public void ActivateGodsStrength()
     {
-        if (GodsStrengthActive) return;
-        GodsStrengthActive = true;
-
-        GodsStrengthEffects();
-
-        //Do animation and voice line
-        m_svenAnimator.SetTrigger("useGodsStrength");
-        if(!m_audioSource.isPlaying)
-            RadiantClickerController.PlayRandomClip(m_audioSource, GodsStrengthResponses);
-
-        if (!m_abilitySource.isPlaying)
-            m_abilitySource.PlayOneShot(GodsStrengthAbilitySound);
+        ActivateGodsStrength(GodsStrengthActiveDuration, true);
     }
 
-    public void ActivateGodsStrength(double remainingTime)
+    public void ActivateGodsStrength(double remainingTime, bool doSound)
     {
         if (GodsStrengthActive) return;
         GodsStrengthActive = true;
@@ -213,11 +193,15 @@ public class SvenController : MonoBehaviour
 
         //Do animation and voice line
         m_svenAnimator.SetTrigger("useGodsStrength");
-        if (!m_audioSource.isPlaying)
-            RadiantClickerController.PlayRandomClip(m_audioSource, GodsStrengthResponses);
 
-        if (!m_abilitySource.isPlaying)
-            m_abilitySource.PlayOneShot(GodsStrengthAbilitySound);
+        if(doSound)
+        {
+            if (!m_audioSource.isPlaying)
+                RadiantClickerController.PlayRandomClip(m_audioSource, GodsStrengthResponses);
+
+            if (!m_abilitySource.isPlaying)
+                m_abilitySource.PlayOneShot(GodsStrengthAbilitySound);
+        }
     }
 
     IEnumerator AbilityCooldown(float time, string ability)
@@ -288,20 +272,12 @@ public class SvenController : MonoBehaviour
         }
     }
 
-    void WarCryEffects()
-    {
-        m_warCryActiveFade.gameObject.SetActive(true);
-
-        //do effects
-
-        StartCoroutine(AbilityCooldown(WarCryActiveDuration, "WarCryActiveFinish"));
-    }
-
     void WarCryEffects(float remainingTime)
     {
         m_warCryActiveFade.gameObject.SetActive(true);
 
         //do effects
+        m_clickerController.SetAbilityModifierAmount(Constants.WarCryMultiplier);
 
         StartCoroutine(AbilityCooldown(remainingTime, "WarCryActiveFinish"));
     }
@@ -309,11 +285,7 @@ public class SvenController : MonoBehaviour
     void RemoveWarCryEffects()
     {
         m_clickerController.m_ability1ClickTime = System.DateTime.MinValue;
-    }
-
-    void GodsStrengthEffects()
-    {
-        StartCoroutine(AbilityCooldown(GodsStrengthActiveDuration, "GodsStrengthActiveFinish"));
+        m_clickerController.RemoveAbilityModifierAmount(Constants.WarCryMultiplier);
     }
 
     void GodsStrengthEffects(float remainingTime)
@@ -327,6 +299,7 @@ public class SvenController : MonoBehaviour
         m_clickerController.m_ability2ClickTime = System.DateTime.MinValue;
 
         //do effects
+        m_clickerController.RemoveAbilityModifierAmount(Constants.GodsStrengthMultiplier);
 
         StartCoroutine(AbilityCooldown(GodsStrengthActiveDuration, "GodsStrengthActiveFinish"));
     }

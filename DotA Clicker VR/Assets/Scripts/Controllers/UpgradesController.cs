@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class UpgradesController : MonoBehaviour
 {
-    public List<UpgradeDto> Upgrades { get; set; }
+    public List<UpgradeDto> Upgrades = new List<UpgradeDto>();
 
     public delegate void OnBuyCrystalNovaUpgrade(int level);
     public delegate void OnBuyFrostbiteUpgrade(int level);
@@ -49,6 +50,9 @@ public class UpgradesController : MonoBehaviour
     RadiantSceneController m_sceneController;
 
     bool m_cmAbil1, m_cmAbil2, m_rubickAbil1, m_rubickAbil2, m_ogreAbil1, m_ogreAbil2, m_tuskAbil1, m_tuskAbil2, m_phoenixAbil1, m_phoenixAbil2, m_svenAbil1, m_svenAbil2, m_antiAbil1, m_antiAbil2, m_alcAbil1, m_alcAbil2;
+
+    [SerializeField]
+    GameObject m_allBoughtPrefab;
 
     void Awake()
     {
@@ -280,11 +284,17 @@ public class UpgradesController : MonoBehaviour
             upgradeName.text = upgrade.Name + " - " + upgrade.HeroUpgrade;
             Text description = newUpgrade.transform.Find("UpgradeDesc").GetComponent<Text>();
             description.text = upgrade.Description;
-            Text upgradeCost = newUpgrade.transform.Find("BuyButton/CostCanvas/GoldCost").GetComponent<Text>();
+            Text upgradeCost = newUpgrade.transform.Find("BuyUpgradeButton/CostCanvas/GoldCost").GetComponent<Text>();
             upgradeCost.text = upgrade.Cost + " gold";
-            Button button = newUpgrade.transform.Find("BuyButton").GetComponent<Button>();
+            Button button = newUpgrade.transform.Find("BuyUpgradeButton").GetComponent<Button>();
             UpgradeDto clickedUpgrade = upgrade; //Fix for AddListener adding current upgrade to each button click
             button.onClick.AddListener(delegate { AddUpgrade(clickedUpgrade); });
+        }
+
+        if(Upgrades.Count < 1)
+        {
+            var canvas = Instantiate(m_allBoughtPrefab);
+            canvas.transform.SetParent(this.transform, false);
         }
     }
 
@@ -553,41 +563,49 @@ public class UpgradesController : MonoBehaviour
                 {
                     m_cmAbil1 = true;
                     BuyCrystalNovaUpgrade(hero.Ability1Level);
+                    RemoveIfExists("Crystal Nova");
                 }
                 else if (hero.HeroName == "Rubick")
                 {
                     m_rubickAbil1 = true;
                     BuyTelekinesisUpgrade(hero.Ability1Level);
+                    RemoveIfExists("Telekinesis");
                 }
                 else if (hero.HeroName == "Ogre Magi")
                 {
                     m_ogreAbil1 = true;
                     BuyFireblastUpgrade(hero.Ability1Level);
+                    RemoveIfExists("Fireblast");
                 }
                 else if (hero.HeroName == "Tusk")
                 {
                     m_tuskAbil1 = true;
-                    BuySnowballUpgrade(hero.Ability1Level);  
+                    BuySnowballUpgrade(hero.Ability1Level);
+                    RemoveIfExists("Snowball");
                 }
                 else if (hero.HeroName == "Phoenix")
                 {
                     m_phoenixAbil1 = true;
                     BuySunrayUpgrade(hero.Ability1Level);
+                    RemoveIfExists("Sunray");
                 }
                 else if (hero.HeroName == "Sven")
                 {
                     m_svenAbil1 = true;
                     BuyWarCryUpgrade(hero.Ability1Level);
+                    RemoveIfExists("War Cry");
                 }
                 else if (hero.HeroName == "Anti Mage")
                 {
                     m_antiAbil1 = true;
                     BuyBlinkUpgrade(hero.Ability1Level);
+                    RemoveIfExists("Blink");
                 }
                 else if (hero.HeroName == "Alchemist")
                 {
                     m_alcAbil1 = true;
-                    BuyGreevilsGreedUpgrade(hero.Ability1Level); 
+                    BuyGreevilsGreedUpgrade(hero.Ability1Level);
+                    RemoveIfExists("Greevil's Greed");
                 }
             }
 
@@ -597,43 +615,69 @@ public class UpgradesController : MonoBehaviour
                 {
                     m_cmAbil2 = true;
                     BuyFrostbiteUpgrade(hero.Ability2Level);
+                    RemoveIfExists("Frostbite");
                 }
                 else if (hero.HeroName == "Rubick")
                 {
                     m_rubickAbil2 = true;
                     BuySpellStealUpgrade(hero.Ability2Level);
+                    RemoveIfExists("Spell Steal");
                 }
                 else if (hero.HeroName == "Ogre Magi")
                 {
                     m_ogreAbil2 = true;
                     BuyBloodlustUpgrade(hero.Ability2Level);
+                    RemoveIfExists("Bloodlust");
                 }
                 else if (hero.HeroName == "Tusk")
                 {
                     m_tuskAbil2 = true;
                     BuyWalrusPunchUpgrade(hero.Ability2Level);
+                    RemoveIfExists("Walrus Punch");
                 }
                 else if (hero.HeroName == "Phoenix")
                 {
                     m_phoenixAbil2 = true;
                     BuySupernovaUpgrade(hero.Ability2Level);
+                    RemoveIfExists("Supernova");
                 }
                 else if (hero.HeroName == "Sven")
                 {
                     m_svenAbil2 = true;
                     BuyGodsStrengthUpgrade(hero.Ability2Level);
+                    RemoveIfExists("God's Strength");
                 }
                 else if (hero.HeroName == "Anti Mage")
                 {
                     m_antiAbil2 = true;
                     BuyManaVoidUpgrade(hero.Ability2Level);
+                    RemoveIfExists("Mana Void");
                 }
                 else if (hero.HeroName == "Alchemist")
                 {
                     m_alcAbil2 = true;
                     BuyChemicalRageUpgrade(hero.Ability2Level);
+                    RemoveIfExists("Chemical Rage");
                 }
             }
         }
+
+        RefreshUpgradesList();
+    }
+
+    void RemoveIfExists(string abilityName)
+    {
+        //var exists = Upgrades.FirstOrDefault(x => x.Name == abilityName); //has "null" in each
+        int index = -1;
+        for(int i = 0; i < Upgrades.Count; i++)
+        {
+            if (Upgrades[i].Name == abilityName)
+            {
+                index = i;
+                break;
+            }
+        }
+
+        Upgrades.RemoveAt(index);
     }
 }

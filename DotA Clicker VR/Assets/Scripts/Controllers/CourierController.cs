@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.VR;
 
 public class CourierController : MonoBehaviour
 {
@@ -57,7 +58,6 @@ public class CourierController : MonoBehaviour
         m_courier = this.gameObject;
         m_stream = transform.Find("TwitchStreamCanvas/StreamTexture").GetComponent<GUITexture>();
         m_streamAudio = transform.Find("TwitchStreamCanvas/StreamTexture").GetComponent<AudioSource>();
-        m_player = GameObject.Find("[CameraRig]").gameObject;
         courierWaypoint = GameObject.Find("CourierWaypoint");
         m_crowAnimator = transform.Find("BabyRoshanModel").GetComponent<Animator>();
         m_followBtn = transform.Find("TwitchStreamCanvas/FollowBtn").gameObject;
@@ -77,6 +77,19 @@ public class CourierController : MonoBehaviour
 
         m_keyboard.SetActive(false);
         m_streamURLUI.SetActive(false);
+
+        if (VRSettings.enabled)
+        {
+            m_player = GameObject.Find("[CameraRig]").gameObject;
+            m_playerTransform = GameObject.Find("[CameraRig]").transform;
+        }
+        else
+        {
+            m_player = GameObject.Find("FPSController").gameObject;
+            m_playerTransform = GameObject.Find("FPSController").transform;
+        }
+
+
     }
 
     void Start ()
@@ -114,7 +127,7 @@ public class CourierController : MonoBehaviour
 
         if (!isByPlayer && FollowPlayer)
         {
-            m_playerTransform = GameObject.Find("[CameraRig]").transform;
+
             waypointPos = new Vector3(courierWaypoint.transform.position.x, m_playerTransform.position.y, courierWaypoint.transform.position.z);
             transform.position = Vector3.Lerp(transform.position, waypointPos, speed * Time.deltaTime);
             m_crowAnimator.SetBool("isMoving", true);

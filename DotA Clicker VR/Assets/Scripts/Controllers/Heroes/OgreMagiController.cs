@@ -87,7 +87,8 @@ public class OgreMagiController : MonoBehaviour
 
     void Start()
     {
-
+        int pick = UnityEngine.Random.Range(60, 300);
+        StartCoroutine(RareIdleCount(pick));
     }
 
     void OnLoadedSaveFile(SaveFileDto saveFile)
@@ -157,21 +158,10 @@ public class OgreMagiController : MonoBehaviour
 
     public void ActivateFireblast()
     {
-        if (FireblastActive) return;
-        FireblastActive = true;
-
-        FireblastEffects();
-
-        //Do animation and voice line
-        m_ogreMagiAnimator.SetTrigger("useFireblast");
-        if (m_audioSource.isPlaying)
-            RadiantClickerController.PlayRandomClip(m_audioSource, FireblastResponses);
-
-        if (!m_abilitySource.isPlaying)
-            m_abilitySource.PlayOneShot(FireblastAbilitySound);
+        ActivateFireblast(FireblastActiveDuration, true);
     }
 
-    public void ActivateFireblast(double remainingTime)
+    public void ActivateFireblast(double remainingTime, bool doSound)
     {
         if (FireblastActive) return;
         FireblastActive = true;
@@ -180,30 +170,23 @@ public class OgreMagiController : MonoBehaviour
 
         //Do animation and voice line
         m_ogreMagiAnimator.SetTrigger("useFireblast");
-        //if(m_audioSource.isPlaying)
-        //    RadiantClickerController.PlayRandomClip(m_audioSource, FireblastResponses);
 
-        //if (!m_abilitySource.isPlaying)
-        //    m_abilitySource.PlayOneShot(FireblastAbilitySound);
+        if(doSound)
+        {
+            if (m_audioSource.isPlaying)
+                RadiantClickerController.PlayRandomClip(m_audioSource, FireblastResponses);
+
+            if (!m_abilitySource.isPlaying)
+                m_abilitySource.PlayOneShot(FireblastAbilitySound);
+        }
     }
 
     public void ActivateBloodlust()
     {
-        if (BloodlustActive) return;
-        BloodlustActive = true;
-
-        BloodlustEffects();
-
-        //Do animation and voice line
-        m_ogreMagiAnimator.SetTrigger("useBloodlust");
-        if(!m_audioSource.isPlaying)
-            RadiantClickerController.PlayRandomClip(m_audioSource, BloodlustResponses);
-
-        if(!m_abilitySource.isPlaying)
-            m_abilitySource.PlayOneShot(BloodlustAbilitySound);
+        ActivateBloodlust(BloodlustActiveDuration, true);
     }
 
-    public void ActivateBloodlust(double remainingTime)
+    public void ActivateBloodlust(double remainingTime, bool doSound)
     {
         if (BloodlustActive) return;
         BloodlustActive = true;
@@ -212,12 +195,17 @@ public class OgreMagiController : MonoBehaviour
 
         //Do animation and voice line
         m_ogreMagiAnimator.SetTrigger("useBloodlust");
-        if (!m_audioSource.isPlaying)
-            RadiantClickerController.PlayRandomClip(m_audioSource, BloodlustResponses);
 
-        if (!m_abilitySource.isPlaying)
-            m_abilitySource.PlayOneShot(BloodlustAbilitySound);
+        if (doSound)
+        {
+            if (!m_audioSource.isPlaying)
+                RadiantClickerController.PlayRandomClip(m_audioSource, BloodlustResponses);
+
+            if (!m_abilitySource.isPlaying)
+                m_abilitySource.PlayOneShot(BloodlustAbilitySound);
+        }
     }
+
     IEnumerator AbilityCooldown(float time, string ability)
     {
         yield return new WaitForSeconds(time);
@@ -286,23 +274,11 @@ public class OgreMagiController : MonoBehaviour
         }
     }
 
-    void FireblastEffects()
-    {
-        m_fireblastActiveFade.gameObject.SetActive(true);
-
-        m_fireblastModifiedValue = m_clickerController.ClickAmount * 3;
-        m_clickerController.ClickAmount = m_fireblastModifiedValue;
-
-
-        StartCoroutine(AbilityCooldown(FireblastActiveDuration, "FireblastActiveFinish"));
-    }
-
     void FireblastEffects(float remainingTime)
     {
         m_fireblastActiveFade.gameObject.SetActive(true);
 
-        m_fireblastModifiedValue = m_clickerController.ClickAmount * 3;
-        m_clickerController.ClickAmount = m_fireblastModifiedValue;
+        m_clickerController.SetAbilityModifierAmount(Constants.FireblastMultiplier);
 
         StartCoroutine(AbilityCooldown(remainingTime, "FireblastActiveFinish"));
     }
@@ -315,17 +291,6 @@ public class OgreMagiController : MonoBehaviour
 
     int bloodlustOldValue;
 
-    void BloodlustEffects()
-    {
-        m_bloodlustActiveFade.gameObject.SetActive(true);
-
-        bloodlustOldValue = m_clickerController.TimeBetweenClicks.Seconds;
-        m_bloodlustModifiedValue = (m_clickerController.TimeBetweenClicks.Seconds - 30) < 0 ? 1 : m_clickerController.TimeBetweenClicks.Seconds - 30;
-        m_clickerController.TimeBetweenClicks = new TimeSpan(0, 0, m_bloodlustModifiedValue);
-
-        StartCoroutine(AbilityCooldown(BloodlustActiveDuration, "BloodlustActiveFinish"));
-    }
-
     void BloodlustEffects(float remainingTime)
     {
         m_bloodlustActiveFade.gameObject.SetActive(true);
@@ -333,6 +298,8 @@ public class OgreMagiController : MonoBehaviour
         bloodlustOldValue = m_clickerController.TimeBetweenClicks.Seconds;
         m_bloodlustModifiedValue = (m_clickerController.TimeBetweenClicks.Seconds - 30) < 0 ? 1 : m_clickerController.TimeBetweenClicks.Seconds - 30;
         m_clickerController.TimeBetweenClicks = new TimeSpan(0, 0, m_bloodlustModifiedValue);
+
+        m_clickerController.SetAbilityModifierAmount(Constants.BloodlustMultiplier);
 
         StartCoroutine(AbilityCooldown(remainingTime, "BloodlustActiveFinish"));
     }

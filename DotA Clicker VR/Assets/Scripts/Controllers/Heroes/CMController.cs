@@ -84,16 +84,16 @@ public class CMController : MonoBehaviour
         RadiantSceneController.LoadedSaveFile += OnLoadedSaveFile;
     }
 
-    void OnLoadedSaveFile(SaveFileDto saveFile)
-    {
-        CrystalNovaUpgrade = saveFile.RadiantSide.Heroes.FirstOrDefault(x => x.HeroName == "Crystal Maiden").Ability1Level > 0;
-        FrostbiteUpgrade = saveFile.RadiantSide.Heroes.FirstOrDefault(x => x.HeroName == "Crystal Maiden").Ability2Level > 0;
-    }
-
     void Start()
     {
         int pick = UnityEngine.Random.Range(60, 300);
         StartCoroutine(RareIdleCount(pick));
+    }
+
+    void OnLoadedSaveFile(SaveFileDto saveFile)
+    {
+        CrystalNovaUpgrade = saveFile.RadiantSide.Heroes.FirstOrDefault(x => x.HeroName == "Crystal Maiden").Ability1Level > 0;
+        FrostbiteUpgrade = saveFile.RadiantSide.Heroes.FirstOrDefault(x => x.HeroName == "Crystal Maiden").Ability2Level > 0;
     }
 
     void Update()
@@ -159,20 +159,10 @@ public class CMController : MonoBehaviour
 
     public void ActivateCrystalNova()
     {
-        if (CrystalNovaActive) return;
-        CrystalNovaActive = true;
-
-        m_cmAnimator.SetTrigger("useCrystalNova");
-        CrystalNovaEffects();
-
-        if (!m_audioSource.isPlaying)
-            RadiantClickerController.PlayRandomClip(m_audioSource, CrystalNovaResponses);
-
-        if (!m_abilitySource.isPlaying)
-            m_abilitySource.PlayOneShot(CrystalNovaAbilitySound);
+        ActivateCrystalNova(CrystalNovaActiveDuration, true);
     }
 
-    public void ActivateCrystalNova(double time)
+    public void ActivateCrystalNova(double time, bool doSound)
     {
         if (CrystalNovaActive) return;
         CrystalNovaActive = true;
@@ -180,32 +170,22 @@ public class CMController : MonoBehaviour
         m_cmAnimator.SetTrigger("useCrystalNova");
         CrystalNovaEffects((float)time);
 
-        //if (!m_audioSource.isPlaying)
-        //    RadiantClickerController.PlayRandomClip(m_audioSource, CrystalNovaResponses);
+        if(doSound)
+        {
+            if (!m_audioSource.isPlaying)
+                RadiantClickerController.PlayRandomClip(m_audioSource, CrystalNovaResponses);
 
-        //if (!m_abilitySource.isPlaying)
-        //    m_abilitySource.PlayOneShot(CrystalNovaAbilitySound);
+            if (!m_abilitySource.isPlaying)
+                m_abilitySource.PlayOneShot(CrystalNovaAbilitySound);
+        }
     }
 
     public void ActivateFrostbite()
     {
-        if (FrostbiteActive) return;
-        FrostbiteActive = true;
-
-        m_cmAnimator.SetTrigger("useFrostbite");
-        FrostbiteEffects();
-
-        if (!m_audioSource.isPlaying)
-            RadiantClickerController.PlayRandomClip(m_audioSource, FrostbiteResponses);
-
-        if (!m_abilitySource.isPlaying)
-            m_abilitySource.PlayOneShot(FrostbiteAbilitySound);
+        ActivateFrostbite(FrostbiteActiveDuration, true);
     }
 
-    /// <summary>
-    /// Activate from Loaded Save
-    /// </summary>
-    public void ActivateFrostbite(double time)
+    public void ActivateFrostbite(double time, bool doSound)
     {
         if (FrostbiteActive) return;
         FrostbiteActive = true;
@@ -213,11 +193,14 @@ public class CMController : MonoBehaviour
         m_cmAnimator.SetTrigger("useFrostbite");
         FrostbiteEffects((float)time);
 
-        //if (!m_audioSource.isPlaying)
-        //    RadiantClickerController.PlayRandomClip(m_audioSource, FrostbiteResponses);
+        if(doSound)
+        {
+            if (!m_audioSource.isPlaying)
+                RadiantClickerController.PlayRandomClip(m_audioSource, FrostbiteResponses);
 
-        //if (!m_abilitySource.isPlaying)
-        //    m_abilitySource.PlayOneShot(FrostbiteAbilitySound);
+            if (!m_abilitySource.isPlaying)
+                m_abilitySource.PlayOneShot(FrostbiteAbilitySound);
+        }
     }
 
     IEnumerator AbilityCooldown(float time, string ability)
@@ -289,60 +272,33 @@ public class CMController : MonoBehaviour
         }
     }
 
-    void CrystalNovaEffects()
-    {
-        m_crystalNovaActiveFade.gameObject.SetActive(true);
-
-        m_crystalNovaModifiedValue = m_clickerController.ClickAmount * 2;
-        m_clickerController.ClickAmount = m_crystalNovaModifiedValue;
-
-        StartCoroutine(AbilityCooldown(CrystalNovaActiveDuration, "CrystalNovaActiveFinish"));
-    }
-
-
     void CrystalNovaEffects(float remainingTime)
     {
         m_crystalNovaActiveFade.gameObject.SetActive(true);
 
-        m_crystalNovaModifiedValue = m_clickerController.ClickAmount * 2;
-        m_clickerController.ClickAmount = m_crystalNovaModifiedValue;
+        m_clickerController.SetAbilityModifierAmount(Constants.CrystalNovaMultiplier);
 
         StartCoroutine(AbilityCooldown(remainingTime, "CrystalNovaActiveFinish"));
     }
 
     void RemoveCrystalNovaEffects()
     {
-        m_clickerController.ClickAmount -= (m_crystalNovaModifiedValue / 2);
+        m_clickerController.RemoveAbilityModifierAmount(Constants.CrystalNovaMultiplier);
         m_clickerController.m_ability1ClickTime = DateTime.MinValue;
     }
 
-    void FrostbiteEffects()
-    {
-        m_frostbiteActiveFade.gameObject.SetActive(true);
-
-        m_frostbiteModifiedValue = m_clickerController.ClickAmount * 4; 
-        m_clickerController.ClickAmount = m_frostbiteModifiedValue;
-
-        StartCoroutine(AbilityCooldown(FrostbiteActiveDuration, "FrostbiteActiveFinish"));
-    }
-
-    /// <summary>
-    /// Loading from save file
-    /// </summary>
-    /// <param name="secondsRemaining"></param>
     void FrostbiteEffects(float secondsRemaining)
     {
         m_frostbiteActiveFade.gameObject.SetActive(true);
 
-        m_frostbiteModifiedValue = m_clickerController.ClickAmount * 4;
-        m_clickerController.ClickAmount = m_frostbiteModifiedValue;
+        m_clickerController.SetAbilityModifierAmount(Constants.FrostbiteMultiplier);
 
         StartCoroutine(AbilityCooldown(secondsRemaining, "FrostbiteActiveFinish"));
     }
 
     void RemoveFrostbiteEffects()
     {
-        m_clickerController.ClickAmount -= (m_frostbiteModifiedValue / 2);
+        m_clickerController.RemoveAbilityModifierAmount(Constants.FrostbiteMultiplier);
         m_clickerController.m_ability2ClickTime = DateTime.MinValue;
     }
 
@@ -353,6 +309,4 @@ public class CMController : MonoBehaviour
         int pick = UnityEngine.Random.Range(60, 300);
         StartCoroutine(RareIdleCount(pick));
     }
-
-    
 }

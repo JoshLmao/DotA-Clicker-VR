@@ -85,7 +85,8 @@ public class RubickController : MonoBehaviour
 
     void Start()
     {
-
+        int pick = UnityEngine.Random.Range(60, 300);
+        StartCoroutine(RareIdleCount(pick));
     }
 
     void OnLoadedSaveFile(SaveFileDto saveFile)
@@ -160,21 +161,10 @@ public class RubickController : MonoBehaviour
 
     public void ActivateTelekinesis()
     {
-        if (TelekinesisActive) return;
-        TelekinesisActive = true;
-
-        TelekinesisEffects();
-
-        //Do animation and voice line
-        m_rubickAnimator.SetTrigger("useTelekinesis");
-        if(!m_audioSource.isPlaying)
-            RadiantClickerController.PlayRandomClip(m_audioSource, TelekinesisResponses);
-
-        if (!m_abilitySource.isPlaying)
-            m_audioSource.PlayOneShot(TelekinesisAbilitySound);
+        ActivateTelekinesis(TelekinesisActiveDuration, true);
     }
 
-    public void ActivateTelekinesis(double remainingTime)
+    public void ActivateTelekinesis(double remainingTime, bool doSound)
     {
         if (TelekinesisActive) return;
         TelekinesisActive = true;
@@ -183,30 +173,23 @@ public class RubickController : MonoBehaviour
 
         //Do animation and voice line
         m_rubickAnimator.SetTrigger("useTelekinesis");
-        //if (!m_audioSource.isPlaying)
-        //    RadiantClickerController.PlayRandomClip(m_audioSource, TelekinesisResponses);
 
-        //if (!m_abilitySource.isPlaying)
-        //    m_audioSource.PlayOneShot(TelekinesisAbilitySound);
+        if(doSound)
+        {
+            if (!m_audioSource.isPlaying)
+                RadiantClickerController.PlayRandomClip(m_audioSource, TelekinesisResponses);
+
+            if (!m_abilitySource.isPlaying)
+                m_audioSource.PlayOneShot(TelekinesisAbilitySound);
+        }
     }
 
     public void ActivateSpellSteal()
     {
-        if (SpellStealActive) return;
-        SpellStealActive = true;
-
-        SpellStealEffects();
-
-        //Do animation and voice line
-        m_rubickAnimator.SetTrigger("useSpellSteal");
-        if(!m_audioSource.isPlaying)
-            RadiantClickerController.PlayRandomClip(m_audioSource, SpellStealResponses);
-
-        if (!m_abilitySource.isPlaying)
-            m_audioSource.PlayOneShot(SpellStealAbilitySound);
+        ActivateSpellSteal(SpellStealActiveDuration, true);
     }
 
-    public void ActivateSpellSteal(double remainingTime)
+    public void ActivateSpellSteal(double remainingTime, bool doSound)
     {
         if (SpellStealActive) return;
         SpellStealActive = true;
@@ -215,11 +198,15 @@ public class RubickController : MonoBehaviour
 
         //Do animation and voice line
         m_rubickAnimator.SetTrigger("useSpellSteal");
-        if (!m_audioSource.isPlaying)
-            RadiantClickerController.PlayRandomClip(m_audioSource, SpellStealResponses);
 
-        if (!m_abilitySource.isPlaying)
-            m_audioSource.PlayOneShot(SpellStealAbilitySound);
+        if(doSound)
+        {
+            if (!m_audioSource.isPlaying)
+                RadiantClickerController.PlayRandomClip(m_audioSource, SpellStealResponses);
+
+            if (!m_abilitySource.isPlaying)
+                m_audioSource.PlayOneShot(SpellStealAbilitySound);
+        }
     }
 
     IEnumerator AbilityCooldown(float time, string ability)
@@ -290,39 +277,19 @@ public class RubickController : MonoBehaviour
         }
     }
 
-    void TelekinesisEffects()
-    {
-        m_telekinesisActiveFade.gameObject.SetActive(true);
-
-        m_telekinesisModifiedValue = m_clickerController.ClickAmount * 2;
-        m_clickerController.ClickAmount = m_telekinesisModifiedValue;
-
-        StartCoroutine(AbilityCooldown(TelekinesisActiveDuration, "TelekinesisActiveFinish"));
-    }
-
     void TelekinesisEffects(float remainingTime)
     {
         m_telekinesisActiveFade.gameObject.SetActive(true);
 
-        m_telekinesisModifiedValue = m_clickerController.ClickAmount * 2;
-        m_clickerController.ClickAmount = m_telekinesisModifiedValue;
+        m_clickerController.SetAbilityModifierAmount(Constants.TelekinesisMultiplier);
 
         StartCoroutine(AbilityCooldown(remainingTime, "TelekinesisActiveFinish"));
     }
 
     void RemoveTelekinesisEffects()
     {
-        m_clickerController.ClickAmount -= (m_telekinesisModifiedValue / 2);
+        m_clickerController.SetAbilityModifierAmount(Constants.TelekinesisMultiplier);
         m_clickerController.m_ability1ClickTime = System.DateTime.MinValue;
-    }
-
-    void SpellStealEffects()
-    {
-        m_spellStealActiveFade.gameObject.SetActive(true);
-
-        /*Rubick steals another heroes click amount for one click. Cooldown: 3 minutes*/
-
-        StartCoroutine(AbilityCooldown(SpellStealActiveDuration, "SpellStealActiveFinish"));
     }
 
     void SpellStealEffects(float remainingTime)
@@ -330,12 +297,14 @@ public class RubickController : MonoBehaviour
         m_spellStealActiveFade.gameObject.SetActive(true);
 
         /*Rubick steals another heroes click amount for one click. Cooldown: 3 minutes*/
+        m_clickerController.SetAbilityModifierAmount(Constants.SpellStealMultiplier);
 
         StartCoroutine(AbilityCooldown(remainingTime, "SpellStealActiveFinish"));
     }
 
     void RemoveSpellStealEffects()
     {
+        m_clickerController.RemoveAbilityModifierAmount(Constants.SpellStealMultiplier);
         m_clickerController.m_ability2ClickTime = System.DateTime.MinValue;
     }
 

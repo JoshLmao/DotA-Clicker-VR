@@ -10,5 +10,7 @@ public class PreferencesDto
     public float HeroVolume { get; set; }
     public bool MusicEnabled { get; set; }
     public bool AllAudioEnabled { get; set; }
+
     public float SuperSampleScale { get; set; }
+    public float FieldOfView { get; set; }
 }

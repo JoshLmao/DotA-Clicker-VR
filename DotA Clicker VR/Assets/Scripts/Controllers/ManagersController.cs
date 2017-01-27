@@ -36,6 +36,9 @@ public class ManagersController : MonoBehaviour {
     //Has manager been bought
     bool m_CM, m_rubick, m_ogreMagi, m_tusk, m_phoenix, m_sven, m_antiMage, m_alchemist;
 
+    [SerializeField]
+    GameObject m_allBoughtPrefab;
+
     void Awake()
     {
         Managers = new List<ManagerDto>();
@@ -213,11 +216,17 @@ public class ManagersController : MonoBehaviour {
             icon.sprite = manager.Image;
             Text upgradeName = newManager.transform.Find("ManagerName").GetComponent<Text>();
             upgradeName.text = manager.Name + " Manager";
-            Text upgradeCost = newManager.transform.Find("BuyButton/GoldCost").GetComponent<Text>();
+            Text upgradeCost = newManager.transform.Find("BuyManagerButton/GoldCost").GetComponent<Text>();
             upgradeCost.text = manager.Cost.ToString();
-            Button button = newManager.transform.Find("BuyButton").GetComponent<Button>();
+            Button button = newManager.transform.Find("BuyManagerButton").GetComponent<Button>();
             ManagerDto clickedManager = manager; //Fix for AddListener adding current manager to each button click
             button.onClick.AddListener(delegate { AddManager(clickedManager); });
+        }
+
+        if (Managers.Count < 1)
+        {
+            var canvas = Instantiate(m_allBoughtPrefab);
+            canvas.transform.SetParent(this.transform, false);
         }
     }
 

@@ -158,6 +158,7 @@ public class HandController : MonoBehaviour
         }
     }
 
+    //MAIN PLACE TO TRIGGER COMPLETE MODIFIER
     void OnTriggerStay(Collider col)
     {
         if (col.tag == "ItemModifier" && CurrentObject != null) //Is holding an object & in item modifier trigger

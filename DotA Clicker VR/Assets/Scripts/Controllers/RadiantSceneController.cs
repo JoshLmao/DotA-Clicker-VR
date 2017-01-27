@@ -75,6 +75,7 @@ public class RadiantSceneController : MonoBehaviour
 
     [SerializeField]
     GameObject m_inputModule;
+
     void Awake()
     {
         VRSettings.enabled = SteamVR.enabled ? SteamVR.active : false;
@@ -104,8 +105,6 @@ public class RadiantSceneController : MonoBehaviour
         {
 
         }
-
-
     }
 
     void Start ()
@@ -137,17 +136,6 @@ public class RadiantSceneController : MonoBehaviour
             StartRoshanCountdown();
 
         m_goldUI.text = TotalGold.ToString();
-
-        //if we're not in VR
-        //if(!VRSettings.enabled)
-        //{
-        //    if (m_inputModule.GetComponent<VRTK_EventSystemVRInput>())
-        //        m_inputModule.GetComponent<VRTK_EventSystemVRInput>().enabled = false;
-        //    if (!m_inputModule.GetComponent<EventSystem>().enabled)
-        //        m_inputModule.GetComponent<EventSystem>().enabled = true;
-        //    if (!m_inputModule.GetComponent<StandaloneInputModule>().enabled)
-        //        m_inputModule.GetComponent<StandaloneInputModule>().enabled = true;
-        //}
     }
 
     public void LoadProgress()
@@ -220,12 +208,6 @@ public class RadiantSceneController : MonoBehaviour
 
         if (CurrentSaveFile != null)
             hasSaveFile = true;
-
-        //Calculate TimeSpans for ModiferTimeRemaining
-        //foreach(RadiantClickerController clicker in SceneHeroes)
-        //{
-            
-        //}
 
         //Save data
         SaveFileDto saveFile = new SaveFileDto()
@@ -522,6 +504,12 @@ public class RadiantSceneController : MonoBehaviour
 
     public void SaveConfig()
     {
+        if (CurrentConfigFile == null)
+        {
+            Debug.LogError("Can't save config file because it's null");
+            return;
+        }
+
         CheckSaveFileFolders();
 
         try
@@ -551,11 +539,20 @@ public class RadiantSceneController : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
     }
 
-    public void AddToTotal(decimal amount)
+    public void AddToTotal(decimal amount, double multiplier)
     {
-        if (amount <= 0) return;
+        if (amount <= 0)
+            return;
 
-        TotalGold += amount;
+        if (multiplier < 0)
+        {
+            //If the current modifier is set to -1, which means none
+            TotalGold += amount;
+        }
+        else
+        {
+            TotalGold += amount * (decimal)multiplier;
+        }
     }
 
     public void RemoveFromTotal(decimal amount)
