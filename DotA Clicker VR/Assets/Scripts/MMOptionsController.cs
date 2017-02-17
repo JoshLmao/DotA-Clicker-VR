@@ -88,8 +88,11 @@ public class MMOptionsController : MonoBehaviour
             HeroVolume = HeroVolSlider.value,
             MusicEnabled = m_audioEnabled.isOn,
             AllAudioEnabled = m_audioEnabled.isOn,
-            SuperSampleScale = SuperSampleSlider.value,
         };
+        if(VRSettings.enabled)
+        {
+            m_currentConfig.Preferences.SuperSampleScale = SuperSampleSlider.value;
+        }
 
         string toJson = JsonConvert.SerializeObject(m_currentConfig, Formatting.Indented);
         File.WriteAllText(configLoc, toJson);

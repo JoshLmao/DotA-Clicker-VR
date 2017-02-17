@@ -139,7 +139,6 @@ public class TuskController : MonoBehaviour
     void BuySnowballUpgrade(int level)
     {
         SnowballUpgrade = true;
-        Debug.Log("Bought Snowball Upgrade");
 
         //Give white color to ability
         m_snowballCooldown.fillAmount = 0;
@@ -151,7 +150,6 @@ public class TuskController : MonoBehaviour
     void BuyWalrusPunchUpgrade(int level)
     {
         WalrusPunchUpgrade = true;
-        Debug.Log("Bought WalrusPunch Upgrade");
 
         //Give white color to ability
         m_walrusPunchCooldown.fillAmount = 0;

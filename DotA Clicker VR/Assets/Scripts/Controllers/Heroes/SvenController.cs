@@ -123,7 +123,6 @@ public class SvenController : MonoBehaviour
     void BuyWarCryUpgrade(int level)
     {
         WarCryUpgrade = true;
-        Debug.Log("Bought WarCry Upgrade");
         
         //Give white color to ability
         m_warCryCooldown.fillAmount = 0;
@@ -135,7 +134,6 @@ public class SvenController : MonoBehaviour
     void BuyGodsStrengthUpgrade(int level)
     {
         GodsStrengthUpgrade = true;
-        Debug.Log("Bought GodsStrength Upgrade");
 
         //Give white color to ability
         m_godsStrengthCooldown.fillAmount = 0;
@@ -146,7 +144,6 @@ public class SvenController : MonoBehaviour
 
     void BuySvenManager()
     {
-        Debug.Log("Bought Sven Manager");
         SvenManager = true;
         RadiantClickerController clicker = this.GetComponent<RadiantClickerController>();
         clicker.HasManager = SvenManager;

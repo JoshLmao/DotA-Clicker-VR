@@ -99,7 +99,7 @@ public class AchievementEvents : MonoBehaviour
         DongsOutForBulldog.AddListener(DongsOutMethod);
 
         /*This code is the noise sheep make, with a 'd' on the end. Buy I dont care since no one will read this, right?*/
-        if (m_sceneController.CurrentSaveFile != null)
+        if (m_sceneController.CurrentSaveFile != null && m_sceneController.CurrentSaveFile.Achievements != null)
         {
             Earn625GoldStatus = m_sceneController.CurrentSaveFile.Achievements.Earn625Gold;
             Earn6200GoldStatus = m_sceneController.CurrentSaveFile.Achievements.Earn625Gold;

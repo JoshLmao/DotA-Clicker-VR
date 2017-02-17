@@ -153,6 +153,7 @@ public class RadiantSceneController : MonoBehaviour
         catch(Exception e)
         {
             Debug.LogError("Can't load save file - " + e.ToString());
+            CurrentSaveFile = new SaveFileDto();
         }
 
         if (LoadedSaveFile != null)
@@ -221,7 +222,7 @@ public class RadiantSceneController : MonoBehaviour
             },
             SessionStats = new StatsDto()
             {
-                TotalPlayTime = hasSaveFile ? CurrentSaveFile.SessionStats.TotalPlayTime += m_totalPlayTime : m_totalPlayTime,
+                TotalPlayTime = hasSaveFile && CurrentSaveFile.SessionStats != null ? CurrentSaveFile.SessionStats.TotalPlayTime += m_totalPlayTime : m_totalPlayTime,
                 ClickCount = ClickCount,
                 ItemStats = new ItemStatsDto()
                 {
@@ -539,19 +540,35 @@ public class RadiantSceneController : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
     }
 
-    public void AddToTotal(decimal amount, double multiplier)
+    public void AddToTotal(decimal amount, double abilityMultiplier, double itemMultiplier)
     {
         if (amount <= 0)
             return;
 
-        if (multiplier < 0)
+        if(abilityMultiplier <= 0 && itemMultiplier > 0)
         {
-            //If the current modifier is set to -1, which means none
+            //an item is active and no abilities in use
+            TotalGold += Math.Round(amount * (decimal)itemMultiplier, 0, MidpointRounding.ToEven);
+        }
+        else if(abilityMultiplier > 0 && itemMultiplier <= 0)
+        {
+            //ability in use but no item
+            TotalGold += Math.Round(amount * (decimal)abilityMultiplier, 0, MidpointRounding.ToEven);
+        }
+        else if(abilityMultiplier <= 0 && itemMultiplier > 0)
+        {
+            //ability and item multiplier is in use
+            var totalMultiplier = abilityMultiplier * itemMultiplier;
+            TotalGold += Math.Round(amount * (decimal)totalMultiplier, 0, MidpointRounding.ToEven);
+        }
+        else if(abilityMultiplier < 0 && itemMultiplier < 0)
+        {
+            //nothing in use
             TotalGold += amount;
         }
         else
         {
-            TotalGold += amount * (decimal)multiplier;
+            Debug.Log("Can't add amount to TotalGold. You're IF statement is shit");
         }
     }
 

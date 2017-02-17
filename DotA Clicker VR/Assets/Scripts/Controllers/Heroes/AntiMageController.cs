@@ -122,7 +122,6 @@ public class AntiMageController : MonoBehaviour
     void BuyBlinkUpgrade(int level)
     {
         BlinkUpgrade = true;
-        Debug.Log("Bought Blink Upgrade");
 
         //Give white color to ability
         m_blinkCooldown.fillAmount = 0;
@@ -134,7 +133,6 @@ public class AntiMageController : MonoBehaviour
     void BuyManaVoidUpgrade(int level)
     {
         ManaVoidUpgrade = true;
-        Debug.Log("Bought ManaVoid Upgrade");
 
         //Give white color to ability
         m_manaVoidCooldown.fillAmount = 0;
@@ -298,7 +296,7 @@ public class AntiMageController : MonoBehaviour
         //Left of Anti Magi is Sven
         if (antiMage.CurrentClickerTime.Seconds - durationLeft < 0)
         {
-            scene.AddToTotal(antiMage.ClickAmount, m_clickerController.ItemModifierMultiplier);
+            scene.AddToTotal(antiMage.ClickAmount, m_clickerController.AbilityModifierMulitiplier, m_clickerController.ItemModifierMultiplier);
             antiMage.CurrentClickerTime = new TimeSpan(0, 0, antiMage.TimeBetweenClicks.Seconds - durationLeft);
         }
         else
@@ -308,7 +306,7 @@ public class AntiMageController : MonoBehaviour
         //Right of Anti Mage is Alchemist
         if (antiMage.CurrentClickerTime.Seconds - durationLeft < 0)
         {
-            scene.AddToTotal(antiMage.ClickAmount, m_clickerController.ItemModifierMultiplier);
+            scene.AddToTotal(antiMage.ClickAmount, m_clickerController.AbilityModifierMulitiplier, m_clickerController.ItemModifierMultiplier);
             antiMage.CurrentClickerTime = new TimeSpan(0, 0, antiMage.TimeBetweenClicks.Seconds - durationLeft);
         }
         else

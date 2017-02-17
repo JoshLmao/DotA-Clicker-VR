@@ -28,7 +28,8 @@ public class RadiantClickerController : MonoBehaviour
         }
         set
         {
-            StartClickAmount = value;
+            if(value > 0)
+                StartClickAmount = value;
         }
     }
     /// <summary>
@@ -83,6 +84,8 @@ public class RadiantClickerController : MonoBehaviour
     /// Current modifier's multiplier amount
     /// </summary>
     public double ItemModifierMultiplier = -1;
+
+    public double AbilityModifierMulitiplier = -1;
 
     public delegate void OnClickButton(string clickerName);
     public event OnClickButton OnClickedButton;
@@ -180,7 +183,6 @@ public class RadiantClickerController : MonoBehaviour
     void Start ()
     {
         TimeBetweenClicks = new TimeSpan(0, 0, 0, SecondsToCompleteClick);
-        //m_clickAmount = ClickAmount;
     }
 	
     void AbilityLevelUpStart()
@@ -303,10 +305,7 @@ public class RadiantClickerController : MonoBehaviour
     {
         m_heroNameText.text = HeroName;
 
-        if (ItemModifierMultiplier != -1)
-            m_clickAmount = ClickAmount * ItemModifierMultiplier;
-        else
-            m_clickAmount = ClickAmount;
+        CalculateClickResultUI();
 
         m_clickButtonGoldText.text = m_clickAmount + " gold";
         m_amountBoughtText.text = ClickerMultiplier.ToString();
@@ -316,6 +315,26 @@ public class RadiantClickerController : MonoBehaviour
             m_timeRemainingText.text = CurrentClickerTime.ToString();
         else
             m_timeRemainingText.text = new TimeSpan(0, 0, 0, 0).ToString();
+    }
+
+    void CalculateClickResultUI()
+    {
+        double abilityModify = 0;
+        double itemModify = 0;
+
+        if (AbilityModifierMulitiplier > 1)
+            abilityModify = AbilityModifierMulitiplier;
+        if (ItemModifierMultiplier > 1)
+            itemModify = ItemModifierMultiplier;
+
+        if (abilityModify > 0 && itemModify <= 0)
+            m_clickAmount = ClickAmount * abilityModify;
+        else if (abilityModify <= 0 && itemModify > 0)
+            m_clickAmount = ClickAmount * itemModify;
+        else if (abilityModify > 0 && itemModify > 0)
+            m_clickAmount = ClickAmount * (abilityModify + itemModify);
+        else if (abilityModify <= 0 && itemModify <= 0)
+            m_clickAmount = ClickAmount;
     }
 
     public void OnClickButtonPressed()
@@ -336,7 +355,7 @@ public class RadiantClickerController : MonoBehaviour
     void CompletedClick()
     {
         //On Clicker timer complete
-        m_sceneController.AddToTotal(ClickAmount, ItemModifierMultiplier);
+        m_sceneController.AddToTotal(ClickAmount, AbilityModifierMulitiplier, ItemModifierMultiplier);
 
         if(OnClickedFinished != null)
             OnClickedFinished.Invoke(name);
@@ -658,6 +677,31 @@ public class RadiantClickerController : MonoBehaviour
             double rounded = Math.Round(Ability1LvlUpCount * 1.5f, 1, MidpointRounding.AwayFromZero);
             m_abil1Slider.maxValue = (float)rounded;
 
+            switch (Ability1Level)
+            {
+                //On level up from previous to that case
+                case 1:
+                    {
+                        Ability1LvlUpCount += 25;
+                        break;
+                    }
+                case 2:
+                    {
+                        Ability1LvlUpCount += 45;
+                        break;
+                    }
+                case 3:
+                    {
+                        Ability1LvlUpCount += 50;
+                        break;
+                    }
+                case 4:
+                    {
+                        Ability1LvlUpCount += 75;
+                        break;
+                    }
+            }
+
             ResetLevelIcons("1");
             m_abil1UseCount = 0;
         }
@@ -665,7 +709,6 @@ public class RadiantClickerController : MonoBehaviour
         {
             m_abil1Slider.value = m_abil1UseCount;
         }
-
     }
 
     void Ability2Used()
@@ -685,6 +728,31 @@ public class RadiantClickerController : MonoBehaviour
             m_abil2Slider.value = 1; //1 as we're adding the current count at start
             double rounded = Math.Round(Ability2LvlUpCount * 1.5f, 1, MidpointRounding.AwayFromZero);
             m_abil2Slider.maxValue = (float)rounded;
+
+            switch (Ability2Level)
+            {
+                //On level up from previous to that case
+                case 1:
+                    {
+                        Ability2LvlUpCount += Constants.Ability0To1Difference;
+                        break;
+                    }
+                case 2:
+                    {
+                        Ability2LvlUpCount += Constants.Ability1To2Difference;
+                        break;
+                    }
+                case 3:
+                    {
+                        Ability2LvlUpCount += Constants.Ability2To3Difference;
+                        break;
+                    }
+                case 4:
+                    {
+                        Ability2LvlUpCount += Constants.Ability3To4Difference;
+                        break;
+                    }
+            }
 
             ResetLevelIcons("2");
             m_abil2UseCount = 0;
@@ -773,380 +841,23 @@ public class RadiantClickerController : MonoBehaviour
         }
     }
 
-    #region OldCodeForModifiers
-    //void OnIronBranchModifier(string hero, int duration)
-    //{
-    //    if(!CheckIfModifierActive() || name != hero)
-    //    {
-    //        return;
-    //    }
-
-    //    StartCoroutine(WaitForItemModifier(duration, "ironBranch"));
-
-    //    m_ironBranchModify = ClickAmount * ItemModifierMultiplier;
-    //    ClickAmount = m_ironBranchModify;
-
-    //    m_currentModifierTotalTime = Constants.ModifierIronBranchDuration;
-
-    //    m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/iron_BranchModifier");
-    //    m_activeModifier.color = new Color(255, 255, 255, 1);
-    //    m_ironBranchModifierActive = true;
-
-    //    if(m_activeItemModifierPrefab == null)
-    //    {
-    //        m_activeItemModifierPrefab = Instantiate(m_sceneController.ItemModifierDisplayPrefabs[0]);
-    //        //Make changes to rigidbody & position and parent it
-    //        m_activeItemModifierPrefab.transform.parent = m_itemModifierHolder.transform;
-    //        m_activeItemModifierPrefab.transform.position = Vector3.zero;
-    //        m_activeItemModifierPrefab.transform.rotation = Quaternion.identity;
-    //    }
-    //}
-
-    //void OnClarityModifier(string hero, int duration)
-    //{
-    //    //If a modifier is active or the clicker GameObject name isnt the same as the hero string
-    //    //The hero string is the parent name of the Item Prefab, which is the clicker itself.
-    //    if (!CheckIfModifierActive() || name != hero)
-    //    {
-    //        return;
-    //    }
-
-    //    StartCoroutine(WaitForItemModifier(duration, "clarity"));
-
-    //    m_clarityModify = ClickAmount * (ItemModifierMultiplier * (int)1.5);
-    //    ClickAmount = m_clarityModify;
-
-    //    m_currentModifierTotalTime = Constants.ModifierClarityDuration;
-
-    //    m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/clarityModifier");
-    //    m_activeModifier.color = new Color(255, 255, 255, 1);
-    //    m_clarityModifierActive = true;
-
-    //    if (m_activeItemModifierPrefab == null)
-    //    {
-    //        m_activeItemModifierPrefab = Instantiate(m_sceneController.ItemModifierDisplayPrefabs[1]);
-    //        //Make changes to rigidbody & position and parent it
-    //        m_activeItemModifierPrefab.transform.parent = m_itemModifierHolder.transform;
-    //        m_activeItemModifierPrefab.transform.position = Vector3.zero;
-    //        m_activeItemModifierPrefab.transform.rotation = Quaternion.identity;
-    //    }
-    //}
-
-    //void OnMagicStickModifier(string hero, int duration)
-    //{
-    //    if (!CheckIfModifierActive() || name != hero)
-    //    {
-    //        return;
-    //    }
-
-    //    StartCoroutine(WaitForItemModifier(duration, "magicStick"));
-
-    //    m_magicStickModify = ClickAmount * (ItemModifierMultiplier * (int)2);
-    //    ClickAmount = m_magicStickModify;
-
-    //    m_currentModifierTotalTime = Constants.ModifierMagicStickDuration;
-
-    //    m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/magic_StickModifier");
-    //    m_activeModifier.color = new Color(255, 255, 255, 1);
-    //    m_magicStickModifierActive = true;
-
-    //    if (m_activeItemModifierPrefab == null)
-    //    {
-    //        m_activeItemModifierPrefab = Instantiate(m_sceneController.ItemModifierDisplayPrefabs[2]);
-    //        //Make changes to rigidbody & position and parent it
-    //        m_activeItemModifierPrefab.transform.parent = m_itemModifierHolder.transform;
-    //        m_activeItemModifierPrefab.transform.position = Vector3.zero;
-    //        m_activeItemModifierPrefab.transform.rotation = Quaternion.identity;
-    //    }
-    //}
-
-    //void OnQuellingBladeModifier(string hero, int duration)
-    //{
-    //    if (!CheckIfModifierActive() || name != hero)
-    //    {
-    //        return;
-    //    }
-
-    //    StartCoroutine(WaitForItemModifier(duration, "quellingBlade"));
-
-    //    m_quellingBladeModify = ClickAmount * (ItemModifierMultiplier * (int)2.5);
-    //    ClickAmount = m_quellingBladeModify;
-
-    //    m_currentModifierTotalTime = Constants.ModifierQuellingBladeDuration;
-
-    //    m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/quelling_BladeModifier");
-    //    m_activeModifier.color = new Color(255, 255, 255, 1);
-    //    m_quellingBladeModifierActive = true;
-
-    //    if (m_activeItemModifierPrefab == null)
-    //    {
-    //        m_activeItemModifierPrefab = Instantiate(m_sceneController.ItemModifierDisplayPrefabs[3]);
-    //        //Make changes to rigidbody & position and parent it
-    //        m_activeItemModifierPrefab.transform.parent = m_itemModifierHolder.transform;
-    //        m_activeItemModifierPrefab.transform.position = Vector3.zero;
-    //        m_activeItemModifierPrefab.transform.rotation = Quaternion.identity;
-    //    }
-    //}
-
-    //void OnMangoModifier(string hero, int duration)
-    //{
-    //    if (!CheckIfModifierActive() || name != hero)
-    //    {
-    //        return;
-    //    }
-
-    //    StartCoroutine(WaitForItemModifier(duration, "mango"));
-
-    //    m_mangoModify = ClickAmount * (ItemModifierMultiplier * (int)3);
-    //    ClickAmount = m_mangoModify;
-
-    //    m_currentModifierTotalTime = Constants.ModifierMangoDuration;
-
-    //    m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/mangoModifier");
-    //    m_activeModifier.color = new Color(255, 255, 255, 1);
-    //    m_mangoModifierActive = true;
-
-    //    if (m_activeItemModifierPrefab == null)
-    //    {
-    //        m_activeItemModifierPrefab = Instantiate(m_sceneController.ItemModifierDisplayPrefabs[4]);
-    //        //Make changes to rigidbody & position and parent it
-    //        m_activeItemModifierPrefab.transform.parent = m_itemModifierHolder.transform;
-    //        m_activeItemModifierPrefab.transform.position = Vector3.zero;
-    //        m_activeItemModifierPrefab.transform.rotation = Quaternion.identity;
-    //    }
-    //}
-
-    //void OnPowerTreadsModifier(string hero, int duration)
-    //{
-    //    if (!CheckIfModifierActive() || name != hero)
-    //    {
-    //        return;
-    //    }
-
-    //    StartCoroutine(WaitForItemModifier(duration, "powerTreads"));
-
-    //    m_powerTreadsModify = ClickAmount * (ItemModifierMultiplier * (int)3.5);
-    //    ClickAmount = m_powerTreadsModify;
-
-    //    m_currentModifierTotalTime = Constants.ModifierPowerTreadsDuration;
-
-    //    m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/power_TreadsModifier");
-    //    m_activeModifier.color = new Color(255, 255, 255, 1);
-    //    m_powerTreadsModifierActive = true;
-
-    //    if (m_activeItemModifierPrefab == null)
-    //    {
-    //        m_activeItemModifierPrefab = Instantiate(m_sceneController.ItemModifierDisplayPrefabs[5]);
-    //        //Make changes to rigidbody & position and parent it
-    //        m_activeItemModifierPrefab.transform.parent = m_itemModifierHolder.transform;
-    //        m_activeItemModifierPrefab.transform.position = Vector3.zero;
-    //        m_activeItemModifierPrefab.transform.rotation = Quaternion.identity;
-    //    }
-    //}
-
-    //void OnBottleModifier(string hero, int duration)
-    //{
-    //    if (!CheckIfModifierActive() || name != hero)
-    //    {
-    //        return;
-    //    }
-
-    //    StartCoroutine(WaitForItemModifier(duration, "bottle"));
-
-    //    m_bottleModify = ClickAmount * (ItemModifierMultiplier * (int)4);
-    //    ClickAmount = m_bottleModify;
-
-    //    m_currentModifierTotalTime = Constants.ModifierBottleDuration;
-
-    //    m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/bottleModifier");
-    //    m_activeModifier.color = new Color(255, 255, 255, 1);
-    //    m_bottleModifierActive = true;
-
-    //    if (m_activeItemModifierPrefab == null)
-    //    {
-    //        m_activeItemModifierPrefab = Instantiate(m_sceneController.ItemModifierDisplayPrefabs[6]);
-    //        //Make changes to rigidbody & position and parent it
-    //        m_activeItemModifierPrefab.transform.parent = m_itemModifierHolder.transform;
-    //        m_activeItemModifierPrefab.transform.position = Vector3.zero;
-    //        m_activeItemModifierPrefab.transform.rotation = Quaternion.identity;
-    //    }
-    //}
-
-    //void OnBlinkDaggerModifier(string hero, int duration)
-    //{
-    //    if (!CheckIfModifierActive() || name != hero)
-    //    {
-    //        return;
-    //    }
-
-    //    StartCoroutine(WaitForItemModifier(duration, "blinkDagger"));
-
-    //    m_blinkDaggerModify = ClickAmount * (ItemModifierMultiplier * (int)4.5);
-    //    ClickAmount = m_blinkDaggerModify;
-
-    //    m_currentModifierTotalTime = Constants.ModifierBlinkDaggerDuration;
-
-    //    m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/blink_DaggerModifier");
-    //    m_activeModifier.color = new Color(255, 255, 255, 1);
-    //    m_blinkDaggerModifierActive = true;
-
-    //    if (m_activeItemModifierPrefab == null)
-    //    {
-    //        m_activeItemModifierPrefab = Instantiate(m_sceneController.ItemModifierDisplayPrefabs[7]);
-    //        m_activeItemModifierPrefab.transform.parent = m_itemModifierHolder.transform;
-    //        m_activeItemModifierPrefab.transform.position = Vector3.zero;
-    //        m_activeItemModifierPrefab.transform.rotation = Quaternion.identity;
-    //    }
-    //}
-
-    //void OnHyperstoneModifier(string hero, int duration)
-    //{
-    //    if (!CheckIfModifierActive() || name != hero)
-    //    {
-    //        return;
-    //    }
-
-    //    StartCoroutine(WaitForItemModifier(duration, "hyperstone"));
-
-    //    m_hyperstoneModify = ClickAmount * (ItemModifierMultiplier * (int)5);
-    //    ClickAmount = m_hyperstoneModify;
-
-    //    m_currentModifierTotalTime = Constants.ModifierHyperstoneDuration;
-
-    //    m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/hyperstoneModifier");
-    //    m_activeModifier.color = new Color(255, 255, 255, 1);
-    //    m_hyperstoneModifierActive = true;
-
-    //    if (m_activeItemModifierPrefab == null)
-    //    {
-    //        m_activeItemModifierPrefab = Instantiate(m_sceneController.ItemModifierDisplayPrefabs[8]);
-    //        m_activeItemModifierPrefab.transform.parent = m_itemModifierHolder.transform;
-    //        m_activeItemModifierPrefab.transform.position = Vector3.zero;
-    //        m_activeItemModifierPrefab.transform.rotation = Quaternion.identity;
-    //    }
-    //}
-
-    //void OnBloodstoneModifier(string hero, int duration)
-    //{
-    //    if (!CheckIfModifierActive() || name != hero)
-    //    {
-    //        return;
-    //    }
-
-    //    StartCoroutine(WaitForItemModifier(duration, "bloodstone"));
-
-    //    m_bloodstoneModify = ClickAmount * (ItemModifierMultiplier * (int)5.5);
-    //    ClickAmount = m_bloodstoneModify;
-    //    m_currentModifierTotalTime = Constants.ModifierBloodstoneDuration;
-
-    //    m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/bloodstoneModifier");
-    //    m_activeModifier.color = new Color(255, 255, 255, 1);
-    //    m_bloodstoneModifierActive = true;
-
-    //    if (m_activeItemModifierPrefab == null)
-    //    {
-    //        m_activeItemModifierPrefab = Instantiate(m_sceneController.ItemModifierDisplayPrefabs[9]);
-    //        m_activeItemModifierPrefab.transform.parent = m_itemModifierHolder.transform;
-    //        m_activeItemModifierPrefab.transform.position = Vector3.zero;
-    //        m_activeItemModifierPrefab.transform.rotation = Quaternion.identity;
-    //    }
-    //}
-
-    //void OnReaverModifier(string hero, int duration)
-    //{
-    //    if (!CheckIfModifierActive() || name != hero)
-    //    {
-    //        return;
-    //    }
-
-    //    StartCoroutine(WaitForItemModifier(duration, "reaver"));
-
-    //    m_reaverModify = ClickAmount * (ItemModifierMultiplier * (int)6);
-    //    ClickAmount = m_reaverModify;
-    //    m_currentModifierTotalTime = Constants.ModifierReaverDuration;
-
-    //    m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/reaverModifier");
-    //    m_activeModifier.color = new Color(255, 255, 255, 1);
-    //    m_reaverModifierActive = true;
-
-    //    if (m_activeItemModifierPrefab == null)
-    //    {
-    //        m_activeItemModifierPrefab = Instantiate(m_sceneController.ItemModifierDisplayPrefabs[10]);
-    //        m_activeItemModifierPrefab.transform.parent = m_itemModifierHolder.transform;
-    //        m_activeItemModifierPrefab.transform.position = Vector3.zero;
-    //        m_activeItemModifierPrefab.transform.rotation = Quaternion.identity;
-    //    }
-    //}
-
-    //void OnDivineRapierModifier(string hero, int duration)
-    //{
-    //    if (!CheckIfModifierActive() || name != hero)
-    //    {
-    //        return;
-    //    }
-
-    //    StartCoroutine(WaitForItemModifier(duration, "divineRapier"));
-
-    //    m_divineRapierModify = ClickAmount * (ItemModifierMultiplier * (int)6.5);
-    //    ClickAmount = m_divineRapierModify;
-    //    m_currentModifierTotalTime = Constants.ModifierDivineRapierDuration;
-
-    //    m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/divine_RapierModifier");
-    //    m_activeModifier.color = new Color(255, 255, 255, 1);
-    //    m_divineRapierModifierActive = true;
-
-    //    if (m_activeItemModifierPrefab == null)
-    //    {
-    //        m_activeItemModifierPrefab = Instantiate(m_sceneController.ItemModifierDisplayPrefabs[11]);
-    //        m_activeItemModifierPrefab.transform.parent = m_itemModifierHolder.transform;
-    //        m_activeItemModifierPrefab.transform.position = Vector3.zero;
-    //        m_activeItemModifierPrefab.transform.rotation = Quaternion.identity;
-    //    }
-    //}
-
-    //void OnRecipeModifier(string hero, int duration)
-    //{
-    //    if (!CheckIfModifierActive() || name != hero)
-    //    {
-    //        return;
-    //    }
-
-    //    StartCoroutine(WaitForItemModifier(duration, "recipe"));
-
-    //    m_recipeModify = ClickAmount * (ItemModifierMultiplier * (int)10);
-    //    ClickAmount = m_recipeModify;
-
-    //    m_currentModifierTotalTime = Constants.ModifierRecipeDuration;
-
-    //    m_activeModifier.sprite = Resources.Load<Sprite>("Images/UI/ModifierIcons/recipeModifier");
-    //    m_activeModifier.color = new Color(255, 255, 255, 1);
-    //    m_recipeModifierActive = true;
-
-    //    if (m_activeItemModifierPrefab == null)
-    //    {
-    //        m_activeItemModifierPrefab = Instantiate(m_sceneController.ItemModifierDisplayPrefabs[12]);
-    //        m_activeItemModifierPrefab.transform.parent = m_itemModifierHolder.transform;
-    //        m_activeItemModifierPrefab.transform.position = Vector3.zero;
-    //        m_activeItemModifierPrefab.transform.rotation = Quaternion.identity;
-    //    }
-    //}
-    #endregion
-
     public void SetAbilityModifierAmount(double amount)
     {
-        if (ItemModifierMultiplier == -1)
-            ItemModifierMultiplier = amount;
+        if (AbilityModifierMulitiplier == -1)
+            AbilityModifierMulitiplier = amount;
         else
-            ItemModifierMultiplier += amount;
+        {
+            AbilityModifierMulitiplier += amount;
+        }
     }
 
     public void RemoveAbilityModifierAmount(double amount)
     {
         //if ((ItemModifierMultiplier - amount) == 0)
-        ItemModifierMultiplier -= amount;
+        AbilityModifierMulitiplier -= amount;
 
-        if (ItemModifierMultiplier == 0)
-            ItemModifierMultiplier = -1;
+        if (AbilityModifierMulitiplier == 0)
+            AbilityModifierMulitiplier = -1;
     }
 
     public void SetItemModifierAmount(double amount)
@@ -1283,7 +994,7 @@ public class RadiantClickerController : MonoBehaviour
 
         m_currentModifierTotalTime = -1;
         ItemModifierMultiplier = -1;
-    }
+    }   
 
     void OnLoadedSaveFile(SaveFileDto saveFile)
     {
@@ -1408,7 +1119,8 @@ public class RadiantClickerController : MonoBehaviour
 
                 if (hero.ModifierTimeRemaining != 0 && hero.CurrentModifier != string.Empty)
                 {
-                    ActivateModifier(hero.CurrentModifier, (int)hero.ModifierTimeRemaining);
+                    //check hero.CurrentModifier
+                    ActivateModifier(hero.CurrentModifier, hero.CurrentModifier, (int)hero.ModifierTimeRemaining);
                 }
             }
             else
@@ -1693,82 +1405,82 @@ public class RadiantClickerController : MonoBehaviour
     }
 
     //Used on Loaded Save. Check HandController for actual complete setting
-    void ActivateModifier(string toHero, int durationRemaining)
+    void ActivateModifier(string toHero, string item, int durationRemaining)
     {
-        if(toHero == "ironBranch")
+        if(item == "ironBranch")
         {
             //OnIronBranchModifier(modifier, durationRemaining);
             AddModifier(toHero, durationRemaining, Constants.ModifierIronBranchModifyAmount, Constants.ModifierIronBranchDuration,
                 "ironBranch", "iron_branchPrefab", "Images/UI/ModifierIcons/iron_BranchModifier", out m_ironBranchModifierActive);
         }
-        else if(toHero == "clarity")
+        else if(item == "clarity")
         {
             //OnClarityModifier(modifier, durationRemaining);
             AddModifier(toHero, durationRemaining, Constants.ModifierClarityModifyAmount, Constants.ModifierClarityDuration,
-                "clarity", "clarity", "Images/UI/ModifierIcons/magic_StickModifier", out m_clarityModifierActive);
+                "clarity", "clarity", "Images/UI/ModifierIcons/clarityModifier", out m_clarityModifierActive);
         }
-        else if(toHero == "magicStick")
+        else if(item == "magicStick")
         {
             //OnMagicStickModifier(modifier, durationRemaining);
             AddModifier(toHero, durationRemaining, Constants.ModifierMagicStickModifyAmount, Constants.ModifierMagicStickDuration,
                 "magicStick", "magic_stickPrefab", "Images/UI/ModifierIcons/magic_StickModifier", out m_magicStickModifierActive);
         }
-        else if(toHero == "quellingBlade")
+        else if(item == "quellingBlade")
         {
             //OnQuellingBladeModifier(modifier, durationRemaining);
             AddModifier(toHero, durationRemaining, Constants.ModifierQuellingBladeModifyAmount, Constants.ModifierQuellingBladeDuration,
                 "quellingBlade", "quelling_bladePrefab", "Images/UI/ModifierIcons/quelling_BladeModifier", out m_quellingBladeModifierActive);
         }
-        else if(toHero == "mango")
+        else if(item == "mango")
         {
             //OnMangoModifier(modifier, durationRemaining);
             AddModifier(toHero, durationRemaining, Constants.ModifierMangoModifyAmount, Constants.ModifierMangoDuration,
                 "mango", "mangoPrefab", "Images/UI/ModifierIcons/mangoModifier", out m_mangoModifierActive);
         }
-        else if(toHero == "powerTreads")
+        else if(item == "powerTreads")
         {
             //OnPowerTreadsModifier(modifier, durationRemaining);
             AddModifier(toHero, durationRemaining, Constants.ModifierPowerTreadsModifyAmount, Constants.ModifierPowerTreadsDuration,
                 "power_Treads", "power_treadsPrefab", "Images/UI/ModifierIcons/power_treadsModifier", out m_powerTreadsModifierActive);
         }
-        else if(toHero == "bottle")
+        else if(item == "bottle")
         {
             //OnBottleModifier(modifier, duration);
             AddModifier(toHero, durationRemaining, Constants.ModifierBottleModifyAmount, Constants.ModifierBottleDuration,
                 "bottle", "bottlePrefab", "Images/UI/ModifierIcons/bottleModifier", out m_bottleModifierActive);
         }
-        else if(toHero == "blinkDagger")
+        else if(item == "blinkDagger")
         {
             //OnBlinkDaggerModifier(modifier, duration);
             AddModifier(toHero, durationRemaining, Constants.ModifierBlinkDaggerModifyAmount, Constants.ModifierBlinkDaggerDuration,
                 "blinkDagger", "blink_daggerPrefab", "Images/UI/ModifierIcons/blink_DaggerModifier", out m_blinkDaggerModifierActive);
         }
-        else if(toHero == "hyperstone")
+        else if(item == "hyperstone")
         {
             //OnHyperstoneModifier(modifier, duration);
             AddModifier(toHero, durationRemaining, Constants.ModifierHyperstoneModifyAmount, Constants.ModifierHyperstoneDuration,
                 "hyperstone", "hyperstonePrefab", "Images/UI/ModifierIcons/hyperstoneModifier", out m_hyperstoneModifierActive);
         }
-        else if(toHero == "bloodstone")
+        else if(item == "bloodstone")
         {
             //OnBloodstoneModifier(modifier, duration);
             AddModifier(toHero, durationRemaining, Constants.ModifierBloodstoneModifyAmount, Constants.ModifierBloodstoneDuration,
                 "bloodstone", "bloodstonePrefab", "Images/UI/ModifierIcons/bloodstoneModifier", out m_bloodstoneModifierActive);
         }
-        else if(toHero == "reaver")
+        else if(item == "reaver")
         {
             //OnReaverModifier(modifier, duration);
             AddModifier(toHero, durationRemaining, Constants.ModifierBloodstoneModifyAmount, Constants.ModifierBloodstoneDuration,
                 "reaver", "reaver", "Images/UI/ModifierIcons/bloodstoneModifier", out m_reaverModifierActive);
 
         }
-        else if(toHero == "divineRapier")
+        else if(item == "divineRapier")
         {
             //OnDivineRapierModifier(modifier, duration);
             AddModifier(toHero, durationRemaining, Constants.ModifierDivineRapierModifyAmount, Constants.ModifierDivineRapierDuration,
                 "divinerapier", "divine_rapierPrefab", "Images/UI/ModifierIcons/divine_RapierModifier", out m_divineRapierModifierActive);
         }
-        else if(toHero == "recipe")
+        else if(item == "recipe")
         {
             //OnRecipeModifier(modifier, duration);
             AddModifier(toHero, durationRemaining, Constants.ModifierRecipeModifyAmount, Constants.ModifierRecipeDuration,

@@ -60,8 +60,11 @@ public class StatsController : MonoBehaviour {
 	void Update ()
     {
         //Live Play Time
-        TimeSpan t = TimeSpan.FromSeconds(m_sceneController.CurrentSaveFile.SessionStats.TotalPlayTime + Time.realtimeSinceStartup);
-        m_totalTimePlayedText.text = string.Format("{0:D1} days, \n{1:D2}:{2:D2}:{3:D2}", t.Days, t.Hours, t.Minutes, t.Seconds);
+        if (m_sceneController.CurrentSaveFile != null && m_sceneController.CurrentSaveFile.SessionStats != null)
+        {
+            TimeSpan t = TimeSpan.FromSeconds(m_sceneController.CurrentSaveFile.SessionStats.TotalPlayTime + Time.realtimeSinceStartup);
+            m_totalTimePlayedText.text = string.Format("{0:D1} days, \n{1:D2}:{2:D2}:{3:D2}", t.Days, t.Hours, t.Minutes, t.Seconds);
+        }
 
         //Live Click Count
         m_totalClicksText.text = m_sceneController.ClickCount.ToString() + " clicks";

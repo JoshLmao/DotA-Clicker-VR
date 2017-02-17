@@ -126,7 +126,6 @@ public class CMController : MonoBehaviour
     void BuyCrystalNovaUpgrade(int level)
     {
         CrystalNovaUpgrade = true;
-        Debug.Log("Bought Crystal Nova Upgrade");
         
         //Give white color to ability
         m_crystalNovaCooldown.fillAmount = 0;
@@ -139,7 +138,6 @@ public class CMController : MonoBehaviour
     void BuyFrostbiteUpgrade(int level)
     {
         FrostbiteUpgrade = true;
-        Debug.Log("Bought Frostbite Upgrade");
         
         //Give white color to abiity
         m_frostbiteCooldown.fillAmount = 0;

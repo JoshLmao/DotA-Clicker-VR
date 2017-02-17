@@ -97,10 +97,10 @@ public class RubickController : MonoBehaviour
 
     void Update()
     {
-        if(TelekinesisActive)
-        {
-            m_clickerController.ClickAmount *= 2;
-        }
+        //if(TelekinesisActive)
+        //{
+        //    m_clickerController.AbilityModifierMulitiplier *= 2;
+        //}
 
         if (TelekinesisActive && m_telekinesisCountdown)
         {
@@ -130,7 +130,6 @@ public class RubickController : MonoBehaviour
     void BuyTelekinesisUpgrade(int level)
     {
         TelekinesisUpgrade = true;
-        Debug.Log("Bought Telekinesis Upgrade");
 
         //Give white color to abiity
         m_telekinesisCooldown.fillAmount = 0;
@@ -142,7 +141,6 @@ public class RubickController : MonoBehaviour
     void BuySpellStealUpgrade(int level)
     {
         SpellStealUpgrade = true;
-        Debug.Log("Bought Spell Steal Upgrade");
 
         //Give white color to abiity
         m_spellStealCooldown.fillAmount = 0;
@@ -153,7 +151,6 @@ public class RubickController : MonoBehaviour
 
     void BuyRubickManager()
     {
-        Debug.Log("Bought Rubick Manager");
         RubickManager = true;
         RadiantClickerController clicker = this.GetComponent<RadiantClickerController>();
         clicker.HasManager = RubickManager;

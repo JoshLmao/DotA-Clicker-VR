@@ -309,6 +309,8 @@ public class UpgradesController : MonoBehaviour
             return;
         }
 
+        m_sceneController.RemoveFromTotal(upgrade.Cost);
+
         if (upgrade.Name == "Crystal Nova")
         {
             Debug.Log("Clicked Crystal Nova");

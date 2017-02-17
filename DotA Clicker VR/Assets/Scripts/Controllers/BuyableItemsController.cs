@@ -41,7 +41,6 @@ public class BuyableItemsController : MonoBehaviour
 
         AddDefaultItems();
         RefreshItemsList();
-
     }
 
     void Update()
@@ -54,7 +53,7 @@ public class BuyableItemsController : MonoBehaviour
         Items.Add(new ItemDto()
         {
             Name = "Iron Branch",
-            Description = "",
+            Description = "A simple iron branch",
             Image = Resources.Load<Sprite>("Images/UI/ItemsIcons/Iron_Branch_icon"),
             Cost = 0,
             ItemPrefab = ItemsPrefabs[0], //By order of added in inspector
@@ -203,6 +202,8 @@ public class BuyableItemsController : MonoBehaviour
             return;
         }
 
+        //Remove cost & spawn item
+        m_sceneController.RemoveFromTotal(item.Cost);
         SpawnItem(item);
 
         if(item.Name == "Iron Branch")

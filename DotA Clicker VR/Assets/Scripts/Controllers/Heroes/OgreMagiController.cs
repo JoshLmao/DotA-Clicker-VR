@@ -127,7 +127,6 @@ public class OgreMagiController : MonoBehaviour
     void BuyFireblastUpgrade(int level)
     {
         FireblastUpgrade = true;
-        Debug.Log("Bought Fireblast Upgrade");
 
         //Give white color to abiity
         m_fireblastCooldown.fillAmount = 0;
@@ -139,7 +138,6 @@ public class OgreMagiController : MonoBehaviour
     void BuyBloodlustUpgrade(int level)
     {
         BloodlustUpgrade = true;
-        Debug.Log("Bought Bloodlust Upgrade");
 
         //Give white color to abiity
         m_bloodlustCooldown.fillAmount = 0;

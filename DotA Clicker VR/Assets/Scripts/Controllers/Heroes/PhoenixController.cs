@@ -142,7 +142,6 @@ public class PhoenixController : MonoBehaviour
     void BuySunrayUpgrade(int level)
     {
         SunrayUpgrade = true;
-        Debug.Log("Bought Sunray Upgrade");
 
         //Give white color to ability
         m_sunrayCooldown.fillAmount = 0;
@@ -154,7 +153,6 @@ public class PhoenixController : MonoBehaviour
     void BuySupernovaUpgrade(int level)
     {
         SupernovaUpgrade = true;
-        Debug.Log("Bought Supernova Upgrade");
 
         //Give white color to ability
         m_supernovaCooldown.fillAmount = 0;
@@ -165,7 +163,6 @@ public class PhoenixController : MonoBehaviour
 
     void BuyPhoenixManager()
     {
-        Debug.Log("Bought Phoenix Manager");
         PhoenixManager = true;
         RadiantClickerController clicker = this.GetComponent<RadiantClickerController>();
         clicker.HasManager = PhoenixManager;
@@ -388,7 +385,8 @@ public class PhoenixController : MonoBehaviour
 
     void SupernovaRepeating()
     {
-        GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().AddToTotal(m_clickerController.ClickAmount, m_clickerController.ItemModifierMultiplier);
+        var controller = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
+        controller.AddToTotal(m_clickerController.ClickAmount, m_clickerController.AbilityModifierMulitiplier, m_clickerController.ItemModifierMultiplier);
 
         if (!m_abilitySource.isPlaying)
             m_abilitySource.PlayOneShot(GoldEarnedSound);

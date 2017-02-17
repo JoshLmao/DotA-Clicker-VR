@@ -122,7 +122,6 @@ public class AlchemistController : MonoBehaviour
     void BuyGreevilsGreedUpgrade(int level)
     {
         GreevilsGreedUpgrade = true;
-        Debug.Log("Bought GreevilsGreed Upgrade");
 
         //Give white color to ability
         m_greevilsGreedCooldown.fillAmount = 0;
@@ -134,7 +133,6 @@ public class AlchemistController : MonoBehaviour
     void BuyChemicalRageUpgrade(int level)
     {
         ChemicalRageUpgrade = true;
-        Debug.Log("Bought ChemicalRage Upgrade");
 
         //Give white color to ability
         m_chemicalRageCooldown.fillAmount = 0;
@@ -145,7 +143,6 @@ public class AlchemistController : MonoBehaviour
 
     void BuyAlchemistManager()
     {
-        Debug.Log("Bought Alchemist Manager");
         AlchemistManager = true;
         RadiantClickerController clicker = this.GetComponent<RadiantClickerController>();
         clicker.HasManager = AlchemistManager;

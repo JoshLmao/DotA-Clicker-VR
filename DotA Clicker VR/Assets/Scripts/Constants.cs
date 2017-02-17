@@ -50,4 +50,10 @@ public class Constants : MonoBehaviour
     public static double ManaVoidMultiplier = 2;
     public static double GreevilsGreedMultiplier = 2;
     public static double ChemicalRageMultiplier = 2;
+
+    //Difference between Ability levels (Usage count)
+    public static int Ability0To1Difference = 25;
+    public static int Ability1To2Difference = 45;
+    public static int Ability2To3Difference = 55;
+    public static int Ability3To4Difference = 75;
 }

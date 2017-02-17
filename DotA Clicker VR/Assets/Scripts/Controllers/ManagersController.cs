@@ -55,6 +55,7 @@ public class ManagersController : MonoBehaviour {
         {
             m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
         }
+
         AddManagers();
 
         RefreshManagersList();
@@ -78,41 +79,50 @@ public class ManagersController : MonoBehaviour {
                 else if(hero.HeroName == "Rubick")
                 {
                     m_rubick = true;
+                    if (BuyRubickManager != null)
+                        BuyRubickManager.Invoke();
                 }
                 else if(hero.HeroName == "Ogre Magi")
                 {
                     m_ogreMagi = true;
+                    if (BuyOgreMagiManager != null)
+                        BuyOgreMagiManager.Invoke();
                 }
                 else if(hero.HeroName == "Tusk")
                 {
                     m_tusk = true;
+                    if (BuyTuskManager != null)
+                        BuyTuskManager.Invoke();
                 }
                 else if(hero.HeroName == "Phoenix")
                 {
                     m_phoenix = true;
+                    if (BuyPhoenixManager != null)
+                        BuyPhoenixManager.Invoke();
                 }
                 else if(hero.HeroName == "Sven")
                 {
                     m_phoenix = true;
+                    if (BuySvenManager != null)
+                        BuySvenManager.Invoke();
                 }
                 else if(hero.HeroName == "Anti Mage")
                 {
                     m_antiMage = true;
+                    if (BuyAntiMageManager != null)
+                        BuyAntiMageManager.Invoke();
                 }
                 else if(hero.HeroName == "Alchemist")
                 {
                     m_alchemist = true;
+                    if (BuyAlchemistManager != null)
+                        BuyAlchemistManager.Invoke();
                 }
             }
         }
 
         RefreshManagersList();
     }
-
-    void Update ()
-    {
-	
-	}
 
     void AddManagers()
     {
@@ -238,6 +248,8 @@ public class ManagersController : MonoBehaviour {
             this.GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("Sounds/UI/magic_immune"));
             return;
         }
+
+        m_sceneController.RemoveFromTotal(manager.Cost);
 
         if (manager.Name == "Io")
         {
