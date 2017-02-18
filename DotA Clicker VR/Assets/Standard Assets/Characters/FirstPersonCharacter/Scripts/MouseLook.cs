@@ -16,20 +16,27 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public float smoothTime = 5f;
         public bool lockCursor = true;
 
+        bool m_mouseLookDisabled = false;
 
         private Quaternion m_CharacterTargetRot;
         private Quaternion m_CameraTargetRot;
-        public bool m_cursorIsLocked = true;
+
+        bool m_isShowingMenu = false;
 
         public void Init(Transform character, Transform camera)
         {
             m_CharacterTargetRot = character.localRotation;
             m_CameraTargetRot = camera.localRotation;
-        }
 
+            //Set locked
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
 
         public void LookRotation(Transform character, Transform camera)
         {
+            if (m_mouseLookDisabled) return;
+
             float yRot = CrossPlatformInputManager.GetAxis("Mouse X") * XSensitivity;
             float xRot = CrossPlatformInputManager.GetAxis("Mouse Y") * YSensitivity;
 
@@ -51,8 +58,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 character.localRotation = m_CharacterTargetRot;
                 camera.localRotation = m_CameraTargetRot;
             }
-
-            UpdateCursorLock();
         }
 
         public void SetCursorLock(bool value)
@@ -68,30 +73,47 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public void UpdateCursorLock()
         {
             //if the user set "lockCursor" we check & properly lock the cursos
-            if (lockCursor)
-                InternalLockUpdate();
+            InternalLockUpdate();
+        }
+
+        public void Resume()
+        {
+            m_isShowingMenu = false;
+
+            m_mouseLookDisabled = false;
+            lockCursor = true;
+
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
 
         private void InternalLockUpdate()
         {
             if(Input.GetKeyUp(KeyCode.Escape))
             {
-                m_cursorIsLocked = false;
-            }
-            else if(Input.GetMouseButtonUp(0))
-            {
-                m_cursorIsLocked = true;
+                m_isShowingMenu = !m_isShowingMenu;
+
+                if (m_isShowingMenu)
+                {
+                    m_mouseLookDisabled = true;
+                    lockCursor = false;
+                }
+                else
+                {
+                    m_mouseLookDisabled = false;
+                    lockCursor = true;
+                }
             }
 
-            if (m_cursorIsLocked)
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-            }
-            else if (!m_cursorIsLocked)
+            if(m_isShowingMenu)
             {
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
             }
         }
 

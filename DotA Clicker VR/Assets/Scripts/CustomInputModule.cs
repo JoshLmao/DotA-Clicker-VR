@@ -6,6 +6,8 @@ public class CustomInputModule : StandaloneInputModule
 
     private Vector2 m_cursorPos;
 
+    public bool MenuIsOpen = false;
+
     // Hand this function your fake mouse position (in screen coords)
     public void UpdateCursorPosition(Vector2 a_pos)
     {
@@ -52,8 +54,12 @@ public class CustomInputModule : StandaloneInputModule
             leftData.position = m_cursorPos;
         //leftData.position = Input.mousePosition;
 
-        //Vector2 pos = Input.mousePosition;
-        Vector2 pos = new Vector2(Screen.width / 2, Screen.height / 2); //m_cursorPos;
+        Vector2 pos;
+        if (MenuIsOpen)
+            pos = Input.mousePosition;
+        else
+            pos = new Vector2(Screen.width / 2, Screen.height / 2); //m_cursorPos;
+
         leftData.delta = pos - leftData.position;
         leftData.position = pos;
         leftData.scrollDelta = Input.mouseScrollDelta;

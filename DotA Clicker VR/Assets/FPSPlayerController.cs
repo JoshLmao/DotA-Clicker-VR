@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityStandardAssets.Characters.FirstPerson;
+using UnityStandardAssets.ImageEffects;
 
 public class FPSPlayerController : MonoBehaviour {
 
@@ -17,15 +20,23 @@ public class FPSPlayerController : MonoBehaviour {
     PickedUpItemController m_pickUpController;
 
     bool m_isHolding;
-
+    bool m_menuOpen;
+    [SerializeField]
+    GameObject m_menuPrefab;
+    GameObject m_currentMenu;
+    Blur m_blurEffect;
+    [SerializeField]
+    Shader m_blurShader;
     void Awake()
     {
-        m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
+        if (SceneManager.GetActiveScene().name == "RadiantSide")
+        {
+            m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
+        }
         m_camera = GetComponent<Camera>();
 
         m_unityFPSCont = GameObject.Find("FPSController").GetComponent<FirstPersonController>();
         m_pickUpController = transform.Find("PickUpPosition").GetComponent<PickedUpItemController>();
-
     }
 
     void Start ()
@@ -41,13 +52,25 @@ public class FPSPlayerController : MonoBehaviour {
 
             m_pickUpController.OnDropObject();
 
-            m_unityFPSCont.m_MouseLook.m_cursorIsLocked = true;
+            //m_unityFPSCont.m_MouseLook.m_cursorIsLocked = true;
         }
 
         if (Input.GetButton("Fire1"))
         {
             OnLeftClickDown();
-            m_unityFPSCont.m_MouseLook.m_cursorIsLocked = true;
+            //m_unityFPSCont.m_MouseLook.m_cursorIsLocked = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(!m_menuOpen)
+            {
+                ShowMainMenu();
+            }
+            else
+            {
+                OnResume();
+            }
         }
     }
 
@@ -73,6 +96,19 @@ public class FPSPlayerController : MonoBehaviour {
             {
                 var btnManager = hit.collider.gameObject.GetComponent<ButtonManager>();
                 btnManager.OnBuyMultiplier();
+            }
+            else if(name == "TestBtn")
+            {
+                var obj = hit.collider.transform.gameObject;
+                var test = obj.GetComponent<MainMenuTestButton>();
+                if (!test.IsPlayingSound())
+                {
+                    test.PlayResponse();
+                }
+                else
+                {
+
+                }
             }
             //clicker ability buttons
             else if (name.Contains("Btn"))
@@ -117,5 +153,54 @@ public class FPSPlayerController : MonoBehaviour {
             return FindController(currentObj.transform.parent.gameObject);
         else
             return controller.gameObject;
+    }
+
+    void ShowMainMenu()
+    {
+        m_menuOpen = true;
+        m_currentMenu = Instantiate(m_menuPrefab);
+        m_currentMenu.transform.Find("BG/Exit").GetComponent<Button>().onClick.AddListener(OnExit);
+        m_currentMenu.transform.Find("BG/Options").GetComponent<Button>().onClick.AddListener(OnOptions);
+        m_currentMenu.transform.Find("BG/Resume").GetComponent<Button>().onClick.AddListener(OnResume);
+
+        m_blurEffect = GameObject.Find("FirstPersonCharacterCamera").AddComponent<Blur>();
+        m_blurEffect.blurShader = m_blurShader;
+        m_blurEffect.enabled = true;
+
+        GameObject.Find("EventSystem").GetComponent<CustomInputModule>().MenuIsOpen = true;
+    }
+
+    void OnExit()
+    {
+        if(SceneManager.GetActiveScene().name == "RadiantSide")
+        {
+            GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().OnApplicationQuit();
+            Application.Quit();
+        }
+        else
+        {
+            Application.Quit();
+        }
+    }
+
+    void OnOptions()
+    {
+
+    }
+
+    void OnResume()
+    {
+        if(m_currentMenu != null)
+        {
+            DestroyImmediate(m_currentMenu);
+            Destroy(m_blurEffect);
+
+            m_blurEffect = null;
+            m_currentMenu = null;
+            m_menuOpen = false;
+        }
+
+        GameObject.Find("EventSystem").GetComponent<CustomInputModule>().MenuIsOpen = false;
+        GameObject.Find("FPSController").GetComponent<FirstPersonController>().m_MouseLook.Resume();
     }
 }

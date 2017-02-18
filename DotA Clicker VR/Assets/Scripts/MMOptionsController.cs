@@ -5,6 +5,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.VR;
+using UnityStandardAssets.ImageEffects;
 
 public class MMOptionsController : MonoBehaviour
 {
@@ -19,6 +20,10 @@ public class MMOptionsController : MonoBehaviour
     protected Toggle m_adaptiveQuality;
 
     protected ConfigDto m_currentConfig;
+
+    protected Slider m_fieldOfViewSlider;
+    protected Camera m_fpsCamera;
+    protected float m_currentFieldOfView = 60;
 
     protected virtual void Awake()
     {
@@ -35,12 +40,22 @@ public class MMOptionsController : MonoBehaviour
             SuperSampleSlider = transform.Find("VideoOptions/SSCanvas/SuperSampleSlider").GetComponent<Slider>();
             m_ssText = transform.Find("VideoOptions/SSCanvas/SSValue").GetComponent<Text>();
         }
+        else
+        {
+            m_fieldOfViewSlider = GameObject.Find("FoVCanvas").transform.Find("Slider").GetComponent<Slider>();
+            m_fpsCamera = GameObject.Find("FirstPersonCharacterCamera").GetComponent<Camera>();
+        }
     }
 
     protected virtual void Start()
     {
         CreateConfigFromExistingValues();
         SetConfigValues();
+
+        if (m_fieldOfViewSlider != null)
+            m_fieldOfViewSlider.onValueChanged.AddListener(FoVChanged);
+        FoVChanged(m_currentFieldOfView);
+
     }
 
     public void OnApplicationQuit()
@@ -123,5 +138,54 @@ public class MMOptionsController : MonoBehaviour
         {
             File.Create(configLoc).Close();
         }
+    }
+
+
+    protected void FoVChanged(float value)
+    {
+        if (m_fpsCamera != null)
+        {
+            m_fpsCamera.fieldOfView = m_currentFieldOfView;
+        }
+
+        m_fieldOfViewSlider.value = m_currentFieldOfView;
+        m_fieldOfViewSlider.gameObject.transform.parent.transform.Find("Value").GetComponent<Text>().text = value.ToString();
+    }
+
+    public void AddToFoV()
+    {
+        if (m_currentFieldOfView + 5 < 120)
+            m_currentFieldOfView += 5;
+
+        FoVChanged(m_currentFieldOfView);
+    }
+
+    public void MinusToFoV()
+    {
+        if (m_currentFieldOfView - 5 > 45)
+            m_currentFieldOfView -= 5;
+
+        FoVChanged(m_currentFieldOfView);
+    }
+
+    public void ToggleSSAO(bool status)
+    {
+        if (VRSettings.enabled) return;
+
+        GameObject.Find("FirstPersonCharacterCamera").GetComponent<ScreenSpaceAmbientOcclusion>().enabled = status;
+    }
+
+    public void ToggleAntialiasing(bool status)
+    {
+        if (VRSettings.enabled) return;
+
+        GameObject.Find("FirstPersonCharacterCamera").GetComponent<Antialiasing>().enabled = status;
+    }
+
+    public void ToggleGlobalFog(bool status)
+    {
+        if (VRSettings.enabled) return;
+
+        GameObject.Find("FirstPersonCharacterCamera").GetComponent<GlobalFog>().enabled = status;
     }
 }

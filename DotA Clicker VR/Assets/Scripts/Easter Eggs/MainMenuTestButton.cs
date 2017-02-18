@@ -27,12 +27,17 @@ public class MainMenuTestButton : MonoBehaviour {
         }
     }
 
-    void PlayResponse()
+    public void PlayResponse()
     {
         if (m_audioSource.isPlaying)
             return;
 
         int rng = Random.Range(0, TestButtonResponses.Length);
         m_audioSource.PlayOneShot(TestButtonResponses[rng]);
+    }
+
+    public bool IsPlayingSound()
+    {
+        return m_audioSource.isPlaying;
     }
 }

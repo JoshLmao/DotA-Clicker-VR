@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.VR;
+using VRTK;
+using UnityEngine.EventSystems;
 
 public class MainMenuController : MonoBehaviour
 {
@@ -16,10 +19,29 @@ public class MainMenuController : MonoBehaviour
     [SerializeField]
     GameObject OptionsCanvas;
 
+    [SerializeField]
+    GameObject[] FPSItems;
+
+    [SerializeField]
+    GameObject[] VRItems;
+
+    [SerializeField]
+    GameObject m_vrInputSystem;
+    [SerializeField]
+    GameObject m_fpsInputSystem;
+    [SerializeField]
+    VRTK_UICanvas[] m_menuCanvases;
+
+    void Awake()
+    {
+        VRSettings.enabled = SteamVR.enabled ? SteamVR.active : false;
+        SetPlayerMode(VRSettings.enabled);
+    }
+
     void Start()
     {
-        DefaultHowToPlayMenu();
         OnShowToMainMenu();
+        DefaultHowToPlayMenu();
     }
 
     void Update()
@@ -113,5 +135,81 @@ public class MainMenuController : MonoBehaviour
     {
         MainMenuCanvas.SetActive(false);
         OptionsCanvas.SetActive(true);
+    }
+
+    void SetPlayerMode(bool vrEnabled)
+    {
+        for (int i = 0; i < FPSItems.Length; i++)
+        {
+            FPSItems[i].SetActive(!vrEnabled);
+        }
+
+        for (int i = 0; i < VRItems.Length; i++)
+        {
+            VRItems[i].SetActive(vrEnabled);
+        }
+
+        //if(!vrEnabled)
+        //{
+        //    VRTK_UICanvas[] allCanvas = Object.FindObjectsOfType<VRTK_UICanvas>();
+        //    for (int i = 0; i < allCanvas.Length; i++)
+        //    {
+        //        allCanvas[i].enabled = false;
+        //    }
+        //}
+
+        m_vrInputSystem.SetActive(vrEnabled);
+        m_fpsInputSystem.SetActive(!vrEnabled);
+
+        SetUISystemActive(vrEnabled);
+    }
+
+    void SetUISystemActive(bool vrEnabled)
+    {
+        //Disable UIPointers & UICanvas which set eventsystem to work with VR
+        GameObject.Find("LeftController").GetComponent<VRTK_UIPointer>().enabled = vrEnabled;
+        GameObject.Find("RightController").GetComponent<VRTK_UIPointer>().enabled = vrEnabled;
+        var allPointers = GameObject.FindObjectsOfType<VRTK_UIPointer>();
+        for (int i = 0; i < allPointers.Length; i++)
+        {
+            allPointers[i].GetComponent<VRTK_UIPointer>().enabled = vrEnabled;
+        }
+
+        var allVRCanvas = FindObjectsOfType<VRTK_UICanvas>();
+        for (int i = 0; i < allVRCanvas.Length; i++)
+        {
+            allVRCanvas[i].GetComponent<VRTK_UICanvas>().enabled = vrEnabled;
+        }
+
+        for (int i = 0; i < m_menuCanvases.Length; i++)
+        {
+            m_menuCanvases[i].enabled = vrEnabled;
+        }
+
+        if(!VRSettings.enabled)
+        {
+            var components = m_fpsInputSystem.GetComponents(typeof(Component));
+            for (int i = 0; i < components.Length; i++)
+            {
+                if (components[i].GetType() == typeof(EventSystem))
+                {
+                    var events = components[i] as EventSystem; ;
+                    events.enabled = true;
+                    continue;
+                }
+
+                if (components[i].GetType() == typeof(CustomInputModule))
+                {
+                    var customInputs = components[i] as CustomInputModule;
+                    customInputs.enabled = true;
+                }
+
+                if (components[i].GetType() == typeof(VRTK_EventSystemVRInput))
+                {
+                    var system = components[i] as VRTK_EventSystemVRInput;
+                    system.enabled = false;
+                }
+            }
+        }
     }
 }
