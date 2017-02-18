@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class BuyableItemsController : MonoBehaviour
 {
@@ -24,10 +25,17 @@ public class BuyableItemsController : MonoBehaviour
     [SerializeField]
     GameObject m_allBoughtPrefab;
 
-    void Start()
+    AchievementEvents m_achievementEvents;
+
+    void Awake()
     {
         RadiantSceneController.LoadedSaveFile += OnLoadedSaveFile;
 
+        m_achievementEvents = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
+    }
+
+    void Start()
+    {
         if (SceneManager.GetActiveScene().name == "MainMenu")
         {
             isOnMainMenu = true;
@@ -262,20 +270,25 @@ public class BuyableItemsController : MonoBehaviour
         this.GetComponent<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("Sounds/UI/buy"));
         ItemBoughtCount++;
 
-        if(ItemBoughtCount == Items.Count)
+        CheckItemAchievements();
+    }
+
+    private void CheckItemAchievements()
+    {
+        if (ItemBoughtCount == Items.Count && !m_achievementEvents.BuyAnItemStatus)
         {
-            AchievementEvents events = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
-            events.BuyAnItem.Invoke();
+            m_achievementEvents.BuyAnItem.Invoke();
             Debug.Log("Bought One Item Achievements");
         }
 
         //check if the achievement has been unlocked
         bool boughtEachItem = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().CurrentSaveFile.Achievements.BuyEachItemOnce;
-        if(IronBranchCount >= 1 && ClarityCount >= 1 && MagicStickCount >= 1 && QuellingBladeCount >= 1 && MangoCount >= 1 && PowerTreadsCount >= 1 && BottleCount >= 1 
-            && BlinkDaggerCount >= 1 &&HyperstoneCount >= 1 && BloodstoneCount >= 1 && ReaverCount >= 1 && DivineRapierCount >= 1 && RecipeCount >= 1 && !boughtEachItem)
+        if (IronBranchCount >= 1 && ClarityCount >= 1 && MagicStickCount >= 1 && QuellingBladeCount >= 1 && MangoCount >= 1 && PowerTreadsCount >= 1 && BottleCount >= 1
+            && BlinkDaggerCount >= 1 && HyperstoneCount >= 1 && BloodstoneCount >= 1 && ReaverCount >= 1 && DivineRapierCount >= 1 && RecipeCount >= 1 && !boughtEachItem
+            && !m_achievementEvents.BuyEachItenOnceStatus)
         {
-            AchievementEvents events = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
-            events.BuyEachItemOnce.Invoke();
+
+            m_achievementEvents.BuyEachItemOnce.Invoke();
             Debug.Log("Bought one of each item Achievements");
         }
     }

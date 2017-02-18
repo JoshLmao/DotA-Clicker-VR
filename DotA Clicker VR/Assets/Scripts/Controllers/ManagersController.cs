@@ -38,11 +38,12 @@ public class ManagersController : MonoBehaviour {
 
     [SerializeField]
     GameObject m_allBoughtPrefab;
-
+    AchievementEvents m_achievementEvents;
     void Awake()
     {
         Managers = new List<ManagerDto>();
         RadiantSceneController.LoadedSaveFile += OnLoadedSaveFile;
+        m_achievementEvents = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
     }
 
     void Start ()
@@ -304,16 +305,19 @@ public class ManagersController : MonoBehaviour {
         Managers.RemoveAll(x => x.Name == manager.Name);
         RefreshManagersList();
 
-        if(Managers.Count <= 0)
+        CheckManagersAchievements();
+    }
+
+    void CheckManagersAchievements()
+    {
+        if (Managers.Count <= 0)
         {
-            AchievementEvents events = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
-            events.BuyAllManagers.Invoke();
+            m_achievementEvents.BuyAllManagers.Invoke();
             Debug.Log("Bought all Managers Achievements");
         }
-        else if(Managers.Count == (Managers.Count - 1)) //One less than max
+        else if (Managers.Count == (Managers.Count - 1)) //One less than max
         {
-            AchievementEvents events = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
-            events.BuyAManager.Invoke();
+            m_achievementEvents.BuyAManager.Invoke();
             Debug.Log("Bought a Manager Achievements");
         }
     }

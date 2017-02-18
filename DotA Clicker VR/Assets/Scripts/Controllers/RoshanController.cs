@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System;
 
 public class RoshanController : MonoBehaviour {
 
@@ -42,7 +43,6 @@ public class RoshanController : MonoBehaviour {
     /// </summary>
     float EventCount;
 
-
     //Spline stuff
     public Transform[] waypoints;
     int currentWayPoint = 0;
@@ -50,6 +50,14 @@ public class RoshanController : MonoBehaviour {
     float speed = 4f;
     bool goToHalfWay = true;
     bool goToHome = false;
+
+    AchievementEvents m_achievementEvents;
+
+    void Awake()
+    {
+        RadiantSceneController.LoadedSaveFile += OnLoadSave;
+        m_achievementEvents = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
+    }
 
     void Start()
     {
@@ -191,5 +199,13 @@ public class RoshanController : MonoBehaviour {
 
         m_roshanAnimator.SetTrigger("isWalking");
         hasReachedPoint = false;
+    }
+
+    private void OnLoadSave(SaveFileDto saveFile)
+    {
+        if(saveFile != null && saveFile.Roshan != null)
+        {
+            
+        }
     }
 }

@@ -62,6 +62,7 @@ public class RadiantSceneController : MonoBehaviour
     /// </summary>
     RoshanController m_activeRoshan;
     public float RoshanEventCount = 0;
+    int m_secondsToRoshanEvent = -1;
     bool m_roshanWaitingToSpawn = false;
     bool m_roshanEventInProgress = false;
     GameObject ActiveRoshan;
@@ -308,6 +309,13 @@ public class RadiantSceneController : MonoBehaviour
             });
         }
 
+        saveFile.Roshan = new RoshanDto()
+        {
+            DefeatCount = RoshanEventCount,
+            DurationTillNextSpawn = m_roshanEventInProgress ? 0 : m_secondsToRoshanEvent,
+            CanDoRoshanEvents = m_canDoRoshanEvent,
+        };
+
         try
         {
             string json = JsonConvert.SerializeObject(saveFile, Formatting.Indented);
@@ -378,17 +386,17 @@ public class RadiantSceneController : MonoBehaviour
 
         m_roshanEventInProgress = false;
 
-        if(RoshanEventCount == 1)
-        {
-            AchievementEvents events = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
-            events.DefeatRoshan.Invoke();
-            Debug.Log("Defeat Roshan Achievements");
-        }
-        else if(RoshanEventCount == 10)
+        if(RoshanEventCount == 10)
         {
             AchievementEvents events = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
             events.DefeatRoshanTenTimes.Invoke();
             Debug.Log("Defeat Roshan 10 Times Achievements");
+        }
+        else if (RoshanEventCount >= 1)
+        {
+            AchievementEvents events = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
+            events.DefeatRoshan.Invoke();
+            Debug.Log("Defeat Roshan Achievements");
         }
     }
 
@@ -427,9 +435,13 @@ public class RadiantSceneController : MonoBehaviour
             return;
 
         //Todo: Sound to indicate that roshan events can happen
-        int secondsToEvent = UnityEngine.Random.Range(1200, 3600); //Can do event between 20 mins or a hour
-        StartCoroutine(TriggerRoshanEvent(secondsToEvent));
-        Debug.Log("Seconds to Roshan Event: '" + secondsToEvent + "'");
+        if(m_secondsToRoshanEvent == -1)
+        {
+            m_secondsToRoshanEvent = UnityEngine.Random.Range(1200, 3600); //Can do event between 20 mins or a hour
+        }
+
+        StartCoroutine(TriggerRoshanEvent(m_secondsToRoshanEvent));
+        Debug.Log("Seconds to Roshan Event: '" + m_secondsToRoshanEvent + "'");
         m_roshanWaitingToSpawn = true;
     }
 
@@ -533,8 +545,22 @@ public class RadiantSceneController : MonoBehaviour
 
     public void OnLoadedSave(SaveFileDto saveFile)
     {
-        TotalGold = saveFile.RadiantSide.TotalGold;
-        m_canDoRoshanEvent = saveFile.RadiantSide.RoshanEvents;
+        if(saveFile != null)
+        {
+            if(saveFile.RadiantSide != null)
+            {
+                TotalGold = saveFile.RadiantSide.TotalGold;
+                m_canDoRoshanEvent = saveFile.RadiantSide.RoshanEvents;
+            }
+            if (saveFile.Roshan != null)
+            {
+                m_secondsToRoshanEvent = saveFile.Roshan.DurationTillNextSpawn;
+                RoshanEventCount = saveFile.Roshan.DefeatCount;
+                m_canDoRoshanEvent = saveFile.Roshan.CanDoRoshanEvents;
+
+                StartRoshanCountdown();
+            }
+        }
     }
 
     public void ReturnToMainMenu()

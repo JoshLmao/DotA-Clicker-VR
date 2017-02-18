@@ -9,4 +9,5 @@ public class SaveFileDto
     public RadiantSideDto RadiantSide { get; set; }
     public StatsDto SessionStats { get; set; }
     public AchievementsDto Achievements { get; set; }
+    public RoshanDto Roshan { get; set; }
 }
