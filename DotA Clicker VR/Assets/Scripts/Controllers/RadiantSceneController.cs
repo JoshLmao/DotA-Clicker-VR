@@ -160,9 +160,8 @@ public class RadiantSceneController : MonoBehaviour
         if (LoadedSaveFile != null)
             LoadedSaveFile.Invoke(CurrentSaveFile);
 
-        OnLoadedSave(CurrentSaveFile);
         //If it hasnt been set in menus
-        if(CurrentPlayerName == string.Empty)
+        if (CurrentPlayerName == string.Empty)
             CurrentPlayerName = CurrentSaveFile.PlayerName;
 
         if (CurrentPlayerName.ToLower() == "420bootywizard")
@@ -171,6 +170,8 @@ public class RadiantSceneController : MonoBehaviour
             events.TheManTheMythTheLegend.Invoke();
             Debug.Log("420BootyWizard Achievements");
         }
+
+        OnLoadedSave(CurrentSaveFile);
     }
 
     public List<RadiantClickerController> GetClickerHeroesInScene()

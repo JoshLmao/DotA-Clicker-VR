@@ -160,7 +160,12 @@ public class FPSPlayerController : MonoBehaviour {
         m_menuOpen = true;
         m_currentMenu = Instantiate(m_menuPrefab);
         m_currentMenu.transform.Find("BG/Exit").GetComponent<Button>().onClick.AddListener(OnExit);
-        m_currentMenu.transform.Find("BG/Options").GetComponent<Button>().onClick.AddListener(OnOptions);
+
+        if (SceneManager.GetActiveScene().name == "RadiantSide")
+            m_currentMenu.transform.Find("BG/Options").GetComponent<Button>().onClick.AddListener(OnOptions);
+        else
+            m_currentMenu.transform.Find("BG/Options").gameObject.SetActive(false);
+
         m_currentMenu.transform.Find("BG/Resume").GetComponent<Button>().onClick.AddListener(OnResume);
 
         m_blurEffect = GameObject.Find("FirstPersonCharacterCamera").AddComponent<Blur>();
@@ -185,7 +190,9 @@ public class FPSPlayerController : MonoBehaviour {
 
     void OnOptions()
     {
-
+        transform.parent.transform.position = new Vector3(13.72374f, 0.8716383f, -0.8631723f);
+        transform.parent.transform.rotation = new Quaternion(0f,0f,0f,0f); //wont work. Look in MouseLook.cs
+        OnResume();
     }
 
     void OnResume()

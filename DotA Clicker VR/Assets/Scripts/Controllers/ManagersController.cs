@@ -122,7 +122,15 @@ public class ManagersController : MonoBehaviour {
             }
         }
 
-        RefreshManagersList();
+        try
+        {
+            RefreshManagersList();
+        }
+        catch (Exception e)
+        {
+
+        }
+
     }
 
     void AddManagers()

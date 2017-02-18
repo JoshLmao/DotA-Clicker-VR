@@ -160,7 +160,6 @@ public class RadiantClickerController : MonoBehaviour
     {
         RadiantSceneController.LoadedSaveFile += OnLoadedSaveFile;
 
-        AbilityLevelUpStart();
 
         m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
         m_heroNameText = transform.FindChild("Buttons/StandBack/StandUI/ClickerNameText").GetComponent<Text>();
@@ -177,18 +176,20 @@ public class RadiantClickerController : MonoBehaviour
 
         m_modifierCountdownText = transform.Find("ItemModifierStand/ModifierTimeCanvas/ModifierTimeRemaining").GetComponent<Text>();
         m_modifierCountdownText.gameObject.SetActive(false);
+        m_abil1Slider = transform.Find("Buttons/StandBack/UpgradesCanvas/Abil1Progress").GetComponent<Slider>();
+        m_abil2Slider = transform.Find("Buttons/StandBack/UpgradesCanvas/Abil2Progress").GetComponent<Slider>();
+
     }
 
     void Start ()
     {
+        AbilityLevelUpStart();
+
         TimeBetweenClicks = new TimeSpan(0, 0, 0, SecondsToCompleteClick);
     }
 	
     void AbilityLevelUpStart()
     {
-        m_abil1Slider = transform.Find("Buttons/StandBack/UpgradesCanvas/Abil1Progress").GetComponent<Slider>();
-        m_abil2Slider = transform.Find("Buttons/StandBack/UpgradesCanvas/Abil2Progress").GetComponent<Slider>();
-
         Transform abil1Transform = transform.Find("Buttons/StandBack/UpgradesCanvas/Abil1Levels");
         Transform abil2Transform = transform.Find("Buttons/StandBack/UpgradesCanvas/Abil2Levels");
         foreach (Transform trans in abil1Transform)
