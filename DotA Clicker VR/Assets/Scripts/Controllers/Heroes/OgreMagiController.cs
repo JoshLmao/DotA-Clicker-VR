@@ -161,7 +161,7 @@ public class OgreMagiController : MonoBehaviour
 
     public void ActivateFireblast(double remainingTime, bool doSound)
     {
-        if (FireblastActive) return;
+        if (FireblastActive || !FireblastUpgrade) return;
         FireblastActive = true;
 
         FireblastEffects((float)remainingTime);
@@ -186,7 +186,7 @@ public class OgreMagiController : MonoBehaviour
 
     public void ActivateBloodlust(double remainingTime, bool doSound)
     {
-        if (BloodlustActive) return;
+        if (BloodlustActive || !BloodlustUpgrade) return;
         BloodlustActive = true;
 
         BloodlustEffects((float)remainingTime);
@@ -204,30 +204,38 @@ public class OgreMagiController : MonoBehaviour
         }
     }
 
-    IEnumerator AbilityCooldown(float time, string ability)
+    IEnumerator AbilityCooldown(float time, string ability, bool removeAbilityEffects)
     {
         yield return new WaitForSeconds(time);
 
-        if(ability == "Fireblast")
+        OnAbilityFinished(ability, removeAbilityEffects);
+    }
+
+    public void OnAbilityFinished(string ability, bool removeAbilityEffects)
+    {
+        if (ability == "Fireblast")
         {
             m_fireblastCooldownTxt.gameObject.SetActive(false);
             m_fireblastCooldown.fillAmount = 0;
             m_fireblastCountdown = false;
             FireblastActive = false;
+            m_clickerController.Ability1InUse = false;
         }
-        else if(ability == "Bloodlust")
+        else if (ability == "Bloodlust")
         {
             m_bloodlustCooldownTxt.gameObject.SetActive(false);
             m_bloodlustCooldown.fillAmount = 0;
             m_bloodlustCountdown = false;
             BloodlustActive = false;
+            m_clickerController.Ability2InUse= false;
         }
         /*Do after active effects have done their duration*/
         else if (ability == "FireblastActiveFinish")
         {
             m_fireblastActiveFade.gameObject.SetActive(false);
 
-            RemoveFireblastEffects();
+            if(removeAbilityEffects)
+                RemoveFireblastEffects();
 
             //Start Cooldown clock once finished
             m_fireblastCooldown.fillAmount = 1;
@@ -235,13 +243,14 @@ public class OgreMagiController : MonoBehaviour
             m_fireblastCurrentTime = m_fireblastCDImageCount = FireblastCooldown;
             m_fireblastCountdown = true;
 
-            StartCoroutine(AbilityCooldown(FireblastCooldown, "Fireblast"));
+            StartCoroutine(AbilityCooldown(FireblastCooldown, "Fireblast", removeAbilityEffects));
         }
         else if (ability == "BloodlustActiveFinish")
         {
             m_bloodlustActiveFade.gameObject.SetActive(false);
 
-            RemoveBloodlustEffects();
+            if(removeAbilityEffects)
+                RemoveBloodlustEffects();
 
             //Cooldown clock
             m_bloodlustCooldown.fillAmount = 1;
@@ -249,7 +258,7 @@ public class OgreMagiController : MonoBehaviour
             m_bloodlustCurrentTime = m_bloodlustCDImageCount = BloodlustCooldown;
             m_bloodlustCountdown = true;
 
-            StartCoroutine(AbilityCooldown(BloodlustCooldown, "Bloodlust"));
+            StartCoroutine(AbilityCooldown(BloodlustCooldown, "Bloodlust", removeAbilityEffects));
         }
     }
 
@@ -278,7 +287,7 @@ public class OgreMagiController : MonoBehaviour
 
         m_clickerController.SetAbilityModifierAmount(Constants.FireblastMultiplier);
 
-        StartCoroutine(AbilityCooldown(remainingTime, "FireblastActiveFinish"));
+        StartCoroutine(AbilityCooldown(remainingTime, "FireblastActiveFinish", true));
     }
 
     void RemoveFireblastEffects()
@@ -299,7 +308,7 @@ public class OgreMagiController : MonoBehaviour
 
         m_clickerController.SetAbilityModifierAmount(Constants.BloodlustMultiplier);
 
-        StartCoroutine(AbilityCooldown(remainingTime, "BloodlustActiveFinish"));
+        StartCoroutine(AbilityCooldown(remainingTime, "BloodlustActiveFinish", true));
     }
 
     void RemoveBloodlustEffects()

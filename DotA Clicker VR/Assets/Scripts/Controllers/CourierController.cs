@@ -88,8 +88,6 @@ public class CourierController : MonoBehaviour
             m_player = GameObject.Find("FPSController").gameObject;
             m_playerTransform = GameObject.Find("FPSController").transform;
         }
-
-
     }
 
     void Start ()
@@ -127,7 +125,6 @@ public class CourierController : MonoBehaviour
 
         if (!isByPlayer && FollowPlayer)
         {
-
             waypointPos = new Vector3(courierWaypoint.transform.position.x, m_playerTransform.position.y, courierWaypoint.transform.position.z);
             transform.position = Vector3.Lerp(transform.position, waypointPos, speed * Time.deltaTime);
             m_crowAnimator.SetBool("isMoving", true);
@@ -139,8 +136,20 @@ public class CourierController : MonoBehaviour
 
         if(!LockRotation)
         {
-            Quaternion rotation = Quaternion.LookRotation(m_player.transform.position - transform.position);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * damping);
+            if(!VRSettings.enabled)
+            {
+                transform.Find("Keyboard").GetComponent<VRTK.VRTK_UICanvas>().enabled = false;
+
+                Quaternion rotation = Quaternion.LookRotation(m_player.transform.position - transform.position);
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * damping);
+                var eulerAngles = new Vector3(0f, transform.eulerAngles.y, transform.eulerAngles.z);
+                transform.rotation = Quaternion.Euler(eulerAngles);
+            }
+            else
+            {
+                Quaternion rotation = Quaternion.LookRotation(m_player.transform.position - transform.position);
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * damping);
+            }
         }
 
         //Update InputText
@@ -212,7 +221,6 @@ public class CourierController : MonoBehaviour
             m_mediaController.SetVolume(0);
         else
             m_mediaController.SetVolume(1);
-
     }
 
     public void DisplayKeyboard()
@@ -230,9 +238,19 @@ public class CourierController : MonoBehaviour
         m_twitchChat.stopThreads = true;
         m_displayKeyboardBtn.GetComponent<UnityEngine.UI.Image>().sprite = m_toggleDisabled;
 
+        //Set chat
         m_twitchChat.channelName = m_keyboardController.Input;
         m_twitchChat.stopThreads = false;
-        m_twitchChat.StartIRC();
+        m_twitchChat.RestartIRC();
+
+        //Set video
+        //m_mediaController.Load(STREAM_BASE + m_twitchChat.channelName);
+        string url = "https://player.twitch.tv/?channel=admiralbulldog";
+        m_mediaController.Load(url);
+        Debug.Log("Loading stream url - " + url);
+
+        if (!AudioMuted)
+            m_mediaController.SetVolume(1);
 
         m_keyboard.SetActive(false);
         m_streamURLUI.SetActive(false);
@@ -251,13 +269,23 @@ public class CourierController : MonoBehaviour
 
             m_twitchChat.stopThreads = true;
             m_twitchChat.ClearMessageList();
-            m_sceneController.LoadConfig();
 
             m_twitchChat.oauth = m_sceneController.CurrentConfigFile.TwitchAuthCode;
             m_twitchChat.nickName = m_sceneController.CurrentConfigFile.TwitchUsername;
             m_twitchChat.channelName = "beyondthesummit";
             m_twitchChat.stopThreads = false;
-            m_twitchChat.StartIRC();
+
+            //StartIRC called from LoadConfig
+            if(!m_twitchChat.IsStarted)
+            {
+                m_sceneController.LoadConfig();
+                //m_twitchChat.StartIRC();
+            }
+            
+            if(m_twitchChat.IsStarted)
+            {
+                ValidAuthKey = true;
+            }
         }
         else
         {

@@ -201,10 +201,15 @@ public class CMController : MonoBehaviour
         }
     }
 
-    IEnumerator AbilityCooldown(float time, string ability)
+    IEnumerator AbilityCooldown(float time, string ability, bool removeAbilityEffects, int duration)
     {
         yield return new WaitForSeconds(time);
 
+        OnAbilityFinished(ability, removeAbilityEffects, duration);
+    }
+
+    public void OnAbilityFinished(string ability, bool removeAbilityEffects, int duration)
+    {
         //Do to abilities once off cooldown
         if (ability == "Crystal Nova")
         {
@@ -212,6 +217,7 @@ public class CMController : MonoBehaviour
             m_crystalNovaCooldown.fillAmount = 0;
             m_crystalNovaCountdown = false;
             CrystalNovaActive = false;
+            m_clickerController.Ability1InUse = false;
         }
         else if (ability == "Frostbite")
         {
@@ -219,35 +225,38 @@ public class CMController : MonoBehaviour
             m_frostbiteCooldown.fillAmount = 0;
             m_frostbiteCountdown = false;
             FrostbiteActive = false;
+            m_clickerController.Ability2InUse = false;
         }
         /*Do after active effects have done their duration*/
-        else if(ability == "CrystalNovaActiveFinish")
+        else if (ability == "CrystalNovaActiveFinish")
         {
             m_crystalNovaActiveFade.gameObject.SetActive(false);
 
-            RemoveCrystalNovaEffects();
+            if(removeAbilityEffects)
+                RemoveCrystalNovaEffects();
 
             //Start Cooldown clock once finished
             m_crystalNovaCooldown.fillAmount = 1;
             m_crystalNovaCooldownTxt.gameObject.SetActive(true);
-            m_crystalNovaCurrentTime = m_crystalNovaCDImageCount = CrystalNovaCooldown;
+            m_crystalNovaCurrentTime = m_crystalNovaCDImageCount = duration;
             m_crystalNovaCountdown = true;
 
-            StartCoroutine(AbilityCooldown(CrystalNovaCooldown, "Crystal Nova"));
+            StartCoroutine(AbilityCooldown(duration, "Crystal Nova", removeAbilityEffects, duration));
         }
-        else if(ability == "FrostbiteActiveFinish")
+        else if (ability == "FrostbiteActiveFinish")
         {
             m_frostbiteActiveFade.gameObject.SetActive(false);
 
-            RemoveFrostbiteEffects();
+            if(removeAbilityEffects)
+                RemoveFrostbiteEffects();
 
             //Cooldown clock
             m_frostbiteCooldown.fillAmount = 1;
             m_frostbiteCooldownTxt.gameObject.SetActive(true);
-            m_frostbiteCurrentTime = m_frostbiteCDImageCount = FrostbiteCooldown;
+            m_frostbiteCurrentTime = m_frostbiteCDImageCount = duration;
             m_frostbiteCountdown = true;
 
-            StartCoroutine(AbilityCooldown(FrostbiteCooldown, "Frostbite"));
+            StartCoroutine(AbilityCooldown(duration, "Frostbite", removeAbilityEffects, duration));
         }
     }
 
@@ -276,7 +285,7 @@ public class CMController : MonoBehaviour
 
         m_clickerController.SetAbilityModifierAmount(Constants.CrystalNovaMultiplier);
 
-        StartCoroutine(AbilityCooldown(remainingTime, "CrystalNovaActiveFinish"));
+        StartCoroutine(AbilityCooldown(remainingTime, "CrystalNovaActiveFinish", true, CrystalNovaActiveDuration));
     }
 
     void RemoveCrystalNovaEffects()
@@ -291,7 +300,7 @@ public class CMController : MonoBehaviour
 
         m_clickerController.SetAbilityModifierAmount(Constants.FrostbiteMultiplier);
 
-        StartCoroutine(AbilityCooldown(secondsRemaining, "FrostbiteActiveFinish"));
+        StartCoroutine(AbilityCooldown(secondsRemaining, "FrostbiteActiveFinish", true, FrostbiteActiveDuration));
     }
 
     void RemoveFrostbiteEffects()

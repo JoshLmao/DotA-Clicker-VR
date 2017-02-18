@@ -9,9 +9,11 @@ public class HeroDto
     public int ClickersBought{ get; set; }
     public double ClickerTimeRemaining { get; set; }
 
+    public bool Ability1InUse { get; set; }
     public int Ability1Level { get; set; }
     public float Ability1UseCount { get; set; }
     public double Ability1RemainingTime { get; set; }
+    public bool Ability2InUse { get; set; }
     public int Ability2Level { get; set; }
     public float Ability2UseCount { get; set; }
     public double Ability2RemainingTime { get; set; }

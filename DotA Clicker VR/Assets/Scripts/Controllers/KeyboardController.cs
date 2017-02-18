@@ -34,7 +34,7 @@ public class KeyboardController : MonoBehaviour {
 
     public void Backspace()
     {
-        if(Input.Length != 0)
+        if(Input.Length > 0)
             Input = Input.Remove(Input.Length - 1);
     }
     public void Enter()

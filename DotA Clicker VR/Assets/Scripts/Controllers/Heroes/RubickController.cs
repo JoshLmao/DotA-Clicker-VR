@@ -206,16 +206,27 @@ public class RubickController : MonoBehaviour
         }
     }
 
-    IEnumerator AbilityCooldown(float time, string ability)
+    IEnumerator AbilityCooldown(float time, string ability, bool removeEffects)
     {
         yield return new WaitForSeconds(time);
 
+        OnAbilityFinished(ability, removeEffects);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="ability"></param>
+    /// <param name="removeEffects">Choose to remove effects or not. False if loading from save file</param>
+    public void OnAbilityFinished(string ability, bool removeEffects)
+    {
         if (ability == "Telekinesis")
         {
             m_telekinesisCooldownTxt.gameObject.SetActive(false);
             m_telekinesisCooldown.fillAmount = 0;
             m_telekinesisCountdown = false;
             TelekinesisActive = false;
+            m_clickerController.Ability1InUse = false;
         }
         else if (ability == "SpellSteal")
         {
@@ -223,13 +234,15 @@ public class RubickController : MonoBehaviour
             m_spellStealCooldown.fillAmount = 0;
             m_spellStealCountdown = false;
             SpellStealActive = false;
+            m_clickerController.Ability2InUse= false;
         }
         /*Do after active effects have done their duration*/
         else if (ability == "TelekinesisActiveFinish")
         {
             m_telekinesisActiveFade.gameObject.SetActive(false);
 
-            RemoveTelekinesisEffects();
+            if(removeEffects)
+                RemoveTelekinesisEffects();
 
             //Start Cooldown clock once finished
             m_telekinesisCooldown.fillAmount = 1;
@@ -237,13 +250,14 @@ public class RubickController : MonoBehaviour
             m_telekinesisCurrentTime = m_telekinesisCDImageCount = TelekinesisCooldown;
             m_telekinesisCountdown = true;
 
-            StartCoroutine(AbilityCooldown(TelekinesisCooldown, "Telekinesis"));
+            StartCoroutine(AbilityCooldown(TelekinesisCooldown, "Telekinesis", true));
         }
         else if (ability == "SpellStealActiveFinish")
         {
             m_spellStealActiveFade.gameObject.SetActive(false);
 
-            RemoveSpellStealEffects();
+            if(removeEffects)
+                RemoveSpellStealEffects();
 
             //Cooldown clock
             m_spellStealCooldown.fillAmount = 1;
@@ -251,7 +265,7 @@ public class RubickController : MonoBehaviour
             m_spellStealCurrentTime = m_spellStealCDImageCount = SpellStealCooldown;
             m_spellStealCountdown = true;
 
-            StartCoroutine(AbilityCooldown(SpellStealCooldown, "SpellSteal"));
+            StartCoroutine(AbilityCooldown(SpellStealCooldown, "SpellSteal", true));
         }
     }
 
@@ -280,7 +294,7 @@ public class RubickController : MonoBehaviour
 
         m_clickerController.SetAbilityModifierAmount(Constants.TelekinesisMultiplier);
 
-        StartCoroutine(AbilityCooldown(remainingTime, "TelekinesisActiveFinish"));
+        StartCoroutine(AbilityCooldown(remainingTime, "TelekinesisActiveFinish", true));
     }
 
     void RemoveTelekinesisEffects()
@@ -296,7 +310,7 @@ public class RubickController : MonoBehaviour
         /*Rubick steals another heroes click amount for one click. Cooldown: 3 minutes*/
         m_clickerController.SetAbilityModifierAmount(Constants.SpellStealMultiplier);
 
-        StartCoroutine(AbilityCooldown(remainingTime, "SpellStealActiveFinish"));
+        StartCoroutine(AbilityCooldown(remainingTime, "SpellStealActiveFinish", true));
     }
 
     void RemoveSpellStealEffects()

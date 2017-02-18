@@ -35,5 +35,4 @@ public class AchievementsDto
     public bool TheClosestYoullGetToABattleCup { get; set; }
     public bool WhenDidEGThrowLast { get; set; }
     public bool TheManTheMythTheLegend { get; set; }
-    public bool DongsOutForBulldog { get; set; }
 }

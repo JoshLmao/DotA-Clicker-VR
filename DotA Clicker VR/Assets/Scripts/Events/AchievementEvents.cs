@@ -65,8 +65,7 @@ public class AchievementEvents : MonoBehaviour
     public bool EGThrowLastStatus;
     public UnityEvent TheManTheMythTheLegend = new UnityEvent();
     public bool ManMythLegendStatus;
-    public UnityEvent DongsOutForBulldog = new UnityEvent();
-    public bool DongsOutStatus;
+
 
     void Start()
     {
@@ -96,7 +95,6 @@ public class AchievementEvents : MonoBehaviour
         TheClosestYoullGetToABattleCup.AddListener(ClosestYoullGetMethod);
         WhenDidEGThrowLast.AddListener(EGThrowLastMethod);
         TheManTheMythTheLegend.AddListener(ManMythLegendMethod);
-        DongsOutForBulldog.AddListener(DongsOutMethod);
 
         /*This code is the noise sheep make, with a 'd' on the end. Buy I dont care since no one will read this, right?*/
         if (m_sceneController.CurrentSaveFile != null && m_sceneController.CurrentSaveFile.Achievements != null)
@@ -125,7 +123,6 @@ public class AchievementEvents : MonoBehaviour
             ClosestYoullGetStatus = m_sceneController.CurrentSaveFile.Achievements.TheClosestYoullGetToABattleCup;
             EGThrowLastStatus = m_sceneController.CurrentSaveFile.Achievements.WhenDidEGThrowLast;
             ManMythLegendStatus = m_sceneController.CurrentSaveFile.Achievements.TheManTheMythTheLegend;
-            DongsOutStatus = m_sceneController.CurrentSaveFile.Achievements.DongsOutForBulldog;
         }
         else
         {
@@ -153,7 +150,6 @@ public class AchievementEvents : MonoBehaviour
             ClosestYoullGetStatus = false;
             EGThrowLastStatus = false;
             ManMythLegendStatus = false;
-            DongsOutStatus = false;
         }
     }
 
@@ -283,11 +279,6 @@ public class AchievementEvents : MonoBehaviour
     void ManMythLegendMethod()
     {
         ManMythLegendStatus = true;
-        OnRefreshAchievementsList.Invoke();
-    }
-    void DongsOutMethod()
-    {
-        DongsOutStatus = true;
         OnRefreshAchievementsList.Invoke();
     }
 }

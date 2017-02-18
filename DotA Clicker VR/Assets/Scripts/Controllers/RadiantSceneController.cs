@@ -274,7 +274,6 @@ public class RadiantSceneController : MonoBehaviour
                 TheClosestYoullGetToABattleCup = m_achievementEvents.ClosestYoullGetStatus,
                 WhenDidEGThrowLast = m_achievementEvents.EGThrowLastStatus,
                 TheManTheMythTheLegend = m_achievementEvents.ManMythLegendStatus,
-                DongsOutForBulldog = m_achievementEvents.DongsOutStatus,
             }
         };
 
@@ -294,10 +293,12 @@ public class RadiantSceneController : MonoBehaviour
                 Ability1Level = SceneHeroes[i].Ability1Level,
                 Ability1UseCount = SceneHeroes[i].Ability1UseCount,
                 Ability1RemainingTime = SceneHeroes[i].m_ability1ClickTime != DateTime.MinValue ? (DateTime.Now - SceneHeroes[i].m_ability1ClickTime).TotalSeconds : 0,
+                Ability1InUse = SceneHeroes[i].Ability1InUse,
 
                 Ability2Level = SceneHeroes[i].Ability2Level,
                 Ability2UseCount = SceneHeroes[i].Ability2UseCount,
                 Ability2RemainingTime = SceneHeroes[i].m_ability2ClickTime != DateTime.MinValue ? (DateTime.Now - SceneHeroes[i].m_ability2ClickTime).TotalSeconds : 0,
+                Ability2InUse = SceneHeroes[i].Ability2InUse,
 
                 ModifierActive = SceneHeroes[i].m_currentModifierRoutineStarted == DateTime.MinValue ? false : true,
                 CurrentModifier = SceneHeroes[i].m_currentModifier,
@@ -462,6 +463,10 @@ public class RadiantSceneController : MonoBehaviour
             };
             if(m_options != null)
             {
+                //Set defaults in quotes for other users
+                config.TwitchAuthCode = "";
+                config.TwitchUsername = "";
+
                 config.Preferences = new PreferencesDto()
                 {
                     MasterVolume = m_options.MasterVolSlider.value,
@@ -475,6 +480,8 @@ public class RadiantSceneController : MonoBehaviour
 
             string json = JsonConvert.SerializeObject(config, Formatting.Indented);
             File.WriteAllText(CONFIG_LOCATION, json);
+
+            CurrentConfigFile = config;
 
             if (LoadedConfigFile != null && config != null)
                 LoadedConfigFile.Invoke(config);
@@ -540,6 +547,14 @@ public class RadiantSceneController : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
     }
 
+    public void AddToClickTotal(int amount)
+    {
+        //amount should always be zero
+        ClickCount += amount;
+
+        CheckTotalClickAchievements();
+    }
+
     public void AddToTotal(decimal amount, double abilityMultiplier, double itemMultiplier)
     {
         if (amount <= 0)
@@ -569,7 +584,61 @@ public class RadiantSceneController : MonoBehaviour
         else
         {
             Debug.Log("Can't add amount to TotalGold. You're IF statement is shit");
+            return;
         }
+
+        CheckTotalGoldAchievements();
+    }
+
+    void CheckTotalGoldAchievements()
+    {
+        //reverse order
+        if (TotalGold >= 1000000 && !m_achievementEvents.EarnMillionGoldStatus)
+        {
+            m_achievementEvents.EarnMillionGold.Invoke();
+        }
+        else if (TotalGold >= 100000 && !m_achievementEvents.Earn100000GoldStatus)
+        {
+            m_achievementEvents.Earn100000Gold.Invoke();
+        }
+        else if (TotalGold >= 15000 && !m_achievementEvents.Earn15000GoldStatus)
+        {
+            m_achievementEvents.Earn15000Gold.Invoke();
+        }
+        else if (TotalGold >= 6200 && !m_achievementEvents.Earn6200GoldStatus)
+        {
+            m_achievementEvents.Earn6200Gold.Invoke();
+        }
+        else if (TotalGold >= 625 && !m_achievementEvents.Earn625GoldStatus)
+        {
+            m_achievementEvents.Earn625Gold.Invoke();
+        }
+    }
+
+    void CheckTotalClickAchievements()
+    {
+        //reverse order
+        if (ClickCount >= 50000 && !m_achievementEvents.ClickFiftyThousandStatus)
+        {
+            m_achievementEvents.EarnMillionGold.Invoke();
+        }
+        else if (TotalGold >= 15000 && !m_achievementEvents.ClickFifteenThousandStatus)
+        {
+            m_achievementEvents.Earn100000Gold.Invoke();
+        }
+        else if (TotalGold >= 1000 && !m_achievementEvents.ClickThousandStatus)
+        {
+            m_achievementEvents.Earn15000Gold.Invoke();
+        }
+        else if (ClickCount >= 500 && !m_achievementEvents.ClickFiveHundredStatus)
+        {
+            m_achievementEvents.Earn6200Gold.Invoke();
+        }
+        else if (ClickCount >= 1 && !m_achievementEvents.ClickOnceStatus)
+        {
+            m_achievementEvents.Earn625Gold.Invoke();
+        }
+
     }
 
     public void RemoveFromTotal(decimal amount)

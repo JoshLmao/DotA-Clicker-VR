@@ -107,10 +107,12 @@ public class RadiantClickerController : MonoBehaviour
     /// Ability 1 Level
     /// </summary>
     public int Ability1Level = 0;
+    public bool Ability1InUse = false;
     /// <summary>
     /// Ability 2 Level
     /// </summary>
     public int Ability2Level = 0;
+    public bool Ability2InUse = false;
     Slider m_abil1Slider;
     Slider m_abil2Slider;
     List<GameObject> m_abil1Icons = new List<GameObject>();
@@ -135,9 +137,6 @@ public class RadiantClickerController : MonoBehaviour
         m_bottleModifierActive = false, m_blinkDaggerModifierActive = false, m_hyperstoneModifierActive = false,
         m_bloodstoneModifierActive = false, m_reaverModifierActive = false, m_divineRapierModifierActive = false,
         m_recipeModifierActive = false;
-
-    int m_ironBranchModify, m_clarityModify, m_magicStickModify, m_quellingBladeModify, m_mangoModify, m_powerTreadsModify,
-        m_bottleModify, m_blinkDaggerModify, m_hyperstoneModify, m_bloodstoneModify, m_reaverModify, m_divineRapierModify, m_recipeModify;
 
     Image m_activeModifier = null;
     Transform m_itemModifierHolder;
@@ -360,7 +359,7 @@ public class RadiantClickerController : MonoBehaviour
         if(OnClickedFinished != null)
             OnClickedFinished.Invoke(name);
 
-        m_sceneController.ClickCount++; //Add to global click count
+        m_sceneController.AddToClickTotal(1); //Add to global click count
         m_lastClickedTime = DateTime.MinValue;
     }
 
@@ -368,9 +367,22 @@ public class RadiantClickerController : MonoBehaviour
     {
         if(m_sceneController.TotalGold >= ManagerCost)
         {
+            ClickerMultiplier += 1;
             HasManager = true;
             obj.SetActive(false);
         }
+    }
+
+    IEnumerator Ability1InUseAwait(int duration)
+    {
+        yield return new WaitForSeconds(duration);
+        Ability1InUse = false;
+    }
+
+    IEnumerator Ability2InUseAwait(int duration)
+    {
+        yield return new WaitForSeconds(duration);
+        Ability2InUse = false;
     }
 
     public bool ActivateAbility(string abilityName)
@@ -389,6 +401,8 @@ public class RadiantClickerController : MonoBehaviour
                 }
 
                 cm.ActivateCrystalNova();
+                Ability1InUse = true;
+                StartCoroutine(Ability1InUseAwait(cm.CrystalNovaActiveDuration));
 
                 Ability1Used();
                 Ability1UseCount++;
@@ -403,6 +417,8 @@ public class RadiantClickerController : MonoBehaviour
                 }
 
                 cm.ActivateFrostbite();
+                Ability2InUse = true;
+                StartCoroutine(Ability2InUseAwait(cm.FrostbiteActiveDuration));
 
                 Ability2Used();
                 Ability2UseCount++;
@@ -422,6 +438,8 @@ public class RadiantClickerController : MonoBehaviour
                 }
 
                 rubick.ActivateTelekinesis();
+                Ability1InUse = true;
+                StartCoroutine(Ability1InUseAwait(rubick.TelekinesisActiveDuration));
 
                 Ability1Used();
                 Ability1UseCount++;
@@ -436,6 +454,8 @@ public class RadiantClickerController : MonoBehaviour
                 }
 
                 rubick.ActivateSpellSteal();
+                Ability2InUse = true;
+                StartCoroutine(Ability2InUseAwait(rubick.SpellStealActiveDuration));
 
                 Ability2Used();
                 Ability2UseCount++;
@@ -448,13 +468,15 @@ public class RadiantClickerController : MonoBehaviour
 
             if (abilityName == "FireblastBtn" || !ogreMagi.FireblastUpgrade)
             {
-                if (ogreMagi.FireblastActive || ogreMagi.FireblastUpgrade)
+                if (ogreMagi.FireblastActive || !ogreMagi.FireblastUpgrade)
                 {
                     CantUseAbility();
                     return false;
                 }
 
                 ogreMagi.ActivateFireblast();
+                Ability1InUse = true;
+                StartCoroutine(Ability1InUseAwait(ogreMagi.FireblastActiveDuration));
 
                 Ability1Used();
                 Ability1UseCount++;
@@ -469,6 +491,8 @@ public class RadiantClickerController : MonoBehaviour
                 }
 
                 ogreMagi.ActivateBloodlust();
+                Ability2InUse = true;
+                StartCoroutine(Ability2InUseAwait(ogreMagi.BloodlustActiveDuration));
 
                 Ability2Used();
                 Ability2UseCount++;
@@ -488,6 +512,8 @@ public class RadiantClickerController : MonoBehaviour
                 }
 
                 tusk.ActivateSnowball();
+                Ability1InUse = true;
+                StartCoroutine(Ability1InUseAwait(tusk.SnowballActiveDuration));
 
                 Ability1Used();
                 Ability1UseCount++;
@@ -502,6 +528,8 @@ public class RadiantClickerController : MonoBehaviour
                 }
 
                 tusk.ActivateWalrusPunch();
+                Ability2InUse = true;
+                StartCoroutine(Ability2InUseAwait(tusk.WalrusPunchActiveDuration));
 
                 Ability2Used();
                 Ability2UseCount++;
@@ -521,6 +549,8 @@ public class RadiantClickerController : MonoBehaviour
                 }
 
                 phoenix.ActivateSunray();
+                Ability1InUse = true;
+                StartCoroutine(Ability1InUseAwait(phoenix.SunrayActiveDuration));
 
                 Ability1Used();
                 Ability1UseCount++;
@@ -535,6 +565,8 @@ public class RadiantClickerController : MonoBehaviour
                 }
 
                 phoenix.ActivateSupernova();
+                Ability2InUse = true;
+                StartCoroutine(Ability2InUseAwait(phoenix.SupernovaActiveDuration));
 
                 Ability2Used();
                 Ability2UseCount++;
@@ -554,6 +586,8 @@ public class RadiantClickerController : MonoBehaviour
                 }
 
                 sven.ActivateWarCry();
+                Ability1InUse = true;
+                StartCoroutine(Ability1InUseAwait(sven.WarCryActiveDuration));
 
                 Ability1Used();
                 Ability1UseCount++;
@@ -568,6 +602,8 @@ public class RadiantClickerController : MonoBehaviour
                 }
 
                 sven.ActivateGodsStrength();
+                Ability2InUse = true;
+                StartCoroutine(Ability2InUseAwait(sven.GodsStrengthActiveDuration));
 
                 Ability2Used();
                 Ability2UseCount++;
@@ -587,6 +623,8 @@ public class RadiantClickerController : MonoBehaviour
                 }
 
                 antiMage.ActivateBlink();
+                Ability1InUse = true;
+                StartCoroutine(Ability1InUseAwait(antiMage.BlinkActiveDuration));
 
                 Ability1Used();
                 Ability1UseCount++;
@@ -601,6 +639,8 @@ public class RadiantClickerController : MonoBehaviour
                 }
 
                 antiMage.ActivateManaVoid();
+                Ability2InUse = true;
+                StartCoroutine(Ability2InUseAwait(antiMage.ManaVoidActiveDuration));
 
                 Ability2Used();
                 Ability2UseCount++;
@@ -620,6 +660,8 @@ public class RadiantClickerController : MonoBehaviour
                 }
 
                 alchemist.ActivateGreevilsGreed();
+                Ability1InUse = true;
+                StartCoroutine(Ability1InUseAwait(alchemist.GreevilsGreedActiveDuration));
 
                 Ability1Used();
                 Ability1UseCount++;
@@ -634,6 +676,8 @@ public class RadiantClickerController : MonoBehaviour
                 }
 
                 alchemist.ActivateChemicalRage();
+                Ability2InUse = true;
+                StartCoroutine(Ability2InUseAwait(alchemist.ChemicalRageActiveDuration));
 
                 Ability2Used();
                 Ability2UseCount++;
@@ -867,13 +911,13 @@ public class RadiantClickerController : MonoBehaviour
 
     void AddModifier(string hero, int duration, double multiplierAmount, int multiplierDuration, string modifierName, string modifierPrefabName, string modifierIconLocation, out bool modifierBool)
     {
-        if (!CheckIfModifierActive() || name != hero)
+        if (!CheckIfModifierActive() || HeroName != hero)
         {
             modifierBool = false;
             return;
         }
 
-        StartCoroutine(WaitForItemModifier(duration, /*"hyperstone"*/modifierName));
+        StartCoroutine(WaitForItemModifier(duration, modifierName));
 
         SetItemModifierAmount(multiplierAmount);
 
@@ -1008,13 +1052,14 @@ public class RadiantClickerController : MonoBehaviour
 
                 Ability1Level = hero.Ability1Level;
                 Ability1UseCount = hero.Ability1UseCount;
+                Ability1InUse = hero.Ability1InUse;
                 //Add to Ability Slider count and update value
                 m_abil1UseCount = (int)hero.Ability1UseCount;
                 m_abil1Slider.value = m_abil1UseCount;
 
                 Ability2Level = hero.Ability2Level;
                 Ability2UseCount = hero.Ability2UseCount;
-
+                Ability2InUse = hero.Ability2InUse;
                 //Add to Ability Slider count and update value
                 m_abil2UseCount = (int)hero.Ability2UseCount;
                 m_abil2Slider.value = m_abil2UseCount;
@@ -1024,28 +1069,29 @@ public class RadiantClickerController : MonoBehaviour
                     OnClickWithTimeRemaining(hero.ClickerTimeRemaining);
                 }
 
+                //If ability was counting down
                 if (hero.Ability1RemainingTime != 0)
                 {
                     if (HeroName == "Crystal Maiden")
                     {
                         if (hero.Ability1RemainingTime != 0)
                         {
-                            ActivateAbility("CrystalNovaBtn", hero.Ability1RemainingTime);
+                            ActivateAbility("CrystalNovaBtn", hero.Ability1RemainingTime, hero.Ability1InUse);
                         }
                         if (hero.Ability2RemainingTime != 0)
                         {
-                            ActivateAbility("FrostbiteBtn", hero.Ability2RemainingTime);
+                            ActivateAbility("FrostbiteBtn", hero.Ability2RemainingTime, hero.Ability2InUse);
                         }
                     }
                     else if (HeroName == "Rubick")
                     {
                         if (hero.Ability1RemainingTime != 0)
                         {
-                            ActivateAbility("TelekinesisBtn", hero.Ability1RemainingTime);
+                            ActivateAbility("TelekinesisBtn", hero.Ability1RemainingTime, hero.Ability1InUse);
                         }
                         if (hero.Ability2RemainingTime != 0)
                         {
-                            ActivateAbility("SpellStealBtn", hero.Ability2RemainingTime);
+                            ActivateAbility("SpellStealBtn", hero.Ability2RemainingTime, hero.Ability2InUse);
                         }
 
                     }
@@ -1053,66 +1099,66 @@ public class RadiantClickerController : MonoBehaviour
                     {
                         if (hero.Ability1RemainingTime != 0)
                         {
-                            ActivateAbility("FireblastBtn", hero.Ability1RemainingTime);
+                            ActivateAbility("FireblastBtn", hero.Ability1RemainingTime, hero.Ability1InUse);
                         }
                         if (hero.Ability2RemainingTime != 0)
                         {
-                            ActivateAbility("BloodlustBtn", hero.Ability2RemainingTime);
+                            ActivateAbility("BloodlustBtn", hero.Ability2RemainingTime, hero.Ability2InUse);
                         }
                     }
                     else if (HeroName == "Tusk")
                     {
                         if (hero.Ability1RemainingTime != 0)
                         {
-                            ActivateAbility("SnowballBtn", hero.Ability1RemainingTime);
+                            ActivateAbility("SnowballBtn", hero.Ability1RemainingTime, hero.Ability1InUse);
                         }
                         if (hero.Ability2RemainingTime != 0)
                         {
-                            ActivateAbility("WalrusPunchBtn", hero.Ability2RemainingTime);
+                            ActivateAbility("WalrusPunchBtn", hero.Ability2RemainingTime, hero.Ability2InUse);
                         }
                     }
                     else if (HeroName == "Phoenix")
                     {
                         if (hero.Ability1RemainingTime != 0)
                         {
-                            ActivateAbility("SunrayBtn", hero.Ability1RemainingTime);
+                            ActivateAbility("SunrayBtn", hero.Ability1RemainingTime, hero.Ability1InUse);
                         }
                         if (hero.Ability2RemainingTime != 0)
                         {
-                            ActivateAbility("SupernovaBtn", hero.Ability2RemainingTime);
+                            ActivateAbility("SupernovaBtn", hero.Ability2RemainingTime, hero.Ability2InUse);
                         }
                     }
                     else if (HeroName == "Sven")
                     {
                         if (hero.Ability1RemainingTime != 0)
                         {
-                            ActivateAbility("WarCryBtn", hero.Ability1RemainingTime);
+                            ActivateAbility("WarCryBtn", hero.Ability1RemainingTime, hero.Ability1InUse);
                         }
                         if (hero.Ability2RemainingTime != 0)
                         {
-                            ActivateAbility("GodsStrengthBtn", hero.Ability2RemainingTime);
+                            ActivateAbility("GodsStrengthBtn", hero.Ability2RemainingTime, hero.Ability2InUse);
                         }
                     }
                     else if (HeroName == "Anti Mage")
                     {
                         if (hero.Ability1RemainingTime != 0)
                         {
-                            ActivateAbility("BlinkBtn", hero.Ability1RemainingTime);
+                            ActivateAbility("BlinkBtn", hero.Ability1RemainingTime, hero.Ability1InUse);
                         }
                         if (hero.Ability2RemainingTime != 0)
                         {
-                            ActivateAbility("ManaVoidBtn", hero.Ability2RemainingTime);
+                            ActivateAbility("ManaVoidBtn", hero.Ability2RemainingTime, hero.Ability2InUse);
                         }
                     }
                     else if (HeroName == "Alchemist")
                     {
                         if (hero.Ability1RemainingTime != 0)
                         {
-                            ActivateAbility("GreevilsGreedBtn", hero.Ability1RemainingTime);
+                            ActivateAbility("GreevilsGreedBtn", hero.Ability1RemainingTime, hero.Ability1InUse);
                         }
                         if (hero.Ability2RemainingTime != 0)
                         {
-                            ActivateAbility("ChemicalRageBtn", hero.Ability2RemainingTime);
+                            ActivateAbility("ChemicalRageBtn", hero.Ability2RemainingTime, hero.Ability2InUse);
                         }
                     }
                 }
@@ -1120,7 +1166,7 @@ public class RadiantClickerController : MonoBehaviour
                 if (hero.ModifierTimeRemaining != 0 && hero.CurrentModifier != string.Empty)
                 {
                     //check hero.CurrentModifier
-                    ActivateModifier(hero.CurrentModifier, hero.CurrentModifier, (int)hero.ModifierTimeRemaining);
+                    ActivateModifier(hero.HeroName, hero.CurrentModifier, (int)hero.ModifierTimeRemaining);
                 }
             }
             else
@@ -1131,19 +1177,17 @@ public class RadiantClickerController : MonoBehaviour
     }
 
     /// <summary>
-    /// For loading form Save File
+    /// For loading from Save File
     /// </summary>
     /// <param name="abilityName"></param>
     /// <param name="secondsRemaining"></param>
-    void ActivateAbility(string abilityName, double secondsRemaining)
+    void ActivateAbility(string abilityName, double secondsRemaining, bool abilityInUse)
     {
         if (abilityName == "CrystalNovaBtn" || abilityName == "FrostbiteBtn")
         {
             CMController cm = GetComponentInParent<CMController>();
-            if (!cm.CrystalNovaUpgrade || !cm.FrostbiteUpgrade)
-                return;
 
-            if (abilityName == "CrystalNovaBtn")
+            if (abilityName == "CrystalNovaBtn" && cm.CrystalNovaUpgrade)
             {
                 if (cm.CrystalNovaActive)
                 {
@@ -1151,12 +1195,20 @@ public class RadiantClickerController : MonoBehaviour
                     return;
                 }
 
-                cm.ActivateCrystalNova(secondsRemaining, false);
-                Ability1Used();
-                Ability1UseCount++;
-                m_ability1ClickTime = DateTime.Now;
+                if(abilityInUse)
+                {
+                    cm.ActivateCrystalNova(secondsRemaining, false);
+                    Ability1Used();
+                    Ability1UseCount++;
+                    m_ability1ClickTime = DateTime.Now;
+                }
+                else
+                {
+                    //Only do if ability isnt in use but seconds are remaining
+                    cm.OnAbilityFinished("CrystalNovaActiveFinish", false, (int)secondsRemaining);
+                }
             }
-            else if (abilityName == "FrostbiteBtn")
+            else if (abilityName == "FrostbiteBtn" && cm.FrostbiteUpgrade)
             {
                 if (cm.FrostbiteActive)
                 {
@@ -1164,20 +1216,25 @@ public class RadiantClickerController : MonoBehaviour
                     return;
                 }
 
-                cm.ActivateFrostbite(secondsRemaining, false);
-                //HandController.RumbleController(index, 2000);
-                Ability2Used();
-                Ability2UseCount++;
-                m_ability2ClickTime = DateTime.Now;
+                if (abilityInUse)
+                {
+                    cm.ActivateFrostbite(secondsRemaining, false);
+                    //HandController.RumbleController(index, 2000);
+                    Ability2Used();
+                    Ability2UseCount++;
+                    m_ability2ClickTime = DateTime.Now;
+                }
+                else
+                {
+                    cm.OnAbilityFinished("FrostbiteActiveFinish", false, (int)secondsRemaining);
+                }
             }
         }
         else if (abilityName == "TelekinesisBtn" || abilityName == "SpellStealBtn")
         {
             RubickController rubick = GetComponentInParent<RubickController>();
-            if (!rubick.TelekinesisUpgrade || !rubick.SpellStealUpgrade)
-                return;
 
-            if (abilityName == "TelekinesisBtn")
+            if (abilityName == "TelekinesisBtn" && rubick.TelekinesisUpgrade)
             {
                 if (rubick.TelekinesisActive)
                 {
@@ -1185,12 +1242,18 @@ public class RadiantClickerController : MonoBehaviour
                     return;
                 }
 
-                rubick.ActivateTelekinesis(secondsRemaining, false);
-                Ability1Used();
-                Ability1UseCount++;
-                m_ability1ClickTime = DateTime.Now;
+                if(abilityInUse)
+                {
+                    rubick.ActivateTelekinesis(secondsRemaining, false);
+                    Ability1Used();
+                    Ability1UseCount++;
+                    m_ability1ClickTime = DateTime.Now;
+                }
+
+                rubick.OnAbilityFinished("TelekinesisActiveFinish", false);
+
             }
-            else if (abilityName == "SpellStealBtn")
+            else if (abilityName == "SpellStealBtn" && rubick.SpellStealUpgrade)
             {
                 if (rubick.SpellStealActive)
                 {
@@ -1198,19 +1261,22 @@ public class RadiantClickerController : MonoBehaviour
                     return;
                 }
 
-                rubick.ActivateSpellSteal(secondsRemaining, false);
-                Ability2Used();
-                Ability2UseCount++;
-                m_ability2ClickTime = DateTime.Now;
+                if(abilityInUse)
+                {
+                    rubick.ActivateSpellSteal(secondsRemaining, false);
+                    Ability2Used();
+                    Ability2UseCount++;
+                    m_ability2ClickTime = DateTime.Now;
+                }
+
+                rubick.OnAbilityFinished("SpellStealActiveFinish", false);
             }
         }
         else if (abilityName == "FireblastBtn" || abilityName == "BloodlustBtn")
         {
             OgreMagiController ogreMagi = GetComponentInParent<OgreMagiController>();
-            if (!ogreMagi.FireblastUpgrade || !ogreMagi.BloodlustUpgrade)
-                return;
 
-            if (abilityName == "FireblastBtn")
+            if (abilityName == "FireblastBtn" && ogreMagi.FireblastUpgrade)
             {
                 if (ogreMagi.FireblastActive)
                 {
@@ -1218,12 +1284,17 @@ public class RadiantClickerController : MonoBehaviour
                     return;
                 }
 
-                ogreMagi.ActivateFireblast(secondsRemaining, false);
-                Ability1Used();
-                Ability1UseCount++;
-                m_ability1ClickTime = DateTime.Now;
+                if(abilityInUse)
+                {
+                    ogreMagi.ActivateFireblast(secondsRemaining, false);
+                    Ability1Used();
+                    Ability1UseCount++;
+                    m_ability1ClickTime = DateTime.Now;
+                }
+
+                ogreMagi.OnAbilityFinished("FireblastActiveFinish", false);
             }
-            else if (abilityName == "BloodlustBtn")
+            else if (abilityName == "BloodlustBtn" && ogreMagi.BloodlustUpgrade)
             {
                 if (ogreMagi.BloodlustActive)
                 {
@@ -1231,19 +1302,21 @@ public class RadiantClickerController : MonoBehaviour
                     return;
                 }
 
-                ogreMagi.ActivateBloodlust(secondsRemaining, false);
-                Ability2Used();
-                Ability2UseCount++;
-                m_ability2ClickTime = DateTime.Now;
+                if (abilityInUse)
+                {
+                    ogreMagi.ActivateBloodlust(secondsRemaining, false);
+                    Ability2Used();
+                    Ability2UseCount++;
+                    m_ability2ClickTime = DateTime.Now;
+                }
+                ogreMagi.OnAbilityFinished("BloodlustActiveFinish", false);
             }
         }
         else if (abilityName == "SnowballBtn" || abilityName == "WalrusPunchBtn")
         {
             TuskController tusk = GetComponentInParent<TuskController>();
-            if (!tusk.SnowballUpgrade || !tusk.WalrusPunchUpgrade)
-                return;
 
-            if (abilityName == "SnowballBtn")
+            if (abilityName == "SnowballBtn" && tusk.SnowballUpgrade)
             {
                 if (tusk.SnowballActive)
                 {
@@ -1251,12 +1324,17 @@ public class RadiantClickerController : MonoBehaviour
                     return;
                 }
 
-                tusk.ActivateSnowball(secondsRemaining, false);
-                Ability1Used();
-                Ability1UseCount++;
-                m_ability1ClickTime = DateTime.Now;
+                if(abilityInUse)
+                {
+                    tusk.ActivateSnowball(secondsRemaining, false);
+                    Ability1Used();
+                    Ability1UseCount++;
+                    m_ability1ClickTime = DateTime.Now;
+                }
+
+                tusk.OnAbilityFinished("SnowballActiveFinish", false);
             }
-            else if (abilityName == "WalrusPunchBtn")
+            else if (abilityName == "WalrusPunchBtn" && tusk.WalrusPunchUpgrade)
             {
                 if (tusk.WalrusPunchActive)
                 {
@@ -1264,19 +1342,22 @@ public class RadiantClickerController : MonoBehaviour
                     return;
                 }
 
-                tusk.ActivateWalrusPunch(secondsRemaining, false);
-                Ability2Used();
-                Ability2UseCount++;
-                m_ability2ClickTime = DateTime.Now;
+                if(abilityInUse)
+                {
+                    tusk.ActivateWalrusPunch(secondsRemaining, false);
+                    Ability2Used();
+                    Ability2UseCount++;
+                    m_ability2ClickTime = DateTime.Now;
+                }
+
+                tusk.OnAbilityFinished("WalrusPunchActiveFinish", false);
             }
         }
         else if (abilityName == "SunrayBtn" || abilityName == "SupernovaBtn")
         {
             PhoenixController phoenix = GetComponentInParent<PhoenixController>();
-            if (!phoenix.SunrayUpgrade || !phoenix.SupernovaUpgrade)
-                return;
 
-            if (abilityName == "SunrayBtn")
+            if (abilityName == "SunrayBtn" && phoenix.SunrayUpgrade)
             {
                 if (phoenix.SunrayActive)
                 {
@@ -1284,12 +1365,17 @@ public class RadiantClickerController : MonoBehaviour
                     return;
                 }
 
-                phoenix.ActivateSunray(secondsRemaining, false);
-                Ability1Used();
-                Ability1UseCount++;
-                m_ability1ClickTime = DateTime.Now;
+                if(abilityInUse)
+                {
+                    phoenix.ActivateSunray(secondsRemaining, false);
+                    Ability1Used();
+                    Ability1UseCount++;
+                    m_ability1ClickTime = DateTime.Now;
+                }
+
+                phoenix.OnAbilityFinished("SunrayActiveFinish", false);
             }
-            else if (abilityName == "SupernovaBtn")
+            else if (abilityName == "SupernovaBtn" && phoenix.SupernovaUpgrade)
             {
                 if (phoenix.SupernovaActive)
                 {
@@ -1297,32 +1383,39 @@ public class RadiantClickerController : MonoBehaviour
                     return;
                 }
 
-                phoenix.ActivateSupernova(secondsRemaining, false);
-                Ability2Used();
-                Ability2UseCount++;
-                m_ability2ClickTime = DateTime.Now;
+                if (abilityInUse)
+                {
+                    phoenix.ActivateSupernova(secondsRemaining, false);
+                    Ability2Used();
+                    Ability2UseCount++;
+                    m_ability2ClickTime = DateTime.Now;
+                }
+
+                phoenix.OnAbilityFinished("SupernovaActiveFinish", false);
             }
         }
         else if (abilityName == "WarCryBtn" || abilityName == "GodsStrengthBtn")
         {
             SvenController sven = GetComponentInParent<SvenController>();
-            if (!sven.WarCryUpgrade || !sven.GodsStrengthUpgrade)
-                return;
 
-            if (abilityName == "WarCryBtn")
+            if (abilityName == "WarCryBtn" && sven.WarCryUpgrade)
             {
                 if (sven.WarCryActive)
                 {
                     CantUseAbility();
                     return;
                 }
+                if (abilityInUse)
+                {
+                    sven.ActivateWarCry(secondsRemaining, false);
+                    Ability1Used();
+                    Ability1UseCount++;
+                    m_ability1ClickTime = DateTime.Now;
+                }
 
-                sven.ActivateWarCry(secondsRemaining, false);
-                Ability1Used();
-                Ability1UseCount++;
-                m_ability1ClickTime = DateTime.Now;
+                sven.OnAbilityFinished("WarCryActiveFinish", false);
             }
-            else if (abilityName == "GodsStrengthBtn")
+            else if (abilityName == "GodsStrengthBtn" && sven.GodsStrengthUpgrade)
             {
                 if (sven.GodsStrengthActive)
                 {
@@ -1330,19 +1423,22 @@ public class RadiantClickerController : MonoBehaviour
                     return;
                 }
 
-                sven.ActivateGodsStrength(secondsRemaining, false);
-                Ability2Used();
-                Ability2UseCount++;
-                m_ability2ClickTime = DateTime.Now;
+                if(abilityInUse)
+                {
+                    sven.ActivateGodsStrength(secondsRemaining, false);
+                    Ability2Used();
+                    Ability2UseCount++;
+                    m_ability2ClickTime = DateTime.Now;
+                }
+
+                sven.OnAbilityFinished("GodsStrengthActiveFinish", false);
             }
         }
         else if (abilityName == "BlinkBtn" || abilityName == "ManaVoidBtn")
         {
             AntiMageController antiMage = GetComponentInParent<AntiMageController>();
-            if (!antiMage.BlinkUpgrade || !antiMage.ManaVoidUpgrade)
-                return;
 
-            if (abilityName == "BlinkBtn")
+            if (abilityName == "BlinkBtn" && antiMage.BlinkUpgrade)
             {
                 if (antiMage.BlinkActive)
                 {
@@ -1350,12 +1446,17 @@ public class RadiantClickerController : MonoBehaviour
                     return;
                 }
 
-                antiMage.ActivateBlink(secondsRemaining, false);
-                Ability1Used();
-                Ability1UseCount++;
-                m_ability1ClickTime = DateTime.Now;
+                if(abilityInUse)
+                {
+                    antiMage.ActivateBlink(secondsRemaining, false);
+                    Ability1Used();
+                    Ability1UseCount++;
+                    m_ability1ClickTime = DateTime.Now;
+                }
+
+                antiMage.OnAbilityFinished("BlinkActiveFinish", false);
             }
-            else if (abilityName == "ManaVoid")
+            else if (abilityName == "ManaVoid" && antiMage.ManaVoidUpgrade)
             {
                 if (antiMage.ManaVoidActive)
                 {
@@ -1363,19 +1464,22 @@ public class RadiantClickerController : MonoBehaviour
                     return;
                 }
 
-                antiMage.ActivateManaVoid(secondsRemaining, false);
-                Ability2Used();
-                Ability2UseCount++;
-                m_ability2ClickTime = DateTime.Now;
+                if(abilityInUse)
+                {
+                    antiMage.ActivateManaVoid(secondsRemaining, false);
+                    Ability2Used();
+                    Ability2UseCount++;
+                    m_ability2ClickTime = DateTime.Now;
+                }
+
+                antiMage.OnAbilityFinished("ManaVoidActiveFinish", false);
             }
         }
         else if (abilityName == "GreevilsGreedBtn" || abilityName == "ChemicalRageBtn")
         {
             AlchemistController alchemist = GetComponentInParent<AlchemistController>();
-            if (!alchemist.GreevilsGreedUpgrade || !alchemist.ChemicalRageUpgrade)
-                return;
 
-            if (abilityName == "GreevilsGreedBtn")
+            if (abilityName == "GreevilsGreedBtn" && alchemist.GreevilsGreedUpgrade)
             {
                 if (alchemist.GreevilsGreedActive)
                 {
@@ -1383,12 +1487,17 @@ public class RadiantClickerController : MonoBehaviour
                     return;
                 }
 
-                alchemist.ActivateGreevilsGreed(secondsRemaining, false);
-                Ability1Used();
-                Ability1UseCount++;
-                m_ability1ClickTime = DateTime.Now;
+                if(abilityInUse)
+                {
+                    alchemist.ActivateGreevilsGreed(secondsRemaining, false);
+                    Ability1Used();
+                    Ability1UseCount++;
+                    m_ability1ClickTime = DateTime.Now;
+                }
+
+                alchemist.OnAbilityFinished("GreevilsGreedActiveFinish", false);
             }
-            else
+            else if(abilityName == "ChemicalRageBtn" && alchemist.ChemicalRageUpgrade)
             {
                 if (alchemist.ChemicalRageActive)
                 {
@@ -1396,10 +1505,15 @@ public class RadiantClickerController : MonoBehaviour
                     return;
                 }
 
-                alchemist.ActivateChemicalRage(secondsRemaining, false);
-                Ability2Used();
-                Ability2UseCount++;
-                m_ability2ClickTime = DateTime.Now;
+                if(abilityInUse)
+                {
+                    alchemist.ActivateChemicalRage(secondsRemaining, false);
+                    Ability2Used();
+                    Ability2UseCount++;
+                    m_ability2ClickTime = DateTime.Now;
+                }
+
+                alchemist.OnAbilityFinished("ChemicalRageActiveFinish", false);
             }
         }
     }

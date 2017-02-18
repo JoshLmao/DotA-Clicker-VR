@@ -201,16 +201,22 @@ public class SvenController : MonoBehaviour
         }
     }
 
-    IEnumerator AbilityCooldown(float time, string ability)
+    IEnumerator AbilityCooldown(float time, string ability, bool removeAbilityEffects)
     {
         yield return new WaitForSeconds(time);
 
+        OnAbilityFinished(ability, removeAbilityEffects);
+    }
+
+    public void OnAbilityFinished(string ability, bool removeAbilityEffects)
+    {
         if (ability == "WarCry")
         {
             m_warCryCooldownTxt.gameObject.SetActive(false);
             m_warCryCooldown.fillAmount = 0;
             m_warCryCountdown = false;
             WarCryActive = false;
+            m_clickerController.Ability1InUse = false;
         }
         else if (ability == "GodsStrength")
         {
@@ -218,13 +224,15 @@ public class SvenController : MonoBehaviour
             m_godsStrengthCooldown.fillAmount = 0;
             m_godsStrengthCountdown = false;
             GodsStrengthActive = false;
+            m_clickerController.Ability2InUse = false;
         }
         /*Do after active effects have done their duration*/
         else if (ability == "WarCryActiveFinish")
         {
             m_warCryActiveFade.gameObject.SetActive(false);
 
-            RemoveWarCryEffects();
+            if(removeAbilityEffects)
+                RemoveWarCryEffects();
 
             //Start Cooldown clock once finished
             m_warCryCooldown.fillAmount = 1;
@@ -232,13 +240,14 @@ public class SvenController : MonoBehaviour
             m_warCryCurrentTime = m_warCryCDImageCount = WarCryCooldown;
             m_warCryCountdown = true;
 
-            StartCoroutine(AbilityCooldown(WarCryCooldown, "warCry"));
+            StartCoroutine(AbilityCooldown(WarCryCooldown, "warCry", false));
         }
         else if (ability == "GodsStrengthActiveFinish")
         {
             m_godsStrengthActiveFade.gameObject.SetActive(false);
 
-            RemoveGodsStrengthEffects();
+            if(removeAbilityEffects)
+                RemoveGodsStrengthEffects();
 
             //Cooldown clock
             m_godsStrengthCooldown.fillAmount = 1;
@@ -246,7 +255,7 @@ public class SvenController : MonoBehaviour
             m_godsStrengthCurrentTime = m_godsStrengthCDImageCount = GodsStrengthCooldown;
             m_godsStrengthCountdown = true;
 
-            StartCoroutine(AbilityCooldown(GodsStrengthCooldown, "godsStrength"));
+            StartCoroutine(AbilityCooldown(GodsStrengthCooldown, "godsStrength", false));
         }
     }
 
@@ -276,7 +285,7 @@ public class SvenController : MonoBehaviour
         //do effects
         m_clickerController.SetAbilityModifierAmount(Constants.WarCryMultiplier);
 
-        StartCoroutine(AbilityCooldown(remainingTime, "WarCryActiveFinish"));
+        StartCoroutine(AbilityCooldown(remainingTime, "WarCryActiveFinish", true));
     }
 
     void RemoveWarCryEffects()
@@ -287,7 +296,7 @@ public class SvenController : MonoBehaviour
 
     void GodsStrengthEffects(float remainingTime)
     {
-        StartCoroutine(AbilityCooldown(remainingTime, "GodsStrengthActiveFinish"));
+        StartCoroutine(AbilityCooldown(remainingTime, "GodsStrengthActiveFinish", true));
     }
 
     void RemoveGodsStrengthEffects()
@@ -298,7 +307,7 @@ public class SvenController : MonoBehaviour
         //do effects
         m_clickerController.RemoveAbilityModifierAmount(Constants.GodsStrengthMultiplier);
 
-        StartCoroutine(AbilityCooldown(GodsStrengthActiveDuration, "GodsStrengthActiveFinish"));
+        StartCoroutine(AbilityCooldown(GodsStrengthActiveDuration, "GodsStrengthActiveFinish", true));
     }
 
     IEnumerator RareIdleCount(float time)

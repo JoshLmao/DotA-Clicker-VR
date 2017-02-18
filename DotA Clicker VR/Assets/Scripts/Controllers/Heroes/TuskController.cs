@@ -223,12 +223,18 @@ public class TuskController : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
 
+        
+    }
+
+    public void OnAbilityFinished(string ability, bool removeAbilityEffects)
+    {
         if (ability == "Snowball")
         {
             m_snowballCooldownTxt.gameObject.SetActive(false);
             m_snowballCooldown.fillAmount = 0;
             m_snowballCountdown = false;
             SnowballActive = false;
+            m_clickerController.Ability1InUse = false;
         }
         else if (ability == "WalrusPunch")
         {
@@ -236,13 +242,15 @@ public class TuskController : MonoBehaviour
             m_walrusPunchCooldown.fillAmount = 0;
             m_walrusPunchCountdown = false;
             WalrusPunchActive = false;
+            m_clickerController.Ability2InUse = false;
         }
         /*Do after active effects have done their duration*/
         else if (ability == "SnowballActiveFinish")
         {
             m_snowballActiveFade.gameObject.SetActive(false);
 
-            RemoveSnowballEffects();
+            if(removeAbilityEffects)
+                RemoveSnowballEffects();
 
             //Start Cooldown clock once finished
             m_snowballCooldown.fillAmount = 1;
@@ -256,7 +264,8 @@ public class TuskController : MonoBehaviour
         {
             m_walrusPunchActiveFade.gameObject.SetActive(false);
 
-            RemoveWalrusPunchEffects();
+            if (removeAbilityEffects)
+                RemoveWalrusPunchEffects();
 
             //Cooldown clock
             m_walrusPunchCooldown.fillAmount = 1;

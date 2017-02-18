@@ -218,16 +218,21 @@ public class PhoenixController : MonoBehaviour
         StartCoroutine(SupernovaStartWait());
     }
 
-    IEnumerator AbilityCooldown(float time, string ability)
+    IEnumerator AbilityCooldown(float time, string ability, bool removeAbilityEffects)
     {
         yield return new WaitForSeconds(time);
+        OnAbilityFinished(ability, removeAbilityEffects);
+   }
 
+    public void OnAbilityFinished(string ability, bool removeAbilityEffects)
+    {
         if (ability == "Sunray")
         {
             m_sunrayCooldownTxt.gameObject.SetActive(false);
             m_sunrayCooldown.fillAmount = 0;
             m_sunrayCountdown = false;
             SunrayActive = false;
+            m_clickerController.Ability1InUse = false;
         }
         else if (ability == "Supernova")
         {
@@ -235,13 +240,15 @@ public class PhoenixController : MonoBehaviour
             m_supernovaCooldown.fillAmount = 0;
             m_supernovaCountdown = false;
             SupernovaActive = false;
+            m_clickerController.Ability2InUse = false;
         }
         /*Do after active effects have done their duration*/
         else if (ability == "SunrayActiveFinish")
         {
             m_sunrayActiveFade.gameObject.SetActive(false);
 
-            RemoveSunrayEffects();
+            if(removeAbilityEffects)
+                RemoveSunrayEffects();
 
             //Start Cooldown clock once finished
             m_sunrayCooldown.fillAmount = 1;
@@ -249,13 +256,14 @@ public class PhoenixController : MonoBehaviour
             m_sunrayCurrentTime = m_sunrayCDImageCount = SunrayCooldown;
             m_sunrayCountdown = true;
 
-            StartCoroutine(AbilityCooldown(SunrayCooldown, "sunray"));
+            StartCoroutine(AbilityCooldown(SunrayCooldown, "sunray", false));
         }
         else if (ability == "SupernovaActiveFinish")
         {
             m_supernovaActiveFade.gameObject.SetActive(false);
 
-            RemoveSupernovaEffects();
+            if(removeAbilityEffects)
+                RemoveSupernovaEffects();
 
             //Cooldown clock
             m_supernovaCooldown.fillAmount = 1;
@@ -263,9 +271,8 @@ public class PhoenixController : MonoBehaviour
             m_supernovaCurrentTime = m_supernovaCDImageCount = SupernovaCooldown;
             m_supernovaCountdown = true;
 
-            StartCoroutine(AbilityCooldown(SupernovaCooldown, "supernova"));
+            StartCoroutine(AbilityCooldown(SupernovaCooldown, "supernova", false));
         }
-
     }
 
     void ClickedButton(string name)
@@ -365,7 +372,7 @@ public class PhoenixController : MonoBehaviour
             clicker.TimeBetweenClicks = new TimeSpan(0, 0, clicker.TimeBetweenClicks.Seconds - 60);
         }
 
-        StartCoroutine(AbilityCooldown(remainingTime, "SunrayActiveFinish"));
+        StartCoroutine(AbilityCooldown(remainingTime, "SunrayActiveFinish", true));
     }
 
     void RemoveSunrayEffects()
@@ -380,7 +387,7 @@ public class PhoenixController : MonoBehaviour
         //do effect
         InvokeRepeating("SupernovaRepeating", 6, 1);
 
-        StartCoroutine(AbilityCooldown(remainingTime, "SupernovaActiveFinish"));
+        StartCoroutine(AbilityCooldown(remainingTime, "SupernovaActiveFinish", true));
     }
 
     void SupernovaRepeating()

@@ -199,16 +199,22 @@ public class AntiMageController : MonoBehaviour
         }
     }
 
-    IEnumerator AbilityCooldown(float time, string ability)
+    IEnumerator AbilityCooldown(float time, string ability, bool removeAbilityEffects)
     {
         yield return new WaitForSeconds(time);
 
+        OnAbilityFinished(ability, removeAbilityEffects);
+    }
+
+    public void OnAbilityFinished(string ability, bool removeAbilityEffects)
+    {
         if (ability == "Blink")
         {
             m_blinkCooldownTxt.gameObject.SetActive(false);
             m_blinkCooldown.fillAmount = 0;
             m_blinkCountdown = false;
             BlinkActive = false;
+            m_clickerController.Ability1InUse = false;
         }
         else if (ability == "ManaVoid")
         {
@@ -216,13 +222,15 @@ public class AntiMageController : MonoBehaviour
             m_manaVoidCooldown.fillAmount = 0;
             m_manaVoidCountdown = false;
             ManaVoidActive = false;
+            m_clickerController.Ability2InUse = false;
         }
         /*Do after active effects have done their duration*/
         else if (ability == "BlinkActiveFinish")
         {
             m_blinkActiveFade.gameObject.SetActive(false);
 
-            RemoveBlinkEffects();
+            if (removeAbilityEffects)
+                RemoveBlinkEffects();
 
             //Start Cooldown clock once finished
             m_blinkCooldown.fillAmount = 1;
@@ -230,13 +238,14 @@ public class AntiMageController : MonoBehaviour
             m_blinkCurrentTime = m_blinkCDImageCount = BlinkCooldown;
             m_blinkCountdown = true;
 
-            StartCoroutine(AbilityCooldown(BlinkCooldown, "Blink"));
+            StartCoroutine(AbilityCooldown(BlinkCooldown, "Blink", false));
         }
         else if (ability == "ManaVoidActiveFinish")
         {
             m_manaVoidActiveFade.gameObject.SetActive(false);
 
-            RemoveManaVoidEffects();
+            if(removeAbilityEffects)
+                RemoveManaVoidEffects();
 
             //Cooldown clock
             m_manaVoidCooldown.fillAmount = 1;
@@ -244,7 +253,7 @@ public class AntiMageController : MonoBehaviour
             m_manaVoidCurrentTime = m_manaVoidCDImageCount = ManaVoidCooldown;
             m_manaVoidCountdown = true;
 
-            StartCoroutine(AbilityCooldown(ManaVoidCooldown, "ManaVoid"));
+            StartCoroutine(AbilityCooldown(ManaVoidCooldown, "ManaVoid", false));
         }
     }
 
@@ -276,7 +285,7 @@ public class AntiMageController : MonoBehaviour
         //m_sceneController.AddToTotal(m_clickerController.ClickAmount, m_clickerController.ItemModifierMultiplier);
         m_clickerController.SetAbilityModifierAmount(Constants.BlinkMultiplier);
 
-        StartCoroutine(AbilityCooldown(remainingTime, "BlinkActiveFinish"));
+        StartCoroutine(AbilityCooldown(remainingTime, "BlinkActiveFinish", true));
     }
 
     void RemoveBlinkEffects()
@@ -314,7 +323,7 @@ public class AntiMageController : MonoBehaviour
             antiMage.CurrentClickerTime = new TimeSpan(0, 0, antiMage.CurrentClickerTime.Seconds - durationLeft);
         }
 
-        StartCoroutine(AbilityCooldown(remainingTime, "ManaVoidActiveFinish"));
+        StartCoroutine(AbilityCooldown(remainingTime, "ManaVoidActiveFinish", true));
     }
 
     void RemoveManaVoidEffects()
