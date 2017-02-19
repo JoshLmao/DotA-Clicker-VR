@@ -9,7 +9,7 @@ public class OptionsController : MMOptionsController
 {
     public bool IsMusicEnabled { get { return m_audioEnabled.isOn; } }
     public bool AllAudioDisabled { get { return m_audioEnabled.isOn; } }
-    public float SuperSampleValue { get { return SuperSampleSlider.value; } }
+    public float SuperSampleValue { get { return SuperSampleSlider != null ? SuperSampleSlider.value : 0; } }
 
     public AudioSource[] HeroesAudioSource;
 

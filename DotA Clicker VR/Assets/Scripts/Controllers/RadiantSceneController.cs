@@ -51,7 +51,6 @@ public class RadiantSceneController : MonoBehaviour
     string SAVE_FILE_LOCATION { get { return FILE_PATHS + SAVE_FILE; } }
     string CONFIG_LOCATION { get { return FILE_PATHS + CONFIG_FILE; } }
 
-    Text m_goldUI;
     OptionsController m_options;
     float m_totalPlayTime = 0;
     
@@ -92,8 +91,6 @@ public class RadiantSceneController : MonoBehaviour
         m_options = GameObject.Find("OptionsCanvas").GetComponent<OptionsController>();
         m_achievementEvents = GameObject.Find("Helpers/Events").GetComponent<AchievementEvents>();
 
-        m_goldUI = GameObject.Find("UI/WorldSpaceUI/TotalGoldCanvas/AllGold/TotalGoldText").GetComponent<Text>();
-
         if(OnSceneStarted != null)
             OnSceneStarted.Invoke();
 
@@ -132,8 +129,6 @@ public class RadiantSceneController : MonoBehaviour
 
         if (m_canDoRoshanEvent && !m_roshanWaitingToSpawn)
             StartRoshanCountdown();
-
-        m_goldUI.text = TotalGold.ToString();
     }
 
     public void LoadProgress()
@@ -444,7 +439,6 @@ public class RadiantSceneController : MonoBehaviour
 
     IEnumerator TriggerRoshanEvent(float time)
     {
-        GameObject.Find("waitingOnRoshanTimer").GetComponent<Text>().text = time.ToString();
         yield return new WaitForSeconds(time);
 
         DoRoshanEvent(); //Do the event

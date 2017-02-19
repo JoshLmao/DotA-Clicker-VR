@@ -88,8 +88,15 @@ public class AlchemistController : MonoBehaviour
 
     void OnLoadedSaveFile(SaveFileDto saveFile)
     {
-        GreevilsGreedUpgrade = saveFile.RadiantSide.Heroes.FirstOrDefault(x => x.HeroName == "Alchemist").Ability1Level > 0;
-        ChemicalRageUpgrade = saveFile.RadiantSide.Heroes.FirstOrDefault(x => x.HeroName == "Alchemist").Ability2Level > 0;
+        if(saveFile.RadiantSide != null && saveFile.RadiantSide.Heroes != null)
+        {
+            GreevilsGreedUpgrade = saveFile.RadiantSide.Heroes.FirstOrDefault(x => x.HeroName == "Alchemist").Ability1Level > 0;
+            ChemicalRageUpgrade = saveFile.RadiantSide.Heroes.FirstOrDefault(x => x.HeroName == "Alchemist").Ability2Level > 0;
+        }
+        else
+        {
+            Debug.LogWarning("Can't load Alchemist data from save file");
+        }
     }
 
     void Update()
