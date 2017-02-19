@@ -4,6 +4,9 @@ using UnityEngine.SceneManagement;
 using UnityEngine.VR;
 using VRTK;
 using UnityEngine.EventSystems;
+using System.IO;
+using Newtonsoft.Json;
+using System;
 
 public class MainMenuController : MonoBehaviour
 {
@@ -32,6 +35,8 @@ public class MainMenuController : MonoBehaviour
     [SerializeField]
     VRTK_UICanvas[] m_menuCanvases;
 
+    SaveFileDto m_saveFile;
+
     void Awake()
     {
         VRSettings.enabled = SteamVR.enabled ? SteamVR.active : false;
@@ -42,6 +47,31 @@ public class MainMenuController : MonoBehaviour
     {
         OnShowToMainMenu();
         DefaultHowToPlayMenu();
+
+        GetPlayerNameFromFile();
+    }
+
+    void GetPlayerNameFromFile()
+    {
+        if (Directory.Exists(RadiantSceneController.FILE_PATHS))
+        {
+            string saveFile = RadiantSceneController.FILE_PATHS + RadiantSceneController.SAVE_FILE;
+            if (File.Exists(saveFile))
+            {
+                try
+                {
+                    string json = File.ReadAllText(saveFile);
+                    m_saveFile = JsonConvert.DeserializeObject<SaveFileDto>(json);
+                    var kboard = GameObject.Find("Keyboard").GetComponent<KeyboardController>();
+                    kboard.Input = m_saveFile.PlayerName;
+                }
+                catch (Exception e)
+                {
+                    Debug.Log("exc + " + e);
+
+                }
+            }
+        }
     }
 
     void Update()
