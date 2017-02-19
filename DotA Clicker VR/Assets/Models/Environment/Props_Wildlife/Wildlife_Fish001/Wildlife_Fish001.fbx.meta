@@ -1,0 +1,444 @@
+fileFormatVersion: 2
+guid: 0f088afc4a0cdea4aaa4b04faf949c65
+timeCreated: 1474227463
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: head
+    100002: head_end
+    100004: L_shoulder
+    100006: L_shoulder_end
+    100008: neck
+    100010: R_shoulder
+    100012: R_shoulder_end
+    100014: Root
+    100016: spine001
+    100018: tail
+    100020: tail_end
+    100022: //RootNode
+    100024: wildlife_fish001.qc_skeleton
+    100026: wildlife_fish001_reference
+    400000: head
+    400002: head_end
+    400004: L_shoulder
+    400006: L_shoulder_end
+    400008: neck
+    400010: R_shoulder
+    400012: R_shoulder_end
+    400014: Root
+    400016: spine001
+    400018: tail
+    400020: tail_end
+    400022: //RootNode
+    400024: wildlife_fish001.qc_skeleton
+    400026: wildlife_fish001_reference
+    4300000: wildlife_fish001_reference
+    7400000: wildlife_fish001.qc_skeleton|BindPose
+    7400002: wildlife_fish001_idle
+    7400004: wildlife_fish001_path001
+    7400006: wildlife_fish001_path002
+    7400008: wildlife_fish001_path003
+    7400010: wildlife_fish001_path004
+    9500000: //RootNode
+    13700000: wildlife_fish001_reference
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: wildlife_fish001.qc_skeleton|BindPose
+      takeName: wildlife_fish001.qc_skeleton|BindPose
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/head
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/head/head_end
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/L_shoulder
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/L_shoulder/L_shoulder_end
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/R_shoulder
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/R_shoulder/R_shoulder_end
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/spine001
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/spine001/tail
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/spine001/tail/tail_end
+        weight: 1
+      - path: wildlife_fish001_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: wildlife_fish001_idle
+      takeName: wildlife_fish001.qc_skeleton|wildlife_fish001_idle
+      firstFrame: 0
+      lastFrame: 23
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/head
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/head/head_end
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/L_shoulder
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/L_shoulder/L_shoulder_end
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/R_shoulder
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/R_shoulder/R_shoulder_end
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/spine001
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/spine001/tail
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/spine001/tail/tail_end
+        weight: 1
+      - path: wildlife_fish001_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: wildlife_fish001_path001
+      takeName: wildlife_fish001.qc_skeleton|wildlife_fish001_path001
+      firstFrame: 0
+      lastFrame: 3000
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/head
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/head/head_end
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/L_shoulder
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/L_shoulder/L_shoulder_end
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/R_shoulder
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/R_shoulder/R_shoulder_end
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/spine001
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/spine001/tail
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/spine001/tail/tail_end
+        weight: 1
+      - path: wildlife_fish001_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: wildlife_fish001_path002
+      takeName: wildlife_fish001.qc_skeleton|wildlife_fish001_path002
+      firstFrame: 0
+      lastFrame: 3000
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/head
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/head/head_end
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/L_shoulder
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/L_shoulder/L_shoulder_end
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/R_shoulder
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/R_shoulder/R_shoulder_end
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/spine001
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/spine001/tail
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/spine001/tail/tail_end
+        weight: 1
+      - path: wildlife_fish001_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: wildlife_fish001_path003
+      takeName: wildlife_fish001.qc_skeleton|wildlife_fish001_path003
+      firstFrame: 0
+      lastFrame: 3000
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/head
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/head/head_end
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/L_shoulder
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/L_shoulder/L_shoulder_end
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/R_shoulder
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/R_shoulder/R_shoulder_end
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/spine001
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/spine001/tail
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/spine001/tail/tail_end
+        weight: 1
+      - path: wildlife_fish001_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: wildlife_fish001_path004
+      takeName: wildlife_fish001.qc_skeleton|wildlife_fish001_path004
+      firstFrame: 0
+      lastFrame: 3000
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/head
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/head/head_end
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/L_shoulder
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/L_shoulder/L_shoulder_end
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/R_shoulder
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/R_shoulder/R_shoulder_end
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/spine001
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/spine001/tail
+        weight: 1
+      - path: wildlife_fish001.qc_skeleton/Root/neck/spine001/tail/tail_end
+        weight: 1
+      - path: wildlife_fish001_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

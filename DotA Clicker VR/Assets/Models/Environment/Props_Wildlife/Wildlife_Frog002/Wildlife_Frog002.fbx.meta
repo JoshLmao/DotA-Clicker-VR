@@ -1,0 +1,282 @@
+fileFormatVersion: 2
+guid: 37dfd3fd57f503349a44161c23dcdbfa
+timeCreated: 1474141997
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: head
+    100002: L_elbow
+    100004: L_hand
+    100006: L_hand_end
+    100008: L_heel
+    100010: L_heel_end
+    100012: L_knee
+    100014: L_shoulder
+    100016: L_thigh
+    100018: R_elbow
+    100020: R_hand
+    100022: R_hand_end
+    100024: R_heel
+    100026: R_heel_end
+    100028: R_knee
+    100030: R_shoulder
+    100032: R_thigh
+    100034: Root
+    100036: spine001
+    100038: spine002
+    100040: throat
+    100042: throat_end
+    100044: //RootNode
+    100046: wildlife_frog002.qc_skeleton
+    100048: wildlife_frog002_reference
+    400000: head
+    400002: L_elbow
+    400004: L_hand
+    400006: L_hand_end
+    400008: L_heel
+    400010: L_heel_end
+    400012: L_knee
+    400014: L_shoulder
+    400016: L_thigh
+    400018: R_elbow
+    400020: R_hand
+    400022: R_hand_end
+    400024: R_heel
+    400026: R_heel_end
+    400028: R_knee
+    400030: R_shoulder
+    400032: R_thigh
+    400034: Root
+    400036: spine001
+    400038: spine002
+    400040: throat
+    400042: throat_end
+    400044: //RootNode
+    400046: wildlife_frog002.qc_skeleton
+    400048: wildlife_frog002_reference
+    4300000: wildlife_frog002_reference
+    7400000: frog002_BindPose
+    7400002: wildlife_frog002_idle
+    9500000: //RootNode
+    13700000: wildlife_frog002_reference
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: frog002_BindPose
+      takeName: wildlife_frog002.qc_skeleton|BindPose
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/head
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/head/throat
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/head/throat/throat_end
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/L_shoulder
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/L_shoulder/L_elbow
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/L_shoulder/L_elbow/L_hand
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/L_shoulder/L_elbow/L_hand/L_hand_end
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/R_shoulder
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/R_shoulder/R_elbow
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/R_shoulder/R_elbow/R_hand
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/R_shoulder/R_elbow/R_hand/R_hand_end
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/spine002
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/spine002/L_thigh
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/spine002/L_thigh/L_knee
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/spine002/L_thigh/L_knee/L_heel
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/spine002/L_thigh/L_knee/L_heel/L_heel_end
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/spine002/R_thigh
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/spine002/R_thigh/R_knee
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/spine002/R_thigh/R_knee/R_heel
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/spine002/R_thigh/R_knee/R_heel/R_heel_end
+        weight: 1
+      - path: wildlife_frog002_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: wildlife_frog002_idle
+      takeName: wildlife_frog002.qc_skeleton|wildlife_frog002_idle
+      firstFrame: 0
+      lastFrame: 28
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/head
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/head/throat
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/head/throat/throat_end
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/L_shoulder
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/L_shoulder/L_elbow
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/L_shoulder/L_elbow/L_hand
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/L_shoulder/L_elbow/L_hand/L_hand_end
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/R_shoulder
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/R_shoulder/R_elbow
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/R_shoulder/R_elbow/R_hand
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/R_shoulder/R_elbow/R_hand/R_hand_end
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/spine002
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/spine002/L_thigh
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/spine002/L_thigh/L_knee
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/spine002/L_thigh/L_knee/L_heel
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/spine002/L_thigh/L_knee/L_heel/L_heel_end
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/spine002/R_thigh
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/spine002/R_thigh/R_knee
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/spine002/R_thigh/R_knee/R_heel
+        weight: 1
+      - path: wildlife_frog002.qc_skeleton/Root/spine001/spine002/R_thigh/R_knee/R_heel/R_heel_end
+        weight: 1
+      - path: wildlife_frog002_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

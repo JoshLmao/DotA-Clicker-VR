@@ -20,7 +20,7 @@ public class SteamVR_UpdatePoses : MonoBehaviour
 		camera.depth = -9999;
 	}
 
-	void OnPreCull()
+	void LateUpdate()
 	{
 		var compositor = OpenVR.Compositor;
 		if (compositor != null)

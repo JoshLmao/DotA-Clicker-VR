@@ -1,0 +1,737 @@
+fileFormatVersion: 2
+guid: 898d2c95cc554e44187209029d85a610
+timeCreated: 1470579758
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: ankle_L
+    100002: ankle_R
+    100004: bicep_L
+    100006: bicep_R
+    100008: clavicle_L
+    100010: clavicle_R
+    100012: Cloth_R0C0
+    100014: Cloth_R0C01
+    100016: Cloth_R1C0
+    100018: Cloth_R1C01
+    100020: Cloth_R2C0
+    100022: Cloth_R2C01
+    100024: Cloth_R2C01_end
+    100026: Cloth_R2C0_end
+    100028: elbow_L
+    100030: elbow_R
+    100032: flask0_0
+    100034: flask0_0_end
+    100036: head
+    100038: head_end
+    100040: Index_0_L
+    100042: Index_0_R
+    100044: Index_1_L
+    100046: Index_1_L_end
+    100048: Index_1_R
+    100050: Index_1_R_end
+    100052: knee_L
+    100054: knee_R
+    100056: Mid_0_L
+    100058: Mid_0_R
+    100060: Mid_1_L
+    100062: Mid_1_L_end
+    100064: Mid_1_R
+    100066: Mid_1_R_end
+    100068: neck1
+    100070: Pinky_0_L
+    100072: Pinky_0_R
+    100074: Pinky_1_L
+    100076: Pinky_1_L_end
+    100078: Pinky_1_R
+    100080: Pinky_1_R_end
+    100082: //RootNode
+    100084: quirt.qc_skeleton
+    100086: quirt_reference
+    100088: Ring_0_L
+    100090: Ring_0_R
+    100092: Ring_1_L
+    100094: Ring_1_L_end
+    100096: Ring_1_R
+    100098: Ring_1_R_end
+    100100: root
+    100102: spine1
+    100104: spine2
+    100106: thigh_L
+    100108: thigh_R
+    100110: Thumb_0_L
+    100112: Thumb_0_R
+    100114: Thumb_1_L
+    100116: Thumb_1_R
+    100118: Thumb_2_L
+    100120: Thumb_2_L_end
+    100122: Thumb_2_R
+    100124: Thumb_2_R_end
+    100126: toeBase_L
+    100128: toeBase_L_end
+    100130: toeBase_R
+    100132: toeBase_R_end
+    100134: waistCloth_R0C0
+    100136: waistCloth_R1C0
+    100138: waistCloth_R1C0_end
+    100140: wrist_L
+    100142: wrist_R
+    400000: ankle_L
+    400002: ankle_R
+    400004: bicep_L
+    400006: bicep_R
+    400008: clavicle_L
+    400010: clavicle_R
+    400012: Cloth_R0C0
+    400014: Cloth_R0C01
+    400016: Cloth_R1C0
+    400018: Cloth_R1C01
+    400020: Cloth_R2C0
+    400022: Cloth_R2C01
+    400024: Cloth_R2C01_end
+    400026: Cloth_R2C0_end
+    400028: elbow_L
+    400030: elbow_R
+    400032: flask0_0
+    400034: flask0_0_end
+    400036: head
+    400038: head_end
+    400040: Index_0_L
+    400042: Index_0_R
+    400044: Index_1_L
+    400046: Index_1_L_end
+    400048: Index_1_R
+    400050: Index_1_R_end
+    400052: knee_L
+    400054: knee_R
+    400056: Mid_0_L
+    400058: Mid_0_R
+    400060: Mid_1_L
+    400062: Mid_1_L_end
+    400064: Mid_1_R
+    400066: Mid_1_R_end
+    400068: neck1
+    400070: Pinky_0_L
+    400072: Pinky_0_R
+    400074: Pinky_1_L
+    400076: Pinky_1_L_end
+    400078: Pinky_1_R
+    400080: Pinky_1_R_end
+    400082: //RootNode
+    400084: quirt.qc_skeleton
+    400086: quirt_reference
+    400088: Ring_0_L
+    400090: Ring_0_R
+    400092: Ring_1_L
+    400094: Ring_1_L_end
+    400096: Ring_1_R
+    400098: Ring_1_R_end
+    400100: root
+    400102: spine1
+    400104: spine2
+    400106: thigh_L
+    400108: thigh_R
+    400110: Thumb_0_L
+    400112: Thumb_0_R
+    400114: Thumb_1_L
+    400116: Thumb_1_R
+    400118: Thumb_2_L
+    400120: Thumb_2_L_end
+    400122: Thumb_2_R
+    400124: Thumb_2_R_end
+    400126: toeBase_L
+    400128: toeBase_L_end
+    400130: toeBase_R
+    400132: toeBase_R_end
+    400134: waistCloth_R0C0
+    400136: waistCloth_R1C0
+    400138: waistCloth_R1C0_end
+    400140: wrist_L
+    400142: wrist_R
+    4300000: quirt_reference
+    7400000: Quirt_BindPose
+    7400002: Quirt_idle_base
+    7400004: Quirt_idle_noseWipe
+    9500000: //RootNode
+    13700000: quirt_reference
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Quirt_BindPose
+      takeName: quirt.qc_skeleton|BindPose
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: quirt.qc_skeleton
+        weight: 1
+      - path: quirt.qc_skeleton/root
+        weight: 1
+      - path: quirt.qc_skeleton/root/flask0_0
+        weight: 1
+      - path: quirt.qc_skeleton/root/flask0_0/flask0_0_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Index_0_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Index_0_L/Index_1_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Index_0_L/Index_1_L/Index_1_L_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Mid_0_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Mid_0_L/Mid_1_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Mid_0_L/Mid_1_L/Mid_1_L_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Pinky_0_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Pinky_0_L/Pinky_1_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Pinky_0_L/Pinky_1_L/Pinky_1_L_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Ring_0_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Ring_0_L/Ring_1_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Ring_0_L/Ring_1_L/Ring_1_L_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Thumb_0_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Thumb_0_L/Thumb_1_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Thumb_0_L/Thumb_1_L/Thumb_2_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Thumb_0_L/Thumb_1_L/Thumb_2_L/Thumb_2_L_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Index_0_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Index_0_R/Index_1_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Index_0_R/Index_1_R/Index_1_R_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Mid_0_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Mid_0_R/Mid_1_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Mid_0_R/Mid_1_R/Mid_1_R_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Pinky_0_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Pinky_0_R/Pinky_1_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Pinky_0_R/Pinky_1_R/Pinky_1_R_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Ring_0_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Ring_0_R/Ring_1_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Ring_0_R/Ring_1_R/Ring_1_R_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Thumb_0_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Thumb_0_R/Thumb_1_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Thumb_0_R/Thumb_1_R/Thumb_2_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Thumb_0_R/Thumb_1_R/Thumb_2_R/Thumb_2_R_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/Cloth_R0C0
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/Cloth_R0C0/Cloth_R1C0
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/Cloth_R0C0/Cloth_R1C0/Cloth_R2C0
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/Cloth_R0C0/Cloth_R1C0/Cloth_R2C0/Cloth_R2C0_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/Cloth_R0C01
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/Cloth_R0C01/Cloth_R1C01
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/Cloth_R0C01/Cloth_R1C01/Cloth_R2C01
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/Cloth_R0C01/Cloth_R1C01/Cloth_R2C01/Cloth_R2C01_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/neck1
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/neck1/head
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/neck1/head/head_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/thigh_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/thigh_L/knee_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/thigh_L/knee_L/ankle_L/toeBase_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/thigh_L/knee_L/ankle_L/toeBase_L/toeBase_L_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/thigh_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/thigh_R/knee_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/thigh_R/knee_R/ankle_R/toeBase_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/thigh_R/knee_R/ankle_R/toeBase_R/toeBase_R_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/waistCloth_R0C0
+        weight: 1
+      - path: quirt.qc_skeleton/root/waistCloth_R0C0/waistCloth_R1C0
+        weight: 1
+      - path: quirt.qc_skeleton/root/waistCloth_R0C0/waistCloth_R1C0/waistCloth_R1C0_end
+        weight: 1
+      - path: quirt_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Quirt_idle_base
+      takeName: quirt.qc_skeleton|idle_base
+      firstFrame: 0
+      lastFrame: 79
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: quirt.qc_skeleton
+        weight: 1
+      - path: quirt.qc_skeleton/root
+        weight: 1
+      - path: quirt.qc_skeleton/root/flask0_0
+        weight: 1
+      - path: quirt.qc_skeleton/root/flask0_0/flask0_0_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Index_0_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Index_0_L/Index_1_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Index_0_L/Index_1_L/Index_1_L_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Mid_0_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Mid_0_L/Mid_1_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Mid_0_L/Mid_1_L/Mid_1_L_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Pinky_0_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Pinky_0_L/Pinky_1_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Pinky_0_L/Pinky_1_L/Pinky_1_L_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Ring_0_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Ring_0_L/Ring_1_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Ring_0_L/Ring_1_L/Ring_1_L_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Thumb_0_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Thumb_0_L/Thumb_1_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Thumb_0_L/Thumb_1_L/Thumb_2_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Thumb_0_L/Thumb_1_L/Thumb_2_L/Thumb_2_L_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Index_0_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Index_0_R/Index_1_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Index_0_R/Index_1_R/Index_1_R_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Mid_0_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Mid_0_R/Mid_1_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Mid_0_R/Mid_1_R/Mid_1_R_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Pinky_0_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Pinky_0_R/Pinky_1_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Pinky_0_R/Pinky_1_R/Pinky_1_R_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Ring_0_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Ring_0_R/Ring_1_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Ring_0_R/Ring_1_R/Ring_1_R_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Thumb_0_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Thumb_0_R/Thumb_1_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Thumb_0_R/Thumb_1_R/Thumb_2_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Thumb_0_R/Thumb_1_R/Thumb_2_R/Thumb_2_R_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/Cloth_R0C0
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/Cloth_R0C0/Cloth_R1C0
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/Cloth_R0C0/Cloth_R1C0/Cloth_R2C0
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/Cloth_R0C0/Cloth_R1C0/Cloth_R2C0/Cloth_R2C0_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/Cloth_R0C01
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/Cloth_R0C01/Cloth_R1C01
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/Cloth_R0C01/Cloth_R1C01/Cloth_R2C01
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/Cloth_R0C01/Cloth_R1C01/Cloth_R2C01/Cloth_R2C01_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/neck1
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/neck1/head
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/neck1/head/head_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/thigh_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/thigh_L/knee_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/thigh_L/knee_L/ankle_L/toeBase_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/thigh_L/knee_L/ankle_L/toeBase_L/toeBase_L_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/thigh_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/thigh_R/knee_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/thigh_R/knee_R/ankle_R/toeBase_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/thigh_R/knee_R/ankle_R/toeBase_R/toeBase_R_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/waistCloth_R0C0
+        weight: 1
+      - path: quirt.qc_skeleton/root/waistCloth_R0C0/waistCloth_R1C0
+        weight: 1
+      - path: quirt.qc_skeleton/root/waistCloth_R0C0/waistCloth_R1C0/waistCloth_R1C0_end
+        weight: 1
+      - path: quirt_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Quirt_idle_noseWipe
+      takeName: quirt.qc_skeleton|idle_noseWipe
+      firstFrame: 0
+      lastFrame: 79
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: quirt.qc_skeleton
+        weight: 1
+      - path: quirt.qc_skeleton/root
+        weight: 1
+      - path: quirt.qc_skeleton/root/flask0_0
+        weight: 1
+      - path: quirt.qc_skeleton/root/flask0_0/flask0_0_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Index_0_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Index_0_L/Index_1_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Index_0_L/Index_1_L/Index_1_L_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Mid_0_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Mid_0_L/Mid_1_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Mid_0_L/Mid_1_L/Mid_1_L_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Pinky_0_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Pinky_0_L/Pinky_1_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Pinky_0_L/Pinky_1_L/Pinky_1_L_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Ring_0_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Ring_0_L/Ring_1_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Ring_0_L/Ring_1_L/Ring_1_L_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Thumb_0_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Thumb_0_L/Thumb_1_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Thumb_0_L/Thumb_1_L/Thumb_2_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_L/bicep_L/elbow_L/wrist_L/Thumb_0_L/Thumb_1_L/Thumb_2_L/Thumb_2_L_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Index_0_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Index_0_R/Index_1_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Index_0_R/Index_1_R/Index_1_R_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Mid_0_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Mid_0_R/Mid_1_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Mid_0_R/Mid_1_R/Mid_1_R_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Pinky_0_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Pinky_0_R/Pinky_1_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Pinky_0_R/Pinky_1_R/Pinky_1_R_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Ring_0_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Ring_0_R/Ring_1_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Ring_0_R/Ring_1_R/Ring_1_R_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Thumb_0_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Thumb_0_R/Thumb_1_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Thumb_0_R/Thumb_1_R/Thumb_2_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/clavicle_R/bicep_R/elbow_R/wrist_R/Thumb_0_R/Thumb_1_R/Thumb_2_R/Thumb_2_R_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/Cloth_R0C0
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/Cloth_R0C0/Cloth_R1C0
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/Cloth_R0C0/Cloth_R1C0/Cloth_R2C0
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/Cloth_R0C0/Cloth_R1C0/Cloth_R2C0/Cloth_R2C0_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/Cloth_R0C01
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/Cloth_R0C01/Cloth_R1C01
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/Cloth_R0C01/Cloth_R1C01/Cloth_R2C01
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/Cloth_R0C01/Cloth_R1C01/Cloth_R2C01/Cloth_R2C01_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/neck1
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/neck1/head
+        weight: 1
+      - path: quirt.qc_skeleton/root/spine1/spine2/neck1/head/head_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/thigh_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/thigh_L/knee_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/thigh_L/knee_L/ankle_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/thigh_L/knee_L/ankle_L/toeBase_L
+        weight: 1
+      - path: quirt.qc_skeleton/root/thigh_L/knee_L/ankle_L/toeBase_L/toeBase_L_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/thigh_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/thigh_R/knee_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/thigh_R/knee_R/ankle_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/thigh_R/knee_R/ankle_R/toeBase_R
+        weight: 1
+      - path: quirt.qc_skeleton/root/thigh_R/knee_R/ankle_R/toeBase_R/toeBase_R_end
+        weight: 1
+      - path: quirt.qc_skeleton/root/waistCloth_R0C0
+        weight: 1
+      - path: quirt.qc_skeleton/root/waistCloth_R0C0/waistCloth_R1C0
+        weight: 1
+      - path: quirt.qc_skeleton/root/waistCloth_R0C0/waistCloth_R1C0/waistCloth_R1C0_end
+        weight: 1
+      - path: quirt_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

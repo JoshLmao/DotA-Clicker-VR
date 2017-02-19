@@ -1,0 +1,390 @@
+fileFormatVersion: 2
+guid: 3a5899bff48d7044b920d790dddc3771
+timeCreated: 1474142286
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: L_arm
+    100002: L_elbow
+    100004: L_elbow_end
+    100006: L_knee
+    100008: L_knee_end
+    100010: L_leg
+    100012: neck
+    100014: neck_end
+    100016: R_arm
+    100018: R_elbow
+    100020: R_elbow_end
+    100022: R_knee
+    100024: R_knee_end
+    100026: R_leg
+    100028: shell
+    100030: tail
+    100032: tail_end
+    100034: //RootNode
+    100036: wildlife_turtle001.qc_skeleton
+    100038: wildlife_turtle001_reference
+    400000: L_arm
+    400002: L_elbow
+    400004: L_elbow_end
+    400006: L_knee
+    400008: L_knee_end
+    400010: L_leg
+    400012: neck
+    400014: neck_end
+    400016: R_arm
+    400018: R_elbow
+    400020: R_elbow_end
+    400022: R_knee
+    400024: R_knee_end
+    400026: R_leg
+    400028: shell
+    400030: tail
+    400032: tail_end
+    400034: //RootNode
+    400036: wildlife_turtle001.qc_skeleton
+    400038: wildlife_turtle001_reference
+    4300000: wildlife_turtle001_reference
+    7400000: turtle_BindPose
+    7400002: wildlife_turtle001_hide
+    7400004: wildlife_turtle001_idle
+    7400006: wildlife_turtle001_path001
+    9500000: //RootNode
+    13700000: wildlife_turtle001_reference
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: turtle_BindPose
+      takeName: wildlife_turtle001.qc_skeleton|BindPose
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/L_arm
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/L_arm/L_elbow
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/L_arm/L_elbow/L_elbow_end
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/L_leg
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/L_leg/L_knee
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/L_leg/L_knee/L_knee_end
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/neck
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/neck/neck_end
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/R_arm
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/R_arm/R_elbow
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/R_arm/R_elbow/R_elbow_end
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/R_leg
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/R_leg/R_knee
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/R_leg/R_knee/R_knee_end
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/tail
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/tail/tail_end
+        weight: 1
+      - path: wildlife_turtle001_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: wildlife_turtle001_hide
+      takeName: wildlife_turtle001.qc_skeleton|wildlife_turtle001_hide
+      firstFrame: 0
+      lastFrame: 5
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/L_arm
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/L_arm/L_elbow
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/L_arm/L_elbow/L_elbow_end
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/L_leg
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/L_leg/L_knee
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/L_leg/L_knee/L_knee_end
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/neck
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/neck/neck_end
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/R_arm
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/R_arm/R_elbow
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/R_arm/R_elbow/R_elbow_end
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/R_leg
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/R_leg/R_knee
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/R_leg/R_knee/R_knee_end
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/tail
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/tail/tail_end
+        weight: 1
+      - path: wildlife_turtle001_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: wildlife_turtle001_idle
+      takeName: wildlife_turtle001.qc_skeleton|wildlife_turtle001_idle
+      firstFrame: 0
+      lastFrame: 5
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/L_arm
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/L_arm/L_elbow
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/L_arm/L_elbow/L_elbow_end
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/L_leg
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/L_leg/L_knee
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/L_leg/L_knee/L_knee_end
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/neck
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/neck/neck_end
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/R_arm
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/R_arm/R_elbow
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/R_arm/R_elbow/R_elbow_end
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/R_leg
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/R_leg/R_knee
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/R_leg/R_knee/R_knee_end
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/tail
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/tail/tail_end
+        weight: 1
+      - path: wildlife_turtle001_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: wildlife_turtle001_path001
+      takeName: wildlife_turtle001.qc_skeleton|wildlife_turtle001_path001
+      firstFrame: 0
+      lastFrame: 2200
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/L_arm
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/L_arm/L_elbow
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/L_arm/L_elbow/L_elbow_end
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/L_leg
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/L_leg/L_knee
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/L_leg/L_knee/L_knee_end
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/neck
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/neck/neck_end
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/R_arm
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/R_arm/R_elbow
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/R_arm/R_elbow/R_elbow_end
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/R_leg
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/R_leg/R_knee
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/R_leg/R_knee/R_knee_end
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/tail
+        weight: 1
+      - path: wildlife_turtle001.qc_skeleton/shell/tail/tail_end
+        weight: 1
+      - path: wildlife_turtle001_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
