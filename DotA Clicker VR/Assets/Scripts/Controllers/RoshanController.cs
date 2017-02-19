@@ -191,11 +191,7 @@ public class RoshanController : MonoBehaviour {
     {
         yield return new WaitForSeconds(2f);
 
-        foreach(Transform child in transform)
-        {
-            DestroyImmediate(child.gameObject);
-        }
-        DestroyImmediate(this.gameObject);
+        KillRoshan();
     }
 
     void WalkAlongPath()
@@ -239,5 +235,14 @@ public class RoshanController : MonoBehaviour {
         {
             
         }
+    }
+
+    void KillRoshan()
+    {
+        foreach (Transform child in transform)
+        {
+            DestroyImmediate(child.gameObject);
+        }
+        DestroyImmediate(this.gameObject);
     }
 }

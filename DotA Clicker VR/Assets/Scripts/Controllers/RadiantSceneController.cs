@@ -448,9 +448,9 @@ public class RadiantSceneController : MonoBehaviour
             return;
 
         //Todo: Sound to indicate that roshan events can happen
-        if(m_secondsToRoshanEvent == -1)
+        if(m_secondsToRoshanEvent <= 0)
         {
-            m_secondsToRoshanEvent = UnityEngine.Random.Range(1200, 3600); //Can do event between 20 mins or a hour
+            m_secondsToRoshanEvent = UnityEngine.Random.Range(600, 1800); //Between 10 mins & 30
         }
 
         StartCoroutine(TriggerRoshanEvent(m_secondsToRoshanEvent));
@@ -578,7 +578,7 @@ public class RadiantSceneController : MonoBehaviour
                 RoshanEventCount = saveFile.Roshan.DefeatCount;
                 m_canDoRoshanEvent = saveFile.Roshan.CanDoRoshanEvents;
 
-                if (saveFile.Roshan.DurationTillNextSpawn <= 0)
+                if (saveFile.Roshan.DurationTillNextSpawn < 0)
                     DoRoshanEvent((float)saveFile.Roshan.RoshanHealth, (float)saveFile.Roshan.GoldOnStart, saveFile.Roshan.TimeRemaining);
                 else
                     StartRoshanCountdown();
