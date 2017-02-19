@@ -71,7 +71,7 @@ public class AchievementsController : MonoBehaviour
         Achievements.Add(new AchievementDto()
         {
             Name = "Earn 625 gold",
-            Description = "",
+            Description = "Now you can start playing...",
             Image = Resources.Load<Sprite>("Images/Achievements/Gold1"),
             IsUnlocked = m_achievementEvents.Earn625GoldStatus,
             IsSecretAchievement = false,
@@ -79,7 +79,7 @@ public class AchievementsController : MonoBehaviour
         Achievements.Add(new AchievementDto()
         {
             Name = "Earn 6200 gold",
-            Description = "",
+            Description = "Divine Rapier time?",
             Image = Resources.Load<Sprite>("Images/Achievements/Gold2"),
             IsUnlocked = m_achievementEvents.Earn6200GoldStatus,
             IsSecretAchievement = false,
@@ -87,7 +87,7 @@ public class AchievementsController : MonoBehaviour
         Achievements.Add(new AchievementDto()
         {
             Name = "Earn 15,000 gold",
-            Description = "",
+            Description = "If only it was this easy in-game",
             Image = Resources.Load<Sprite>("Images/Achievements/Gold3"),
             IsUnlocked = m_achievementEvents.Earn15000GoldStatus,
             IsSecretAchievement = false,
@@ -95,7 +95,7 @@ public class AchievementsController : MonoBehaviour
         Achievements.Add(new AchievementDto()
         {
             Name = "Earn 100,000 gold",
-            Description = "",
+            Description = "It's a big amount...",
             Image = Resources.Load<Sprite>("Images/Achievements/Gold4"),
             IsUnlocked = m_achievementEvents.Earn100000GoldStatus,
             IsSecretAchievement = false,
@@ -103,7 +103,7 @@ public class AchievementsController : MonoBehaviour
         Achievements.Add(new AchievementDto()
         {
             Name = "Earn 1,000,000 gold",
-            Description = "",
+            Description = "Yup, that's a big number. You've mastered it now",
             Image = Resources.Load<Sprite>("Images/Achievements/Gold5"),
             IsUnlocked = m_achievementEvents.EarnMillionGoldStatus,
             IsSecretAchievement = false,
@@ -112,16 +112,16 @@ public class AchievementsController : MonoBehaviour
         Achievements.Add(new AchievementDto()
         {
             Name = "Buy A Manager",
-            Description = "",
-            Image = Resources.Load<Sprite>("Images/UI/ItemsIcons/Iron_Branch_icon"),
+            Description = "Bought one of the many managers available",
+            Image = Resources.Load<Sprite>("Images/Achievements/Manager1"),
             IsUnlocked = m_achievementEvents.BuyAManagerStatus,
             IsSecretAchievement = false,
         });
         Achievements.Add(new AchievementDto()
         {
             Name = "Buy All Managers",
-            Description = "",
-            Image = Resources.Load<Sprite>("Images/UI/ItemsIcons/Iron_Branch_icon"),
+            Description = "Bought all managers available. Automation to the max!",
+            Image = Resources.Load<Sprite>("Images/Achievements/ManagerAll"),
             IsUnlocked = m_achievementEvents.BuyAllManagersStatus,
             IsSecretAchievement = false,
         });
@@ -129,32 +129,32 @@ public class AchievementsController : MonoBehaviour
         Achievements.Add(new AchievementDto()
         {
             Name = "Buy An Ability",
-            Description = "",
-            Image = Resources.Load<Sprite>("Images/UI/ItemsIcons/Iron_Branch_icon"),
+            Description = "Buy one of the many abilities available in the game",
+            Image = Resources.Load<Sprite>("Images/Achievements/BuyAnAbility"),
             IsUnlocked = m_achievementEvents.BuyAnAbilityStatus,
             IsSecretAchievement = false,
         });
         Achievements.Add(new AchievementDto()
         {
             Name = "Buy All Abilities for a Hero",
-            Description = "",
-            Image = Resources.Load<Sprite>("Images/UI/ItemsIcons/Iron_Branch_icon"),
+            Description = "Bought all abilities available",
+            Image = Resources.Load<Sprite>("Images/Achievements/BuyAllAbilities"),
             IsUnlocked = m_achievementEvents.BuyAllAbilitiesForAHeroStatus,
             IsSecretAchievement = false,
         });
         Achievements.Add(new AchievementDto()
         {
             Name = "Buy An Item",
-            Description = "",
-            Image = Resources.Load<Sprite>("Images/UI/ItemsIcons/Iron_Branch_icon"),
+            Description = "I'll be honest, pretty easy achievement to get",
+            Image = Resources.Load<Sprite>("Images/Achievements/BuyAnItem"),
             IsUnlocked = m_achievementEvents.BuyAnItemStatus,
             IsSecretAchievement = false,
         });
         Achievements.Add(new AchievementDto()
         {
             Name = "Buy Each Item Once",
-            Description = "",
-            Image = Resources.Load<Sprite>("Images/UI/ItemsIcons/Iron_Branch_icon"),
+            Description = "Bought all items available",
+            Image = Resources.Load<Sprite>("Images/Achievements/BuyAllItems"),
             IsUnlocked = m_achievementEvents.BuyEachItenOnceStatus,
             IsSecretAchievement = false,
         });
@@ -162,16 +162,16 @@ public class AchievementsController : MonoBehaviour
         Achievements.Add(new AchievementDto()
         {
             Name = "Defeat Roshan Once",
-            Description = "",
-            Image = Resources.Load<Sprite>("Images/UI/ItemsIcons/Iron_Branch_icon"),
+            Description = "I bet he scared you the first time, eh?",
+            Image = Resources.Load<Sprite>("Images/Achievements/KilLRoshan"),
             IsUnlocked = m_achievementEvents.DefeatRoshanStatus,
             IsSecretAchievement = false,
         });
         Achievements.Add(new AchievementDto()
         {
             Name = "Defeat Roshan 10 Times",
-            Description = "",
-            Image = Resources.Load<Sprite>("Images/UI/ItemsIcons/Iron_Branch_icon"),
+            Description = "Yeah, you're used to him now",
+            Image = Resources.Load<Sprite>("Images/Achievements/KilLRoshan10"),
             IsUnlocked = m_achievementEvents.DefeatRoshanTenTimesStatus,
             IsSecretAchievement = false,
         });
@@ -180,7 +180,7 @@ public class AchievementsController : MonoBehaviour
         {
             Name = "The Aegis is Mine",
             Description = "Use the aegis",
-            Image = Resources.Load<Sprite>("Images/UI/ItemsIcons/Iron_Branch_icon"),
+            Image = Resources.Load<Sprite>("Images/Achievements/Aegis"),
             IsUnlocked = m_achievementEvents.AegisIsMineStatus,
             IsSecretAchievement = false,
         });
@@ -188,7 +188,7 @@ public class AchievementsController : MonoBehaviour
         {
             Name = "Cheese, Gromit!",
             Description = "You actually tried to eat the cheese. I congratulate you on your efforts",
-            Image = Resources.Load<Sprite>("Images/UI/ItemsIcons/Iron_Branch_icon"),
+            Image = Resources.Load<Sprite>("Images/Achievements/Cheese"),
             IsUnlocked = m_achievementEvents.CheeseGromitStatus,
             IsSecretAchievement = false,
         });
@@ -198,7 +198,7 @@ public class AchievementsController : MonoBehaviour
         {
             Name = "The Closest You'll Get To A Battle Cup",
             Description = "It's sad but true. Find all 4 battle cups that are hidden around the map",
-            Image = Resources.Load<Sprite>("Images/UI/ItemsIcons/Iron_Branch_icon"),
+            Image = Resources.Load<Sprite>("Images/Achievements/Battlecup1"),
             IsUnlocked = m_achievementEvents.ClosestYoullGetStatus,
             IsSecretAchievement = true,
         });
@@ -206,7 +206,7 @@ public class AchievementsController : MonoBehaviour
         {
             Name = "When Did EG Throw Last?",
             Description = "Throw the EG logo off the map",
-            Image = Resources.Load<Sprite>("Images/UI/ItemsIcons/Iron_Branch_icon"),
+            Image = Resources.Load<Sprite>("Images/Achievements/EGThrow"),
             IsUnlocked = m_achievementEvents.EGThrowLastStatus,
             IsSecretAchievement = true,
         });
@@ -214,7 +214,7 @@ public class AchievementsController : MonoBehaviour
         {
             Name = "The Man, The Myth, The Legend",
             Description = "Name yourself 420BootyWizard",
-            Image = Resources.Load<Sprite>("Images/UI/ItemsIcons/Iron_Branch_icon"),
+            Image = Resources.Load<Sprite>("Images/Achievements/420BootyWizard"),
             IsUnlocked = m_achievementEvents.ManMythLegendStatus,
             IsSecretAchievement = true,
         });
