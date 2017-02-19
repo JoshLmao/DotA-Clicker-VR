@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
+//FPS Hand Controller
 public class PickedUpItemController : MonoBehaviour
 {
     public delegate void OnIronBranchModifier(string hero, string item, int duration);
@@ -67,6 +69,10 @@ public class PickedUpItemController : MonoBehaviour
         if (col.tag == "ItemModifier" && CurrentObject != null) //Is holding an object & in item modifier trigger
         {
             string hero = col.transform.parent.parent.name; //Heirarchy is [ClickerName]BuyStand > ItemModifierStand > Collider
+            var heroController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().SceneHeroes.FirstOrDefault(x => x.name == hero);
+            if (heroController.m_currentModifier != string.Empty)
+                return; //return if theres a modifer active
+
             if (CurrentObject.name.Contains("iron_branchPrefab"))
             {
                 if (IronBranchModifierAdded != null)
