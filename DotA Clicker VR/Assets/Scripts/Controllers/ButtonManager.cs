@@ -2,6 +2,7 @@
 using System.Collections;
 using System;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Simple script meant to control the clickable buttons behavior (animation)
@@ -39,7 +40,8 @@ public class ButtonManager : MonoBehaviour
 	void Start ()
     {
         m_buttonName = this.gameObject.name;
-        m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
+        if(SceneManager.GetActiveScene().name == "RadiantSide")
+            m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
         m_clickerController = GetComponentInParent<RadiantClickerController>();
 
         m_animator = this.GetComponentInChildren<Animator>();

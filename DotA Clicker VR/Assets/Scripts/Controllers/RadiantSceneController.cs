@@ -116,13 +116,10 @@ public class RadiantSceneController : MonoBehaviour
         LoadProgress();
         CurrentConfigFile = LoadConfig();
 
-        if (m_globalData != null)
+        if (m_globalData != null && CurrentPlayerName != null && CurrentPlayerName == string.Empty)
         {
             //Will be null in editor since globals are setup in MainMenu
-            if(CurrentSaveFile.PlayerName == "")
-            {
-                
-            }
+            CurrentPlayerName = m_globalData.PlayerName;
         }
     }
 
@@ -161,8 +158,7 @@ public class RadiantSceneController : MonoBehaviour
             LoadedSaveFile.Invoke(CurrentSaveFile);
 
         //If it hasnt been set in menus
-        if (CurrentPlayerName == string.Empty)
-            CurrentPlayerName = CurrentSaveFile.PlayerName;
+        CurrentPlayerName = CurrentSaveFile.PlayerName;
 
         if (CurrentPlayerName.ToLower() == "420bootywizard")
         {
@@ -188,6 +184,7 @@ public class RadiantSceneController : MonoBehaviour
     public void OnApplicationQuit()
     {
         SaveFile();
+        SaveConfig();
     }
 
     double CorrectTimeRemaining(int heroIndex)
@@ -219,7 +216,6 @@ public class RadiantSceneController : MonoBehaviour
             RadiantSide = new RadiantSideDto()
             {
                 TotalGold = TotalGold,
-
                 RoshanEvents = m_canDoRoshanEvent,
             },
             SessionStats = new StatsDto()
@@ -469,28 +465,16 @@ public class RadiantSceneController : MonoBehaviour
             var stream = File.Create(CONFIG_LOCATION);
             stream.Close();
 
-            config = new ConfigDto()
-            {
-                TwitchUsername = "DotAClickerVR",
-                TwitchAuthCode = "oauth:93tmro12txrri3b1mobo6mirxz0wg9",
-            };
-            if(m_options != null)
+            config = new ConfigDto();
+            if (m_options != null)
             {
                 //Set defaults in quotes for other users
-                config.TwitchAuthCode = "";
-                config.TwitchUsername = "";
-
-                config.Preferences = new PreferencesDto()
-                {
-                    MasterVolume = m_options.MasterVolSlider.value,
-                    AmbientVolume = m_options.AmbientVolSlider.value,
-                    HeroVolume = m_options.HeroVolSlider.value,
-                    MusicEnabled = m_options.IsMusicEnabled,
-                    AllAudioEnabled = m_options.AllAudioDisabled,
-                    SuperSampleScale = m_options.SuperSampleValue,
-                };
+                config = GetLatestConfigValues();
             }
 
+            config.TwitchUsername = "";
+            config.TwitchAuthCode = "";
+            
             string json = JsonConvert.SerializeObject(config, Formatting.Indented);
             File.WriteAllText(CONFIG_LOCATION, json);
 
@@ -523,6 +507,24 @@ public class RadiantSceneController : MonoBehaviour
         }
     }
 
+    ConfigDto GetLatestConfigValues()
+    {
+        var config = CurrentConfigFile;
+        config.TwitchAuthCode = CurrentConfigFile.TwitchAuthCode;
+        config.TwitchUsername =CurrentConfigFile.TwitchUsername;
+
+        config.Preferences = new PreferencesDto()
+        {
+            MasterVolume = m_options.MasterVolSlider.value,
+            AmbientVolume = m_options.AmbientVolSlider.value,
+            HeroVolume = m_options.HeroVolSlider.value,
+            MusicEnabled = m_options.IsMusicEnabled,
+            AllAudioEnabled = m_options.AllAudioDisabled,
+            SuperSampleScale = m_options.SuperSampleValue,
+        };
+        return config;
+    }
+
     public void SaveConfig()
     {
         if (CurrentConfigFile == null)
@@ -532,6 +534,8 @@ public class RadiantSceneController : MonoBehaviour
         }
 
         CheckSaveFileFolders();
+
+        CurrentConfigFile = GetLatestConfigValues();
 
         try
         {

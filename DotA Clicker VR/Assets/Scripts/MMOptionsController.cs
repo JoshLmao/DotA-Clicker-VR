@@ -36,9 +36,9 @@ public class MMOptionsController : MonoBehaviour
 
         if (VRSettings.enabled)
         {
-            m_adaptiveQuality = transform.Find("VideoOptions/AdaptiveQualityToggle").GetComponent<Toggle>();
-            SuperSampleSlider = transform.Find("VideoOptions/SSCanvas/SuperSampleSlider").GetComponent<Slider>();
-            m_ssText = transform.Find("VideoOptions/SSCanvas/SSValue").GetComponent<Text>();
+            m_adaptiveQuality = transform.Find("VideoOptions/VRItems/AdaptiveQualityToggle").GetComponent<Toggle>();
+            SuperSampleSlider = transform.Find("VideoOptions/VRItems/SSCanvas/SuperSampleSlider").GetComponent<Slider>();
+            m_ssText = transform.Find("VideoOptions/VRItems/SSCanvas/SSValue").GetComponent<Text>();
         }
         else
         {
@@ -148,8 +148,11 @@ public class MMOptionsController : MonoBehaviour
             m_fpsCamera.fieldOfView = m_currentFieldOfView;
         }
 
-        m_fieldOfViewSlider.value = m_currentFieldOfView;
-        m_fieldOfViewSlider.gameObject.transform.parent.transform.Find("Value").GetComponent<Text>().text = value.ToString();
+        if(m_fieldOfViewSlider != null)
+        {
+            m_fieldOfViewSlider.value = m_currentFieldOfView;
+            m_fieldOfViewSlider.gameObject.transform.parent.transform.Find("Value").GetComponent<Text>().text = value.ToString();
+        }
     }
 
     public void AddToFoV()

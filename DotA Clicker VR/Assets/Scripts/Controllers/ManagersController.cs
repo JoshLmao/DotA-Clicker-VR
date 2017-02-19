@@ -143,7 +143,7 @@ public class ManagersController : MonoBehaviour {
             {
                 Name = "Crystal Maiden",
                 Image = Resources.Load<Sprite>("Images/UI/ManagerIcons/CM"),
-                Cost = 5000,
+                Cost = 400,
             });
         }
         if(!m_rubick)
@@ -152,7 +152,7 @@ public class ManagersController : MonoBehaviour {
             {
                 Name = "Rubick",
                 Image = Resources.Load<Sprite>("Images/UI/ManagerIcons/Rubick"),
-                Cost = 9000,
+                Cost = 800,
             });
         }
         if(!m_ogreMagi)
@@ -161,7 +161,7 @@ public class ManagersController : MonoBehaviour {
             {
                 Name = "Ogre Magi",
                 Image = Resources.Load<Sprite>("Images/UI/ManagerIcons/OgreMagi"),
-                Cost = 14000,
+                Cost = 1500,
             });
         }
         if(!m_tusk)
@@ -170,7 +170,7 @@ public class ManagersController : MonoBehaviour {
             {
                 Name = "Tusk",
                 Image = Resources.Load<Sprite>("Images/UI/ManagerIcons/Tusk"),
-                Cost = 20000,
+                Cost = 4000,
             });
         }
         if(!m_phoenix)
@@ -179,7 +179,7 @@ public class ManagersController : MonoBehaviour {
             {
                 Name = "Phoenix",
                 Image = Resources.Load<Sprite>("Images/UI/ManagerIcons/Phoenix"),
-                Cost = 35000,
+                Cost = 8000,
             });
         }
         if(!m_sven)
@@ -188,7 +188,7 @@ public class ManagersController : MonoBehaviour {
             {
                 Name = "Sven",
                 Image = Resources.Load<Sprite>("Images/UI/ManagerIcons/Sven"),
-                Cost = 50000,
+                Cost = 12000,
             });
         }
         if(!m_antiMage)
@@ -197,7 +197,7 @@ public class ManagersController : MonoBehaviour {
             {
                 Name = "Anti Mage",
                 Image = Resources.Load<Sprite>("Images/UI/ManagerIcons/AntiMage"),
-                Cost = 100000,
+                Cost = 18000,
             });
         }
         if(!m_alchemist)
@@ -206,7 +206,7 @@ public class ManagersController : MonoBehaviour {
             {
                 Name = "Alchemist",
                 Image = Resources.Load<Sprite>("Images/UI/ManagerIcons/Alchemist"),
-                Cost = 500000,
+                Cost = 25000,
             });
         }
     }
