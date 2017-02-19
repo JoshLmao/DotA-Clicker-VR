@@ -126,7 +126,6 @@ public class RoshanController : MonoBehaviour {
         if(hasReachedPoint)
         {
             TimeRemaining = -(DateTime.Now - m_predictedEndTime).TotalSeconds;
-            Debug.Log("Time remaining " + TimeRemaining);
         }
     }
 
@@ -210,6 +209,8 @@ public class RoshanController : MonoBehaviour {
         if (transform.position == targetWaypoint.position)
         {
             currentWayPoint++;
+            if (currentWayPoint > waypoints.Length - 1)
+                return;
             targetWaypoint = waypoints[currentWayPoint];
         }
     }

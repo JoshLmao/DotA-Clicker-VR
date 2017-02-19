@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.VR;
 using UnityStandardAssets.ImageEffects;
+using System;
 
 public class MMOptionsController : MonoBehaviour
 {
@@ -45,7 +46,6 @@ public class MMOptionsController : MonoBehaviour
             m_fieldOfViewSlider = GameObject.Find("FoVCanvas").transform.Find("Slider").GetComponent<Slider>();
             m_fpsCamera = GameObject.Find("FirstPersonCharacterCamera").GetComponent<Camera>();
         }
-
 
         if (m_fieldOfViewSlider != null)
             m_fieldOfViewSlider.onValueChanged.AddListener(FoVChanged);

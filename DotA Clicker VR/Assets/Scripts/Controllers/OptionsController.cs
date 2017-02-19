@@ -23,8 +23,27 @@ public class OptionsController : MMOptionsController
         m_ambientSound = GameObject.Find("RadiantSceneController").GetComponent<AmbientSoundManager>();
         m_options = GameObject.Find("OptionsCanvas").GetComponent<OptionsController>();
 
+        if (AmbientVolSlider != null)
+            AmbientVolSlider.onValueChanged.AddListener(OnAmbientSliderChanged);
+
+        if (HeroVolSlider)
+            HeroVolSlider.onValueChanged.AddListener(OnHeroSoundChanged);
 
         RadiantSceneController.LoadedConfigFile += OnLoadedConfig;
+    }
+
+    private void OnHeroSoundChanged(float value)
+    {
+        //Hero Volume
+        foreach (AudioSource source in HeroesAudioSource)
+        {
+            source.volume = HeroVolSlider.value;
+        }
+    }
+
+    private void OnAmbientSliderChanged(float value)
+    {
+        m_ambientSound.AmbientAudioSource.volume = value;
     }
 
     protected override void Start()
@@ -33,7 +52,6 @@ public class OptionsController : MMOptionsController
 
         if(SuperSampleSlider != null)
             SuperSampleSlider.onValueChanged.AddListener(SuperSampleChanged);
-
 
         if(m_audioEnabled != null)
             m_audioEnabled.onValueChanged.AddListener(AudioToggle);
@@ -58,11 +76,7 @@ public class OptionsController : MMOptionsController
         }
         //Master Volume
         AudioListener.volume = MasterVolSlider.value;
-        //Hero Volume
-        foreach (AudioSource source in HeroesAudioSource)
-        {
-            source.volume = HeroVolSlider.value;
-        }
+        
     }
 
     void AudioToggle(bool toggle)

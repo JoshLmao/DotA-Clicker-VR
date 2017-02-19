@@ -160,6 +160,7 @@ public class RadiantClickerController : MonoBehaviour
     {
         RadiantSceneController.LoadedSaveFile += OnLoadedSaveFile;
 
+        SubscribeToItemEvents();
 
         m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
         m_heroNameText = transform.FindChild("Buttons/StandBack/StandUI/ClickerNameText").GetComponent<Text>();
@@ -178,7 +179,37 @@ public class RadiantClickerController : MonoBehaviour
         m_modifierCountdownText.gameObject.SetActive(false);
         m_abil1Slider = transform.Find("Buttons/StandBack/UpgradesCanvas/Abil1Progress").GetComponent<Slider>();
         m_abil2Slider = transform.Find("Buttons/StandBack/UpgradesCanvas/Abil2Progress").GetComponent<Slider>();
+    }
 
+    void SubscribeToItemEvents()
+    {
+        //I hate myself for this
+        HandController.IronBranchModifierAdded += ActivateModifier;
+        HandController.ClarityModifierAdded += ActivateModifier;
+        HandController.MagicStickModifierAdded += ActivateModifier;
+        HandController.QuellingBladeModifierAdded += ActivateModifier;
+        HandController.MangoModifierAdded += ActivateModifier;
+        HandController.PowerTreadsModifierAdded += ActivateModifier;
+        HandController.BottleModifierAdded += ActivateModifier;
+        HandController.BlinkDaggerModifierAdded += ActivateModifier;
+        HandController.HyperstoneModifierAdded += ActivateModifier;
+        HandController.BloodstoneModifierAdded += ActivateModifier;
+        HandController.ReaverModifierAdded += ActivateModifier;
+        HandController.DivineRapierModifierAdded += ActivateModifier;
+        HandController.RecipeModifierAdded += ActivateModifier;
+        PickedUpItemController.IronBranchModifierAdded += ActivateModifier;
+        PickedUpItemController.ClarityModifierAdded += ActivateModifier;
+        PickedUpItemController.MagicStickModifierAdded += ActivateModifier;
+        PickedUpItemController.QuellingBladeModifierAdded += ActivateModifier;
+        PickedUpItemController.MangoModifierAdded += ActivateModifier;
+        PickedUpItemController.PowerTreadsModifierAdded += ActivateModifier;
+        PickedUpItemController.BottleModifierAdded += ActivateModifier;
+        PickedUpItemController.BlinkDaggerModifierAdded += ActivateModifier;
+        PickedUpItemController.HyperstoneModifierAdded += ActivateModifier;
+        PickedUpItemController.BloodstoneModifierAdded += ActivateModifier;
+        PickedUpItemController.ReaverModifierAdded += ActivateModifier;
+        PickedUpItemController.DivineRapierModifierAdded += ActivateModifier;
+        PickedUpItemController.RecipeModifierAdded += ActivateModifier;
     }
 
     void Start ()
@@ -209,34 +240,6 @@ public class RadiantClickerController : MonoBehaviour
 
         m_abil2Slider.maxValue = Ability2LvlUpCount;
         m_abil2Slider.value = 0;
-
-        //I hate myself for this
-        HandController.IronBranchModifierAdded += ActivateModifier;
-        HandController.ClarityModifierAdded += ActivateModifier;
-        HandController.MagicStickModifierAdded += ActivateModifier;
-        HandController.QuellingBladeModifierAdded += ActivateModifier;
-        HandController.MangoModifierAdded += ActivateModifier;
-        HandController.PowerTreadsModifierAdded += ActivateModifier;
-        HandController.BottleModifierAdded += ActivateModifier;
-        HandController.BlinkDaggerModifierAdded += ActivateModifier;
-        HandController.HyperstoneModifierAdded += ActivateModifier;
-        HandController.BloodstoneModifierAdded += ActivateModifier;
-        HandController.ReaverModifierAdded += ActivateModifier;
-        HandController.DivineRapierModifierAdded += ActivateModifier;
-        HandController.RecipeModifierAdded += ActivateModifier;
-        PickedUpItemController.IronBranchModifierAdded += ActivateModifier;
-        PickedUpItemController.ClarityModifierAdded += ActivateModifier;
-        PickedUpItemController.MagicStickModifierAdded += ActivateModifier;
-        PickedUpItemController.QuellingBladeModifierAdded += ActivateModifier;
-        PickedUpItemController.MangoModifierAdded += ActivateModifier;
-        PickedUpItemController.PowerTreadsModifierAdded += ActivateModifier;
-        PickedUpItemController.BottleModifierAdded += ActivateModifier;
-        PickedUpItemController.BlinkDaggerModifierAdded += ActivateModifier;
-        PickedUpItemController.HyperstoneModifierAdded += ActivateModifier;
-        PickedUpItemController.BloodstoneModifierAdded += ActivateModifier;
-        PickedUpItemController.ReaverModifierAdded += ActivateModifier;
-        PickedUpItemController.DivineRapierModifierAdded += ActivateModifier;
-        PickedUpItemController.RecipeModifierAdded += ActivateModifier;
     }
 
     void Update ()
@@ -914,7 +917,7 @@ public class RadiantClickerController : MonoBehaviour
 
     void AddModifier(string hero, int duration, double multiplierAmount, int multiplierDuration, string modifierName, string modifierPrefabName, string modifierIconLocation, out bool modifierBool)
     {
-        if (!CheckIfModifierActive() || HeroName != hero)
+        if (!CheckIfModifierActive() || (HeroName != hero && hero != name))
         {
             modifierBool = false;
             return;
