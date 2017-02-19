@@ -17,7 +17,7 @@ public class ButtonManager : MonoBehaviour
     public Animator m_animator;
 
     bool m_buyUpgradeCooldown = false;
-
+    bool m_canClick = true;
     Material m_buttonMaterial;
 
     void Awake()
@@ -37,33 +37,47 @@ public class ButtonManager : MonoBehaviour
         m_buttonMaterial.name = "test";
     }
 
-	void Start ()
+    void Start()
     {
         m_buttonName = this.gameObject.name;
-        if(SceneManager.GetActiveScene().name == "RadiantSide")
+        if (SceneManager.GetActiveScene().name == "RadiantSide")
             m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
         m_clickerController = GetComponentInParent<RadiantClickerController>();
 
         m_animator = this.GetComponentInChildren<Animator>();
     }
-	
-	void Update ()
+
+    void Update()
     {
-        
-	}
+
+    }
 
     void OnTriggerEnter(Collider col)
     {
         //Buy a multiplier clicker
-        if ((col.tag == "ViveController" || col.gameObject.layer == 2)/*Ignore raycasat layer used by VRTK*/ && m_buttonName == "BuyButton")
+        if ((col.tag == "ViveController" || col.gameObject.layer == 2)/*Ignore raycasat layer used by VRTK*/ && m_buttonName == "BuyButton" && m_canClick)
         {
-            OnBuyMultiplier();
+            if(!OnBuyMultiplier())
+            {
+                m_canClick = false;
+                StartCoroutine(ClickDelay(1));
+            }
         }
         //Hero clicker button
-        else if((col.tag == "ViveController" || col.gameObject.layer == 2)/*Ignore raycasat layer used by VRTK*/ && m_buttonName == "ClickButtonBack")
+        else if ((col.tag == "ViveController" || col.gameObject.layer == 2)/*Ignore raycasat layer used by VRTK*/ && m_buttonName == "ClickButtonBack" && m_canClick)
         {
-            OnClickButton();
+            if(!OnClickButton())
+            {
+                m_canClick = false;
+                StartCoroutine(ClickDelay(1));
+            }
         }
+    }
+
+    IEnumerator ClickDelay(int delay)
+    {
+        yield return new WaitForSeconds(delay);
+        m_canClick = true;
     }
 
     IEnumerator PlayButtonPushAnimation(float time)
@@ -85,7 +99,7 @@ public class ButtonManager : MonoBehaviour
         return new Color(r / 255, g / 255, b / 255, a / 255);
     }
 
-    public void OnBuyMultiplier()
+    public bool OnBuyMultiplier()
     {
         if (!m_animator.GetCurrentAnimatorStateInfo(0).IsName("BuyButtonIdle")
                 || m_sceneController.TotalGold + (decimal)m_clickerController.UpgradeCost < (decimal)m_clickerController.UpgradeCost
@@ -93,7 +107,7 @@ public class ButtonManager : MonoBehaviour
                 || m_buyUpgradeCooldown)
         {
             StartCoroutine(CantPushButtonError());
-            return;
+            return false;
         }
 
         m_clickerController.ClickerMultiplier += 1;
@@ -105,14 +119,15 @@ public class ButtonManager : MonoBehaviour
         StartCoroutine(PlayButtonPushAnimation(1f));
 
         m_buyUpgradeCooldown = true;
+        return true;
     }
 
-    public void OnClickButton()
+    public bool OnClickButton()
     {
         if (m_animator.GetCurrentAnimatorStateInfo(0).IsName("ClickButtonPush") || m_clickerController.IsClicked || m_clickerController.ClickerMultiplier == 0) //if (is in animation) || (IsClick is progress)
         {
             StartCoroutine(CantPushButtonError());
-            return;
+            return false;
         }
 
         if (!m_clickerController.CanBeClicked)
@@ -123,5 +138,6 @@ public class ButtonManager : MonoBehaviour
         m_clickerController.OnClickButtonPressed();
         m_animator.SetTrigger("isClicked");
         StartCoroutine(PlayButtonPushAnimation(0.3f));
+        return true;
     }
 }
