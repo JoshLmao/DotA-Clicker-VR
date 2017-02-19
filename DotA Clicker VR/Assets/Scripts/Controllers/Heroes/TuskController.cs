@@ -338,7 +338,7 @@ public class TuskController : MonoBehaviour
         //do effects
         //m_snowballModifiedValue = m_clickerController.ClickAmount * 2;
         //m_clickerController.ClickAmount = m_snowballModifiedValue;
-        m_clickerController.SetAbilityModifierAmount(Constants.SnowballMultiplier);
+        m_clickerController.SetAbilityModifierAmount(Constants.SnowballMultiplier, 1);
 
         StartCoroutine(AbilityCooldown(remainingTime, "SnowballActiveFinish"));
     }
@@ -355,7 +355,7 @@ public class TuskController : MonoBehaviour
         //do effects
         //var m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
         //m_sceneController.AddToTotal(m_clickerController.ClickAmount, m_clickerController.ItemModifierMultiplier);
-        m_clickerController.SetAbilityModifierAmount(Constants.WalrusPunchMultiplier);
+        m_clickerController.SetAbilityModifierAmount(Constants.WalrusPunchMultiplier, 2);
 
         StartCoroutine(AbilityCooldown(remainingTime, "WalrusPunchActiveFinish"));
     }

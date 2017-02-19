@@ -306,6 +306,9 @@ public class RadiantSceneController : MonoBehaviour
             DefeatCount = RoshanEventCount,
             DurationTillNextSpawn = m_roshanEventInProgress ? 0 : m_secondsToRoshanEvent,
             CanDoRoshanEvents = m_canDoRoshanEvent,
+            RoshanHealth = m_activeRoshan.CurrentHealth,
+            GoldOnStart = m_activeRoshan.m_playerGoldOnStart,
+            TimeRemaining = m_activeRoshan.TimeRemaining > 0 ? m_activeRoshan.TimeRemaining : 0,
         };
 
         try
@@ -355,6 +358,24 @@ public class RadiantSceneController : MonoBehaviour
         int roshanCount = UnityEngine.Random.Range(0, RoshanPrefab.Length);
         ActiveRoshan = Instantiate(RoshanPrefab[roshanCount]);
         m_activeRoshan = ActiveRoshan.GetComponent<RoshanController>();
+
+        m_roshanEventInProgress = true;
+    }
+
+    void DoRoshanEvent(float health, float goldOnStart, double timeRemaining)
+    {
+        if (m_roshanEventInProgress)
+            return;
+
+        RoshanEventCount++; //Increment count of how many roshan events
+
+        int roshanCount = UnityEngine.Random.Range(0, RoshanPrefab.Length);
+        ActiveRoshan = Instantiate(RoshanPrefab[roshanCount]);
+        m_activeRoshan = ActiveRoshan.GetComponent<RoshanController>();
+
+        m_activeRoshan.m_playerGoldOnStart = goldOnStart;
+        m_activeRoshan.CurrentHealth = health;
+        m_activeRoshan.TimeRemaining = timeRemaining;
 
         m_roshanEventInProgress = true;
     }
@@ -557,7 +578,10 @@ public class RadiantSceneController : MonoBehaviour
                 RoshanEventCount = saveFile.Roshan.DefeatCount;
                 m_canDoRoshanEvent = saveFile.Roshan.CanDoRoshanEvents;
 
-                StartRoshanCountdown();
+                if (saveFile.Roshan.DurationTillNextSpawn <= 0)
+                    DoRoshanEvent((float)saveFile.Roshan.RoshanHealth, (float)saveFile.Roshan.GoldOnStart, saveFile.Roshan.TimeRemaining);
+                else
+                    StartRoshanCountdown();
             }
         }
     }

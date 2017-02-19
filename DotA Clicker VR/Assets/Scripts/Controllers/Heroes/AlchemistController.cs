@@ -286,7 +286,7 @@ public class AlchemistController : MonoBehaviour
     void GreevilGreedAttackReduce()
     {
         m_clickerController.CurrentClickerTime -= new TimeSpan(0, 0, m_clickerController.CurrentClickerTime.Seconds - 20);
-        m_clickerController.SetAbilityModifierAmount(Constants.GreevilsGreedMultiplier);
+        m_clickerController.SetAbilityModifierAmount(Constants.GreevilsGreedMultiplier, 1);
     }
 
     void RemoveGreevilsGreedEffects()
@@ -304,6 +304,7 @@ public class AlchemistController : MonoBehaviour
         int seconds = (quarter * 4) - (quarter * 3);
         m_clickerController.CurrentClickerTime = new TimeSpan(0, 0, seconds);
 
+        m_clickerController.SetAbilityModifierAmount(Constants.ChemicalRageMultiplier, 2);
         StartCoroutine(AbilityCooldown(remainingTime, "ChemicalRageActiveFinish", true));
     }
 

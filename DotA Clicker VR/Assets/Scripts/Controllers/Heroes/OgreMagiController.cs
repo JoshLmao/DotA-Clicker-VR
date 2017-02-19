@@ -285,7 +285,7 @@ public class OgreMagiController : MonoBehaviour
     {
         m_fireblastActiveFade.gameObject.SetActive(true);
 
-        m_clickerController.SetAbilityModifierAmount(Constants.FireblastMultiplier);
+        m_clickerController.SetAbilityModifierAmount(Constants.FireblastMultiplier, 1);
 
         StartCoroutine(AbilityCooldown(remainingTime, "FireblastActiveFinish", true));
     }
@@ -306,7 +306,7 @@ public class OgreMagiController : MonoBehaviour
         m_bloodlustModifiedValue = (m_clickerController.TimeBetweenClicks.Seconds - 30) < 0 ? 1 : m_clickerController.TimeBetweenClicks.Seconds - 30;
         m_clickerController.TimeBetweenClicks = new TimeSpan(0, 0, m_bloodlustModifiedValue);
 
-        m_clickerController.SetAbilityModifierAmount(Constants.BloodlustMultiplier);
+        m_clickerController.SetAbilityModifierAmount(Constants.BloodlustMultiplier, 2);
 
         StartCoroutine(AbilityCooldown(remainingTime, "BloodlustActiveFinish", true));
     }

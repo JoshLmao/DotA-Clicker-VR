@@ -261,7 +261,7 @@ public class AntiMageController : MonoBehaviour
     {
         if (name == "AntiMageBuyStand")
         {
-            m_antiMageAnimator.SetBool("isAttacking", false);
+            m_antiMageAnimator.SetBool("isAttacking", true);
 
             if (!m_clickerController.HasManager)
                 RadiantClickerController.PlayRandomClip(m_audioSource, AttackingResponses);
@@ -283,7 +283,7 @@ public class AntiMageController : MonoBehaviour
         //do effects
         var m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
         //m_sceneController.AddToTotal(m_clickerController.ClickAmount, m_clickerController.ItemModifierMultiplier);
-        m_clickerController.SetAbilityModifierAmount(Constants.BlinkMultiplier);
+        m_clickerController.SetAbilityModifierAmount(Constants.BlinkMultiplier, 1);
 
         StartCoroutine(AbilityCooldown(remainingTime, "BlinkActiveFinish", true));
     }
@@ -323,6 +323,7 @@ public class AntiMageController : MonoBehaviour
             antiMage.CurrentClickerTime = new TimeSpan(0, 0, antiMage.CurrentClickerTime.Seconds - durationLeft);
         }
 
+        m_clickerController.SetAbilityModifierAmount(Constants.ManaVoidMultiplier, 2);
         StartCoroutine(AbilityCooldown(remainingTime, "ManaVoidActiveFinish", true));
     }
 

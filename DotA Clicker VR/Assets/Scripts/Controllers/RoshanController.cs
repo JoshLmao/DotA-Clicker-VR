@@ -19,12 +19,17 @@ public class RoshanController : MonoBehaviour {
     /// <summary>
     /// Amount needed for the player to earn to kill roshan the first time. Multiply this by event times count
     /// </summary>
-    public float m_roshanStartHealth = 8000;
+    public float m_roshanStartHealth = 500;
     /// <summary>
     /// Bool to see if Roshan has been killed
     /// </summary>
     public bool isDead = false;
     public AudioSource RoshanAudioSource;
+
+    //Between 1 and 0
+    public float CurrentHealth;
+
+    public double TimeRemaining = -1;
 
     RadiantSceneController m_sceneController;
     Animator m_roshanAnimator;
@@ -32,7 +37,7 @@ public class RoshanController : MonoBehaviour {
     /// <summary>
     /// Amount of gold the player had when the roshan event started
     /// </summary>
-    float m_playerGoldOnStart = 1;
+    public float m_playerGoldOnStart = -1;
     /// <summary>
     /// Current gold the player has now. Updating every frame
     /// </summary>
@@ -52,6 +57,8 @@ public class RoshanController : MonoBehaviour {
     bool goToHome = false;
 
     AchievementEvents m_achievementEvents;
+    DateTime m_eventStartTime;
+    DateTime m_predictedEndTime;
 
     void Awake()
     {
@@ -76,7 +83,10 @@ public class RoshanController : MonoBehaviour {
         if (EventCount > 0)
             m_roshanStartHealth *= (EventCount / 1.6f);
 
-        //m_playerGoldOnStart = m_sceneController.TotalGold;
+        if(m_playerGoldOnStart == -1)
+        {
+            m_playerGoldOnStart = (float)m_sceneController.TotalGold;
+        }
 
         //Because Prefab doesn't save these
         waypoints[0] = GameObject.Find("Misc/RoshanWaypoints/1").gameObject.transform;
@@ -88,9 +98,9 @@ public class RoshanController : MonoBehaviour {
 
 	void Update()
     {
-        //m_playerCurrentGold = m_sceneController.TotalGold;
+        m_playerCurrentGold = (float)m_sceneController.TotalGold;
 
-        if(!hasReachedPoint && currentWayPoint < waypoints.Length)
+        if (!hasReachedPoint && currentWayPoint < waypoints.Length)
         {
             if (targetWaypoint == null)
                 targetWaypoint = waypoints[currentWayPoint];
@@ -98,19 +108,25 @@ public class RoshanController : MonoBehaviour {
             WalkAlongPath();
         }
 
-        if(m_playerCurrentGold > 0 && m_playerCurrentGold > 0 && !isDead)
+        if(m_playerCurrentGold > 0 && !isDead)
         {
             float difference = m_playerCurrentGold - m_playerGoldOnStart;
             float actualHP = m_roshanStartHealth - difference;
-            float scaledValue = (actualHP - 0) / (m_roshanStartHealth - 0);
+            CurrentHealth = (actualHP - 0) / (m_roshanStartHealth - 0);
 
-            m_activeHealth.fillAmount = scaledValue;
+            m_activeHealth.fillAmount = CurrentHealth;
 
             if (m_activeHealth.fillAmount <= 0)
             {
                 OnKilled();
                 isDead = true;
             }
+        }
+
+        if(hasReachedPoint)
+        {
+            TimeRemaining = -(DateTime.Now - m_predictedEndTime).TotalSeconds;
+            Debug.Log("Time remaining " + TimeRemaining);
         }
     }
 
@@ -126,7 +142,22 @@ public class RoshanController : MonoBehaviour {
 
             //Start countdown till event is over in seconds
             float time = (120 / EventCount) * 2; //Standard time of 120s. Should scale with amount of events
-            StartCoroutine(EventEndTime(time));
+
+            if (TimeRemaining != -1)
+            {
+                //Loaded from save file
+
+                StartCoroutine(EventEndTime((float)TimeRemaining));
+                m_predictedEndTime = DateTime.Now.AddSeconds(TimeRemaining);
+            }
+            else
+            {
+                //Started normally
+                StartCoroutine(EventEndTime(time));
+                m_eventStartTime = DateTime.Now;
+                m_predictedEndTime = DateTime.Now.AddSeconds(time);
+            }
+
         }
         else if (col.tag == "Trigger" && col.name == "RoshanReturnPoint" && !hasReachedPoint && goToHome)
         {

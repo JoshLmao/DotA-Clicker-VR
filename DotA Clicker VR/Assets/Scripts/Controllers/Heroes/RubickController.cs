@@ -292,14 +292,13 @@ public class RubickController : MonoBehaviour
     {
         m_telekinesisActiveFade.gameObject.SetActive(true);
 
-        m_clickerController.SetAbilityModifierAmount(Constants.TelekinesisMultiplier);
+        m_clickerController.SetAbilityModifierAmount(Constants.TelekinesisMultiplier, 1);
 
         StartCoroutine(AbilityCooldown(remainingTime, "TelekinesisActiveFinish", true));
     }
 
     void RemoveTelekinesisEffects()
     {
-        m_clickerController.SetAbilityModifierAmount(Constants.TelekinesisMultiplier);
         m_clickerController.m_ability1ClickTime = System.DateTime.MinValue;
     }
 
@@ -308,7 +307,7 @@ public class RubickController : MonoBehaviour
         m_spellStealActiveFade.gameObject.SetActive(true);
 
         /*Rubick steals another heroes click amount for one click. Cooldown: 3 minutes*/
-        m_clickerController.SetAbilityModifierAmount(Constants.SpellStealMultiplier);
+        m_clickerController.SetAbilityModifierAmount(Constants.SpellStealMultiplier, 2);
 
         StartCoroutine(AbilityCooldown(remainingTime, "SpellStealActiveFinish", true));
     }

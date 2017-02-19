@@ -886,13 +886,15 @@ public class RadiantClickerController : MonoBehaviour
         }
     }
 
-    public void SetAbilityModifierAmount(double amount)
+    public void SetAbilityModifierAmount(double amount, int ability)
     {
+        double multiplied = ability == 1 ? amount * Ability1Level : amount * Ability2Level;
+
         if (AbilityModifierMulitiplier == -1)
-            AbilityModifierMulitiplier = amount;
+            AbilityModifierMulitiplier = multiplied;
         else
         {
-            AbilityModifierMulitiplier += amount;
+            AbilityModifierMulitiplier += multiplied;
         }
     }
 

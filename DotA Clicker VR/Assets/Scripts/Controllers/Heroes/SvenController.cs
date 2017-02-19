@@ -283,7 +283,7 @@ public class SvenController : MonoBehaviour
         m_warCryActiveFade.gameObject.SetActive(true);
 
         //do effects
-        m_clickerController.SetAbilityModifierAmount(Constants.WarCryMultiplier);
+        m_clickerController.SetAbilityModifierAmount(Constants.WarCryMultiplier, 1);
 
         StartCoroutine(AbilityCooldown(remainingTime, "WarCryActiveFinish", true));
     }
@@ -296,6 +296,7 @@ public class SvenController : MonoBehaviour
 
     void GodsStrengthEffects(float remainingTime)
     {
+        m_clickerController.SetAbilityModifierAmount(Constants.GodsStrengthMultiplier, 2);
         StartCoroutine(AbilityCooldown(remainingTime, "GodsStrengthActiveFinish", true));
     }
 

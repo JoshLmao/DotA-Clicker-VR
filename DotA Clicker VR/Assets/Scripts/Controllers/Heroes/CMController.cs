@@ -283,7 +283,7 @@ public class CMController : MonoBehaviour
     {
         m_crystalNovaActiveFade.gameObject.SetActive(true);
 
-        m_clickerController.SetAbilityModifierAmount(Constants.CrystalNovaMultiplier);
+        m_clickerController.SetAbilityModifierAmount(Constants.CrystalNovaMultiplier, 1);
 
         StartCoroutine(AbilityCooldown(remainingTime, "CrystalNovaActiveFinish", true, CrystalNovaActiveDuration));
     }
@@ -298,7 +298,7 @@ public class CMController : MonoBehaviour
     {
         m_frostbiteActiveFade.gameObject.SetActive(true);
 
-        m_clickerController.SetAbilityModifierAmount(Constants.FrostbiteMultiplier);
+        m_clickerController.SetAbilityModifierAmount(Constants.FrostbiteMultiplier, 2);
 
         StartCoroutine(AbilityCooldown(secondsRemaining, "FrostbiteActiveFinish", true, FrostbiteActiveDuration));
     }
