@@ -45,17 +45,17 @@ public class MMOptionsController : MonoBehaviour
             m_fieldOfViewSlider = GameObject.Find("FoVCanvas").transform.Find("Slider").GetComponent<Slider>();
             m_fpsCamera = GameObject.Find("FirstPersonCharacterCamera").GetComponent<Camera>();
         }
+
+
+        if (m_fieldOfViewSlider != null)
+            m_fieldOfViewSlider.onValueChanged.AddListener(FoVChanged);
+        FoVChanged(m_currentFieldOfView);
     }
 
     protected virtual void Start()
     {
         CreateConfigFromExistingValues();
         SetConfigValues();
-
-        if (m_fieldOfViewSlider != null)
-            m_fieldOfViewSlider.onValueChanged.AddListener(FoVChanged);
-        FoVChanged(m_currentFieldOfView);
-
     }
 
     public void OnApplicationQuit()

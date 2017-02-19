@@ -77,10 +77,12 @@ public class MainMenuController : MonoBehaviour
 
     public void NextPage()
     {
-        if (menusPage > HowToPlayMenus.Length)
+        if (menusPage >= HowToPlayMenus.Length - 1)
             return;
 
+
         HowToPlayMenus[menusPage].SetActive(false);
+
         menusPage++;
         HowToPlayMenus[menusPage].SetActive(true);
 

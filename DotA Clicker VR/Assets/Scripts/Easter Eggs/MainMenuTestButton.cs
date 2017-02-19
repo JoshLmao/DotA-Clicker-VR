@@ -23,7 +23,6 @@ public class MainMenuTestButton : MonoBehaviour {
         if(col.tag == "ViveController")
         {
             PlayResponse();
-            m_animator.SetTrigger("isClicked");
         }
     }
 
@@ -32,6 +31,7 @@ public class MainMenuTestButton : MonoBehaviour {
         if (m_audioSource.isPlaying)
             return;
 
+        m_animator.SetTrigger("isClicked");
         int rng = Random.Range(0, TestButtonResponses.Length);
         m_audioSource.PlayOneShot(TestButtonResponses[rng]);
     }
