@@ -56,4 +56,22 @@ public class Constants : MonoBehaviour
     public static int Ability1To2Difference = 45;
     public static int Ability2To3Difference = 55;
     public static int Ability3To4Difference = 75;
+
+    //Hero Abilities Cost
+    public static int CrystalNovaCost = 25;
+    public static int FrostbiteCost = 45;
+    public static int TelekinesisCost = 150;
+    public static int SpellStealCost = 350;
+    public static int FireblastCost = 500;
+    public static int BloodlustCost = 750;
+    public static int SnowballCost = 1500;
+    public static int WalrusPunchCost = 2500;
+    public static int SunrayCost = 6000;
+    public static int SupernovaCost = 7000;
+    public static int WarCryCost = 10000;
+    public static int GodsStrengthCost = 12500;
+    public static int BlinkCost = 15000;
+    public static int ManaVoidCost = 17500;
+    public static int GreevilsGreedCost = 25000;
+    public static int ChemicalRageCost = 35000;
 }

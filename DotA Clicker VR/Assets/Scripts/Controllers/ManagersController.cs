@@ -143,7 +143,7 @@ public class ManagersController : MonoBehaviour {
             {
                 Name = "Crystal Maiden",
                 Image = Resources.Load<Sprite>("Images/UI/ManagerIcons/CM"),
-                Cost = 400,
+                Cost = 50,
             });
         }
         if(!m_rubick)

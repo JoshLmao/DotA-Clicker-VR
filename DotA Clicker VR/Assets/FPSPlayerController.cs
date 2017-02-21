@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -162,9 +163,15 @@ public class FPSPlayerController : MonoBehaviour {
         m_currentMenu.transform.Find("BG/Exit").GetComponent<Button>().onClick.AddListener(OnExit);
 
         if (SceneManager.GetActiveScene().name == "RadiantSide")
+        {
             m_currentMenu.transform.Find("BG/Options").GetComponent<Button>().onClick.AddListener(OnOptions);
+            m_currentMenu.transform.Find("BG/ManualSave").GetComponent<Button>().onClick.AddListener(OnSave);
+        }
         else
+        {
             m_currentMenu.transform.Find("BG/Options").gameObject.SetActive(false);
+            m_currentMenu.transform.Find("BG/ManualSave").gameObject.SetActive(false);
+        }
 
         m_currentMenu.transform.Find("BG/Resume").GetComponent<Button>().onClick.AddListener(OnResume);
 
@@ -209,5 +216,10 @@ public class FPSPlayerController : MonoBehaviour {
 
         GameObject.Find("EventSystem").GetComponent<CustomInputModule>().MenuIsOpen = false;
         GameObject.Find("FPSController").GetComponent<FirstPersonController>().m_MouseLook.Resume();
+    }
+
+    private void OnSave()
+    {
+        GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>().SaveFile();
     }
 }

@@ -83,15 +83,16 @@ public class UpgradesController : MonoBehaviour
 
     void AddDefaultUpgrades()
     {
+        //Copy from Inspector
         if(!m_cmAbil1)
         {
             Upgrades.Add(new UpgradeDto()
             {
                 Name = "Crystal Nova",
-                Description = "Overcharges Io to double his output for 30 seconds. Cooldown: 45 seconds",
+                Description = "Overcharges Io to double his output for 30 seconds. Cooldown: " + 10 + " seconds",
                 HeroUpgrade = "Crystal Maiden",
                 Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/CM_CrystalNova"),
-                Cost = 25,
+                Cost = Constants.CrystalNovaCost,
             });
         }
         if(!m_cmAbil2)
@@ -99,10 +100,10 @@ public class UpgradesController : MonoBehaviour
             Upgrades.Add(new UpgradeDto()
             {
                 Name = "Frostbite",
-                Description = "Quadruples Io's click amount for 20 seconds. Cooldown: 1.5 minutes",
+                Description = "Quadruples Io's click amount for 20 seconds. Cooldown: " + 60 + " seconds",
                 HeroUpgrade = "Crystal Maiden",
                 Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/CM_Frostbite"),
-                Cost = 45,
+                Cost = Constants.FrostbiteCost,
             });
         }
         if(!m_rubickAbil1)
@@ -110,10 +111,10 @@ public class UpgradesController : MonoBehaviour
             Upgrades.Add(new UpgradeDto()
             {
                 Name = "Telekinesis",
-                Description = "Rubick lifts his click amount by 2 for 30 seconds. Cooldown: 1 minute",
+                Description = "Rubick lifts his click amount by 2 for 30 seconds. Cooldown: " + 60 + " seconds",
                 HeroUpgrade = "Rubick",
                 Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Rubick_Telekinesis"),
-                Cost = 150,
+                Cost = Constants.TelekinesisCost,
             });
         }
         if(!m_rubickAbil2)
@@ -121,10 +122,10 @@ public class UpgradesController : MonoBehaviour
             Upgrades.Add(new UpgradeDto()
             {
                 Name = "Spell Steal",
-                Description = "Rubick steals another heroes click amount for one click. Cooldown: 3 minutes",
+                Description = "Rubick steals another heroes click amount for one click. Cooldown: " + 180 + " seconds",
                 HeroUpgrade = "Rubick",
                 Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Rubick_SpellSteal"),
-                Cost = 350,
+                Cost = Constants.SpellStealCost,
             });
         }
         if(!m_ogreAbil1)
@@ -132,10 +133,10 @@ public class UpgradesController : MonoBehaviour
             Upgrades.Add(new UpgradeDto()
             {
                 Name = "Fireblast",
-                Description = "The Ogre Magi blasts a wave of fire giving 3x his click amount for 45 seconds. Cooldown: 5 minutes",
+                Description = "The Ogre Magi blasts a wave of fire giving 3x his click amount for 45 seconds. Cooldown: " + 30 + " seconds",
                 HeroUpgrade = "Ogre Magi",
                 Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/OgreMagi_Fireblast"),
-                Cost = 500,
+                Cost = Constants.FireblastCost,
             });
         }
         if(!m_ogreAbil2)
@@ -143,10 +144,10 @@ public class UpgradesController : MonoBehaviour
             Upgrades.Add(new UpgradeDto()
             {
                 Name = "Bloodlust",
-                Description = "Incites a frenzy in the Magi, decreasing his click duration by 30 seconds. Cooldown: 3.5 minutes",
+                Description = "Incites a frenzy in the Magi, decreasing his click duration by 30 seconds. Cooldown: " + 210 + " seconds",
                 HeroUpgrade = "Ogre Magi",
                 Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/OgreMagi_Bloodlust"),
-                Cost = 750,
+                Cost = Constants.BloodlustCost,
             });
         }
         if(!m_tuskAbil1)
@@ -154,10 +155,10 @@ public class UpgradesController : MonoBehaviour
             Upgrades.Add(new UpgradeDto()
             {
                 Name = "Snowball",
-                Description = "Tusk snowballs his click amount by 2. Cooldown: 4 minutes minutes",
+                Description = "Tusk snowballs his click amount by 2. Cooldown: " + 60 + " seconds",
                 HeroUpgrade = "Tusk",
                 Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Tusk_Snowball"),
-                Cost = 1500,
+                Cost = Constants.SnowballCost,
             });
         }
         if(!m_tuskAbil2)
@@ -165,10 +166,10 @@ public class UpgradesController : MonoBehaviour
             Upgrades.Add(new UpgradeDto()
             {
                 Name = "Walrus Punch",
-                Description = "Tusk connects with his mighty fist and gives you a bonus click. Cooldown: 7 minutes",
+                Description = "Tusk connects with his mighty fist and gives you a bonus click. Cooldown: " + 120 + " seconds",
                 HeroUpgrade = "Tusk",
                 Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Tusk_WalrusPunch"),
-                Cost = 2500,
+                Cost = Constants.WalrusPunchCost,
             });
         }
         if(!m_phoenixAbil1)
@@ -176,10 +177,10 @@ public class UpgradesController : MonoBehaviour
             Upgrades.Add(new UpgradeDto()
             {
                 Name = "Sunray",
-                Description = "A beam of light powerful enough to decrease all cooldowns by a minute. Cooldown: 7 minutes",
+                Description = "A beam of light powerful enough to decrease all cooldowns by a minute. Cooldown: " + 60 + " seconds",
                 HeroUpgrade = "Phoenix",
                 Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Phoenix_SunRay"),
-                Cost = 6000,
+                Cost = Constants.SunrayCost,
             });
         }
         if(!m_phoenixAbil2)
@@ -187,10 +188,10 @@ public class UpgradesController : MonoBehaviour
             Upgrades.Add(new UpgradeDto()
             {
                 Name = "Supernova",
-                Description = "Completes a click every second of Supernova's duration. Cooldown: 10 minutes",
+                Description = "Completes a click every second of Supernova's duration. Cooldown: " + 120 + " seconds",
                 HeroUpgrade = "Phoenix",
                 Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Phoenix_Supernova"),
-                Cost = 7000,
+                Cost = Constants.SupernovaCost,
             });
         }
         if(!m_svenAbil1)
@@ -198,10 +199,10 @@ public class UpgradesController : MonoBehaviour
             Upgrades.Add(new UpgradeDto()
             {
                 Name = "War Cry",
-                Description = "Decreases each clickers duration by 1/4. Cooldown: 7 minutes",
+                Description = "Decreases each clickers duration by 1/4. Cooldown: " + 120 + " seconds",
                 HeroUpgrade = "Sven",
                 Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Sven_WarCry"),
-                Cost = 10000,
+                Cost = Constants.WarCryCost,
             });
         }
         if(!m_svenAbil2)
@@ -209,10 +210,10 @@ public class UpgradesController : MonoBehaviour
             Upgrades.Add(new UpgradeDto()
             {
                 Name = "God's Strength",
-                Description = "Sven channels his rogue strength, increasing his teammates click amount by 2 for 30 seconds. Cooldown: 15 minutes",
+                Description = "Sven channels his rogue strength, increasing his teammates click amount by 2 for 30 seconds. Cooldown: " + 210 + " seconds",
                 HeroUpgrade = "Sven",
                 Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Sven_GodsStrength"),
-                Cost = 12500,
+                Cost = Constants.GodsStrengthCost,
             });
         }
         if(!m_antiAbil1)
@@ -220,10 +221,10 @@ public class UpgradesController : MonoBehaviour
             Upgrades.Add(new UpgradeDto()
             {
                 Name = "Blink",
-                Description = "In a blink, Anti Mage gives you a click for free. Cooldown: 2 minutes",
+                Description = "In a blink, Anti Mage gives you a click for free. Cooldown: " + 60 + " seconds",
                 HeroUpgrade = "Anti Mage",
                 Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/AntiMage_Blink"),
-                Cost = 15000,
+                Cost = Constants.BlinkCost,
             });
         }
         if(!m_antiAbil2)
@@ -231,10 +232,10 @@ public class UpgradesController : MonoBehaviour
             Upgrades.Add(new UpgradeDto()
             {
                 Name = "Mana Void",
-                Description = "For each second missing from AM's current click duration, the surrounding heroes get that duration taken off their current time. Cooldown: 10 minutes",
+                Description = "For each second missing from AM's current click duration, the surrounding heroes get that duration taken off their current time. Cooldown: " + 120 + " seconds",
                 HeroUpgrade = "Anti Mage",
                 Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/AntiMage_ManaVoid"),
-                Cost = 17500,
+                Cost = Constants.ManaVoidCost,
             });
         }
         if(!m_alcAbil1)
@@ -242,10 +243,10 @@ public class UpgradesController : MonoBehaviour
             Upgrades.Add(new UpgradeDto()
             {
                 Name = "Greevil's Greed",
-                Description = "For every attack, the Alchemist reduces his click duration by 20 seconds, lasts 1 minute. Cooldown: 20 minutes",
+                Description = "For every attack, the Alchemist reduces his click duration by 20 seconds, lasts 1 minute. Cooldown: " + 210 + " seconds",
                 HeroUpgrade = "Alchemist",
                 Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Alchemist_GreevilsGreed"),
-                Cost = 25000,
+                Cost = Constants.GreevilsGreedCost,
             });
         }
         if(!m_alcAbil2)
@@ -253,10 +254,10 @@ public class UpgradesController : MonoBehaviour
             Upgrades.Add(new UpgradeDto()
             {
                 Name = "Chemical Rage",
-                Description = "The Alchemist causes his Ogre to enter a chemically induced rage reducing his current click by 3/4. Cooldown: 30 minutes",
+                Description = "The Alchemist causes his Ogre to enter a chemically induced rage reducing his current click by 3/4. Cooldown: " + 480 + " seconds",
                 HeroUpgrade = "Alchemist",
                 Image = Resources.Load<Sprite>("Images/UI/UpgradeIcons/Alchemist_ChemicalRage"),
-                Cost = 35000,
+                Cost = Constants.ChemicalRageCost,
             });
         }
     }

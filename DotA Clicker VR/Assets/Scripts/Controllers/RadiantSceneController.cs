@@ -306,9 +306,9 @@ public class RadiantSceneController : MonoBehaviour
             DefeatCount = RoshanEventCount,
             DurationTillNextSpawn = m_roshanEventInProgress ? 0 : m_secondsToRoshanEvent,
             CanDoRoshanEvents = m_canDoRoshanEvent,
-            RoshanHealth = m_activeRoshan.CurrentHealth,
-            GoldOnStart = m_activeRoshan.m_playerGoldOnStart,
-            TimeRemaining = m_activeRoshan.TimeRemaining > 0 ? m_activeRoshan.TimeRemaining : 0,
+            RoshanHealth = m_activeRoshan != null ? m_activeRoshan.CurrentHealth : 0,
+            GoldOnStart = m_activeRoshan != null ? m_activeRoshan.m_playerGoldOnStart : 0,
+            TimeRemaining = m_activeRoshan != null && m_activeRoshan.TimeRemaining > 0 ? m_activeRoshan.TimeRemaining : 0,
         };
 
         try
