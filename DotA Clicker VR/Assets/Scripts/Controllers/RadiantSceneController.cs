@@ -78,8 +78,8 @@ public class RadiantSceneController : MonoBehaviour
 
     void Awake()
     {
-        VRSettings.enabled = SteamVR.enabled ? SteamVR.active : false;
-        SetPlayerMode(VRSettings.enabled);
+        UnityEngine.XR.XRSettings.enabled = SteamVR.enabled ? SteamVR.active : false;
+        SetPlayerMode(UnityEngine.XR.XRSettings.enabled);
 
         RoshanController.RoshanEventEnded += OnRoshanEventEnded;
         RoshanController.RoshanEventEndedNotKilled += OnRoshanEventEndedNotKilled;
@@ -703,7 +703,7 @@ public class RadiantSceneController : MonoBehaviour
 
     public void SetPlayerMode(bool isVR)
     {
-        Debug.Log("VRMode is " + VRSettings.enabled);
+        Debug.Log("VRMode is " + UnityEngine.XR.XRSettings.enabled);
 
         if (isVR)
         {

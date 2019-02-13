@@ -39,8 +39,8 @@ public class MainMenuController : MonoBehaviour
 
     void Awake()
     {
-        VRSettings.enabled = SteamVR.enabled ? SteamVR.active : false;
-        SetPlayerMode(VRSettings.enabled);
+        UnityEngine.XR.XRSettings.enabled = SteamVR.enabled ? SteamVR.active : false;
+        SetPlayerMode(UnityEngine.XR.XRSettings.enabled);
     }
 
     void Start()
@@ -218,7 +218,7 @@ public class MainMenuController : MonoBehaviour
             m_menuCanvases[i].enabled = vrEnabled;
         }
 
-        if(!VRSettings.enabled)
+        if(!UnityEngine.XR.XRSettings.enabled)
         {
             var components = m_fpsInputSystem.GetComponents(typeof(Component));
             for (int i = 0; i < components.Length; i++)

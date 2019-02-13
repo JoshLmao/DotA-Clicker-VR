@@ -107,9 +107,9 @@ public class OptionsController : MMOptionsController
 
     void SuperSampleChanged(float value)
     {
-        if(VRSettings.enabled)
+        if(UnityEngine.XR.XRSettings.enabled)
         {
-            VRSettings.renderScale = SuperSampleSlider.value;
+            UnityEngine.XR.XRSettings.eyeTextureResolutionScale = SuperSampleSlider.value;
             m_ssText.text = SuperSampleSlider.value.ToString(); //Math.Round(SuperSampleSlider.value, 2).ToString()
         }
     }

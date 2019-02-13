@@ -78,7 +78,7 @@ public class CourierController : MonoBehaviour
         m_keyboard.SetActive(false);
         m_streamURLUI.SetActive(false);
 
-        if (VRSettings.enabled)
+        if (UnityEngine.XR.XRSettings.enabled)
         {
             m_player = GameObject.Find("[CameraRig]").gameObject;
             m_playerTransform = GameObject.Find("[CameraRig]").transform;
@@ -136,7 +136,7 @@ public class CourierController : MonoBehaviour
 
         if(!LockRotation)
         {
-            if(!VRSettings.enabled)
+            if(!UnityEngine.XR.XRSettings.enabled)
             {
                 transform.Find("Keyboard").GetComponent<VRTK.VRTK_UICanvas>().enabled = false;
 

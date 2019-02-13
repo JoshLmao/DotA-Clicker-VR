@@ -35,7 +35,7 @@ public class MMOptionsController : MonoBehaviour
         AmbientVolSlider = transform.Find("AudioOptions/AmbientVolC/AmbientMusicVolSlider").GetComponent<Slider>();
         HeroVolSlider = transform.Find("AudioOptions/HeroSoundsVolC/HeroesVolSlider").GetComponent<Slider>();
 
-        if (VRSettings.enabled)
+        if (UnityEngine.XR.XRSettings.enabled)
         {
             m_adaptiveQuality = transform.Find("VideoOptions/VRItems/AdaptiveQualityToggle").GetComponent<Toggle>();
             SuperSampleSlider = transform.Find("VideoOptions/VRItems/SSCanvas/SuperSampleSlider").GetComponent<Slider>();
@@ -104,7 +104,7 @@ public class MMOptionsController : MonoBehaviour
             MusicEnabled = m_audioEnabled.isOn,
             AllAudioEnabled = m_audioEnabled.isOn,
         };
-        if(VRSettings.enabled)
+        if(UnityEngine.XR.XRSettings.enabled)
         {
             m_currentConfig.Preferences.SuperSampleScale = SuperSampleSlider.value;
         }
@@ -173,21 +173,21 @@ public class MMOptionsController : MonoBehaviour
 
     public void ToggleSSAO(bool status)
     {
-        if (VRSettings.enabled) return;
+        if (UnityEngine.XR.XRSettings.enabled) return;
 
         GameObject.Find("FirstPersonCharacterCamera").GetComponent<ScreenSpaceAmbientOcclusion>().enabled = status;
     }
 
     public void ToggleAntialiasing(bool status)
     {
-        if (VRSettings.enabled) return;
+        if (UnityEngine.XR.XRSettings.enabled) return;
 
         GameObject.Find("FirstPersonCharacterCamera").GetComponent<Antialiasing>().enabled = status;
     }
 
     public void ToggleGlobalFog(bool status)
     {
-        if (VRSettings.enabled) return;
+        if (UnityEngine.XR.XRSettings.enabled) return;
 
         GameObject.Find("FirstPersonCharacterCamera").GetComponent<GlobalFog>().enabled = status;
     }

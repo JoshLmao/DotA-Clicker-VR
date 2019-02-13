@@ -1,9 +1,7 @@
 fileFormatVersion: 2
 guid: 57faee5b8ff138047bbc1ded008e0d72
-timeCreated: 1471114570
-licenseType: Free
 ModelImporter:
-  serializedVersion: 19
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     100002: alchemist.qc_skeleton
@@ -255,26 +253,74 @@ ModelImporter:
     7400112: alchemist.qc_skeleton|workshop_anim_09
     9500000: //RootNode
     13700000: alchemist_reference
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: models_heroes_alchemist_alchemist_body_color
+    second: {fileID: 2100000, guid: 1a9dc264346966b488d5ec68e75696d1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: models_heroes_alchemist_alchemist_gauntlets_color
+    second: {fileID: 2100000, guid: 20899c15cbd571f4aa640b5f4ee8a12c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: models_heroes_alchemist_alchemist_goblin_body_color
+    second: {fileID: 2100000, guid: 9e463e99f6e0b394aa009f38c9f2b4d6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: models_heroes_alchemist_alchemist_goblin_hatbottles_color
+    second: {fileID: 2100000, guid: 523d35aff7a4d5744a40991c71bd5b6f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: models_heroes_alchemist_alchemist_goblin_head_color
+    second: {fileID: 2100000, guid: dbaa7f53263dfcf4ab748954809f0b7f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: models_heroes_alchemist_alchemist_ogre_head_color
+    second: {fileID: 2100000, guid: 72bb2039d7c99284abfc63025eb43256, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: models_heroes_alchemist_alchemist_saddlehat_color
+    second: {fileID: 2100000, guid: 847b59b88e2c7b54fb5c7e8fe531e226, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: models_heroes_alchemist_alchemist_swords_color
+    second: {fileID: 2100000, guid: 4d9d926fd14b0c047bfd01f737857d01, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
       name: alchemist_ability1
@@ -12708,25 +12754,38 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
+    serializedVersion: 2
     human: []
     skeleton: []
     armTwist: 0.5
@@ -12738,6 +12797,8 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
     hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
   humanoidOversampling: 1

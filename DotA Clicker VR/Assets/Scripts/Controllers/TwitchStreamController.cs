@@ -36,7 +36,7 @@ public class TwitchStreamController : MonoBehaviour {
         var www = new WWW(url);
         yield return www;
 
-        m_streamTexture = www.movie;
+        m_streamTexture = www.GetMovieTexture();
         while (!m_streamTexture.isReadyToPlay)
         {
             Debug.Log("Not Ready Yet");

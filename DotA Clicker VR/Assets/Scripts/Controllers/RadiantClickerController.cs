@@ -163,8 +163,8 @@ public class RadiantClickerController : MonoBehaviour
         SubscribeToItemEvents();
 
         m_sceneController = GameObject.Find("RadiantSceneController").GetComponent<RadiantSceneController>();
-        m_heroNameText = transform.FindChild("Buttons/StandBack/StandUI/ClickerNameText").GetComponent<Text>();
-        m_timeRemainingText = transform.FindChild("Buttons/StandBack/StandUI/ProgressSlider/TimeRemaining").GetComponent<Text>();
+        m_heroNameText = transform.Find("Buttons/StandBack/StandUI/ClickerNameText").GetComponent<Text>();
+        m_timeRemainingText = transform.Find("Buttons/StandBack/StandUI/ProgressSlider/TimeRemaining").GetComponent<Text>();
         m_amountBoughtText = transform.Find("Buttons/StandBack/StandUI/AmountCanvas/AmountText").GetComponent<Text>();
         m_clickButtonGoldText = transform.Find("Buttons/ClickButtonBack/ClickButton/ClickUI/ClickWorthText").GetComponent<Text>();
         m_upgradeCostText = transform.Find("Buttons/UpgradeCostBack/UpgradeCostCanvas/Cost/UpCostText").GetComponent<Text>(); ;
